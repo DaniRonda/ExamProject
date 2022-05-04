@@ -26,7 +26,7 @@ public class ConnectionManager {
     }
     public static void main (String[] args) throws Exception {
         ConnectionManager ds = new ConnectionManager();
-        try (Connection connection= ds.getConnection()){
+        try (Connection connection= getConnection()){
             System.out.println("Is it open"+!connection.isClosed());}
     }
 }
