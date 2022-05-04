@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="313.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.LogInController">
+   <children>
+      <TextField layoutX="88.0" layoutY="92.0" prefHeight="38.0" prefWidth="276.0" promptText="E-Mail" />
+      <TextField layoutX="88.0" layoutY="149.0" prefHeight="38.0" prefWidth="276.0" promptText="Password" />
+      <Button fx:id="btnCancel" layoutX="246.0" layoutY="210.0" mnemonicParsing="false" onAction="#cancelLogIn" text="Cancel" />
+      <Button layoutX="310.0" layoutY="210.0" mnemonicParsing="false" text="Sign In " />
+   </children>
+</AnchorPane>
