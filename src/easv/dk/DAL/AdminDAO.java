@@ -36,10 +36,8 @@ public class AdminDAO {
     public List<Admin> getAllAdmin() throws Exception {
         List<Admin> adminList = new ArrayList<>();
         Connection con = cm.getConnection();
-        String sqlSelectMovie = "\n" +
-                "select admin.id,email,password from Admin\n" +
-                "GROUP by admin.id,email,password\n;";
-        PreparedStatement psSelectAdmin = con.prepareStatement(sqlSelectMovie);
+        String sqlSelectAdmin = "select admin.id,email,password from Admin;";
+        PreparedStatement psSelectAdmin = con.prepareStatement(sqlSelectAdmin);
         ResultSet rs = psSelectAdmin.executeQuery();
         while (rs.next()) {
             String email = rs.getString("email");
