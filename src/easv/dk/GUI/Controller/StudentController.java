@@ -148,14 +148,14 @@ public class StudentController {
         clearListView();
         mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();  //get selected movie in movie table
-        try {
+        /*try {
 
 
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 
