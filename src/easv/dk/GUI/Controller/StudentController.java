@@ -91,13 +91,13 @@ public class StudentController {
     public void toFunctionalDiagnoseScreen(ActionEvent actionEvent) {
     }
 
-    public void search(){
-        /*textFieldSearch2.textProperty().addListener((observable, oldValue, newValue) -> {
+    public void search() throws Exception {
+        textFieldSearch2.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
-                dataList.addAll(citizenModel.getAllCitizens()); //<-- depending on what name the method gets
+                dataList.addAll(citizenmodel.getAllCitizen()); //<-- depending on what name the method gets
             } catch (SQLException e) {
                 e.printStackTrace();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -113,17 +113,17 @@ public class StudentController {
                 String lowerCaseFilter = newValue.toLowerCase();
 
                 //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue() > searchBar.textProperty()).collect(Collectors.toList());
-                if (citizen.getName().toLowerCase().contains(lowerCaseFilter))
+                if (citizen.getFirstName().toLowerCase().contains(lowerCaseFilter))
                     return true; // Filter title.
 
-                else return String.valueOf(citizen.getcase()).contains(lowerCaseFilter); //getcase might be changed
+                else return String.valueOf(citizen.getLastName()).contains(lowerCaseFilter); //getcase might be changed
             });
 
             SortedList<Citizen> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(tableViewCitizens.comparatorProperty());
             //show the new list of filtered songs
             tableViewCitizens.setItems(sortedData);
-        });*/
+        });
     }
 
     public void setUpTableView() throws Exception {
@@ -137,9 +137,6 @@ public class StudentController {
         column2.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
         TableColumn<Citizen, String> column5 = new TableColumn<>("phoneNumber");
         column2.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-
-
-
 
         tableViewCitizens.getColumns().add(column1);
         tableViewCitizens.getColumns().add(column2);
