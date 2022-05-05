@@ -1,6 +1,7 @@
 package easv.dk.GUI.Model;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BLL.Manager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,8 +11,9 @@ import java.util.List;
 
 public class citizenModel {
     ObservableList<Citizen> getAllCitizens;
+    Manager manager = new Manager();
 
-    public citizenModel() throws IOException {
+    public citizenModel() throws Exception {
         getAllCitizens = FXCollections.observableArrayList();
     }
 
@@ -19,13 +21,13 @@ public class citizenModel {
         //manager.deleteCitizen(selectedItem);
     }
 
-    public void setGetAllMovies(ObservableList<Citizen> getAllMovies) {
-        this.getAllCitizens = getAllMovies;
+    public void setGetAllCitizens(ObservableList<Citizen> getAllMovies) {
+        this.getAllCitizens = getAllCitizens;
     }
 
-    public List<Citizen> getAllCitizen() throws SQLException, IOException {
+    public List<Citizen> getAllCitizen() throws Exception {
         this.getAllCitizens = FXCollections.observableArrayList();
-        //this.getAllCitizens.addAll(this.manager.getAllMovies());
+        this.getAllCitizens.addAll(this.manager.getAllCitizens());
         return this.getAllCitizens;
     }
 

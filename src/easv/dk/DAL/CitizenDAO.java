@@ -4,6 +4,7 @@ import easv.dk.BE.Admin;
 import easv.dk.BE.Citizen;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -20,13 +21,20 @@ public class CitizenDAO {
         List<Citizen> citizenList = new ArrayList<>();
         Connection con = cm.getConnection();
         String sqlSelectMovie = "\n" +
-                "select citezen.id,name from Citzen\n" +
-                "GROUP by citezen.id,name\n;";    //almost definitly wrong
+                "select citezen.id,firstName,lastName,adress,birthDate,isTemplate,phoneNumber,schoolId from Citzen\n" +
+                "GROUP by citezen.id,name,lastName,adress,birthDate,isTemplate,phoneNumber,schoolId\n;";    //almost definitly wrong
         PreparedStatement psSelectCitizen = con.prepareStatement(sqlSelectMovie);
         ResultSet rs = psSelectCitizen.executeQuery();
         while (rs.next()) {
-            String name = rs.getString("name"); //change later
-            Citizen citizen = new Citizen(name);
+            String firstName = rs.getString("firstName");
+            String lastName = rs.getString("lastName");
+            String adress = rs.getString("adress");
+            Date birthDate = rs.getDate("birthDate");
+            boolean isTemplate = rs.getBoolean("isTemplate");
+            int phoneNumber = rs.getInt("phoneNumber");
+            int schoolId = rs.getInt("schoolId");
+            int Id = rs.getInt("id");
+            Citizen citizen = new Citizen(firstName, lastName, adress, birthDate, phoneNumber, isTemplate, schoolId, Id);
             citizenList.add(citizen);
         }
         rs.close();

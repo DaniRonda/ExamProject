@@ -1,5 +1,6 @@
 package easv.dk.DAL;
 
+import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 
 import java.sql.Connection;
@@ -74,7 +75,7 @@ public class TeacherDAO {
         psUpdateTeacher.setString(2,teacher.getLastName());
         psUpdateTeacher.setString(3,teacher.getEmail());
         psUpdateTeacher.setString(4,teacher.getPassword());
-        psUpdateTeacher.setString(5, teacher.getSchool());
+        psUpdateTeacher.setString(5,teacher.getSchool());
         psUpdateTeacher.executeUpdate();
         psUpdateTeacher.close();
         con.close();
@@ -88,6 +89,30 @@ public class TeacherDAO {
         psDeleteTeacher.execute();
         psDeleteTeacher.close();
         con.close();
+    }
+    
+    public Student teacherCreateStudent(Student student) throws Exception {
+        Student studentCreated = null;
+        Connection con = cm.getConnection();
+        String sqlSelectStudent = "INSERT INTO Student VALUES(?,?,?,?,?)";
+        PreparedStatement psInsertStudent = con.prepareStatement(sqlSelectStudent, Statement.RETURN_GENERATED_KEYS);
+        psInsertStudent.setString(1, student.getFirstName());
+        psInsertStudent.setString(2, student.getLastName());
+        psInsertStudent.setString(3, student.getEmail());
+        psInsertStudent.setString(4, student.getPassword());
+        psInsertStudent.setInt(5, student.getId());
+        psInsertStudent.addBatch();
+        psInsertStudent.executeBatch();
+        ResultSet rs = psInsertStudent.getGeneratedKeys();
+        while (rs.next()) {
+            studentCreated = new Student (student.getFirstName(),
+                    student.getFirstName(),
+                    student.getEmail(),
+                    student.getPassword(),
+                    rs.getInt(1)
+            );
+        }
+        return studentCreated;
     }
 
 }
