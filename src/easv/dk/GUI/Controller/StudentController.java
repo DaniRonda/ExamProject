@@ -45,7 +45,8 @@ public class StudentController {
     private final static int CitizenSelected = 0;   //constant
     private int mode = CitizenSelected;
 
-    public void initialize() throws SQLException, IOException {
+    citizenModel citizenmodel;
+    public void initialize() throws Exception {
 
         search();
         setUpTableView();
@@ -125,7 +126,7 @@ public class StudentController {
         });*/
     }
 
-    public void setUpTableView() {
+    public void setUpTableView() throws Exception {
         TableColumn<Citizen, String> column1 = new TableColumn<>("Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("title"));
         TableColumn<Citizen, String> column2 = new TableColumn<>("IMDB Rating");
@@ -135,7 +136,7 @@ public class StudentController {
         tableViewCitizens.getColumns().add(column1);
         tableViewCitizens.getColumns().add(column2);
         tableViewCitizens.getItems().clear();
-        //tableViewCitizens.getItems().addAll(citizenModel.getAllCitizens());
+        tableViewCitizens.getItems().addAll(citizenmodel.getAllCitizen());
 
 
     }
