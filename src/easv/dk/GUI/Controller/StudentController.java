@@ -127,14 +127,26 @@ public class StudentController {
     }
 
     public void setUpTableView() throws Exception {
-        TableColumn<Citizen, String> column1 = new TableColumn<>("Name");
-        column1.setCellValueFactory(new PropertyValueFactory<>("title"));
-        TableColumn<Citizen, String> column2 = new TableColumn<>("IMDB Rating");
-        column2.setCellValueFactory(new PropertyValueFactory<>("imdbRating"));
+        TableColumn<Citizen, String> column1 = new TableColumn<>("firstName");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Citizen, String> column2 = new TableColumn<>("lastName");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Citizen, String> column3 = new TableColumn<>("adress");
+        column2.setCellValueFactory(new PropertyValueFactory<>("adress"));
+        TableColumn<Citizen, String> column4 = new TableColumn<>("birthDate");
+        column2.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        TableColumn<Citizen, String> column5 = new TableColumn<>("phoneNumber");
+        column2.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+
+
 
 
         tableViewCitizens.getColumns().add(column1);
         tableViewCitizens.getColumns().add(column2);
+        tableViewCitizens.getColumns().add(column3);
+        tableViewCitizens.getColumns().add(column4);
+        tableViewCitizens.getColumns().add(column5);
+
         tableViewCitizens.getItems().clear();
         tableViewCitizens.getItems().addAll(citizenmodel.getAllCitizen());
 
