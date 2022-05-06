@@ -31,8 +31,6 @@ public class LogInController {
         stage.show();
     }
 
-    public static class AdminController {
-    }
 
     public void cancelLogIn(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Cancel login?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
