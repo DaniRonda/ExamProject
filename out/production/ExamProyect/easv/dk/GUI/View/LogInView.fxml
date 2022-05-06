@@ -2,14 +2,21 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="313.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.LogInController">
+<AnchorPane prefHeight="387.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.LogInController">
    <children>
-      <TextField fx:id="TextFieldEmail" layoutX="88.0" layoutY="92.0" prefHeight="38.0" prefWidth="276.0" promptText="E-Mail" />
-      <TextField fx:id="TextFieldPassword" layoutX="88.0" layoutY="149.0" prefHeight="38.0" prefWidth="276.0" promptText="Password" />
-      <Button fx:id="BtnCancel" layoutX="246.0" layoutY="210.0" mnemonicParsing="false" onAction="#cancelLogIn" text="Cancel" />
-      <Button fx:id="ButtonSignIn" layoutX="310.0" layoutY="210.0" mnemonicParsing="false" text="Sign In " />
-      <Button fx:id="ButtonBypass" layoutX="14.0" layoutY="274.0" mnemonicParsing="false" onAction="#bypassScreen" text="bypass" />
+      <TextField fx:id="TextFieldEmail" layoutX="102.0" layoutY="204.0" prefHeight="38.0" prefWidth="276.0" promptText="E-Mail" />
+      <TextField fx:id="TextFieldPassword" layoutX="102.0" layoutY="263.0" prefHeight="38.0" prefWidth="276.0" promptText="Password" />
+      <Button fx:id="BtnCancel" layoutX="257.0" layoutY="328.0" mnemonicParsing="false" onAction="#cancelLogIn" text="Cancel" />
+      <Button fx:id="ButtonSignIn" layoutX="323.0" layoutY="328.0" mnemonicParsing="false" text="Sign In " />
+      <Button fx:id="ButtonBypass" layoutX="102.0" layoutY="328.0" mnemonicParsing="false" onAction="#bypassScreen" text="bypass" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pictures/LogInIcon.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
