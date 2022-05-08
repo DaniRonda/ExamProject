@@ -3,6 +3,7 @@ package easv.dk.GUI.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -11,8 +12,10 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LogInController {
+public class LogInController implements Initializable {
 
     @FXML
     private Button BtnCancel;
@@ -21,7 +24,7 @@ public class LogInController {
 
     public void bypassScreen(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/StudentView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("/easv/dk/GUI/View/StudentView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -30,6 +33,7 @@ public class LogInController {
         stage.centerOnScreen();
         stage.show();
     }
+
 
 
     public void cancelLogIn(ActionEvent actionEvent) {
@@ -41,6 +45,11 @@ public class LogInController {
             Stage stage = (Stage) BtnCancel.getScene().getWindow();
             stage.close();
         }
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
 }
