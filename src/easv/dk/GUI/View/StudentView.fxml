@@ -21,9 +21,9 @@
           <TableColumn prefWidth="75.0" text="Last Name" />
         </columns>
       </TableView>
-      <Button fx:id="ButtonLogOut" layoutX="590.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
-      <Button fx:id="ButtonHealthDiagnose" layoutX="25.0" layoutY="403.0" mnemonicParsing="false" onAction="#toHealthDiagnoseScreen" text="Health Conditions" />
-      <Button fx:id="ButtonFunctionalDiagnoseButtonFunctionalDiagnose" layoutX="157.0" layoutY="403.0" mnemonicParsing="false" onAction="#toFunctionalDiagnoseScreen" text="Functional Abilities" />
+      <Button fx:id="btnStudentLogOut" layoutX="590.0" layoutY="14.0" mnemonicParsing="false" onAction="#studentLogOut" text="Log Out" />
+      <Button fx:id="btnHealthConditions" layoutX="25.0" layoutY="403.0" mnemonicParsing="false" onAction="#openHealthConditionsView" text="Health Conditions" />
+      <Button fx:id="btnFunctionalAbilities" layoutX="157.0" layoutY="403.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" text="Functional Abilities" />
       <ListView layoutX="338.0" layoutY="80.0" prefHeight="317.0" prefWidth="282.0" />
       <TextField layoutX="338.0" layoutY="80.0" prefHeight="25.0" prefWidth="282.0" text="General Information" />
    </children>

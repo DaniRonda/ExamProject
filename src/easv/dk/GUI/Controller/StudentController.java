@@ -24,26 +24,25 @@ import java.sql.SQLException;
 
 public class StudentController {
     private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
-    public javafx.scene.control.TextField textFieldSearch2;
+
     public Button ButtonToCase;
-    public Button ButtonLogOut;
-    public Button ButtonHealthDiagnose;
-    public Button ButtonFunctionalDiagnose;
 
     @FXML
     private Button sendToCaseScreen;
     @FXML
-    private Button logOut;
+    private Button btnStudentLogOut;
     @FXML
-    private Button toHealthDiagnoseScreen;
+    private Button btnHealthConditions;
     @FXML
-    private Button toFunctionalDiagnoseScreen;
+    private Button btnFunctionalAbilities;
     @FXML
     private TextField textFieldSearch1;
     @FXML
     private TableView tableViewCitizens;
     @FXML
     private ListView listViewAbout;
+    @FXML
+    private TextField textFieldSearch2;
 
     private final static int CitizenSelected = 0;   //constant
     private int mode = CitizenSelected;
@@ -55,7 +54,7 @@ public class StudentController {
         setUpTableView();
     }
 
-    public void sendToCaseScreen(ActionEvent actionEvent) throws IOException {
+    public void sendToCaseScreen(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/caseView.fxml"));
         Parent root = loader.load();
@@ -67,7 +66,8 @@ public class StudentController {
         stage.show();
     }
 
-    public void logOut(ActionEvent actionEvent) throws IOException {
+
+    public void studentLogOut(ActionEvent actionEvent) throws Exception{
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/LogInView.fxml"));
             Parent root = loader.load();
@@ -77,22 +77,34 @@ public class StudentController {
             stage.setTitle("Log In");
             stage.centerOnScreen();
             stage.show();
-    }
+        }
 
-    public void toHealthDiagnoseScreen(ActionEvent actionEvent) throws IOException {
+
+    public void openHealthConditionsView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/healthDiagnoseView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("Diagnose Screen");
+        stage.setTitle("Diagnose");
         stage.centerOnScreen();
         stage.show();
     }
 
-    public void toFunctionalDiagnoseScreen(ActionEvent actionEvent) {
+    public void openFunctionalAbilitiesView(ActionEvent actionEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/FunctionalAbilitiesView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Functional Abilities");
+        stage.centerOnScreen();
+        stage.show();
     }
+
+
 
     public void search() throws Exception {
         textFieldSearch2.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -168,6 +180,7 @@ public class StudentController {
             e.printStackTrace();
         }*/
     }
+
 
 
 }
