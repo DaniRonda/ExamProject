@@ -11,19 +11,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: #ECECEC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.StudentController">
    <children>
       <AnchorPane layoutY="-9.0" prefHeight="163.0" prefWidth="1300.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <ImageView fitHeight="142.0" fitWidth="147.0" layoutX="579.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../OneDrive/Billeder/512x512bb.jpg" />
+                  <Image url="@../Pictures/512x512bb.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="62.0" fitWidth="102.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0">
                <image>
-                  <Image url="@../../../../../../OneDrive/Billeder/trhgbCapture.PNG" />
+                  <Image url="@../Pictures/trhgbCapture.PNG" />
                </image>
             </ImageView>
             <Button fx:id="ButtonToCase" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendToCaseScreen" prefHeight="62.0" prefWidth="100.0" text="Button" visible="false" />
@@ -59,6 +58,3 @@
       </Button>
    </children>
 </AnchorPane>
-
-
-
