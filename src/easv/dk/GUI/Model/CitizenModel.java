@@ -1,7 +1,7 @@
 package easv.dk.GUI.Model;
 
 import easv.dk.BE.Citizen;
-import easv.dk.BLL.CitizenManager;
+import easv.dk.BLL.Manager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CitizenModel {
     ObservableList<Citizen> getAllCitizens;
-    CitizenManager manager = new CitizenManager();
+    Manager manager = new Manager();
 
     public CitizenModel() throws Exception {
         getAllCitizens = FXCollections.observableArrayList();
