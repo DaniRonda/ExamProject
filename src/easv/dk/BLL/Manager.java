@@ -18,7 +18,6 @@ public class Manager {
 
     public List<Citizen> getAllCitizens() throws Exception {
         return this.citizenDAO.getAllCitzens();
-
     }
 
     public String getLogInPassword() throws Exception {
@@ -26,6 +25,7 @@ public class Manager {
         String password = logInController.getTextFieldPassword();
         return password;
     }
+
     public String getLogInEmail() throws Exception {
         LogInController logInController = new LogInController();
         String mail = logInController.getTextFieldMail();
@@ -35,5 +35,7 @@ public class Manager {
 
     public Admin adminFound() throws Exception {
         return adminDAO.getAdminLogin();
+
+
     }
 }

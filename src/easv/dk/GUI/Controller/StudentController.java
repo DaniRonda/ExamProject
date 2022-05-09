@@ -1,7 +1,7 @@
 package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Citizen;
-import easv.dk.GUI.Model.citizenModel;
+import easv.dk.GUI.Model.CitizenModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -48,7 +48,7 @@ public class StudentController {
     private final static int CitizenSelected = 0;   //constant
     private int mode = CitizenSelected;
 
-    citizenModel citizenmodel;
+    CitizenModel citizenmodel;
     public void initialize() throws Exception {
 
         search();
@@ -81,7 +81,7 @@ public class StudentController {
 
     public void toHealthDiagnoseScreen(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/healthDiagnoseView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthDiagnoseView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

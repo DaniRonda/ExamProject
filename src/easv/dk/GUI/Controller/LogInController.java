@@ -27,6 +27,7 @@ public class LogInController implements Initializable {
     @FXML
     private Button ButtonBypass;
     @FXML
+
     private TextField TextFieldEmail = new TextField();
     @FXML
     private TextField TextFieldPassword = new TextField();
@@ -35,21 +36,16 @@ public class LogInController implements Initializable {
     }
 
 
-
-    public void bypassScreen(ActionEvent event) throws IOException {
-        
+    public void bypassScreen(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/StudentView2.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("New Category");
         stage.centerOnScreen();
         stage.show();
-
     }
-
 
     public void cancelLogIn(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Cancel login?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -60,20 +56,16 @@ public class LogInController implements Initializable {
             Stage stage = (Stage) BtnCancel.getScene().getWindow();
             stage.close();
         }
-
     }
-
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
 
-
     public void adminCheck() throws Exception {
-        if (manager.adminFound().equals(true)){
+        if (manager.adminFound().equals(true)) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/AdminController.fxml"));
             Parent root = loader.load();
@@ -83,21 +75,23 @@ public class LogInController implements Initializable {
             stage.setTitle("Admin Screen");
             stage.centerOnScreen();
             stage.show();
-        }
-        else
+        } else
             System.out.println("bro");
     }
 
 
-    public void signIn(ActionEvent actionEvent) throws Exception {
-        adminCheck();
-    }
-    public String getTextFieldPassword(){
-        return this.TextFieldPassword.getText();
-    }
-    public String getTextFieldMail(){
-        return this.TextFieldEmail.getText();
-    }
+
+
+        public void signIn (ActionEvent actionEvent) throws Exception {
+            adminCheck();
+        }
+        public String getTextFieldPassword () {
+            return this.TextFieldPassword.getText();
+        }
+        public String getTextFieldMail () {
+            return this.TextFieldEmail.getText();
+        }
+
 }
 
 

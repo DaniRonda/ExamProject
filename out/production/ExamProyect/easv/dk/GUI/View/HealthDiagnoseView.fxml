@@ -43,62 +43,86 @@
       </AnchorPane>
       <VBox fx:id="vboxHealth" disable="true" layoutY="163.0" prefHeight="737.0" prefWidth="265.0" style="-fx-background-color: #ECECEC;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
+
             <Label fx:id="labelFunctionLevel" onMouseClicked="#functionLevelCLiscke" onMouseEntered="#mouseOverFunction" prefHeight="48.0" prefWidth="176.0" text="Functionlevel">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMovementApperatus" onMouseClicked="#cilckedApperatus" onMouseEntered="#mouseOverApperatus" prefHeight="48.0" prefWidth="298.0" text="Movement apperatus">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelNutrition" onMouseClicked="#nutritionClicked" onMouseEntered="#mouseOverNutrtion" prefHeight="48.0" prefWidth="298.0" text="Nutrition">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin" onMouseClicked="#skinClicked" onMouseEntered="#skinEntered" prefHeight="48.0" prefWidth="298.0" text="Skin and membranes">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelComunication" onMouseClicked="#communicationClicked" onMouseEntered="#communicationEntered" prefHeight="48.0" prefWidth="298.0" text="Communication">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPshyco" onMouseClicked="#pshycoClicked" onMouseEntered="#pshycoEntered" prefHeight="48.0" prefWidth="298.0" text="Pshycosocial relationships">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelCirkulation" onMouseClicked="#respoClicked" onMouseEntered="#respoEntered" prefHeight="48.0" prefWidth="298.0" text="Resporation og cirkulation">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSSexuality" onMouseClicked="#sexualityClicked" onMouseEntered="#sexualityEntered" prefHeight="48.0" prefWidth="298.0" text="Sexuality">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPains" onMouseClicked="#painsClicked" onMouseEntered="#painsEntered" prefHeight="48.0" prefWidth="298.0" text="Pains and senses">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSleep" onMouseClicked="#sleepClicked" onMouseEntered="#sleepEntered" prefHeight="48.0" prefWidth="298.0" text="Sleep and rest">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelKnowledge" onMouseClicked="#knowledgeClicked" onMouseEntered="#knowledgeEntered" prefHeight="48.0" prefWidth="298.0" text="knowledge and development">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelWaste" onMouseClicked="#wastesClicked" onMouseEntered="#wastesEntered" prefHeight="48.0" prefWidth="298.0" text="Excrement of wastes">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -115,27 +139,37 @@
       </VBox>
       <VBox fx:id="vboxfunction" layoutY="163.0" prefHeight="737.0" prefWidth="265.0" style="-fx-background-color: #ECECEC;">
          <children>
+
             <Label fx:id="labelSelfCare" onMouseClicked="#selfcareClicked" onMouseEntered="#selfcareEntered" prefHeight="48.0" prefWidth="176.0" text="Selfcare">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPracticalWork" onMouseClicked="#practicalClicked" onMouseEntered="#pacticalEntered" prefHeight="48.0" prefWidth="298.0" text="Practical work">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility" onMouseClicked="#mobilityClicked" onMouseEntered="#mobilityEntered" prefHeight="48.0" prefWidth="298.0" text="Mobility">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMentalFunctions" onMouseClicked="#mentalClicked" onMouseEntered="#mentalEntered" prefHeight="48.0" prefWidth="298.0" text="Mental functions">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSocialLife" onMouseClicked="#socialClicked" onMouseEntered="#socialEntered" prefHeight="48.0" prefWidth="298.0" text="Social life">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -152,12 +186,16 @@
       </VBox>
       <VBox fx:id="VBoxFunctionLevel" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelFunctionLevel1" onMouseClicked="#functionLevel1Clicked" onMouseEntered="#functionLevel1Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with personal care">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelFunctionLevel2" onMouseClicked="#functionLevel2Clicked" onMouseEntered="#functionLevel2Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with daily activities ">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -166,7 +204,9 @@
       </VBox>
       <VBox fx:id="vboxMovementapperatus" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelMovementapperatus1" onMouseClicked="#Apperatus1Clicked" onMouseEntered="#Apperatus1Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with mobility and movement">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -175,27 +215,37 @@
       </VBox>
       <VBox fx:id="vboxConsumtion" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelConsumtion1" onMouseClicked="#nutrition1Clicked" onMouseEntered="#nutrition1Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with fluid consumption">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelConsumtion2" onMouseClicked="#nutrition2Clicked" onMouseEntered="#nutrition2Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with food consumption">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelConsumtion3" onMouseClicked="#nutrition3Clicked" onMouseEntered="#nutrition3Entered" prefHeight="48.0" prefWidth="298.0" text="Iregular weight chances">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelConsumtion4" onMouseClicked="#nutrition4Clicked" onMouseEntered="#nutrition4Entered" prefHeight="48.0" prefWidth="298.0" text="problems with obesity">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelConsumtion5" onMouseClicked="#nutrition5Clicked" onMouseEntered="#nutrition5Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with anorexia">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -204,52 +254,72 @@
       </VBox>
       <VBox fx:id="vboxSkin" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelSkin1" onMouseClicked="#skin1Clicked" onMouseEntered="#skin1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with surgical wounds">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin2" onMouseClicked="#skin2Clicked" onMouseEntered="#skin2Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with diabetic wounds">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin3" onMouseClicked="#skin3Clicked" onMouseEntered="#skin3Enter" prefHeight="48.0" prefWidth="298.0" text="problems woth cancer wounds">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin4" onMouseClicked="#skin4Clicked" onMouseEntered="#skin4Enter" prefHeight="48.0" prefWidth="298.0" text="problems with pressure sores">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin5" onMouseClicked="#skin5Clicked" onMouseEntered="#skin5Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with arterial wounds">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin6" onMouseClicked="#skin6Clicked" onMouseEntered="#skin6Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with venous wounds">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin7" onMouseClicked="#skin7Clicked" onMouseEntered="#skin7Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with mixed wounds">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin8" onMouseClicked="#skin8Clicked" onMouseEntered="#skin8Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with trauma wounds">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin91" onMouseClicked="#skin91Clicked" onMouseEntered="#skin91Enter" prefHeight="20.0" prefWidth="244.0" text="Other problems with skin and ">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSkin92" onMouseClicked="#skin92Clicked" onMouseEntered="#skin92Enter" prefHeight="20.0" prefWidth="244.0" text="mucous membrane">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -258,7 +328,9 @@
       </VBox>
       <VBox fx:id="vboxCommunication" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelCommunication" onMouseClicked="#communication1Clicked" onMouseEntered="#communication1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with comunication">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -267,22 +339,29 @@
       </VBox>
       <VBox fx:id="vboxPshyco" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelPshyco1" onMouseClicked="#pshyco1Clicked" onMouseEntered="#pshyco1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with social contact">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPshyco2" onMouseClicked="#pshyco2Clicked" onMouseEntered="#pshyco2Enter" prefHeight="48.0" prefWidth="298.0" text="Emotional problems">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPshyco3" onMouseClicked="#pshyco3Click" onMouseEntered="#pshyco3Enter" prefHeight="48.0" prefWidth="298.0" text="problems with drug misuse ">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPshyco4" onMouseClicked="#pshyco4Click" onMouseEntered="#pshyco4Enter" prefHeight="48.0" prefWidth="298.0" text="Mental problems">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -291,12 +370,16 @@
       </VBox>
       <VBox fx:id="vboxResparation" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelResparation1" onMouseClicked="#resporation1Click" onMouseEntered="#resporation1Enter" prefHeight="48.0" prefWidth="298.0" text="Resparation problems">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelResparation2" onMouseClicked="#resporation2Click" onMouseEntered="#resporation2Enter" prefHeight="48.0" prefWidth="298.0" text="Circulation problems">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -305,7 +388,9 @@
       </VBox>
       <VBox fx:id="vboxSexuality" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelSexuality" onMouseClicked="#Sexuality1Clicked" onMouseEntered="#Sexuality1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with sexuality">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -314,42 +399,58 @@
       </VBox>
       <VBox fx:id="vboxPain" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelPain1" onMouseClicked="#pain1Click" onMouseEntered="#pain1Enter" prefHeight="48.0" prefWidth="298.0" text="Acute pains">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPain2" onMouseClicked="#pain2Click" onMouseEntered="#pain2Enter" prefHeight="48.0" prefWidth="298.0" text="Periodic pains">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPain3" onMouseClicked="#pain3Click" onMouseEntered="#pain3Enter" prefHeight="48.0" prefWidth="298.0" text="Chronic pains">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPain4" onMouseClicked="#pain4Click" onMouseEntered="#pain4Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with vision">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPain5" onMouseClicked="#pain5Click" onMouseEntered="#pain5Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with olfaction">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPain6" onMouseClicked="#pain6Click" onMouseEntered="#pain6Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with hearing">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPain7" onMouseClicked="#pain7Click" onMouseEntered="#pain7Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with gustation">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelPain8" onMouseClicked="#pain8Click" onMouseEntered="#pain8Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with taction">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -358,12 +459,16 @@
       </VBox>
       <VBox fx:id="vboxSleep" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelSleep1" onMouseClicked="#Sleep1Click" onMouseEntered="#Sleep1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with sleep schedule">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelSleep2" onMouseClicked="#Sleep2Click" onMouseEntered="#Sleep2Enter" prefHeight="48.0" prefWidth="298.0" text="Sleep problems">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -372,27 +477,37 @@
       </VBox>
       <VBox fx:id="vboxInsight" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelInsight1" onMouseClicked="#insight1Clicked" onMouseEntered="#insight1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with memory">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelInsight21" onMouseClicked="#insight21Clicked" onMouseEntered="#insight21Enter" prefHeight="24.0" prefWidth="298.0" text="Problems with insight in">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelInsight22" onMouseClicked="#insight22Click" onMouseEntered="#insight22Enter" prefHeight="16.0" prefWidth="298.0" text="treatment goals">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelInsight3" onMouseClicked="#insight3Click" onMouseEntered="#insight3Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with illness insight">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelInsight4" onMouseClicked="#insight4Click" onMouseEntered="#insight4Enter" prefHeight="48.0" prefWidth="298.0" text="Cognitive problems">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -401,27 +516,37 @@
       </VBox>
       <VBox fx:id="vboxWastes" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelWaste1" onMouseClicked="#waste1Click" onMouseEntered="#waste1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with urination">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelWaste2" onMouseClicked="#waste2Click" onMouseEntered="#waste2Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with urin consistancy">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelWaste3" onMouseClicked="#waste3Click" onMouseEntered="#waste3Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with fecal consistancy">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelWaste4" onMouseClicked="#waste4Click" onMouseEntered="#waste4Enter" prefHeight="48.0" prefWidth="298.0" text="problems with stomach and intestines ">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelWaste5" onMouseClicked="#waste5Click" onMouseEntered="#waste5Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with liquids from drain">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -430,42 +555,58 @@
       </VBox>
       <VBox fx:id="vboxSelfCare" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelselfcare1" onMouseClicked="#selfcare1Clicked" onMouseEntered="#selfcare1Enter" prefHeight="48.0" prefWidth="298.0" text="Ability to clean themselves">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelselfcare2" onMouseClicked="#selfcare2Click" onMouseEntered="#selfcare2Enter" prefHeight="48.0" prefWidth="298.0" text="Body care">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelselfcare3" onMouseClicked="#selfcare3Clicked" onMouseEntered="#selfcare3Entered" prefHeight="48.0" prefWidth="298.0" text="Ability to undress and dress up">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelselfcare4" onMouseClicked="#selfcare4Clicked" onMouseEntered="#selfcare4Enter" prefHeight="48.0" prefWidth="298.0" text="Drinking">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelselfcare5" onMouseClicked="#selfcare5Clicked" onMouseEntered="#selfcare5Enter" prefHeight="48.0" prefWidth="298.0" text="Food intake">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelselfcare6" onMouseClicked="#selfcare6Click" onMouseEntered="#selfcare6Enter" prefHeight="48.0" prefWidth="298.0" text="Eating">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelselfcare7" onMouseClicked="#selfcare7Click" onMouseEntered="#selfcare7Enter" prefHeight="48.0" prefWidth="298.0" text="Taking care of own health">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelselfcare8" onMouseClicked="#selfcare8Click" onMouseEntered="#selfcare8Enter" prefHeight="48.0" prefWidth="298.0" text="Using the toilet">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -474,22 +615,30 @@
       </VBox>
       <VBox fx:id="vboxPracticalWork" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelParcticalWork1" onMouseClicked="#practical1Click" onMouseEntered="#practical1Enter" prefHeight="48.0" prefWidth="298.0" text="Perfom housework">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelParcticalWork2" onMouseClicked="#practical2Click" onMouseEntered="#practical2Enter" prefHeight="48.0" prefWidth="298.0" text="Cook Food">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelParcticalWork3" onMouseClicked="#practical3Click" onMouseEntered="#practical3Enter" prefHeight="48.0" prefWidth="298.0" text="Performing daily routine">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelParcticalWork4" onMouseClicked="#practical4Click" onMouseEntered="#practical4Enter" prefHeight="48.0" prefWidth="298.0" text="Acquire groceries and services">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -498,47 +647,65 @@
       </VBox>
       <VBox fx:id="vboxMobility" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelMobility1" onMouseClicked="#mobility1Click" onMouseEntered="#mobility1Enter" prefHeight="48.0" prefWidth="298.0" text="Lifting and carrying ">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility2" onMouseClicked="#mobility2Click" onMouseEntered="#mobility2Enter" prefHeight="48.0" prefWidth="298.0" text="Moving around">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility3" onMouseClicked="#mobility3Click" onMouseEntered="#mobility3Enter" prefHeight="48.0" prefWidth="298.0" text="Using Transportation ">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility4" onMouseClicked="#mobility4Click" onMouseEntered="#mobility4Enter" prefHeight="48.0" prefWidth="298.0" text="Moving in different surroundings">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility5" onMouseClicked="#mobility5Click" onMouseEntered="#mobility5Enter" prefHeight="48.0" prefWidth="298.0" text="Transferring ">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility6" onMouseClicked="#mobility6Click" onMouseEntered="#mobility6Enter"  prefHeight="48.0" prefWidth="298.0" text="Change position">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility7" onMouseClicked="#mobility7Click" onMouseEntered="#mobility7Enter"  prefHeight="48.0" prefWidth="298.0" text="Muscle strength">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility8" onMouseClicked="#mobility8Click" onMouseEntered="#mobility8Enter" prefHeight="48.0" prefWidth="298.0" text="Walking">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMobility9" onMouseClicked="#mobility9Click" onMouseEntered="#mobility9Enter"  prefHeight="48.0" prefWidth="298.0" text="Stamina">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -547,42 +714,58 @@
       </VBox>
       <VBox fx:id="vboxMentalFunction" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelMentalFunction1" onMouseClicked="#mentalFunction1Clicked" onMouseEntered="#mentalFunction1Enter" prefHeight="44.0" prefWidth="298.0" text="Communication/Technical equipment">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMentalFunction2" onMouseClicked="#mentalFunction2Click" onMouseEntered="#mentalFunction2Enter" prefHeight="42.0" prefWidth="298.0" text="Memory">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMentalFunction3" onMouseClicked="#mentalFunction3Clicked" onMouseEntered="#mentalFunction3Enter" prefHeight="48.0" prefWidth="298.0" text="Orientation skill">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMentalFunction4" onMouseClicked="#mentalFunction4Clicked" onMouseEntered="#mentalFunction4Entered" prefHeight="48.0" prefWidth="298.0" text="Cognative functions">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMentalFunction5" onMouseClicked="#mentalFunction5Clicked" onMouseEntered="#mentalFunction5Entered" prefHeight="48.0" prefWidth="298.0" text="Feeling functions">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMentalFunction6" onMouseClicked="#mentalFunction6Click" onMouseEntered="#mentalFunction6Enter" prefHeight="48.0" prefWidth="298.0" text="Energy and capacity for action">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMentalFunction7" onMouseClicked="#mentalFunction7Click" onMouseEntered="#mentalFunction7Enter" prefHeight="48.0" prefWidth="298.0" text="Appropriation of skills">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+
             <Label fx:id="labelMentalFunction8" onMouseClicked="#mentalFunction8Click" onMouseEntered="#mentalFunction8Enter" prefHeight="48.0" prefWidth="298.0" text="Problem solving">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -591,7 +774,9 @@
       </VBox>
       <VBox fx:id="vboxSocialLife" disable="true" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;" visible="false">
          <children>
+
             <Label fx:id="labelSocialLife1" onMouseClicked="#socialLife1Clicked" onMouseEntered="#socialLife1Enter" prefHeight="44.0" prefWidth="298.0" text="Paid occupation">
+
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
