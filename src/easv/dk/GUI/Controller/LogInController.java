@@ -23,9 +23,12 @@ public class LogInController implements Initializable {
     private Button BtnCancel;
     @FXML
     private Button ButtonBypass;
+    @FXML
+    private TextField TextFieldEmail;
+    @FXML
+    private TextField TextFieldPassword;
 
-    public void bypassScreen(ActionEvent event) throws IOException {
-        
+    public void bypassScreen(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/StudentView2.fxml"));
         Parent root = loader.load();
@@ -34,9 +37,7 @@ public class LogInController implements Initializable {
         stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
-
     }
-
 
     public void cancelLogIn(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Cancel login?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -47,26 +48,20 @@ public class LogInController implements Initializable {
             Stage stage = (Stage) BtnCancel.getScene().getWindow();
             stage.close();
         }
-
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
-
-    @FXML
-    private TextField TextFieldEmail;
-    @FXML
-    private TextField TextFieldPassword;
-    
     public TextField getTextFieldMail(){
-    return TextFieldEmail;
-}
+        return TextFieldEmail;
+    }
+
     public TextField getTextFieldPassword(){
         return TextFieldPassword;
     }
+
     public boolean adminCheck() {
         return false;
     }
