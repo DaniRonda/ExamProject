@@ -5,15 +5,14 @@ import easv.dk.BLL.Manager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class citizenModel {
+public class CitizenModel {
     ObservableList<Citizen> getAllCitizens;
     Manager manager = new Manager();
 
-    public citizenModel() throws Exception {
+    public CitizenModel() throws Exception {
         getAllCitizens = FXCollections.observableArrayList();
     }
 
