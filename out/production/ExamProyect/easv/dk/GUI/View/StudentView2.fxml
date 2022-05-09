@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="451.0" prefWidth="658.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.View.StudentView2">
+   <children>
+      <ToolBar layoutY="-5.0" prefHeight="63.0" prefWidth="658.0" style="-fx-background-color: #EFEFE6;">
+         <items>
+            <TextField promptText="🔎" />
+         </items>
+      </ToolBar>
+      <TableView layoutX="25.0" layoutY="80.0" prefHeight="317.0" prefWidth="264.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="First Name" />
+          <TableColumn prefWidth="75.0" text="Last Name" />
+        </columns>
+      </TableView>
+      <Button layoutX="590.0" layoutY="14.0" mnemonicParsing="false" text="Log Out" />
+      <Button layoutX="25.0" layoutY="403.0" mnemonicParsing="false" text="Health Conditions" />
+      <Button layoutX="157.0" layoutY="403.0" mnemonicParsing="false" text="Functional Abilities" />
+      <ListView layoutX="338.0" layoutY="80.0" prefHeight="317.0" prefWidth="282.0" />
+      <TextField layoutX="338.0" layoutY="80.0" prefHeight="25.0" prefWidth="282.0" text="General Information" />
+   </children>
+</AnchorPane>
