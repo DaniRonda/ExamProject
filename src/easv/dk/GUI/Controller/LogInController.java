@@ -29,7 +29,6 @@ public class LogInController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("New Category");
         stage.centerOnScreen();
         stage.show();
     }

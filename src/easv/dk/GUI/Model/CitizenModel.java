@@ -1,19 +1,18 @@
 package easv.dk.GUI.Model;
 
 import easv.dk.BE.Citizen;
-import easv.dk.BLL.Manager;
+import easv.dk.BLL.CitizenManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class citizenModel {
+public class CitizenModel {
     ObservableList<Citizen> getAllCitizens;
-    Manager manager = new Manager();
+    CitizenManager manager = new CitizenManager();
 
-    public citizenModel() throws Exception {
+    public CitizenModel() throws Exception {
         getAllCitizens = FXCollections.observableArrayList();
     }
 

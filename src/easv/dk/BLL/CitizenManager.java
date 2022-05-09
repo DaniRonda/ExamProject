@@ -6,11 +6,11 @@ import easv.dk.DAL.CitizenDAO;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Manager {
+public class CitizenManager {
 
     CitizenDAO citizenDAO = new CitizenDAO();
 
-    public Manager() throws Exception {
+    public CitizenManager() throws Exception {
     }
 
     public List<Citizen> getAllCitizens() throws Exception {
