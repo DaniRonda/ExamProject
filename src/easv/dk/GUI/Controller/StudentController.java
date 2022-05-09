@@ -21,11 +21,14 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 public class StudentController {
     private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
     public javafx.scene.control.TextField textFieldSearch2;
+    public Button ButtonToCase;
+    public Button ButtonLogOut;
+    public Button ButtonHealthDiagnose;
+    public Button ButtonFunctionalDiagnose;
 
     @FXML
     private Button sendToCaseScreen;
@@ -103,13 +106,12 @@ public class StudentController {
 
             FilteredList<Citizen> filteredData = new FilteredList<>(dataList, b -> true);
             filteredData.setPredicate(citizen -> {
-                // If filter text is empty, display all song.
 
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
 
-                // Compare title, category and rating of every song with filter text.
+
                 String lowerCaseFilter = newValue.toLowerCase();
 
                 //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue() > searchBar.textProperty()).collect(Collectors.toList());
@@ -121,7 +123,6 @@ public class StudentController {
 
             SortedList<Citizen> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(tableViewCitizens.comparatorProperty());
-            //show the new list of filtered songs
             tableViewCitizens.setItems(sortedData);
         });
     }

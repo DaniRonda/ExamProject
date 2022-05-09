@@ -24,12 +24,12 @@ public class LogInController implements Initializable {
 
     public void bypassScreen(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("/easv/dk/GUI/View/StudentView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TeacherView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("Student Screen");
+        stage.setTitle("New Category");
         stage.centerOnScreen();
         stage.show();
     }

@@ -35,7 +35,7 @@ public class TeacherDAO {
         ResultSet rs = psInsertTeacher.getGeneratedKeys();
         while (rs.next()) {
             teacherCreated = new Teacher (teacher.getFirstName(),
-                    teacher.getFirstName(),
+                    teacher.getLastName(),
                     teacher.getEmail(),
                     teacher.getPassword(),
                     teacher.getSchool(),
@@ -83,8 +83,8 @@ public class TeacherDAO {
 
     public void deleteTeacher(Teacher teacher) throws Exception {
         Connection con = cm.getConnection();
-        String sqlDeleteAdmin = "DELETE FROM Teacher WHERE ID=?;";
-        PreparedStatement psDeleteTeacher = con.prepareStatement(sqlDeleteAdmin, Statement.RETURN_GENERATED_KEYS);
+        String sqlDeleteTeacher = "DELETE FROM Teacher WHERE ID=?;";
+        PreparedStatement psDeleteTeacher = con.prepareStatement(sqlDeleteTeacher, Statement.RETURN_GENERATED_KEYS);
         psDeleteTeacher.setInt(1, teacher.getId());
         psDeleteTeacher.execute();
         psDeleteTeacher.close();
