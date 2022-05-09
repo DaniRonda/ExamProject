@@ -1,10 +1,14 @@
 package easv.dk.DAL;
 
 import easv.dk.BE.Admin;
+import easv.dk.BLL.Manager;
 
+import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AdminDAO {
     private static ConnectionManager cm;
@@ -71,6 +75,26 @@ public class AdminDAO {
         psDeleteAdmin.execute();
         psDeleteAdmin.close();
         con.close();
+
     }
+
+    Manager manager;
+
+    public boolean getAdminLogin() throws Exception {
+           String TextFieldEmail = manager.getLogInEmail();
+           String TextFieldPassword = manager.getLogInPassword();
+
+            Connection con = cm.getConnection();
+            String sqlGetAdminLogIn = ("SELECT `email`, `password` FROM `Admin` WHERE `email` = ? AND `password` = ?");
+        PreparedStatement psGetAdminLogIn = con.prepareStatement(sqlGetAdminLogIn, Statement.RETURN_GENERATED_KEYS);
+            psGetAdminLogIn.setString(1, TextFieldEmail);
+            psGetAdminLogIn.setString(2, TextFieldPassword);
+            ResultSet result = psGetAdminLogIn.executeQuery();
+            if (result.next()) {
+                return true; //login succeded
+            } else {
+                return false; //login Failed
+            }
+        }
 
 }
