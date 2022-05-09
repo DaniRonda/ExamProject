@@ -20,10 +20,10 @@ public class CitizenDAO {
     public List<Citizen> getAllCitzens() throws Exception {
         List<Citizen> citizenList = new ArrayList<>();
         Connection con = cm.getConnection();
-        String sqlSelectMovie = "\n" +
+        String sqlSelectCitizen = "\n" +
                 "select citezen.id,firstName,lastName,adress,birthDate,isTemplate,phoneNumber,schoolId from Citzen\n" +
                 "GROUP by citezen.id,name,lastName,adress,birthDate,isTemplate,phoneNumber,schoolId\n;";    //almost definitly wrong
-        PreparedStatement psSelectCitizen = con.prepareStatement(sqlSelectMovie);
+        PreparedStatement psSelectCitizen = con.prepareStatement(sqlSelectCitizen);
         ResultSet rs = psSelectCitizen.executeQuery();
         while (rs.next()) {
             String firstName = rs.getString("firstName");

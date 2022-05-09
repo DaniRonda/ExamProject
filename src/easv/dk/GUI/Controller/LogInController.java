@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -22,9 +23,10 @@ public class LogInController implements Initializable {
     @FXML
     private Button ButtonBypass;
 
-    public void bypassScreen(ActionEvent actionEvent) throws IOException {
+    public void bypassScreen(ActionEvent event) throws IOException {
+        
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("/easv/dk/GUI/View/StudentView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/StudentView2.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -32,6 +34,7 @@ public class LogInController implements Initializable {
         stage.setTitle("Student Screen");
         stage.centerOnScreen();
         stage.show();
+
     }
 
 
@@ -52,5 +55,8 @@ public class LogInController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+
+
 }
 
