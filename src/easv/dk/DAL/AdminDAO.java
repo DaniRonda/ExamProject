@@ -3,12 +3,9 @@ package easv.dk.DAL;
 import easv.dk.BE.Admin;
 import easv.dk.BLL.Manager;
 
-import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class AdminDAO {
     private static ConnectionManager cm;
@@ -19,7 +16,7 @@ public class AdminDAO {
 
 
     public Admin CreateAdmin(Admin admin) throws Exception {
-       Admin adminCreated = null;
+        Admin adminCreated = null;
         Connection con = cm.getConnection();
         String sqlSelectAdmin = "INSERT INTO Admin VALUES(?,?)";
         PreparedStatement psInsertAdmin = con.prepareStatement(sqlSelectAdmin, Statement.RETURN_GENERATED_KEYS);
@@ -60,7 +57,7 @@ public class AdminDAO {
         Connection con = cm.getConnection();
         String sqlUpdateAdmin = "UPDATE  Admin SET email=?, password=? WHERE ID=?;";
         PreparedStatement psUpdateAdmin = con.prepareStatement(sqlUpdateAdmin, Statement.RETURN_GENERATED_KEYS);
-        psUpdateAdmin.setString(1,admin.getEmail());
+        psUpdateAdmin.setString(1, admin.getEmail());
         psUpdateAdmin.setString(2, admin.getPassword());
         psUpdateAdmin.executeUpdate();
         psUpdateAdmin.close();
@@ -78,23 +75,26 @@ public class AdminDAO {
 
     }
 
-    Manager manager;
 
-    public boolean getAdminLogin() throws Exception {
-           String TextFieldEmail = manager.getLogInEmail();
-           String TextFieldPassword = manager.getLogInPassword();
+    public Admin getAdminLogin() throws Exception {
+        Manager manager = new Manager();
+        String TextFieldEmail = manager.getLogInEmail();
+        String TextFieldPassword = manager.getLogInPassword();
 
-            Connection con = cm.getConnection();
-            String sqlGetAdminLogIn = ("SELECT `email`, `password` FROM `Admin` WHERE `email` = ? AND `password` = ?");
+        Admin admin = null;
+        Connection con = cm.getConnection();
+        String sqlGetAdminLogIn = ("SELECT * FROM Admin WHERE email = ? AND password = ?");
         PreparedStatement psGetAdminLogIn = con.prepareStatement(sqlGetAdminLogIn, Statement.RETURN_GENERATED_KEYS);
-            psGetAdminLogIn.setString(1, TextFieldEmail);
-            psGetAdminLogIn.setString(2, TextFieldPassword);
-            ResultSet result = psGetAdminLogIn.executeQuery();
-            if (result.next()) {
-                return true; //login succeded
-            } else {
-                return false; //login Failed
-            }
-        }
+        psGetAdminLogIn.setString(1, TextFieldEmail);
+        psGetAdminLogIn.setString(2, TextFieldPassword);
+        ResultSet result = psGetAdminLogIn.executeQuery();
 
+        if (result.next()) {
+            admin = new Admin(result.getString("email"), result.getString("password"), result.getInt("ID"));
+
+        }
+        return admin;
+    }
 }
+
+

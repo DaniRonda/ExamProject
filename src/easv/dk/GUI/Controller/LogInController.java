@@ -1,5 +1,7 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.BLL.IManager;
+import easv.dk.BLL.Manager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +21,20 @@ import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
 
+    Manager manager = new Manager();
     @FXML
     private Button BtnCancel;
     @FXML
     private Button ButtonBypass;
+    @FXML
+    private TextField TextFieldEmail = new TextField();
+    @FXML
+    private TextField TextFieldPassword = new TextField();
+
+    public LogInController() throws Exception {
+    }
+
+
 
     public void bypassScreen(ActionEvent event) throws IOException {
         
@@ -51,30 +63,41 @@ public class LogInController implements Initializable {
 
     }
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
 
-    @FXML
-    private TextField TextFieldEmail;
-    @FXML
-    private TextField TextFieldPassword;
-    
-    public TextField getTextFieldMail(){
-    return TextFieldEmail;
-}
-    public TextField getTextFieldPassword(){
-        return TextFieldPassword;
+
+    public void adminCheck() throws Exception {
+        if (manager.adminFound().equals(true)){
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/AdminController.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.setTitle("Admin Screen");
+            stage.centerOnScreen();
+            stage.show();
+        }
+        else
+            System.out.println("bro");
     }
-    public boolean adminCheck() {
-        return false;
+
+
+    public void signIn(ActionEvent actionEvent) throws Exception {
+        adminCheck();
     }
-
-
-
-
+    public String getTextFieldPassword(){
+        return this.TextFieldPassword.getText();
+    }
+    public String getTextFieldMail(){
+        return this.TextFieldEmail.getText();
+    }
 }
 
 
