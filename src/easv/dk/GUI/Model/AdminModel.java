@@ -9,7 +9,7 @@ public class AdminModel {
     public AdminModel() throws Exception {
     }
 
-    public Admin adminFound(String username, String password) throws Exception {
-        return manager.adminFound(username, password);
+    public Admin adminFound(String emails, String password) throws Exception {
+        return manager.adminFound(emails, password);
     }
 }

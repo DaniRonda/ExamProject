@@ -34,8 +34,8 @@ public class Manager {
 
 
 
-    public Admin adminFound(String email, String password) throws Exception {
-        Admin admin = adminDAO.getAdminLogin(email, password);
+    public Admin adminFound(String emails, String password) throws Exception {
+        Admin admin = adminDAO.getAdminLogin(emails, password);
         if (admin != null) return loginHelper.getInstance(admin);
         else return null;
 

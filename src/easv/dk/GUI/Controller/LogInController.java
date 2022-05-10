@@ -78,6 +78,8 @@ public class LogInController implements Initializable {
             stage.centerOnScreen();
             stage.show();
         }
+        else
+            System.out.println("no users");
     }
 
 
