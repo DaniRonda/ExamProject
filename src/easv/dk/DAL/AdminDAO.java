@@ -89,7 +89,7 @@ public class AdminDAO {
         Admin adminfound = null;
         try {
             connection = ConnectionManager.getConnection();
-            preparedStatement = connection.prepareStatement("SELECT password FROM admin WHERE email = ?");
+            preparedStatement = connection.prepareStatement("SELECT password FROM Admins WHERE email = ?");
             preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
 
