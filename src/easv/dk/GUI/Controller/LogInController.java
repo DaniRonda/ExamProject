@@ -1,7 +1,9 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.BE.Admin;
 import easv.dk.BLL.IManager;
 import easv.dk.BLL.Manager;
+import easv.dk.GUI.Model.AdminModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,13 +24,13 @@ import java.util.ResourceBundle;
 public class LogInController implements Initializable {
 
     Manager manager = new Manager();
+    AdminModel adminModel = new AdminModel();
     @FXML
     private Button BtnCancel;
     @FXML
     private Button ButtonBypass;
     @FXML
-
-    private TextField TextFieldEmail = new TextField();
+    private TextField TextFieldEmail;
     @FXML
     private TextField TextFieldPassword = new TextField();
 
@@ -65,18 +67,17 @@ public class LogInController implements Initializable {
 
 
     public void adminCheck() throws Exception {
-        if (manager.adminFound().equals(true)) {
+        Admin admin = adminModel.adminFound(TextFieldEmail.getText(), TextFieldPassword.getText());
+        if(admin != null) {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/AdminController.fxml"));
+            loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/AdminView.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setResizable(false);
-            stage.setTitle("Admin Screen");
             stage.centerOnScreen();
             stage.show();
-        } else
-            System.out.println("bro");
+        }
     }
 
 
@@ -84,6 +85,7 @@ public class LogInController implements Initializable {
 
         public void signIn (ActionEvent actionEvent) throws Exception {
             adminCheck();
+            System.out.println("wrong username or password");
         }
         public String getTextFieldPassword () {
             return this.TextFieldPassword.getText();

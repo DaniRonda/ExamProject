@@ -224,6 +224,7 @@ public class HealthDiagnoseController {
                 });
     }
 
+    @FXML
     private Label labelCirkulation;
     public void respoClicked(MouseEvent mouseEvent) {clearAll(); vboxResparation.setVisible(true); vboxResparation.setDisable(false);}
     public void respoEntered(MouseEvent mouseEvent) {

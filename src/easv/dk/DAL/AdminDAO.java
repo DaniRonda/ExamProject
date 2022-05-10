@@ -2,6 +2,11 @@ package easv.dk.DAL;
 
 import easv.dk.BE.Admin;
 import easv.dk.BLL.Manager;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.junit.Test;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -33,7 +38,7 @@ public class AdminDAO {
         }
         return adminCreated;
     }
-
+@Test
     public List<Admin> getAllAdmin() throws Exception {
         List<Admin> adminList = new ArrayList<>();
         Connection con = cm.getConnection();
@@ -52,6 +57,7 @@ public class AdminDAO {
         con.close();
         return adminList;
     }
+
 
     public void updateAdmin(Admin admin) throws Exception {
         Connection con = cm.getConnection();
@@ -76,24 +82,35 @@ public class AdminDAO {
     }
 
 
-    public Admin getAdminLogin() throws Exception {
-        Manager manager = new Manager();
-        String TextFieldEmail = manager.getLogInEmail();
-        String TextFieldPassword = manager.getLogInPassword();
+    public Admin getAdminLogin(String email, String password) throws Exception {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Admin adminfound = null;
+        try {
+            connection = ConnectionManager.getConnection();
+            preparedStatement = connection.prepareStatement("SELECT password FROM admin WHERE email = ?");
+            preparedStatement.setString(1, email);
+            resultSet = preparedStatement.executeQuery();
 
-        Admin admin = null;
-        Connection con = cm.getConnection();
-        String sqlGetAdminLogIn = ("SELECT * FROM Admin WHERE email = ? AND password = ?");
-        PreparedStatement psGetAdminLogIn = con.prepareStatement(sqlGetAdminLogIn, Statement.RETURN_GENERATED_KEYS);
-        psGetAdminLogIn.setString(1, TextFieldEmail);
-        psGetAdminLogIn.setString(2, TextFieldPassword);
-        ResultSet result = psGetAdminLogIn.executeQuery();
-
-        if (result.next()) {
-            admin = new Admin(result.getString("email"), result.getString("password"), result.getInt("ID"));
-
+            if(!resultSet.isBeforeFirst()){
+                System.out.println("user not found");
+            }
+            else{
+                while (resultSet.next()) {
+                    String retrievedPassword = resultSet.getString("password");
+                    if (retrievedPassword.equals(password)){
+                        int ID = resultSet.getInt("ID");
+                        String mail = resultSet.getString("email");
+                        String login = resultSet.getString("password");
+                        adminfound = new Admin(mail, login, ID);
+                    }
+                }
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
         }
-        return admin;
+        return adminfound;
     }
 }
 
