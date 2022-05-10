@@ -224,7 +224,8 @@ public class HealthDiagnoseController {
                 });
     }
 
-    private Label labelCirkulation
+    @FXML
+    private Label labelCirkulation;
     public void respoClicked(MouseEvent mouseEvent) {clearAll(); vboxResparation.setVisible(true); vboxResparation.setDisable(false);}
     public void respoEntered(MouseEvent mouseEvent) {
         labelCirkulation.setUnderline(true);
@@ -266,7 +267,7 @@ public class HealthDiagnoseController {
     }
 
     @FXML
-    private Label labelSleep
+    private Label labelSleep;
     public void sleepClicked(MouseEvent mouseEvent) {clearAll(); vboxSleep.setVisible(true); vboxSleep.setDisable(false);}
     public void sleepEntered(MouseEvent mouseEvent) {
     }

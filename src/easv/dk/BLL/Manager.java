@@ -1,12 +1,16 @@
 package easv.dk.BLL;
 
+import easv.dk.BE.Admin;
 import easv.dk.BE.Citizen;
+import easv.dk.DAL.AdminDAO;
 import easv.dk.DAL.CitizenDAO;
 import easv.dk.GUI.Controller.LogInController;
+
 import java.util.List;
 
 public class Manager {
-    LogInController logInController;
+
+    AdminDAO adminDAO = new AdminDAO();
     CitizenDAO citizenDAO = new CitizenDAO();
 
     public Manager() throws Exception {
@@ -16,11 +20,24 @@ public class Manager {
         return this.citizenDAO.getAllCitzens();
     }
 
-    public String getLogInEmail(){
-        return logInController.getTextFieldMail().toString();
+    public String getLogInPassword() throws Exception {
+        LogInController logInController = new LogInController();
+        String password = logInController.getTextFieldPassword();
+        return password;
     }
 
-    public String getLogInPassword(){
-        return logInController.getTextFieldPassword().toString();
+    public String getLogInEmail() throws Exception {
+        LogInController logInController = new LogInController();
+        String mail = logInController.getTextFieldMail();
+        return mail;
+    }
+
+
+
+    public Admin adminFound(String emails, String password) throws Exception {
+        Admin admin = adminDAO.getAdminLogin(emails, password);
+        if (admin != null) return loginHelper.getInstance(admin);
+        else return null;
+
     }
 }

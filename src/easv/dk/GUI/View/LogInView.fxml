@@ -11,7 +11,7 @@
       <TextField fx:id="TextFieldEmail" layoutX="102.0" layoutY="204.0" prefHeight="38.0" prefWidth="276.0" promptText="E-Mail" />
       <TextField fx:id="TextFieldPassword" layoutX="102.0" layoutY="263.0" prefHeight="38.0" prefWidth="276.0" promptText="Password" />
       <Button fx:id="BtnCancel" layoutX="257.0" layoutY="328.0" mnemonicParsing="false" onAction="#cancelLogIn" text="Cancel" />
-      <Button fx:id="ButtonSignIn" layoutX="323.0" layoutY="328.0" mnemonicParsing="false" text="Sign In " />
+      <Button fx:id="ButtonSignIn" layoutX="323.0" layoutY="328.0" mnemonicParsing="false" onAction="#signIn" text="Sign In " />
       <Button fx:id="ButtonBypass" layoutX="102.0" layoutY="328.0" mnemonicParsing="false" onAction="#bypassScreen" text="bypass" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
          <image>
