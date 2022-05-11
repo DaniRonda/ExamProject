@@ -19,6 +19,30 @@ public class AdminDAO {
         cm = new ConnectionManager();
     }
 
+    public Admin getAdminLogin(String emails, String password) throws Exception {
+
+        Admin adminfound = null;
+        try(Connection connection = cm.getConnection()) {
+            String sqlAdmin = ("SELECT * FROM Admins WHERE emails = admin AND password = admin");
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlAdmin);
+            preparedStatement.setString(1, emails);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                int ID = resultSet.getInt("ID");
+                String email = resultSet.getString("emails");
+                String login = resultSet.getString("password");
+
+                adminfound = new Admin(ID, email,login );
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return adminfound;
+    }
 
     public Admin CreateAdmin(Admin admin) throws Exception {
         Admin adminCreated = null;
@@ -80,30 +104,7 @@ public class AdminDAO {
     }
 
 
-    public Admin getAdminLogin(String emails, String password) throws Exception {
 
-        Admin adminfound = null;
-        try(Connection connection = cm.getConnection()) {
-            String sql = ("SELECT * FROM Admins WHERE emails = ? AND password = ?");
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, emails);
-            preparedStatement.setString(2, password);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-                while (resultSet.next()) {
-
-                        int ID = resultSet.getInt("ID");
-                        String email = resultSet.getString("emails");
-                        String login = resultSet.getString("password");
-
-                        adminfound = new Admin(ID, email,login );
-                }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return adminfound;
-    }
 }
 
 
