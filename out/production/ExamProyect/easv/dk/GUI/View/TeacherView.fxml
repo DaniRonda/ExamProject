@@ -9,10 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="638.0" prefWidth="845.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TeacherController">
+<AnchorPane prefHeight="638.0" prefWidth="845.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TeacherController">
    <children>
-      <ToolBar layoutX="1.0" layoutY="2.0" prefHeight="74.0" prefWidth="845.0" style="-fx-background-color: #EFEFE6#EFEFE6;" />
+      <ToolBar layoutX="1.0" layoutY="2.0" prefHeight="74.0" prefWidth="845.0" style="-fx-background-color: #EFEFE6;" />
       <TableView layoutX="60.0" layoutY="125.0" prefHeight="449.0" prefWidth="213.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
@@ -42,7 +41,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </TextField>
-      <Button layoutX="750.0" layoutY="26.0" mnemonicParsing="false" text="Log Out " />
+      <Button fx:id="btnTeacherLogOut" layoutX="750.0" layoutY="26.0" mnemonicParsing="false" onAction="#teacherLogOut" text="Log Out " />
       <Button layoutX="710.0" layoutY="583.0" mnemonicParsing="false" text="Delete" />
    </children>
 </AnchorPane>

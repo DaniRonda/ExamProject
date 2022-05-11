@@ -2,11 +2,9 @@ package easv.dk.DAL;
 
 import easv.dk.BE.Admin;
 import easv.dk.BE.Citizen;
+import easv.dk.BE.Teacher;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +39,19 @@ public class CitizenDAO {
         psSelectCitizen.close();
         con.close();
         return citizenList;
+    }
+
+    public void updateCitizen(Citizen citizen) throws Exception {
+        Connection con = cm.getConnection();
+        String sqlUpdateCitizen = "UPDATE  Citizen SET firstName=?, lastName=? address=?, phoneNumber=?, schoolID=? WHERE ID=?;";
+        PreparedStatement psUpdateCitizen = con.prepareStatement(sqlUpdateCitizen, Statement.RETURN_GENERATED_KEYS);
+        psUpdateCitizen.setString(1,citizen.getFirstName());
+        psUpdateCitizen.setString(2,citizen.getLastName());
+        psUpdateCitizen.setString(3,citizen.getAdress());
+        psUpdateCitizen.setInt(4,citizen.getPhoneNumber());
+        psUpdateCitizen.setInt(5,citizen.getSchoolID());
+        psUpdateCitizen.executeUpdate();
+        psUpdateCitizen.close();
+        con.close();
     }
 }

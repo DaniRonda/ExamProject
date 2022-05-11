@@ -2,13 +2,15 @@ package easv.dk.DAL;
 
 import easv.dk.BE.Admin;
 import easv.dk.BLL.Manager;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.junit.Test;
 
-import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class AdminDAO {
     private static ConnectionManager cm;
@@ -19,7 +21,7 @@ public class AdminDAO {
 
 
     public Admin CreateAdmin(Admin admin) throws Exception {
-       Admin adminCreated = null;
+        Admin adminCreated = null;
         Connection con = cm.getConnection();
         String sqlSelectAdmin = "INSERT INTO Admin VALUES(?,?)";
         PreparedStatement psInsertAdmin = con.prepareStatement(sqlSelectAdmin, Statement.RETURN_GENERATED_KEYS);
@@ -29,14 +31,12 @@ public class AdminDAO {
         psInsertAdmin.executeBatch();
         ResultSet rs = psInsertAdmin.getGeneratedKeys();
         while (rs.next()) {
-            adminCreated = new Admin(admin.getEmail(),
-                    admin.getPassword(),
-                    rs.getInt(1)
+            adminCreated = new Admin( rs.getInt(1) ,admin.getEmail() ,admin.getPassword()
             );
         }
         return adminCreated;
     }
-
+@Test
     public List<Admin> getAllAdmin() throws Exception {
         List<Admin> adminList = new ArrayList<>();
         Connection con = cm.getConnection();
@@ -44,10 +44,10 @@ public class AdminDAO {
         PreparedStatement psSelectAdmin = con.prepareStatement(sqlSelectAdmin);
         ResultSet rs = psSelectAdmin.executeQuery();
         while (rs.next()) {
+            int Id = rs.getInt("ID");
             String email = rs.getString("email");
             String password = rs.getString("password");
-            int Id = rs.getInt("id");
-            Admin admin = new Admin(email, password, Id);
+            Admin admin = new Admin(Id , password, email );
             adminList.add(admin);
         }
         rs.close();
@@ -56,11 +56,12 @@ public class AdminDAO {
         return adminList;
     }
 
+
     public void updateAdmin(Admin admin) throws Exception {
         Connection con = cm.getConnection();
-        String sqlUpdateAdmin = "UPDATE  Admin SET email=?, password=? WHERE ID=?;";
+        String sqlUpdateAdmin = "UPDATE  Admin SET emails=?, password=? WHERE ID=?;";
         PreparedStatement psUpdateAdmin = con.prepareStatement(sqlUpdateAdmin, Statement.RETURN_GENERATED_KEYS);
-        psUpdateAdmin.setString(1,admin.getEmail());
+        psUpdateAdmin.setString(1, admin.getEmail());
         psUpdateAdmin.setString(2, admin.getPassword());
         psUpdateAdmin.executeUpdate();
         psUpdateAdmin.close();
@@ -78,23 +79,31 @@ public class AdminDAO {
 
     }
 
-    Manager manager;
 
-    public boolean getAdminLogin() throws Exception {
-           String TextFieldEmail = manager.getLogInEmail();
-           String TextFieldPassword = manager.getLogInPassword();
+    public Admin getAdminLogin(String emails, String password) throws Exception {
 
-            Connection con = cm.getConnection();
-            String sqlGetAdminLogIn = ("SELECT `email`, `password` FROM `Admin` WHERE `email` = ? AND `password` = ?");
-        PreparedStatement psGetAdminLogIn = con.prepareStatement(sqlGetAdminLogIn, Statement.RETURN_GENERATED_KEYS);
-            psGetAdminLogIn.setString(1, TextFieldEmail);
-            psGetAdminLogIn.setString(2, TextFieldPassword);
-            ResultSet result = psGetAdminLogIn.executeQuery();
-            if (result.next()) {
-                return true; //login succeded
-            } else {
-                return false; //login Failed
-            }
+        Admin adminfound = null;
+        try(Connection connection = cm.getConnection()) {
+            String sql = ("SELECT * FROM Admins WHERE emails = ? AND password = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, emails);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+
+                        int ID = resultSet.getInt("ID");
+                        String email = resultSet.getString("emails");
+                        String login = resultSet.getString("password");
+
+                        adminfound = new Admin(ID, email,login );
+                }
         }
-
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return adminfound;
+    }
 }
+
+
