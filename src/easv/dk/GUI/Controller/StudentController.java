@@ -24,7 +24,7 @@ import java.sql.SQLException;
 
 public class StudentController {
     private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
-
+    public javafx.scene.control.TextField textFieldSearch2;
     public Button ButtonToCase;
 
     @FXML
@@ -41,8 +41,6 @@ public class StudentController {
     private TableView tableViewCitizens;
     @FXML
     private ListView listViewAbout;
-    @FXML
-    private TextField textFieldSearch2;
 
     private final static int CitizenSelected = 0;   //constant
     private int mode = CitizenSelected;
