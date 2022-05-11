@@ -87,7 +87,6 @@ public class LogInController implements Initializable {
 
         public void signIn (ActionEvent actionEvent) throws Exception {
             adminCheck();
-            System.out.println("wrong username or password");
         }
         public String getTextFieldPassword () {
             return this.TextFieldPassword.getText();
@@ -96,6 +95,27 @@ public class LogInController implements Initializable {
             return this.TextFieldEmail.getText();
         }
 
+    public void bypassScreen1(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TeacherView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void bypassScreen2(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/AdminView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
 }
 
 

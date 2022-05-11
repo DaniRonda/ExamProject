@@ -52,7 +52,7 @@ public class StudentController {
     public void initialize() throws Exception {
 
         search();
-        setUpTableView();
+        //setUpTableView();
     }
 
     public void sendToCaseScreen(ActionEvent actionEvent) throws IOException {

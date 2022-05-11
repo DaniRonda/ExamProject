@@ -270,43 +270,84 @@ public class HealthDiagnoseController {
     private Label labelSleep;
     public void sleepClicked(MouseEvent mouseEvent) {clearAll(); vboxSleep.setVisible(true); vboxSleep.setDisable(false);}
     public void sleepEntered(MouseEvent mouseEvent) {
+        labelSleep.setUnderline(true);
+        labelSleep.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelSleep.setUnderline(false);
+                    }
+                });
     }
 
-
-    public void knowledgeClicked(MouseEvent mouseEvent) {clearAll(); vboxInsight.setVisible(true); vboxInsight.setDisable(false);
-    }
-
+    @FXML
+    private Label labelKnowledge;
+    public void knowledgeClicked(MouseEvent mouseEvent) {clearAll(); vboxInsight.setVisible(true); vboxInsight.setDisable(false);}
     public void knowledgeEntered(MouseEvent mouseEvent) {
+        labelKnowledge.setUnderline(true);
+        labelKnowledge.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelKnowledge.setUnderline(false);
+                    }
+                });
     }
 
-
-    public void wastesClicked(MouseEvent mouseEvent) {clearAll(); vboxWastes.setVisible(true); vboxWastes.setDisable(false);
-    }
-
+    @FXML
+    private Label labelWaste;
+    public void wastesClicked(MouseEvent mouseEvent) {clearAll(); vboxWastes.setVisible(true); vboxWastes.setDisable(false);}
     public void wastesEntered(MouseEvent mouseEvent) {
+        labelWaste.setUnderline(true);
+        labelWaste.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelWaste.setUnderline(false);
+                    }
+                });
     }
 
 
-
-
-    public void selfcareClicked(MouseEvent mouseEvent) {clearAll(); vboxSelfCare.setVisible(true); vboxSelfCare.setDisable(false);
-    }
-
+    @FXML
+    private Label labelSelfCare;
+    public void selfcareClicked(MouseEvent mouseEvent) {clearAll(); vboxSelfCare.setVisible(true); vboxSelfCare.setDisable(false);}
     public void selfcareEntered(MouseEvent mouseEvent) {
+        labelSelfCare.setUnderline(true);
+        labelSelfCare.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelSelfCare.setUnderline(false);
+                    }
+                });
     }
 
-
-    public void practicalClicked(MouseEvent mouseEvent) {clearAll(); vboxPracticalWork.setVisible(true); vboxPracticalWork.setDisable(false);
-    }
-
+    @FXML
+    private Label labelPracticalWork;
+    public void practicalClicked(MouseEvent mouseEvent) {clearAll(); vboxPracticalWork.setVisible(true); vboxPracticalWork.setDisable(false);}
     public void pacticalEntered(MouseEvent mouseEvent) {
+        labelPracticalWork.setUnderline(true);
+        labelPracticalWork.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelPracticalWork.setUnderline(false);
+                    }
+                });
     }
 
-
-    public void mobilityClicked(MouseEvent mouseEvent) {clearAll(); vboxMobility.setVisible(true); vboxMobility.setDisable(false);
-    }
-
+    private Label labelMobility;
+    public void mobilityClicked(MouseEvent mouseEvent) {clearAll(); vboxMobility.setVisible(true); vboxMobility.setDisable(false);}
     public void mobilityEntered(MouseEvent mouseEvent) {
+        labelPracticalWork.setUnderline(true);
+        labelPracticalWork.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelPracticalWork.setUnderline(false);
+                    }
+                });
     }
 
 
