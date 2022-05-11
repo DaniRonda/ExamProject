@@ -1,7 +1,7 @@
 package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Citizen;
-import easv.dk.GUI.Model.citizenModel;
+import easv.dk.GUI.Model.CitizenModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -47,7 +47,7 @@ public class StudentController {
     private final static int CitizenSelected = 0;   //constant
     private int mode = CitizenSelected;
 
-    citizenModel citizenmodel;
+    CitizenModel citizenmodel;
     public void initialize() throws Exception {
 
         search();
@@ -110,8 +110,6 @@ public class StudentController {
         textFieldSearch2.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 dataList.addAll(citizenmodel.getAllCitizen()); //<-- depending on what name the method gets
-            } catch (SQLException e) {
-                e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             }

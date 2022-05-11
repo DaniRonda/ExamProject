@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,22 +22,21 @@ public class LogInController implements Initializable {
     private Button BtnCancel;
     @FXML
     private Button ButtonBypass;
+    @FXML
+    private TextField TextFieldEmail;
+    @FXML
+    private TextField TextFieldPassword;
 
-    public void bypassScreen(ActionEvent event) throws IOException {
-        
+    public void bypassScreen(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/StudentView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("New Category");
         stage.centerOnScreen();
         stage.show();
-
     }
-
-
 
     public void cancelLogIn(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Cancel login?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -47,15 +47,27 @@ public class LogInController implements Initializable {
             Stage stage = (Stage) BtnCancel.getScene().getWindow();
             stage.close();
         }
-
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
 
+    public TextField getTextFieldMail(){
+        return TextFieldEmail;
+    }
+
+    public TextField getTextFieldPassword(){
+        return TextFieldPassword;
+    }
+
+    public boolean adminCheck() {
+        return false;
     }
 
 
 
+
 }
+
 
