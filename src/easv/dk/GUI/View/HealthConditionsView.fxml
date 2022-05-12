@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="844.0" prefWidth="1301.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.HealthDiagnoseController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1301.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.HealthDiagnoseController">
    <children>
-      <VBox fx:id="vboxHealth" layoutX="11.0" layoutY="121.0" prefHeight="658.0" prefWidth="244.0" style="-fx-background-color: FFFFFF;" AnchorPane.bottomAnchor="121.0">
+      <VBox fx:id="vboxHealth" layoutX="11.0" layoutY="161.0" prefHeight="636.0" prefWidth="244.0" style="-fx-background-color: FFFFFF;" AnchorPane.bottomAnchor="73.0">
          <children>
             <Label fx:id="labelFunctionLevel" onMouseClicked="#functionLevelCLiscke" onMouseEntered="#mouseOverFunction" prefHeight="48.0" prefWidth="176.0" text="  Functionlevel">
                <font>
@@ -28,12 +28,12 @@
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelNutrition" onMouseClicked="#nutritionClicked" onMouseEntered="#mouseOverNutrtion" prefHeight="48.0" prefWidth="298.0" text="  Nutrition">
+            <Label fx:id="labelSkin" onMouseClicked="#skinClicked" onMouseEntered="#skinEntered" prefHeight="48.0" prefWidth="298.0" text="  Skin and membranes">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelSkin" onMouseClicked="#skinClicked" onMouseEntered="#skinEntered" prefHeight="48.0" prefWidth="298.0" text="  Skin and membranes">
+            <Label fx:id="labelNutrition" onMouseClicked="#nutritionClicked" onMouseEntered="#mouseOverNutrtion" prefHeight="48.0" prefWidth="298.0" text="  Nutrition">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -117,7 +117,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="VBoxFunctionLevel" layoutX="265.0" layoutY="95.0" prefHeight="658.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;">
+      <VBox fx:id="VBoxFunctionLevel" layoutX="265.0" layoutY="126.0" prefHeight="636.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;">
          <children>
             <Label fx:id="labelFunctionLevel1" onMouseClicked="#functionLevel1Clicked" onMouseEntered="#functionLevel1Entered" prefHeight="48.0" prefWidth="298.0" text="  Problems with personal care">
                <font>
@@ -565,7 +565,7 @@
             </Label>
          </children>
       </VBox>
-      <AnchorPane layoutX="565.0" layoutY="86.0" prefHeight="737.0" prefWidth="736.0" style="-fx-background-color: #D6E7FB#D6E7FB;">
+      <AnchorPane layoutX="565.0" layoutY="109.0" prefHeight="659.0" prefWidth="676.0" style="-fx-background-color: #D6E7FB#D6E7FB;">
          <children>
             <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="55.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                <children>
@@ -607,7 +607,7 @@
             </Text>
             <TextArea fx:id="textAreaCurAssessment" layoutX="14.0" layoutY="249.0" prefHeight="110.0" prefWidth="708.0" />
             <TextArea fx:id="TextAreaObsNotes" layoutX="14.0" layoutY="547.0" prefHeight="110.0" prefWidth="708.0" />
-            <Button fx:id="buttonClientsWishes" layoutX="14.0" layoutY="681.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" prefHeight="50.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC;" text="Clients Wishes">
+            <Button fx:id="buttonClientsWishes" layoutX="14.0" layoutY="668.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" prefHeight="50.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC;" text="Clients Wishes">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -621,7 +621,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="62.0" prefWidth="1300.0" style="-fx-background-color: #EFEFE6 #EFEFE6;">
+      <AnchorPane prefHeight="76.0" prefWidth="1301.0" style="-fx-background-color: #EFEFE6 #EFEFE6;">
          <children>
             <ImageView fitHeight="62.0" fitWidth="102.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0">
                <image>
@@ -641,7 +641,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="11.0" layoutY="769.0" mnemonicParsing="false" onAction="#toFunctional" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Functional Diagnose ">
+      <Button layoutX="14.0" layoutY="772.0" mnemonicParsing="false" onAction="#toFunctional" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Functional Diagnose ">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
