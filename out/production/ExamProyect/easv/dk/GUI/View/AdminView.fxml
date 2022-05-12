@@ -13,7 +13,9 @@
       <ListView layoutX="362.0" layoutY="90.0" prefHeight="311.0" prefWidth="200.0" />
       <TextField layoutX="14.0" layoutY="14.0" promptText="🔎" />
       <Label layoutX="14.0" layoutY="60.0" text="Teachers" />
+
       <TableView layoutX="14.0" layoutY="80.0" prefHeight="331.0" prefWidth="259.0">
+
         <columns>
           <TableColumn prefWidth="75.0" text="First Name" />
           <TableColumn prefWidth="75.0" text="Last Name" />
@@ -23,5 +25,9 @@
       <Button layoutX="14.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Add" />
       <Button fx:id="btnOpenAdminEditView" layoutX="88.0" layoutY="419.0" mnemonicParsing="false" onAction="#openAdminEditView" prefHeight="25.0" prefWidth="51.0" text="Edit" />
       <Button layoutX="163.0" layoutY="419.0" mnemonicParsing="false" text="Delete" />
+
+      <Label layoutX="362.0" layoutY="60.0" text="Schools" />
+      <Button layoutX="411.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Edit" />
+
    </children>
 </AnchorPane>
