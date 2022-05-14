@@ -14,73 +14,106 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1301.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.HealthDiagnoseController">
+<AnchorPane prefHeight="900.0" prefWidth="1300.0" style="-fx-background-color: #ECECEC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.HealthDiagnoseController">
    <children>
-      <VBox fx:id="vboxHealth" layoutX="11.0" layoutY="161.0" prefHeight="636.0" prefWidth="244.0" style="-fx-background-color: FFFFFF;" AnchorPane.bottomAnchor="73.0">
+      <AnchorPane prefHeight="163.0" prefWidth="1300.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label fx:id="labelFunctionLevel" onMouseClicked="#functionLevelCLiscke" onMouseEntered="#mouseOverFunction" prefHeight="48.0" prefWidth="176.0" text="  Functionlevel">
+            <ImageView fitHeight="142.0" fitWidth="147.0" layoutX="579.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../OneDrive/Billeder/512x512bb.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="102.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0">
+               <image>
+                  <Image url="@../../../../../../OneDrive/Billeder/trhgbCapture.PNG" />
+               </image>
+            </ImageView>
+            <Button fx:id="ButtonToCase" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendToCaseScreen" prefHeight="62.0" prefWidth="100.0" text="Button" visible="false" />
+            <Button fx:id="ButtonLogOut" layoutX="14.0" layoutY="95.0" mnemonicParsing="false" onAction="#logOut" prefHeight="50.0" prefWidth="100.0" style="-fx-background-radius: 25; -fx-background-color: #D3D3D3;" text="Log Out">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonReturn" layoutX="16.0" layoutY="32.0" mnemonicParsing="false" onAction="#Return" prefHeight="50.0" prefWidth="100.0" style="-fx-background-radius: 25; -fx-background-color: #D3D3D3;" text="Return">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <VBox fx:id="vboxHealth" disable="true" layoutY="163.0" prefHeight="737.0" prefWidth="265.0" style="-fx-background-color: #ECECEC;" visible="false" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <Label fx:id="labelFunctionLevel" onMouseClicked="#functionLevelCLiscke" onMouseEntered="#mouseOverFunction" prefHeight="48.0" prefWidth="176.0" text="Functionlevel">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelMovementApperatus" onMouseClicked="#cilckedApperatus" onMouseEntered="#mouseOverApperatus" prefHeight="48.0" prefWidth="298.0" text="  Movement apperatus">
+            <Label fx:id="labelMovementApperatus" onMouseClicked="#cilckedApperatus" onMouseEntered="#mouseOverApperatus" prefHeight="48.0" prefWidth="298.0" text="Movement apperatus">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelSkin" onMouseClicked="#skinClicked" onMouseEntered="#skinEntered" prefHeight="48.0" prefWidth="298.0" text="  Skin and membranes">
+            <Label fx:id="labelNutrition" onMouseClicked="#nutritionClicked" onMouseEntered="#mouseOverNutrtion" prefHeight="48.0" prefWidth="298.0" text="Nutrition">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelNutrition" onMouseClicked="#nutritionClicked" onMouseEntered="#mouseOverNutrtion" prefHeight="48.0" prefWidth="298.0" text="  Nutrition">
+            <Label fx:id="labelSkin" onMouseClicked="#skinClicked" onMouseEntered="#skinEntered" prefHeight="48.0" prefWidth="298.0" text="Skin and membranes">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelComunication" onMouseClicked="#communicationClicked" onMouseEntered="#communicationEntered" prefHeight="48.0" prefWidth="298.0" text="  Communication">
+            <Label fx:id="labelComunication" onMouseClicked="#communicationClicked" onMouseEntered="#communicationEntered" prefHeight="48.0" prefWidth="298.0" text="Communication">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelPshyco" onMouseClicked="#pshycoClicked" onMouseEntered="#pshycoEntered" prefHeight="48.0" prefWidth="298.0" text="  Pshycosocial relationships">
+            <Label fx:id="labelPshyco" onMouseClicked="#pshycoClicked" onMouseEntered="#pshycoEntered" prefHeight="48.0" prefWidth="298.0" text="Pshycosocial relationships">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelCirkulation" onMouseClicked="#respoClicked" onMouseEntered="#respoEntered" prefHeight="48.0" prefWidth="298.0" text="  Resporation og cirkulation">
+            <Label fx:id="labelCirkulation" onMouseClicked="#respoClicked" onMouseEntered="#respoEntered" prefHeight="48.0" prefWidth="298.0" text="Resporation og cirkulation">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelSSexuality" onMouseClicked="#sexualityClicked" onMouseEntered="#sexualityEntered" prefHeight="48.0" prefWidth="298.0" text="  Sexuality">
+            <Label fx:id="labelSSexuality" onMouseClicked="#sexualityClicked" onMouseEntered="#sexualityEntered" prefHeight="48.0" prefWidth="298.0" text="Sexuality">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelPains" onMouseClicked="#painsClicked" onMouseEntered="#painsEntered" prefHeight="48.0" prefWidth="298.0" text="  Pains and senses">
+            <Label fx:id="labelPains" onMouseClicked="#painsClicked" onMouseEntered="#painsEntered" prefHeight="48.0" prefWidth="298.0" text="Pains and senses">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelSleep" onMouseClicked="#sleepClicked" onMouseEntered="#sleepEntered" prefHeight="48.0" prefWidth="298.0" text="  Sleep and rest">
+            <Label fx:id="labelSleep" onMouseClicked="#sleepClicked" onMouseEntered="#sleepEntered" prefHeight="48.0" prefWidth="298.0" text="Sleep and rest">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelKnowledge" onMouseClicked="#knowledgeClicked" onMouseEntered="#knowledgeEntered" prefHeight="48.0" prefWidth="298.0" text="  Knowledge and development">
+            <Label fx:id="labelKnowledge" onMouseClicked="#knowledgeClicked" onMouseEntered="#knowledgeEntered" prefHeight="48.0" prefWidth="298.0" text="knowledge and development">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelWaste" onMouseClicked="#wastesClicked" onMouseEntered="#wastesEntered" prefHeight="48.0" prefWidth="298.0" text="  Excrement of wastes">
+            <Label fx:id="labelWaste" onMouseClicked="#wastesClicked" onMouseEntered="#wastesEntered" prefHeight="48.0" prefWidth="298.0" text="Excrement of wastes">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
+            <Button mnemonicParsing="false" onAction="#toFunctional" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Functional Diagnose ">
+               <VBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
-      <VBox fx:id="vboxfunction" disable="true" layoutY="163.0" prefHeight="737.0" prefWidth="265.0" style="-fx-background-color: #ECECEC;" visible="false">
+      <VBox fx:id="vboxfunction" layoutY="163.0" prefHeight="737.0" prefWidth="265.0" style="-fx-background-color: #ECECEC;">
          <children>
             <Label fx:id="labelSelfCare" onMouseClicked="#selfcareClicked" onMouseEntered="#selfcareEntered" prefHeight="48.0" prefWidth="176.0" text="Selfcare">
                <font>
@@ -117,14 +150,14 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="VBoxFunctionLevel" layoutX="265.0" layoutY="126.0" prefHeight="636.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;">
+      <VBox fx:id="VBoxFunctionLevel" layoutX="265.0" layoutY="163.0" prefHeight="737.0" prefWidth="300.0" style="-fx-background-color: #D9D9D9;">
          <children>
-            <Label fx:id="labelFunctionLevel1" onMouseClicked="#functionLevel1Clicked" onMouseEntered="#functionLevel1Entered" prefHeight="48.0" prefWidth="298.0" text="  Problems with personal care">
+            <Label fx:id="labelFunctionLevel1" onMouseClicked="#functionLevel1Clicked" onMouseEntered="#functionLevel1Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with personal care">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelFunctionLevel2" onMouseClicked="#functionLevel2Clicked" onMouseEntered="#functionLevel2Entered" prefHeight="48.0" prefWidth="298.0" text="  Problems with daily activities ">
+            <Label fx:id="labelFunctionLevel2" onMouseClicked="#functionLevel2Clicked" onMouseEntered="#functionLevel2Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with daily activities ">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -565,16 +598,16 @@
             </Label>
          </children>
       </VBox>
-      <AnchorPane layoutX="565.0" layoutY="109.0" prefHeight="659.0" prefWidth="676.0" style="-fx-background-color: #D6E7FB#D6E7FB;">
+      <AnchorPane layoutX="564.0" layoutY="163.0" prefHeight="737.0" prefWidth="736.0" style="-fx-background-color: #CCCCCC;">
          <children>
-            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="55.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+            <AnchorPane layoutX="8.0" layoutY="14.0" prefHeight="55.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
                <children>
                   <Label fx:id="labelSelectedCategory" layoutX="14.0" layoutY="14.0" text="Category" AnchorPane.topAnchor="9.0">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelSelectedSubCategory" layoutX="142.0" layoutY="9.0" text="SubCategory" AnchorPane.bottomAnchor="26.0">
+                  <Label fx:id="labelSelectedSubCategory" layoutX="90.0" layoutY="20.0" text="SubCategory" AnchorPane.bottomAnchor="9.0">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -607,7 +640,7 @@
             </Text>
             <TextArea fx:id="textAreaCurAssessment" layoutX="14.0" layoutY="249.0" prefHeight="110.0" prefWidth="708.0" />
             <TextArea fx:id="TextAreaObsNotes" layoutX="14.0" layoutY="547.0" prefHeight="110.0" prefWidth="708.0" />
-            <Button fx:id="buttonClientsWishes" layoutX="14.0" layoutY="668.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" prefHeight="50.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC;" text="Clients Wishes">
+            <Button fx:id="buttonClientsWishes" layoutX="14.0" layoutY="665.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" prefHeight="50.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC;" text="Clients Wishes">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -621,30 +654,5 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="76.0" prefWidth="1301.0" style="-fx-background-color: #EFEFE6 #EFEFE6;">
-         <children>
-            <ImageView fitHeight="62.0" fitWidth="102.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0">
-               <image>
-                  <Image url="@../../../../../../OneDrive/Billeder/trhgbCapture.PNG" />
-               </image>
-            </ImageView>
-            <Button fx:id="ButtonToCase" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendToCaseScreen" prefHeight="62.0" prefWidth="100.0" text="Button" visible="false" />
-            <Button fx:id="ButtonLogOut" layoutX="1178.0" layoutY="13.0" mnemonicParsing="false" onAction="#logOut" prefHeight="50.0" prefWidth="100.0" style="-fx-background-radius: 25; -fx-background-color: #D3D3D3;" text="Log Out">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="buttonReturn" layoutX="15.0" layoutY="13.0" mnemonicParsing="false" onAction="#Return" prefHeight="50.0" prefWidth="100.0" style="-fx-background-radius: 25; -fx-background-color: #D3D3D3;" text="Return">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <Button layoutX="14.0" layoutY="772.0" mnemonicParsing="false" onAction="#toFunctional" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Functional Diagnose ">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

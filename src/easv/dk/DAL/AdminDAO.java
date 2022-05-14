@@ -19,26 +19,27 @@ public class AdminDAO {
         cm = new ConnectionManager();
     }
 
-    public Admin getAdminLogin(String emails, String password) throws Exception {
+    public Admin getAdminLogin(String email, String password) throws Exception {
 
         Admin adminfound = null;
         try(Connection connection = cm.getConnection()) {
-            String sqlAdmin = ("SELECT * FROM Admins WHERE emails = admin AND password = admin");
+            String sqlAdmin = ("SELECT * FROM Admins WHERE 'emails' = ? AND 'password' = ?");
             PreparedStatement preparedStatement = connection.prepareStatement(sqlAdmin);
-            preparedStatement.setString(1, emails);
+            preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
 
                 int ID = resultSet.getInt("ID");
-                String email = resultSet.getString("emails");
+                String emails = resultSet.getString("emails");
                 String login = resultSet.getString("password");
 
-                adminfound = new Admin(ID, email,login );
+                adminfound = new Admin(ID, emails,login );
             }
         }
         catch (Exception e){
+            adminfound = null;
             e.printStackTrace();
         }
         return adminfound;
