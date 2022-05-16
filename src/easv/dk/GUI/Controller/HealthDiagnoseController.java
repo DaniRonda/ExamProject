@@ -1093,241 +1093,211 @@ public class HealthDiagnoseController {
 
 
 
-    public void selfcare1Clicked(MouseEvent mouseEvent) {
-    }
-
+    public void selfcare1Clicked(MouseEvent mouseEvent) {}
     public void selfcare1Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void selfcare2Click(MouseEvent mouseEvent) {
-    }
-
+    public void selfcare2Click(MouseEvent mouseEvent) {}
     public void selfcare2Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void selfcare3Clicked(MouseEvent mouseEvent) {
-    }
-
+    public void selfcare3Clicked(MouseEvent mouseEvent) {}
     public void selfcare3Entered(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void selfcare4Clicked(MouseEvent mouseEvent) {
-    }
-    
+    public void selfcare4Clicked(MouseEvent mouseEvent) {}
     public void selfcare4Enter(MouseEvent mouseEvent) {
+
     }
 
 
-    public void selfcare5Clicked(MouseEvent mouseEvent) {
-    }
-
+    public void selfcare5Clicked(MouseEvent mouseEvent) {}
     public void selfcare5Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void selfcare6Click(MouseEvent mouseEvent) {
-    }
-
+    public void selfcare6Click(MouseEvent mouseEvent) {}
     public void selfcare6Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void selfcare7Click(MouseEvent mouseEvent) {
-    }
-
+    public void selfcare7Click(MouseEvent mouseEvent) {}
     public void selfcare7Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void selfcare8Click(MouseEvent mouseEvent) {
-    }
-
+    public void selfcare8Click(MouseEvent mouseEvent) {}
     public void selfcare8Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void practical1Click(MouseEvent mouseEvent) {
-    }
-
+    public void practical1Click(MouseEvent mouseEvent) {}
     public void practical1Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void practical2Click(MouseEvent mouseEvent) {
-    }
-
+    public void practical2Click(MouseEvent mouseEvent) {}
     public void practical2Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void practical3Click(MouseEvent mouseEvent) {
-    }
-
+    public void practical3Click(MouseEvent mouseEvent) {}
     public void practical3Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void practical4Click(MouseEvent mouseEvent) {
-    }
-
+    public void practical4Click(MouseEvent mouseEvent) {}
     public void practical4Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility1Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility1Click(MouseEvent mouseEvent) {}
     public void mobility1Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility2Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility2Click(MouseEvent mouseEvent) {}
     public void mobility2Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility3Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility3Click(MouseEvent mouseEvent) {}
     public void mobility3Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility4Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility4Click(MouseEvent mouseEvent) {}
     public void mobility4Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility5Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility5Click(MouseEvent mouseEvent) {}
     public void mobility5Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility6Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility6Click(MouseEvent mouseEvent) {}
     public void mobility6Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility7Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility7Click(MouseEvent mouseEvent) {}
     public void mobility7Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility8Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility8Click(MouseEvent mouseEvent) {}
     public void mobility8Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mobility9Click(MouseEvent mouseEvent) {
-    }
-
+    public void mobility9Click(MouseEvent mouseEvent) {}
     public void mobility9Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mentalFunction1Clicked(MouseEvent mouseEvent) {
-    }
-
+    public void mentalFunction1Clicked(MouseEvent mouseEvent) {}
     public void mentalFunction1Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mentalFunction2Click(MouseEvent mouseEvent) {
-    }
-
+    public void mentalFunction2Click(MouseEvent mouseEvent) {}
     public void mentalFunction2Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mentalFunction3Clicked(MouseEvent mouseEvent) {
-    }
-
+    public void mentalFunction3Clicked(MouseEvent mouseEvent) {}
     public void mentalFunction3Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mentalFunction4Clicked(MouseEvent mouseEvent) {
-    }
-
+    public void mentalFunction4Clicked(MouseEvent mouseEvent) {}
     public void mentalFunction4Entered(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mentalFunction5Clicked(MouseEvent mouseEvent) {
-    }
-
+    public void mentalFunction5Clicked(MouseEvent mouseEvent) {}
     public void mentalFunction5Entered(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mentalFunction6Click(MouseEvent mouseEvent) {
-    }
-
+    public void mentalFunction6Click(MouseEvent mouseEvent) {}
     public void mentalFunction6Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mentalFunction7Click(MouseEvent mouseEvent) {
-    }
-
+    public void mentalFunction7Click(MouseEvent mouseEvent) {}
     public void mentalFunction7Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void mentalFunction8Click(MouseEvent mouseEvent) {
-    }
-
+    public void mentalFunction8Click(MouseEvent mouseEvent) {}
     public void mentalFunction8Enter(MouseEvent mouseEvent) {
+
     }
 
 
 
-    public void socialLife1Clicked(MouseEvent mouseEvent) {
-    }
-
+    public void socialLife1Clicked(MouseEvent mouseEvent) {}
     public void socialLife1Enter(MouseEvent mouseEvent) {
+
     }
 
 
