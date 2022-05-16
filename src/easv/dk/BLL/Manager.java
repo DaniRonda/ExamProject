@@ -63,4 +63,12 @@ public class Manager {
     public void updateTeacher(Teacher teacher) throws Exception {
         teacherDAO.updateTeacher(teacher);
     }
+
+    public void updateStudent(Student student) throws Exception {
+        studentDAO.updateStudent(student);
+    }
+
+    public void updateAdmin(Admin admin) throws Exception {
+        adminDAO.updateAdmin(admin);
+    }
 }

@@ -34,7 +34,8 @@ public class AdminViewController {
     public void initialize() throws Exception{
       /*  setUpTeacherTable();
         setUpSchoolTable();
-        filter();*/
+        filter();
+        */
 
     }
 

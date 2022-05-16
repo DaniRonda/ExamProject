@@ -1,6 +1,7 @@
 package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Admin;
+import easv.dk.BE.Teacher;
 import easv.dk.BLL.Manager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -9,7 +10,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.util.Date;
 
 public class EditAdminViewController {
     private AdminViewController parentController;
@@ -20,8 +20,20 @@ public class EditAdminViewController {
     public TextField adminEmail_txt;
     public Button confirmUpdateAdminBTN;
     public Button cancelUpdateAdminBTN;
+    private Admin selectedAdmin;
+    Manager manager = new Manager();
+
 
     public EditAdminViewController() throws Exception {
+
+        String adminEmail= adminEmail_txt.getText();
+        String adminPassword=adminPassword_txt.getText();
+        Admin adminUpdated = new Admin ( selectedAdmin.getId(), adminEmail, adminPassword);
+        manager.updateAdmin(adminUpdated);
+        Stage stage = (Stage)confirmUpdateAdminBTN.getScene().getWindow();
+        stage.close();
+        parentController.initialize();
+
     }
 
 

@@ -1,6 +1,4 @@
 package easv.dk.GUI.Controller;
-
-import easv.dk.BE.Admin;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.Manager;
 import javafx.event.ActionEvent;
@@ -39,8 +37,10 @@ public class EditTeacherViewController {
         Stage stage = (Stage)confirmUpdateTeacherBTN.getScene().getWindow();
         stage.close();
         parentController.initialize();
-
     }
+
+
+
 
     public void cancelUpdateTeacher(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
