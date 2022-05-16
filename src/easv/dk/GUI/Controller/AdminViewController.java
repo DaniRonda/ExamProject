@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 
 public class AdminViewController {
 
@@ -25,6 +28,14 @@ public class AdminViewController {
         stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
+    }
+
+    @FXML
+    public void initialize() throws Exception{
+      /*  setUpTeacherTable();
+        setUpSchoolTable();
+        filter();*/
+
     }
 
 }
