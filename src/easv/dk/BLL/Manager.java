@@ -10,6 +10,7 @@ import easv.dk.DAL.StudentDAO;
 import easv.dk.DAL.TeacherDAO;
 import easv.dk.GUI.Controller.LogInController;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class Manager {
@@ -18,6 +19,7 @@ public class Manager {
     CitizenDAO citizenDAO = new CitizenDAO();
     StudentDAO studentDAO = new StudentDAO();
     TeacherDAO teacherDAO = new TeacherDAO();
+
 
     public Manager() throws Exception {
     }
@@ -56,5 +58,9 @@ public class Manager {
         Teacher teacher = teacherDAO.getTeacherLogin(emails, password);
         if (teacher != null) return loginHelper.getInstanceTeacher(teacher);
         else return null;
+    }
+
+    public void updateTeacher(Teacher teacher) throws Exception {
+        teacherDAO.updateTeacher(teacher);
     }
 }
