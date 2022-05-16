@@ -44,11 +44,14 @@ public class StudentController {
     private final static int CitizenSelected = 0;   //constant
     private int mode = CitizenSelected;
 
-    CitizenModel citizenmodel;
-    public void initialize() throws Exception {
+    CitizenModel citizenmodel = new CitizenModel();
 
+    public StudentController() throws Exception {
+    }
+
+    public void initialize() throws Exception {
         search();
-        //setUpTableView();
+        // setUpTableView();
     }
 
     public void sendToCaseScreen(ActionEvent actionEvent) throws Exception {
@@ -88,7 +91,7 @@ public class StudentController {
 
     public void openHealthConditionsView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthDiagnoseView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

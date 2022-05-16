@@ -1,5 +1,6 @@
 package easv.dk.DAL;
 
+import easv.dk.BE.Admin;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 
@@ -17,6 +18,35 @@ public class TeacherDAO {
 
     public TeacherDAO() throws Exception {
         cm = new ConnectionManager();
+    }
+
+    public Teacher getTeacherLogin(String email, String password) throws Exception {
+
+        Teacher teacherfound = null;
+        try(Connection connection = cm.getConnection()) {
+            String sqlAdmin = ("SELECT * FROM Teacher WHERE email = ? AND password = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlAdmin);
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                int ID = resultSet.getInt("ID");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                String emails = resultSet.getString("email");
+                String login = resultSet.getString("password");
+                String school = resultSet.getString("school");
+                System.out.println("admin found");
+                teacherfound = new Teacher(firstName, lastName, emails, password, school, ID);
+            }
+        }
+        catch (Exception e){
+            teacherfound = null;
+            e.printStackTrace();
+        }
+        return teacherfound;
     }
 
 

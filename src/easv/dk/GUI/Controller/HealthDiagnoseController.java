@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -55,6 +56,17 @@ public class HealthDiagnoseController {
     private VBox vboxMentalFunction;
     @FXML
     private VBox vboxSocialLife;
+    @FXML
+    private Label labelSelectedCategory;
+    @FXML
+    private Label labelSelectedSubCategory;
+
+    String selectedDiagnose;
+    String selectedCategory;
+    String selectedSubCategory;
+
+
+
 
 
     public void clearAll(){
@@ -130,19 +142,49 @@ public class HealthDiagnoseController {
         stage.show();
     }
 
+    @FXML
+    private Button buttonHealth;
     public void toFunctional(ActionEvent actionEvent) {
+        vboxfunction.setVisible(true); vboxfunction.setDisable(false);
+        vboxHealth.setVisible(false); vboxHealth.setDisable(true);
+        selectedDiagnose = "functionalDiagnose";}
+    public void mouseOverToHealthBtn(MouseEvent mouseEvent) {
+        buttonHealth.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
+
+        buttonHealth.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        buttonHealth.setStyle("-fx-border-color: #8D8D8D; -fx-background-color: #D3D3D3; -fx-border-radius: 15; -fx-background-radius: 15;");}
+                });
     }
 
+
+    @FXML
+    private Button buttonToFunctional;
     public void toHealth(ActionEvent actionEvent) {
+        vboxHealth.setVisible(true); vboxHealth.setDisable(false);
+        vboxfunction.setVisible(false); vboxfunction.setDisable(true);
+        selectedDiagnose = "healthDiagnose";}
+    public void mouseOverToFunctionalBtn(MouseEvent mouseEvent) {
+        buttonToFunctional.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
+
+        buttonToFunctional.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        buttonToFunctional.setStyle("-fx-border-color: #8D8D8D; -fx-background-color: #D3D3D3; -fx-border-radius: 15; -fx-background-radius: 15;");}
+                });
     }
 
     public void toClientsWishesScreen(ActionEvent actionEvent) {
 
-
     }
+
+
     @FXML
     private Label labelFunctionLevel;
-    public void functionLevelCLiscke(MouseEvent mouseEvent) {clearAll(); VBoxFunctionLevel.setVisible(true); VBoxFunctionLevel.setDisable(false);}
+    public void functionLevelCLiscke(MouseEvent mouseEvent) {clearAll(); VBoxFunctionLevel.setVisible(true); VBoxFunctionLevel.setDisable(false);  labelSelectedCategory.setText("Functionlevel");}
     public void mouseOverFunction(MouseEvent mouseEvent) {
         labelFunctionLevel.setUnderline(true);
         labelFunctionLevel.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -154,9 +196,11 @@ public class HealthDiagnoseController {
                 });
     }
 
+
+
     @FXML
     private Label labelMovementApperatus;
-    public void cilckedApperatus(MouseEvent mouseEvent) {clearAll(); vboxMovementapperatus.setVisible(true); vboxMovementapperatus.setDisable(false);}
+    public void cilckedApperatus(MouseEvent mouseEvent) {clearAll(); vboxMovementapperatus.setVisible(true); vboxMovementapperatus.setDisable(false); selectedCategory = "Movement Apparatus";}
     public void mouseOverApperatus(MouseEvent mouseEvent) {
         labelMovementApperatus.setUnderline(true);
         labelMovementApperatus.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -170,7 +214,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelNutrition;
-    public void nutritionClicked(MouseEvent mouseEvent) {clearAll(); vboxConsumtion.setVisible(true); vboxConsumtion.setDisable(false);}
+    public void nutritionClicked(MouseEvent mouseEvent) {clearAll(); vboxConsumtion.setVisible(true); vboxConsumtion.setDisable(false); selectedCategory = "Nutrition";}
     public void mouseOverNutrtion(MouseEvent mouseEvent) {
         labelNutrition.setUnderline(true);
         labelNutrition.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -184,7 +228,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin;
-    public void skinClicked(MouseEvent mouseEvent) {clearAll(); vboxSkin.setVisible(true); vboxSkin.setDisable(false);}
+    public void skinClicked(MouseEvent mouseEvent) {clearAll(); vboxSkin.setVisible(true); vboxSkin.setDisable(false); selectedCategory = "Skin and membranes";}
     public void skinEntered(MouseEvent mouseEvent) {
         labelSkin.setUnderline(true);
         labelSkin.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -198,7 +242,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelComunication;
-    public void communicationClicked(MouseEvent mouseEvent) {clearAll(); vboxCommunication.setVisible(true); vboxCommunication.setDisable(false);}
+    public void communicationClicked(MouseEvent mouseEvent) {clearAll(); vboxCommunication.setVisible(true); vboxCommunication.setDisable(false); selectedCategory = "Communication";}
     public void communicationEntered(MouseEvent mouseEvent) {
         labelComunication.setUnderline(true);
         labelComunication.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -212,7 +256,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPshyco;
-    public void pshycoClicked(MouseEvent mouseEvent) {clearAll(); vboxPshyco.setVisible(true); vboxPshyco.setDisable(false);}
+    public void pshycoClicked(MouseEvent mouseEvent) {clearAll(); vboxPshyco.setVisible(true); vboxPshyco.setDisable(false); selectedCategory = "Psychosocial relationships";}
     public void pshycoEntered(MouseEvent mouseEvent) {
         labelPshyco.setUnderline(true);
         labelPshyco.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -226,7 +270,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelCirkulation;
-    public void respoClicked(MouseEvent mouseEvent) {clearAll(); vboxResparation.setVisible(true); vboxResparation.setDisable(false);}
+    public void respoClicked(MouseEvent mouseEvent) {clearAll(); vboxResparation.setVisible(true); vboxResparation.setDisable(false); selectedCategory = "Respiration and circulation";}
     public void respoEntered(MouseEvent mouseEvent) {
         labelCirkulation.setUnderline(true);
         labelCirkulation.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -240,7 +284,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSSexuality;
-    public void sexualityClicked(MouseEvent mouseEvent) {clearAll(); vboxSexuality.setVisible(true); vboxSexuality.setDisable(false);}
+    public void sexualityClicked(MouseEvent mouseEvent) {clearAll(); vboxSexuality.setVisible(true); vboxSexuality.setDisable(false); selectedCategory = "Sexuality";}
     public void sexualityEntered(MouseEvent mouseEvent) {
         labelSSexuality.setUnderline(true);
         labelSSexuality.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -254,7 +298,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPains;
-    public void painsClicked(MouseEvent mouseEvent) {clearAll(); vboxPain.setVisible(true); vboxPain.setDisable(false);}
+    public void painsClicked(MouseEvent mouseEvent) {clearAll(); vboxPain.setVisible(true); vboxPain.setDisable(false); selectedCategory = "Pains and senses";}
     public void painsEntered(MouseEvent mouseEvent) {
         labelPains.setUnderline(true);
         labelPains.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -268,7 +312,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSleep;
-    public void sleepClicked(MouseEvent mouseEvent) {clearAll(); vboxSleep.setVisible(true); vboxSleep.setDisable(false);}
+    public void sleepClicked(MouseEvent mouseEvent) {clearAll(); vboxSleep.setVisible(true); vboxSleep.setDisable(false); selectedCategory = "Sleep and rest";}
     public void sleepEntered(MouseEvent mouseEvent) {
         labelSleep.setUnderline(true);
         labelSleep.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -282,7 +326,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelKnowledge;
-    public void knowledgeClicked(MouseEvent mouseEvent) {clearAll(); vboxInsight.setVisible(true); vboxInsight.setDisable(false);}
+    public void knowledgeClicked(MouseEvent mouseEvent) {clearAll(); vboxInsight.setVisible(true); vboxInsight.setDisable(false); selectedCategory = "knowledge and development";}
     public void knowledgeEntered(MouseEvent mouseEvent) {
         labelKnowledge.setUnderline(true);
         labelKnowledge.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -296,7 +340,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelWaste;
-    public void wastesClicked(MouseEvent mouseEvent) {clearAll(); vboxWastes.setVisible(true); vboxWastes.setDisable(false);}
+    public void wastesClicked(MouseEvent mouseEvent) {clearAll(); vboxWastes.setVisible(true); vboxWastes.setDisable(false); selectedCategory = "Excrement of wastes";}
     public void wastesEntered(MouseEvent mouseEvent) {
         labelWaste.setUnderline(true);
         labelWaste.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -311,7 +355,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSelfCare;
-    public void selfcareClicked(MouseEvent mouseEvent) {clearAll(); vboxSelfCare.setVisible(true); vboxSelfCare.setDisable(false);}
+    public void selfcareClicked(MouseEvent mouseEvent) {clearAll(); vboxSelfCare.setVisible(true); vboxSelfCare.setDisable(false); selectedCategory = "Selfcare";}
     public void selfcareEntered(MouseEvent mouseEvent) {
         labelSelfCare.setUnderline(true);
         labelSelfCare.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -325,7 +369,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPracticalWork;
-    public void practicalClicked(MouseEvent mouseEvent) {clearAll(); vboxPracticalWork.setVisible(true); vboxPracticalWork.setDisable(false);}
+    public void practicalClicked(MouseEvent mouseEvent) {clearAll(); vboxPracticalWork.setVisible(true); vboxPracticalWork.setDisable(false); selectedCategory = "Practical work";}
     public void pacticalEntered(MouseEvent mouseEvent) {
         labelPracticalWork.setUnderline(true);
         labelPracticalWork.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -337,31 +381,46 @@ public class HealthDiagnoseController {
                 });
     }
 
+    @FXML
     private Label labelMobility;
-    public void mobilityClicked(MouseEvent mouseEvent) {clearAll(); vboxMobility.setVisible(true); vboxMobility.setDisable(false);}
+    public void mobilityClicked(MouseEvent mouseEvent) {clearAll(); vboxMobility.setVisible(true); vboxMobility.setDisable(false); selectedCategory = "Mobility";}
     public void mobilityEntered(MouseEvent mouseEvent) {
-        labelPracticalWork.setUnderline(true);
-        labelPracticalWork.addEventHandler(MouseEvent.MOUSE_EXITED,
+        labelMobility.setUnderline(true);
+        labelMobility.addEventHandler(MouseEvent.MOUSE_EXITED,
                 new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        labelPracticalWork.setUnderline(false);
+                        labelMobility.setUnderline(false);
                     }
                 });
     }
 
-
-    public void mentalClicked(MouseEvent mouseEvent) {clearAll(); vboxMentalFunction.setVisible(true); vboxMentalFunction.setDisable(false);
-    }
-
+    @FXML
+    private Label labelMentalFunctions;
+    public void mentalClicked(MouseEvent mouseEvent) {clearAll(); vboxMentalFunction.setVisible(true); vboxMentalFunction.setDisable(false); selectedCategory = "Mental functions";}
     public void mentalEntered(MouseEvent mouseEvent) {
+        labelMentalFunctions.setUnderline(true);
+        labelMentalFunctions.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelMentalFunctions.setUnderline(false);
+                    }
+                });
     }
 
-
-    public void socialClicked(MouseEvent mouseEvent) {clearAll(); vboxSocialLife.setVisible(true); vboxSocialLife.setDisable(false);
-    }
-
+    @FXML
+    private Label labelSocialLife;
+    public void socialClicked(MouseEvent mouseEvent) {clearAll(); vboxSocialLife.setVisible(true); vboxSocialLife.setDisable(false); selectedCategory = "Social life";}
     public void socialEntered(MouseEvent mouseEvent) {
+        labelSocialLife.setUnderline(true);
+        labelSocialLife.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelSocialLife.setUnderline(false);
+                    }
+                });
     }
 
 
@@ -946,5 +1005,6 @@ public class HealthDiagnoseController {
 
     public void socialLife1Enter(MouseEvent mouseEvent) {
     }
+
 
 }

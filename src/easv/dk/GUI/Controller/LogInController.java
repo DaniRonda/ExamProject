@@ -1,9 +1,13 @@
 package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Admin;
+import easv.dk.BE.Student;
+import easv.dk.BE.Teacher;
 import easv.dk.BLL.IManager;
 import easv.dk.BLL.Manager;
 import easv.dk.GUI.Model.AdminModel;
+import easv.dk.GUI.Model.StudentModel;
+import easv.dk.GUI.Model.TeacherModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +28,8 @@ public class LogInController implements Initializable {
 
     Manager manager = new Manager();
     AdminModel adminModel = new AdminModel();
+    TeacherModel teacherModel = new TeacherModel();
+    StudentModel studentModel = new StudentModel();
     @FXML
     private Button BtnCancel;
     @FXML
@@ -81,11 +87,43 @@ public class LogInController implements Initializable {
             System.out.println("no users");
     }
 
+    public void teacherCheck() throws Exception {
+        Teacher teacher = teacherModel.teacherFound(TextFieldEmail.getText(), TextFieldPassword.getText());
+        if (teacher != null) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TeacherView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.centerOnScreen();
+            stage.show();
+        } else
+            System.out.println("no users");
+    }
+
+    public void studentCheck() throws Exception {
+        Student student = studentModel.studentFound(TextFieldEmail.getText(), TextFieldPassword.getText());
+        if (student != null) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/StudentView.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.centerOnScreen();
+            stage.show();
+        } else
+            System.out.println("no users");
+    }
+
 
 
 
         public void signIn (ActionEvent actionEvent) throws Exception {
             adminCheck();
+            teacherCheck();
+            studentCheck();
         }
         public String getTextFieldPassword () {
             return this.TextFieldPassword.getText();

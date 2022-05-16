@@ -23,7 +23,7 @@ public class AdminDAO {
 
         Admin adminfound = null;
         try(Connection connection = cm.getConnection()) {
-            String sqlAdmin = ("SELECT * FROM Admins WHERE 'emails' = ? AND 'password' = ?");
+            String sqlAdmin = ("SELECT * FROM Admins WHERE emails = ? AND password = ?");
             PreparedStatement preparedStatement = connection.prepareStatement(sqlAdmin);
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, password);
@@ -34,7 +34,7 @@ public class AdminDAO {
                 int ID = resultSet.getInt("ID");
                 String emails = resultSet.getString("emails");
                 String login = resultSet.getString("password");
-
+                System.out.println("admin found");
                 adminfound = new Admin(ID, emails,login );
             }
         }

@@ -20,12 +20,7 @@
          <children>
             <ImageView fitHeight="142.0" fitWidth="147.0" layoutX="579.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../OneDrive/Billeder/512x512bb.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="62.0" fitWidth="102.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0">
-               <image>
-                  <Image url="@../../../../../../OneDrive/Billeder/trhgbCapture.PNG" />
+                  <Image url="@../Pictures/512x512bb.jpg" />
                </image>
             </ImageView>
             <Button fx:id="ButtonToCase" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendToCaseScreen" prefHeight="62.0" prefWidth="100.0" text="Button" visible="false" />
@@ -73,7 +68,7 @@
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelCirkulation" onMouseClicked="#respoClicked" onMouseEntered="#respoEntered" prefHeight="48.0" prefWidth="298.0" text="Resporation og cirkulation">
+            <Label fx:id="labelCirkulation" onMouseClicked="#respoClicked" onMouseEntered="#respoEntered" prefHeight="48.0" prefWidth="298.0" text="Respiration and circulation">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -103,7 +98,7 @@
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#toFunctional" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Functional Diagnose ">
+            <Button fx:id="buttonToFunctional" mnemonicParsing="false" onAction="#toFunctional" onMouseEntered="#mouseOverToFunctionalBtn" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Functional Diagnose ">
                <VBox.margin>
                   <Insets left="5.0" top="10.0" />
                </VBox.margin>
@@ -140,7 +135,7 @@
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="buttonHealth" mnemonicParsing="false" onAction="#toHealth" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Health Diagnose ">
+            <Button fx:id="buttonHealth" mnemonicParsing="false" onAction="#toHealth" onMouseEntered="#mouseOverToHealthBtn" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Health Diagnose ">
                <VBox.margin>
                   <Insets left="5.0" top="10.0" />
                </VBox.margin>
