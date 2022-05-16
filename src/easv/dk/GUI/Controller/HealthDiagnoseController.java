@@ -1093,209 +1093,209 @@ public class HealthDiagnoseController {
 
 
 
-    public void selfcare1Clicked(MouseEvent mouseEvent) {}
+    public void selfcare1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Ability to clean themselves");}
     public void selfcare1Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void selfcare2Click(MouseEvent mouseEvent) {}
+    public void selfcare2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Body care");}
     public void selfcare2Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void selfcare3Clicked(MouseEvent mouseEvent) {}
+    public void selfcare3Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Ability to undress and dress up");}
     public void selfcare3Entered(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void selfcare4Clicked(MouseEvent mouseEvent) {}
+    public void selfcare4Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Drinking");}
     public void selfcare4Enter(MouseEvent mouseEvent) {
 
     }
 
 
-    public void selfcare5Clicked(MouseEvent mouseEvent) {}
+    public void selfcare5Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Food intake");}
     public void selfcare5Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void selfcare6Click(MouseEvent mouseEvent) {}
+    public void selfcare6Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Eating");}
     public void selfcare6Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void selfcare7Click(MouseEvent mouseEvent) {}
+    public void selfcare7Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Taking care of own health");}
     public void selfcare7Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void selfcare8Click(MouseEvent mouseEvent) {}
+    public void selfcare8Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Using the toilet");}
     public void selfcare8Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void practical1Click(MouseEvent mouseEvent) {}
+    public void practical1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Perform housework");}
     public void practical1Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void practical2Click(MouseEvent mouseEvent) {}
+    public void practical2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Cook Food");}
     public void practical2Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void practical3Click(MouseEvent mouseEvent) {}
+    public void practical3Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Performing daily routine");}
     public void practical3Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void practical4Click(MouseEvent mouseEvent) {}
+    public void practical4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Acquire groceries and services");}
     public void practical4Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility1Click(MouseEvent mouseEvent) {}
+    public void mobility1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Lifting and carrying ");}
     public void mobility1Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility2Click(MouseEvent mouseEvent) {}
+    public void mobility2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Moving around");}
     public void mobility2Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility3Click(MouseEvent mouseEvent) {}
+    public void mobility3Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Using Transportation ");}
     public void mobility3Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility4Click(MouseEvent mouseEvent) {}
+    public void mobility4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Moving in different surroundings");}
     public void mobility4Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility5Click(MouseEvent mouseEvent) {}
+    public void mobility5Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Transferring ");}
     public void mobility5Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility6Click(MouseEvent mouseEvent) {}
+    public void mobility6Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Change position");}
     public void mobility6Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility7Click(MouseEvent mouseEvent) {}
+    public void mobility7Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Muscle strength");}
     public void mobility7Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility8Click(MouseEvent mouseEvent) {}
+    public void mobility8Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Walking");}
     public void mobility8Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mobility9Click(MouseEvent mouseEvent) {}
+    public void mobility9Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Stamina");}
     public void mobility9Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mentalFunction1Clicked(MouseEvent mouseEvent) {}
+    public void mentalFunction1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Communication/Technical equipment");}
     public void mentalFunction1Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mentalFunction2Click(MouseEvent mouseEvent) {}
+    public void mentalFunction2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Memory");}
     public void mentalFunction2Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mentalFunction3Clicked(MouseEvent mouseEvent) {}
+    public void mentalFunction3Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Orientation skill");}
     public void mentalFunction3Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mentalFunction4Clicked(MouseEvent mouseEvent) {}
+    public void mentalFunction4Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Cognitive functions");}
     public void mentalFunction4Entered(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mentalFunction5Clicked(MouseEvent mouseEvent) {}
+    public void mentalFunction5Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Feeling functions");}
     public void mentalFunction5Entered(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mentalFunction6Click(MouseEvent mouseEvent) {}
+    public void mentalFunction6Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Energy and capacity for action");}
     public void mentalFunction6Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mentalFunction7Click(MouseEvent mouseEvent) {}
+    public void mentalFunction7Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Appropriation of skills");}
     public void mentalFunction7Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void mentalFunction8Click(MouseEvent mouseEvent) {}
+    public void mentalFunction8Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problem solving");}
     public void mentalFunction8Enter(MouseEvent mouseEvent) {
 
     }
 
 
 
-    public void socialLife1Clicked(MouseEvent mouseEvent) {}
+    public void socialLife1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Paid occupation");}
     public void socialLife1Enter(MouseEvent mouseEvent) {
 
     }
