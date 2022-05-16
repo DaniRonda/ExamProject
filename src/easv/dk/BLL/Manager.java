@@ -2,8 +2,12 @@ package easv.dk.BLL;
 
 import easv.dk.BE.Admin;
 import easv.dk.BE.Citizen;
+import easv.dk.BE.Student;
+import easv.dk.BE.Teacher;
 import easv.dk.DAL.AdminDAO;
 import easv.dk.DAL.CitizenDAO;
+import easv.dk.DAL.StudentDAO;
+import easv.dk.DAL.TeacherDAO;
 import easv.dk.GUI.Controller.LogInController;
 
 import java.util.List;
@@ -12,6 +16,8 @@ public class Manager {
 
     AdminDAO adminDAO = new AdminDAO();
     CitizenDAO citizenDAO = new CitizenDAO();
+    StudentDAO studentDAO = new StudentDAO();
+    TeacherDAO teacherDAO = new TeacherDAO();
 
     public Manager() throws Exception {
     }
@@ -38,6 +44,17 @@ public class Manager {
         Admin admin = adminDAO.getAdminLogin(emails, password);
         if (admin != null) return loginHelper.getInstance(admin);
         else return null;
+    }
 
+    public Student studentFound(String emails, String password) throws Exception {
+        Student student = studentDAO.getStudentLogin(emails, password);
+        if (student != null) return loginHelper.getInstanceStudent(student);
+        else return null;
+    }
+
+    public Teacher teacherFound(String emails, String password) throws Exception {
+        Teacher teacher = teacherDAO.getTeacherLogin(emails, password);
+        if (teacher != null) return loginHelper.getInstanceTeacher(teacher);
+        else return null;
     }
 }

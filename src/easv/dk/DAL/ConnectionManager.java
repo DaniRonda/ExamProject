@@ -11,7 +11,7 @@ public class ConnectionManager {
     {
         ds = new SQLServerDataSource();
         ds.setServerName("10.176.111.31");
-        ds.setDatabaseName("Assignment2-march2022");
+        ds.setDatabaseName("ExamTest_1");
         ds.setPortNumber(1433);
         ds.setUser("CSe21B_9");
         ds.setPassword("CSe21B_9");
