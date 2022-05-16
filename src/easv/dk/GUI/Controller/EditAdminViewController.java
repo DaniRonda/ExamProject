@@ -25,17 +25,7 @@ public class EditAdminViewController {
 
 
     public EditAdminViewController() throws Exception {
-
-        String adminEmail= adminEmail_txt.getText();
-        String adminPassword=adminPassword_txt.getText();
-        Admin adminUpdated = new Admin ( selectedAdmin.getId(), adminEmail, adminPassword);
-        manager.updateAdmin(adminUpdated);
-        Stage stage = (Stage)confirmUpdateAdminBTN.getScene().getWindow();
-        stage.close();
-        parentController.initialize();
-
     }
-
 
 
     public void cancelUpdateAdmin(ActionEvent actionEvent) {
@@ -47,6 +37,14 @@ public class EditAdminViewController {
         }
     }
 
-    public void confirmUpdateAdmin(ActionEvent actionEvent) {
+    public void confirmUpdateAdmin(ActionEvent actionEvent) throws Exception {
+        String adminEmail= adminEmail_txt.getText();
+        String adminPassword=adminPassword_txt.getText();
+        Admin adminUpdated = new Admin ( selectedAdmin.getId(), adminEmail, adminPassword);
+        manager.updateAdmin(adminUpdated);
+        Stage stage = (Stage)confirmUpdateAdminBTN.getScene().getWindow();
+        stage.close();
+        parentController.initialize();
     }
+
 }
