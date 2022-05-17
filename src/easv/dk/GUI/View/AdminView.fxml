@@ -51,17 +51,17 @@
       <Label layoutX="215.0" layoutY="7.0" prefHeight="52.0" prefWidth="38.0" />
       <ImageView fitHeight="45.0" fitWidth="67.0" layoutX="41.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Screenshot%202022-05-17%20102959.png" />
+            <Image url="@../Pictures/Screenshot%202022-05-17%20102959.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="51.0" layoutX="38.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Screenshot%202022-05-17%20103409.png" />
+            <Image url="@../Pictures/Screenshot%202022-05-17%20103409.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="36.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Screenshot%202022-05-17%20103507.png" />
+            <Image url="@../Pictures/Screenshot%202022-05-17%20103507.png" />
          </image>
       </ImageView>
       <Button layoutX="17.0" layoutY="324.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Templates" />
