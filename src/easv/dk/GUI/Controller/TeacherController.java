@@ -10,8 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
+
 public class TeacherController {
 
+    @FXML
+    private Button btnAddCitizen;
     @FXML
     private Button btnTeacherLogOut;
 
@@ -27,6 +30,17 @@ public class TeacherController {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/LogInView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void AddCitizen(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/AddCitizenView .fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
