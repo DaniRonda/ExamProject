@@ -7,6 +7,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -123,11 +124,17 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borger har problemer med at&#10;varetage personlig pleje som følge af sygdom,&#10;skade eller handicap, og hvor kompleksiteten eller&#10;en kritisk situation kræver et særligt&#10;kompetenceniveau hos personalet, eller ved brug&#10;for støtte til kropspleje, af- og påklædning&#10;og/eller toiletbesøg" />
+               </tooltip>
             </Label>
             <Label fx:id="labelFunctionLevel2" onMouseClicked="#functionLevel2Clicked" onMouseEntered="#functionLevel2Entered" prefHeight="48.0" prefWidth="298.0" text="  Problems with daily activities ">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med at&#10;varetage daglige aktiviteter, og hvor&#10;kompleksiteten eller en kritisk situation kræver et&#10;særligt kompetenceniveau hos personalet.&#10;Fx behov for hjælp til koordinering og&#10;planlægning af daglige aktiviteter ved tab af&#10;fysisk-, mental- og social funktionsevne, eller ved&#10;brug for anden støtte til planlægning og&#10;koordinering af dagligdagen" />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -137,6 +144,9 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;bevægelses-forstyrrelser og problemer med at&#10;bevæge sig, forflytte sig, ændre kropsstilling eller&#10;ved inaktivitet som følge af sygdom, skade eller&#10;behandling, fx bivirkning af medicin, eller ved&#10;brug for anden støtte til at ændre kropsstilling,&#10;forflytning og/eller at bevæge sig omkring.&#10;Fx borgere med Parkinsons sygdom og essentiel&#10;tremor." />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -146,26 +156,41 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med at&#10;indtage en korrekt mængde væske som følge af&#10;sygdom eller behandling, fx bivirkning af&#10;medicin, hvor der er risiko for dehydrering eller&#10;overhydrering, eller ved brug for anden støtte til&#10;væskeindtag." />
+               </tooltip>
             </Label>
             <Label fx:id="labelConsumtion2" onMouseClicked="#nutrition2Clicked" onMouseEntered="#nutrition2Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with food consumption">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med at&#10;indtage eller optage ernæring og&#10;vitaminer/mineraler eller ved&#10;ernæringsbetingede stofskifteproblematikker&#10;som følge af sygdom eller behandling, fx&#10;bivirkning af medicin.&#10;Fx borgere med dysfagi eller korttarmssyndrom,&#10;eller andre der modtager ernæring enten&#10;parenteral eller via sonde, eller ved brug for&#10;anden støtte til fødeindtag.&#10;Tilstanden vælges også ved borgere med&#10;diabetes." />
+               </tooltip>
             </Label>
             <Label fx:id="labelConsumtion3" onMouseClicked="#nutrition3Clicked" onMouseEntered="#nutrition3Entered" prefHeight="48.0" prefWidth="298.0" text="Iregular weight chances">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;pludselig vægtændring som følge af sygdom&#10;eller behandling, fx bivirkning af medicin, eller&#10;brug for anden støtte til at håndtere uplanlagt&#10;vægtændring." />
+               </tooltip>
             </Label>
             <Label fx:id="labelConsumtion4" onMouseClicked="#nutrition4Clicked" onMouseEntered="#nutrition4Entered" prefHeight="48.0" prefWidth="298.0" text="problems with obesity">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;overvægt som følge af sygdom eller behandling,&#10;fx bivirkning af medicin, eller brug for anden&#10;støtte til at håndtere overvægt." />
+               </tooltip>
             </Label>
             <Label fx:id="labelConsumtion5" onMouseClicked="#nutrition5Clicked" onMouseEntered="#nutrition5Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with anorexia">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med vægttab&#10;og undervægt som følge af sygdom eller&#10;behandling, fx bivirkning af medicin, eller brug for&#10;anden støtte til at håndtere undervægt." />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -175,46 +200,73 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med sår, der&#10;er opstået som følge af et kirurgisk indgreb efter&#10;en operation, eller brug for anden støtte til&#10;behandling af kirurgisk sår." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin2" onMouseClicked="#skin2Clicked" onMouseEntered="#skin2Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with diabetic wounds">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med sår, der&#10;er opstået som en senkomplikation til diabetes,&#10;eller brug for anden støtte til behandling af&#10;diabetisk sår." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin3" onMouseClicked="#skin3Clicked" onMouseEntered="#skin3Enter" prefHeight="48.0" prefWidth="298.0" text="problems woth cancer wounds">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med sår, der&#10;er opstået som følge af cancer og metastaser,&#10;eller brug for anden støtte til behandling af&#10;cancersår." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin4" onMouseClicked="#skin4Clicked" onMouseEntered="#skin4Enter" prefHeight="48.0" prefWidth="298.0" text="problems with pressure sores">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med sår, der&#10;er opstået som følge af tryk og/eller shear, eller&#10;brug for anden støtte til behandling af tryksår." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin5" onMouseClicked="#skin5Clicked" onMouseEntered="#skin5Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with arterial wounds">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med sår, der&#10;er opstået som følge af nedsat arteriel&#10;blodtilførsel, eller brug for anden støtte til&#10;behandling af arterielt sår." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin6" onMouseClicked="#skin6Clicked" onMouseEntered="#skin6Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with venous wounds">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med sår, der&#10;er opstået som følge af venøs insufficiens, typisk&#10;manglende funktion af veneklapperne, eller brug&#10;for anden støtte til behandling af venøst sår." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin7" onMouseClicked="#skin7Clicked" onMouseEntered="#skin7Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with mixed wounds">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med sår, der&#10;er opstået som følge af arteriel og venøs&#10;insufficiens, typisk en forværring af et venøst sår,&#10;eller brug for anden støtte til behandling af&#10;blandingssår." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin8" onMouseClicked="#skin8Clicked" onMouseEntered="#skin8Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with trauma wounds">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med sår, der&#10;er opstået som følge af traumer på hårdt væv&#10;og/eller bløddele.&#10;Fx efter fald eller anden ulykke, snitsår,&#10;hudafskrabninger, brandsår, ætsninger eller&#10;forfrysninger, eller brug for anden støtte til&#10;behandling af traumesår." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin91" onMouseClicked="#skin91Clicked" onMouseEntered="#skin91Enter" prefHeight="20.0" prefWidth="244.0" text="Other problems with skin and ">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med hud og&#10;slimhinder som ikke er sår.&#10;Fx borgere der har svampeinfektion, fnat eller&#10;MRSA, eller brug for anden støtte til behandling af&#10;hud- og slimhindeproblemer som ikke er sår" />
+               </tooltip>
             </Label>
             <Label fx:id="labelSkin92" onMouseClicked="#skin92Clicked" onMouseEntered="#skin92Enter" prefHeight="20.0" prefWidth="244.0" text="mucous membrane">
                <font>
@@ -229,6 +281,9 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med at tale,&#10;forstå, skrive, stave og læse som følge af sygdom,&#10;skade eller behandling, fx bivirkning af medicin.&#10;Fx borgere med en svær hjerneskade og/eller&#10;nedsat bevidsthedsniveau, eller brug for anden&#10;støtte til kommunikation" />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -238,21 +293,33 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med at&#10;håndtere socialt samvær, overholde sociale&#10;normer, interagere med andre eller etablere og&#10;opretholde relationer, eller brug for anden støtte&#10;til at fungere socialt&#10;Fx indadvendt og menneskesky, trækker&#10;sig fra socialt samvær, udad reagerende&#10;eller grænseoverskridende adfærd." />
+               </tooltip>
             </Label>
             <Label fx:id="labelPshyco2" onMouseClicked="#pshyco2Clicked" onMouseEntered="#pshyco2Enter" prefHeight="48.0" prefWidth="298.0" text="Emotional problems">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med at&#10;håndtere følelser i forbindelse med kronisk&#10;sygdom, skade eller i forbindelse med&#10;livsbegivenheder, eller brug for anden støtte til at&#10;håndtere følelser." />
+               </tooltip>
             </Label>
             <Label fx:id="labelPshyco3" onMouseClicked="#pshyco3Click" onMouseEntered="#pshyco3Enter" prefHeight="48.0" prefWidth="298.0" text="problems with drug misuse ">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;vedvarende og skadelig brug af medicin, alkohol&#10;eller stoffer, der medfører legemlige, psykiske&#10;eller sociale problemer, eller brug for anden&#10;støtte til at håndtere misbrugsproblemer." />
+               </tooltip>
             </Label>
             <Label fx:id="labelPshyco4" onMouseClicked="#pshyco4Click" onMouseEntered="#pshyco4Enter" prefHeight="48.0" prefWidth="298.0" text="Mental problems">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;psykiske eller psykiatriske symptomer som følge&#10;af sygdom, skade eller behandling, fx bivirkning&#10;af medicin.&#10;Fx borgere med depression, bipolar lidelse,&#10;psykose, spiseforstyrrelse eller skizofreni, eller&#10;brug for anden støtte til at håndtere psykiske og&#10;psykiatriske symptomer" />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -262,11 +329,17 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har respirationsproblemer&#10;som følge af sygdom eller skade.&#10;Fx borgere med KOL, astma, lungebetændelse,&#10;trakeostomi, eller brug for anden støtte til&#10;håndtering af vejrtrækningsproblemer" />
+               </tooltip>
             </Label>
             <Label fx:id="labelResparation2" onMouseClicked="#resporation2Click" onMouseEntered="#resporation2Enter" prefHeight="48.0" prefWidth="298.0" text="Circulation problems">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har cirkulationsproblemer&#10;som følge af sygdom, skade eller behandling, fx&#10;bivirkning af medicin.&#10;Fx borgere med hjerte-kar-problemer, pacemaker,&#10;i AK-behandling, eller brug for støtte til&#10;håndtering af cardio-vaskulære problemer." />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -276,6 +349,9 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer ift. seksualitet&#10;som følge af sygdom, skade eller behandling, fx&#10;bivirkning af medicin, brug for anden støtte til&#10;seksuel aktivitet." />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -285,41 +361,65 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med smerter&#10;karakteriseret ved, at de er pludseligt indsættende&#10;og af kort varighed som følge af sygdom eller&#10;skade, eller brug for anden støtte til at håndtere&#10;akutte smerter" />
+               </tooltip>
             </Label>
             <Label fx:id="labelPain2" onMouseClicked="#pain2Click" onMouseEntered="#pain2Enter" prefHeight="48.0" prefWidth="298.0" text="Periodic pains">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med smerter&#10;som forekommer af og til som følge af sygdom&#10;eller skade, eller brug for anden støtte til at&#10;håndtere periodevise smerter" />
+               </tooltip>
             </Label>
             <Label fx:id="labelPain3" onMouseClicked="#pain3Click" onMouseEntered="#pain3Enter" prefHeight="48.0" prefWidth="298.0" text="Chronic pains">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med smerter&#10;som har varet i mere end 6 måneder som følge af&#10;sygdom eller skade, eller brug for anden støtte til&#10;at håndtere kroniske smerter." />
+               </tooltip>
             </Label>
             <Label fx:id="labelPain4" onMouseClicked="#pain4Click" onMouseEntered="#pain4Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with vision">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med synssans&#10;som følge af sygdom eller skade.&#10;Fx borgere med grøn stær, grå stær eller&#10;øjeninfektion, eller brug for anden støtte til at&#10;kompensere for ændret synssans." />
+               </tooltip>
             </Label>
             <Label fx:id="labelPain5" onMouseClicked="#pain5Click" onMouseEntered="#pain5Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with olfaction">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;lugtesans som følge af sygdom, skade eller&#10;behandling, fx bivirkning af medicin, eller brug&#10;for anden støtte til at kompensere for ændret&#10;lugtesans." />
+               </tooltip>
             </Label>
             <Label fx:id="labelPain6" onMouseClicked="#pain6Click" onMouseEntered="#pain6Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with hearing">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med hørelse&#10;som følge af sygdom eller skade, eller brug for&#10;anden støtte til at kompensere for ændret&#10;høresans." />
+               </tooltip>
             </Label>
             <Label fx:id="labelPain7" onMouseClicked="#pain7Click" onMouseEntered="#pain7Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with gustation">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;smagssans som følge af sygdom, skade eller&#10;behandling, fx bivirkning af medicin, eller brug&#10;for anden støtte til at kompensere for ændret&#10;smagssans." />
+               </tooltip>
             </Label>
             <Label fx:id="labelPain8" onMouseClicked="#pain8Click" onMouseEntered="#pain8Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with taction">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med følesans&#10;som følge af sygdom, skade eller behandling, fx&#10;bivirkning af medicin.&#10;Fx borgere med nedsat følesans grundet diabetisk&#10;neuropati, eller brug for anden støtte til at&#10;kompensere for ændret følesans." />
+               </tooltip>
             </Label>
          </children>
       </VBox>
