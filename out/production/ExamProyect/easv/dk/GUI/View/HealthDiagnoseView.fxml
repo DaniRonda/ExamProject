@@ -12,12 +12,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <AnchorPane prefHeight="812.0" prefWidth="1300.0" style="-fx-background-color: #ECECEC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.HealthDiagnoseController">
    <children>
       <AnchorPane prefHeight="127.0" prefWidth="1300.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Button fx:id="ButtonToCase" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendToCaseScreen" prefHeight="62.0" prefWidth="100.0" text="Button" visible="false" />
             <Button fx:id="ButtonLogOut" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" onAction="#logOut" prefHeight="50.0" prefWidth="100.0" style="-fx-background-radius: 25; -fx-background-color: #D3D3D3;" text="Log Out" AnchorPane.bottomAnchor="10.0">
+
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -101,7 +103,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="vboxfunction" layoutY="126.0" prefHeight="774.0" prefWidth="265.0" style="-fx-background-color: #B6D2E8;">
+      <VBox fx:id="vboxfunction" layoutY="163.0" prefHeight="737.0" prefWidth="265.0" style="-fx-background-color: #ECECEC;">
          <children>
             <Label fx:id="labelSelfCare" onMouseClicked="#selfcareClicked" onMouseEntered="#selfcareEntered" prefHeight="48.0" prefWidth="176.0" text="Selfcare">
                <font>
@@ -138,6 +140,7 @@
             </Button>
          </children>
       </VBox>
+
       <VBox fx:id="VBoxFunctionLevel" layoutX="265.0" layoutY="126.0" prefHeight="774.0" prefWidth="300.0" style="-fx-background-color: #C9DDEE;">
          <children>
             <Label fx:id="labelFunctionLevel1" onMouseClicked="#functionLevel1Clicked" onMouseEntered="#functionLevel1Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with personal care">
@@ -586,6 +589,7 @@
             </Label>
          </children>
       </VBox>
+
       <AnchorPane layoutX="564.0" layoutY="126.0" prefHeight="774.0" prefWidth="736.0" style="-fx-background-color: #E3ECF8;">
          <children>
             <AnchorPane layoutX="8.0" layoutY="14.0" prefHeight="55.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
