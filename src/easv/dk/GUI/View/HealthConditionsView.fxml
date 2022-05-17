@@ -465,16 +465,25 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med at&#10;forstå formålet med behandlingen.&#10;Fx borgere med kroniske eller tilbagevendende&#10;sygdom, hvor behandling eller forebyggende&#10;behandling afsluttes uhensigtsmæssigt. Borgere&#10;med manglende evne til at give informeret&#10;samtykke til en behandling, eller brug for anden&#10;støtte til at forstå hensigt med behandling&#10;(compliance)" />
+               </tooltip>
             </Label>
             <Label fx:id="labelInsight3" onMouseClicked="#insight3Click" onMouseEntered="#insight3Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with illness insight">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med at&#10;forstå formålet med behandlingen.&#10;Fx borgere med kroniske eller tilbagevendende&#10;sygdom, hvor behandling eller forebyggende&#10;behandling afsluttes uhensigtsmæssigt. Borgere&#10;med manglende evne til at give informeret&#10;samtykke til en behandling, eller brug for anden&#10;støtte til at forstå hensigt med behandling&#10;(compliance)." />
+               </tooltip>
             </Label>
             <Label fx:id="labelInsight4" onMouseClicked="#insight4Click" onMouseEntered="#insight4Enter" prefHeight="48.0" prefWidth="298.0" text="Cognitive problems">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har kognitive problemer&#10;som følge af sygdom, skade eller behandling, fx&#10;bivirkning af medicin.&#10;Fx borgere med neglect eller delir, eller brug for&#10;anden støtte til logisk tænkning, tilegnelse af&#10;viden, overblik, planlægning og organisering." />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -484,21 +493,33 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;vandladning som følge af sygdom, skade eller&#10;behandling, fx bivirkning af medicin.&#10;Fx borgere der er i dialysebehandling eller&#10;borgere med nefrostomi, urostomi, topkateter&#10;eller kateter à demeure, eller brug for anden&#10;støtte til at håndtere vandladningsproblemer, der&#10;ikke er inkontinens." />
+               </tooltip>
             </Label>
             <Label fx:id="labelWaste2" onMouseClicked="#waste2Click" onMouseEntered="#waste2Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with urin consistancy">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;stressinkontinens, tranginkontinens,&#10;blandingsinkontinens eller falsk inkontinens som&#10;følge af sygdom, skade eller behandling, fx&#10;bivirkning af medicin, eller brug for anden støtte&#10;til at håndtere urininkontinens." />
+               </tooltip>
             </Label>
             <Label fx:id="labelWaste3" onMouseClicked="#waste3Click" onMouseEntered="#waste3Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with fecal consistancy">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;afføringsinkontinens som følge af sygdom, skade&#10;eller behandling, fx bivirkning af medicin, eller&#10;brug for anden støtte til at håndtere&#10;afføringsproblemer/ styre afføring." />
+               </tooltip>
             </Label>
             <Label fx:id="labelWaste4" onMouseClicked="#waste4Click" onMouseEntered="#waste4Enter" prefHeight="48.0" prefWidth="298.0" text="problems with stomach and intestines ">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med mave&#10;og tarm som følge af sygdom, skade eller&#10;behandling, fx bivirkning af medicin.&#10;Fx borgere med ileostomi, colostomi og&#10;sygdomme i lever, galdeveje eller hæmorider,&#10;eller brug for anden støtte til at håndtere&#10;fordøjelsesproblemer." />
+               </tooltip>
             </Label>
             <Label fx:id="labelWaste5" onMouseClicked="#waste5Click" onMouseEntered="#waste5Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with liquids from drain">
                <font>
