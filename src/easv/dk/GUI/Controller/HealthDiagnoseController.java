@@ -60,10 +60,18 @@ public class HealthDiagnoseController {
     private Label labelSelectedCategory;
     @FXML
     private Label labelSelectedSubCategory;
+    @FXML
+            private Button buttonClientsWishes;
 
     String selectedDiagnose;
     String selectedCategory;
     String selectedSubCategory;
+
+    @FXML
+    private void isD(ActionEvent event){
+        txtAddress.setDisable(!rdDelivery.isArmed());
+        txtEmail.setDisable(!rdDelivery.isArmed());
+    }
 
 
 
@@ -147,34 +155,25 @@ public class HealthDiagnoseController {
     public void toFunctional(ActionEvent actionEvent) {
         vboxfunction.setVisible(true); vboxfunction.setDisable(false);
         vboxHealth.setVisible(false); vboxHealth.setDisable(true);
-        selectedDiagnose = "functionalDiagnose";}
+        selectedDiagnose = "functionalDiagnose";
+        buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);}
     public void mouseOverToHealthBtn(MouseEvent mouseEvent) {
         buttonHealth.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
-
         buttonHealth.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        buttonHealth.setStyle("-fx-border-color: #8D8D8D; -fx-background-color: #D3D3D3; -fx-border-radius: 15; -fx-background-radius: 15;");}
-                });
+                event -> buttonHealth.setStyle("-fx-border-color: #8D8D8D; -fx-background-color: #D3D3D3; -fx-border-radius: 15; -fx-background-radius: 15;"));
     }
-
 
     @FXML
     private Button buttonToFunctional;
     public void toHealth(ActionEvent actionEvent) {
         vboxHealth.setVisible(true); vboxHealth.setDisable(false);
         vboxfunction.setVisible(false); vboxfunction.setDisable(true);
-        selectedDiagnose = "healthDiagnose";}
+        selectedDiagnose = "healthDiagnose";
+        buttonClientsWishes.setVisible(false); buttonClientsWishes.setDisable(true);}
     public void mouseOverToFunctionalBtn(MouseEvent mouseEvent) {
         buttonToFunctional.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
-
         buttonToFunctional.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        buttonToFunctional.setStyle("-fx-border-color: #8D8D8D; -fx-background-color: #D3D3D3; -fx-border-radius: 15; -fx-background-radius: 15;");}
-                });
+                event -> buttonToFunctional.setStyle("-fx-border-color: #8D8D8D; -fx-background-color: #D3D3D3; -fx-border-radius: 15; -fx-background-radius: 15;"));
     }
 
     public void toClientsWishesScreen(ActionEvent actionEvent) {
@@ -188,12 +187,7 @@ public class HealthDiagnoseController {
     public void mouseOverFunction(MouseEvent mouseEvent) {
         labelFunctionLevel.setUnderline(true);
         labelFunctionLevel.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelFunctionLevel.setUnderline(false);
-                    }
-                });
+                event -> labelFunctionLevel.setUnderline(false));
     }
 
 
@@ -204,12 +198,7 @@ public class HealthDiagnoseController {
     public void mouseOverApperatus(MouseEvent mouseEvent) {
         labelMovementApperatus.setUnderline(true);
         labelMovementApperatus.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelMovementApperatus.setUnderline(false);
-                    }
-                });
+                event -> labelMovementApperatus.setUnderline(false));
     }
 
     @FXML
@@ -218,12 +207,7 @@ public class HealthDiagnoseController {
     public void mouseOverNutrtion(MouseEvent mouseEvent) {
         labelNutrition.setUnderline(true);
         labelNutrition.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelNutrition.setUnderline(false);
-                    }
-                });
+                event -> labelNutrition.setUnderline(false));
     }
 
     @FXML
@@ -246,12 +230,7 @@ public class HealthDiagnoseController {
     public void communicationEntered(MouseEvent mouseEvent) {
         labelComunication.setUnderline(true);
         labelComunication.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelComunication.setUnderline(false);
-                    }
-                });
+                event -> labelComunication.setUnderline(false));
     }
 
     @FXML
@@ -260,12 +239,7 @@ public class HealthDiagnoseController {
     public void pshycoEntered(MouseEvent mouseEvent) {
         labelPshyco.setUnderline(true);
         labelPshyco.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPshyco.setUnderline(false);
-                    }
-                });
+                event -> labelPshyco.setUnderline(false));
     }
 
     @FXML
@@ -274,12 +248,7 @@ public class HealthDiagnoseController {
     public void respoEntered(MouseEvent mouseEvent) {
         labelCirkulation.setUnderline(true);
         labelCirkulation.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelCirkulation.setUnderline(false);
-                    }
-                });
+                event -> labelCirkulation.setUnderline(false));
     }
 
     @FXML
@@ -288,12 +257,7 @@ public class HealthDiagnoseController {
     public void sexualityEntered(MouseEvent mouseEvent) {
         labelSSexuality.setUnderline(true);
         labelSSexuality.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSSexuality.setUnderline(false);
-                    }
-                });
+                event -> labelSSexuality.setUnderline(false));
     }
 
     @FXML
@@ -302,12 +266,7 @@ public class HealthDiagnoseController {
     public void painsEntered(MouseEvent mouseEvent) {
         labelPains.setUnderline(true);
         labelPains.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPains.setUnderline(false);
-                    }
-                });
+                event -> labelPains.setUnderline(false));
     }
 
     @FXML
@@ -316,12 +275,7 @@ public class HealthDiagnoseController {
     public void sleepEntered(MouseEvent mouseEvent) {
         labelSleep.setUnderline(true);
         labelSleep.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSleep.setUnderline(false);
-                    }
-                });
+                event -> labelSleep.setUnderline(false));
     }
 
     @FXML
@@ -330,12 +284,7 @@ public class HealthDiagnoseController {
     public void knowledgeEntered(MouseEvent mouseEvent) {
         labelKnowledge.setUnderline(true);
         labelKnowledge.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelKnowledge.setUnderline(false);
-                    }
-                });
+                event -> labelKnowledge.setUnderline(false));
     }
 
     @FXML
@@ -344,12 +293,7 @@ public class HealthDiagnoseController {
     public void wastesEntered(MouseEvent mouseEvent) {
         labelWaste.setUnderline(true);
         labelWaste.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelWaste.setUnderline(false);
-                    }
-                });
+                event -> labelWaste.setUnderline(false));
     }
 
 
@@ -1092,212 +1036,342 @@ public class HealthDiagnoseController {
     }
 
 
-
+    @FXML
+    private Label labelselfcare1;
     public void selfcare1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Ability to clean themselves");}
     public void selfcare1Enter(MouseEvent mouseEvent) {
-
+        labelselfcare1.setUnderline(true);
+        labelselfcare1.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelselfcare1.setUnderline(false);
+                    }
+                });
     }
 
 
-
+    @FXML
+    private Label labelselfcare2;
     public void selfcare2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Body care");}
     public void selfcare2Enter(MouseEvent mouseEvent) {
-
+        labelselfcare2.setUnderline(true);
+        labelselfcare2.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelselfcare2.setUnderline(false);
+                    }
+                });
     }
 
 
-
+    @FXML
+    private Label labelselfcare3;
     public void selfcare3Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Ability to undress and dress up");}
     public void selfcare3Entered(MouseEvent mouseEvent) {
-
+        labelselfcare3.setUnderline(true);
+        labelselfcare3.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelselfcare3.setUnderline(false);
+                    }
+                });
     }
 
 
-
+    @FXML
+    private Label labelselfcare4;
     public void selfcare4Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Drinking");}
     public void selfcare4Enter(MouseEvent mouseEvent) {
-
+        labelselfcare4.setUnderline(true);
+        labelselfcare4.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelselfcare4.setUnderline(false));
     }
 
-
+    @FXML
+    private Label labelselfcare5;
     public void selfcare5Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Food intake");}
     public void selfcare5Enter(MouseEvent mouseEvent) {
-
+        labelselfcare5.setUnderline(true);
+        labelselfcare5.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelselfcare5.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelselfcare6;
     public void selfcare6Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Eating");}
     public void selfcare6Enter(MouseEvent mouseEvent) {
-
+        labelselfcare6.setUnderline(true);
+        labelselfcare6.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelselfcare6.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelselfcare7;
     public void selfcare7Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Taking care of own health");}
     public void selfcare7Enter(MouseEvent mouseEvent) {
-
+        labelselfcare7.setUnderline(true);
+        labelselfcare7.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelselfcare7.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelselfcare8;
     public void selfcare8Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Using the toilet");}
     public void selfcare8Enter(MouseEvent mouseEvent) {
-
+        labelselfcare8.setUnderline(true);
+        labelselfcare8.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelselfcare8.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelParcticalWork1;
     public void practical1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Perform housework");}
     public void practical1Enter(MouseEvent mouseEvent) {
-
+        labelParcticalWork1.setUnderline(true);
+        labelParcticalWork1.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelParcticalWork1.setUnderline(false);
+                    }
+                });
     }
 
 
-
+    @FXML
+    private Label labelParcticalWork2;
     public void practical2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Cook Food");}
     public void practical2Enter(MouseEvent mouseEvent) {
-
+        labelParcticalWork2.setUnderline(true);
+        labelParcticalWork2.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelParcticalWork2.setUnderline(false);
+                    }
+                });
     }
 
 
-
+    @FXML
+    private Label labelParcticalWork3;
     public void practical3Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Performing daily routine");}
     public void practical3Enter(MouseEvent mouseEvent) {
-
+        labelParcticalWork3.setUnderline(true);
+        labelParcticalWork3.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelParcticalWork3.setUnderline(false);
+                    }
+                });
     }
 
 
-
+    @FXML
+    private Label labelParcticalWork4;
     public void practical4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Acquire groceries and services");}
     public void practical4Enter(MouseEvent mouseEvent) {
-
+        labelParcticalWork4.setUnderline(true);
+        labelParcticalWork4.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelParcticalWork4.setUnderline(false);
+                    }
+                });
     }
 
-
-
+    @FXML
+    private Label labelMobility1;
     public void mobility1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Lifting and carrying ");}
     public void mobility1Enter(MouseEvent mouseEvent) {
-
+        labelMobility1.setUnderline(true);
+        labelMobility1.addEventHandler(MouseEvent.MOUSE_EXITED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        labelMobility1.setUnderline(false);
+                    }
+                });
     }
 
 
-
+    @FXML
+    private Label labelMobility2;
     public void mobility2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Moving around");}
     public void mobility2Enter(MouseEvent mouseEvent) {
-
+        labelMobility2.setUnderline(true);
+        labelMobility2.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMobility2.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMobility3;
     public void mobility3Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Using Transportation ");}
     public void mobility3Enter(MouseEvent mouseEvent) {
+        labelMobility3.setUnderline(true);
+        labelMobility3.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMobility3.setUnderline(false));
 
     }
 
 
-
+    @FXML
+    private Label labelMobility4;
     public void mobility4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Moving in different surroundings");}
     public void mobility4Enter(MouseEvent mouseEvent) {
-
+        labelMobility4.setUnderline(true);
+        labelMobility4.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMobility4.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMobility5;
     public void mobility5Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Transferring ");}
     public void mobility5Enter(MouseEvent mouseEvent) {
-
+        labelMobility5.setUnderline(true);
+        labelMobility5.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMobility5.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMobility6;
     public void mobility6Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Change position");}
     public void mobility6Enter(MouseEvent mouseEvent) {
-
+        labelMobility6.setUnderline(true);
+        labelMobility6.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMobility6.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMobility7;
     public void mobility7Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Muscle strength");}
     public void mobility7Enter(MouseEvent mouseEvent) {
-
+        labelMobility7.setUnderline(true);
+        labelMobility7.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMobility7.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMobility8;
     public void mobility8Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Walking");}
     public void mobility8Enter(MouseEvent mouseEvent) {
-
+        labelMobility8.setUnderline(true);
+        labelMobility8.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMobility8.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMobility9;
     public void mobility9Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Stamina");}
     public void mobility9Enter(MouseEvent mouseEvent) {
-
+        labelMobility9.setUnderline(true);
+        labelMobility9.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMobility9.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMentalFunction1;
     public void mentalFunction1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Communication/Technical equipment");}
     public void mentalFunction1Enter(MouseEvent mouseEvent) {
-
+        labelMentalFunction1.setUnderline(true);
+        labelMentalFunction1.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMentalFunction1.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMentalFunction2;
     public void mentalFunction2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Memory");}
     public void mentalFunction2Enter(MouseEvent mouseEvent) {
-
+        labelMentalFunction2.setUnderline(true);
+        labelMentalFunction2.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMentalFunction2.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMentalFunction3;
     public void mentalFunction3Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Orientation skill");}
     public void mentalFunction3Enter(MouseEvent mouseEvent) {
-
+        labelMentalFunction3.setUnderline(true);
+        labelMentalFunction3.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMentalFunction3.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMentalFunction4;
     public void mentalFunction4Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Cognitive functions");}
     public void mentalFunction4Entered(MouseEvent mouseEvent) {
-
+        labelMentalFunction4.setUnderline(true);
+        labelMentalFunction4.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMentalFunction4.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMentalFunction5;
     public void mentalFunction5Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Feeling functions");}
     public void mentalFunction5Entered(MouseEvent mouseEvent) {
-
+        labelMentalFunction5.setUnderline(true);
+        labelMentalFunction5.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMentalFunction5.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMentalFunction6;
     public void mentalFunction6Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Energy and capacity for action");}
     public void mentalFunction6Enter(MouseEvent mouseEvent) {
-
+        labelMentalFunction6.setUnderline(true);
+        labelMentalFunction6.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMentalFunction6.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMentalFunction7;
     public void mentalFunction7Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Appropriation of skills");}
     public void mentalFunction7Enter(MouseEvent mouseEvent) {
-
+        labelMentalFunction7.setUnderline(true);
+        labelMentalFunction7.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMentalFunction7.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelMentalFunction8;
     public void mentalFunction8Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problem solving");}
     public void mentalFunction8Enter(MouseEvent mouseEvent) {
-
+        labelMentalFunction8.setUnderline(true);
+        labelMentalFunction8.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelMentalFunction8.setUnderline(false));
     }
 
 
-
+    @FXML
+    private Label labelSocialLife1;
     public void socialLife1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Paid occupation");}
     public void socialLife1Enter(MouseEvent mouseEvent) {
-
+        labelSocialLife1.setUnderline(true);
+        labelSocialLife1.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> labelSocialLife1.setUnderline(false));
     }
 
 
