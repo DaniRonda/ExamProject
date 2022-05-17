@@ -429,11 +429,17 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;forstyrrelse af søvn og hvile som følge af&#10;sygdom, skade eller behandling, fx bivirkning af&#10;medicin, eller brug for anden støtte til at&#10;håndtere for manglende evne til at adskille dag&#10;og nat." />
+               </tooltip>
             </Label>
             <Label fx:id="labelSleep2" onMouseClicked="#Sleep2Click" onMouseEntered="#Sleep2Enter" prefHeight="48.0" prefWidth="298.0" text="Sleep problems">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har søvnproblemer som&#10;følge af sygdom, skade eller behandling, fx&#10;bivirkning af medicin.&#10;Fx borgere med narkolepsi, eller brug for anden&#10;støtte til at kompensere for dårlig søvnkvalitet." />
+               </tooltip>
             </Label>
          </children>
       </VBox>
@@ -443,11 +449,17 @@
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;hukommelsen som følge af sygdom, skade eller&#10;behandling, fx bivirkning af medicin.&#10;Fx borgere med demenssygdomme, eller brug for&#10;anden støtte til at huske, genkende og anvende&#10;tidligere erfaringer." />
+               </tooltip>
             </Label>
             <Label fx:id="labelInsight21" onMouseClicked="#insight21Clicked" onMouseEntered="#insight21Enter" prefHeight="24.0" prefWidth="298.0" text="Problems with insight in">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
+               <tooltip>
+                  <Tooltip text="Vælges når borgeren har problemer med&#10;egenomsorg og håndtering af egen sundhed,&#10;sygdom eller symptomer.&#10;Fx borgere der har tydelig føling ved diabetes,&#10;men ikke reagerer, eller borgere med&#10;demenssygdomme, der nægter at have problemer&#10;i dagligdagen, eller brug for anden støtte til at&#10;indse manglende evne til egenomsorg" />
+               </tooltip>
             </Label>
             <Label fx:id="labelInsight22" onMouseClicked="#insight22Click" onMouseEntered="#insight22Enter" prefHeight="16.0" prefWidth="298.0" text="treatment goals">
                <font>
