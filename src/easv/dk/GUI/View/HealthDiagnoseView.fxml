@@ -600,9 +600,9 @@
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="radiobuttonActive" layoutX="585.0" layoutY="1.0" mnemonicParsing="false" onAction="#subCategoryActive" text="Active" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="0.0" />
-                  <RadioButton fx:id="radiobuttonPotential" layoutX="585.0" layoutY="18.0" mnemonicParsing="false" onAction="#subCategoryPotential" text="Potential" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="24.0" />
-                  <RadioButton fx:id="radiobuttonNotRelevant" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" onAction="#subCategoryNotRelevant" text="Not relevant" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" />
+                  <RadioButton fx:id="radiobuttonActive" layoutX="585.0" layoutY="1.0" mnemonicParsing="false" onAction="#subCategoryActive" text="Active" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="0.0" toggleGroup="$group" />
+                  <RadioButton fx:id="radiobuttonPotential" layoutX="585.0" layoutY="18.0" mnemonicParsing="false" onAction="#subCategoryPotential" text="Potential" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="24.0" toggleGroup="$group" />
+                  <RadioButton fx:id="radiobuttonNotRelevant" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" onAction="#subCategoryNotRelevant" text="Not relevant" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" toggleGroup="$group" />
                </children>
             </AnchorPane>
             <TextArea fx:id="textAreaProNote" layoutX="14.0" layoutY="105.0" prefHeight="115.0" prefWidth="708.0" />

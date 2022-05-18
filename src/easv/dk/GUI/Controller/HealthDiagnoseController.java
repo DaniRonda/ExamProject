@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -63,15 +64,28 @@ public class HealthDiagnoseController {
     private Label labelSelectedSubCategory;
     @FXML
             private Button buttonClientsWishes;
-
-    String selectedDiagnose;
-    String selectedCategory;
-    String selectedSubCategory;
-
     @FXML
-    private RadioButton uu;
-    private void ifIsArmed(ActionEvent event){
+            private RadioButton radiobuttonActive;
+    @FXML
+            private RadioButton radiobuttonPotential;
+    @FXML
+            private RadioButton radiobuttonNotRelevant;
+    String selectedDiagnose;
 
+    public HealthDiagnoseController(){
+
+    }
+
+   
+    @FXML
+    private void initialize() {
+        ToggleGroup group = new ToggleGroup();
+        radiobuttonPotential.setToggleGroup(group);
+        radiobuttonActive.setToggleGroup(group);
+        radiobuttonNotRelevant.setToggleGroup(group);
+    }
+
+    private void ifIsArmed(){
 
 
 
@@ -160,6 +174,8 @@ public class HealthDiagnoseController {
         vboxfunction.setVisible(true); vboxfunction.setDisable(false);
         vboxHealth.setVisible(false); vboxHealth.setDisable(true);
         selectedDiagnose = "functionalDiagnose";
+        labelSelectedCategory.setText("Category");
+        labelSelectedSubCategory.setText("SubCategory");
         buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);}
     public void mouseOverToHealthBtn(MouseEvent mouseEvent) {
         buttonHealth.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
@@ -173,6 +189,8 @@ public class HealthDiagnoseController {
         vboxHealth.setVisible(true); vboxHealth.setDisable(false);
         vboxfunction.setVisible(false); vboxfunction.setDisable(true);
         selectedDiagnose = "healthDiagnose";
+        labelSelectedCategory.setText("Category");
+        labelSelectedSubCategory.setText("SubCategory");
         buttonClientsWishes.setVisible(false); buttonClientsWishes.setDisable(true);}
     public void mouseOverToFunctionalBtn(MouseEvent mouseEvent) {
         buttonToFunctional.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
@@ -1113,11 +1131,14 @@ public class HealthDiagnoseController {
 
 
     public void subCategoryActive(ActionEvent actionEvent) {
+
     }
 
     public void subCategoryPotential(ActionEvent actionEvent) {
+
     }
 
     public void subCategoryNotRelevant(ActionEvent actionEvent) {
+
     }
 }
