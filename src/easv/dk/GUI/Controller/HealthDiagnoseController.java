@@ -1,16 +1,17 @@
 package easv.dk.GUI.Controller;
 
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -63,26 +64,40 @@ public class HealthDiagnoseController {
     @FXML
     private Label labelSelectedSubCategory;
     @FXML
-            private Button buttonClientsWishes;
+    private Button buttonClientsWishes;
     @FXML
-            private RadioButton radiobuttonActive;
+    private RadioButton radiobuttonActive;
     @FXML
-            private RadioButton radiobuttonPotential;
+    private RadioButton radiobuttonPotential;
     @FXML
-            private RadioButton radiobuttonNotRelevant;
+    private RadioButton radiobuttonNotRelevant;
+    @FXML
+    private ComboBox ChoiceBoxAnticLvl;
+    @FXML
+    private ComboBox comboBoxExecution;
+    @FXML
+    private ComboBox comboBoxROE;
+
+
     String selectedDiagnose;
+    ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Lessens", "Remains the same", "Disappearing");
+    ObservableList<String> comboBoxOptionsEx = FXCollections.observableArrayList("Performs themselves", "Performs parts themselves", "Cannot perform themselves", "Not relevant");
+    ObservableList<String> comboBoxOptionsROE = FXCollections.observableArrayList("Does not experience limitations", "experiences limitations");
 
     public HealthDiagnoseController(){
 
     }
 
-   
+
     @FXML
     private void initialize() {
         ToggleGroup group = new ToggleGroup();
         radiobuttonPotential.setToggleGroup(group);
         radiobuttonActive.setToggleGroup(group);
         radiobuttonNotRelevant.setToggleGroup(group);
+        ChoiceBoxAnticLvl.setItems(choiceBoxOptions);
+        comboBoxExecution.setItems(comboBoxOptionsEx);
+        comboBoxROE.setItems(comboBoxOptionsEx);
     }
 
     private void ifIsArmed(){
@@ -132,18 +147,17 @@ public class HealthDiagnoseController {
     vboxSocialLife.setDisable(true);
     }
 
-    public void sendToCaseScreen(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/caseView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("Log In");
-        stage.centerOnScreen();
-        stage.show();
-    }
 
+    @FXML
+    private AnchorPane anchorGoals;
+    public void sendToCaseScreen(ActionEvent actionEvent) throws IOException {
+    anchorGoals.setVisible(true); anchorGoals.setDisable(false);}
+
+    public void returnFromGoals(ActionEvent actionEvent) {
+    anchorGoals.setVisible(false); anchorGoals.setDisable(true);
+    }
+    @FXML
+    private Button ButtonLogOut;
     public void logOut(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/LogInView.fxml"));
@@ -154,6 +168,9 @@ public class HealthDiagnoseController {
         stage.setTitle("Log In");
         stage.centerOnScreen();
         stage.show();
+        Stage thisStage = (Stage) ButtonLogOut.getScene().getWindow();
+        thisStage.close();
+
     }
 
     public void Return(ActionEvent actionEvent) throws IOException {
@@ -163,10 +180,21 @@ public class HealthDiagnoseController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("Log In");
+        stage.setTitle("Student View");
         stage.centerOnScreen();
         stage.show();
+        Stage thisStage = (Stage) ButtonLogOut.getScene().getWindow();
+        thisStage.close();
     }
+    public void saveClient(ActionEvent actionEvent) {
+        System.out.println("save");
+    }
+
+    public void saveClientGoals(ActionEvent actionEvent) {
+        System.out.println("saveGoal");
+    }
+
+
 
     @FXML
     private Button buttonHealth;
@@ -198,14 +226,14 @@ public class HealthDiagnoseController {
                 event -> buttonToFunctional.setStyle("-fx-border-color: #8D8D8D; -fx-background-color: #D3D3D3; -fx-border-radius: 15; -fx-background-radius: 15;"));
     }
 
-    public void toClientsWishesScreen(ActionEvent actionEvent) {
-
+    public void toClientsWishesScreen(ActionEvent actionEvent) throws IOException {
+        anchorGoals.setVisible(true); anchorGoals.setDisable(false);
     }
 
 
     @FXML
     private Label labelFunctionLevel;
-    public void functionLevelCLiscke(MouseEvent mouseEvent) {clearAll(); VBoxFunctionLevel.setVisible(true); VBoxFunctionLevel.setDisable(false);  labelSelectedCategory.setText("Functionlevel");}
+    public void functionLevelCLiscke(MouseEvent mouseEvent) {clearAll(); VBoxFunctionLevel.setVisible(true); VBoxFunctionLevel.setDisable(false);  labelSelectedCategory.setText("Functionlevel"); labelSelectedSubCategory.setText("SubCategory");}
     public void mouseOverFunction(MouseEvent mouseEvent) {
         labelFunctionLevel.setUnderline(true);
         labelFunctionLevel.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -216,7 +244,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelMovementApperatus;
-    public void cilckedApperatus(MouseEvent mouseEvent) {clearAll(); vboxMovementapperatus.setVisible(true); vboxMovementapperatus.setDisable(false); labelSelectedCategory.setText("Movement Apparatus"); ;}
+    public void cilckedApperatus(MouseEvent mouseEvent) {clearAll(); vboxMovementapperatus.setVisible(true); vboxMovementapperatus.setDisable(false); labelSelectedCategory.setText("Movement Apparatus"); labelSelectedSubCategory.setText("SubCategory");}
     public void mouseOverApperatus(MouseEvent mouseEvent) {
         labelMovementApperatus.setUnderline(true);
         labelMovementApperatus.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -225,7 +253,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelNutrition;
-    public void nutritionClicked(MouseEvent mouseEvent) {clearAll(); vboxConsumtion.setVisible(true); vboxConsumtion.setDisable(false); labelSelectedCategory.setText("Nutrition");}
+    public void nutritionClicked(MouseEvent mouseEvent) {clearAll(); vboxConsumtion.setVisible(true); vboxConsumtion.setDisable(false); labelSelectedCategory.setText("Nutrition"); labelSelectedSubCategory.setText("SubCategory");}
     public void mouseOverNutrtion(MouseEvent mouseEvent) {
         labelNutrition.setUnderline(true);
         labelNutrition.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -234,7 +262,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin;
-    public void skinClicked(MouseEvent mouseEvent) {clearAll(); vboxSkin.setVisible(true); vboxSkin.setDisable(false); labelSelectedCategory.setText("Skin and membranes");}
+    public void skinClicked(MouseEvent mouseEvent) {clearAll(); vboxSkin.setVisible(true); vboxSkin.setDisable(false); labelSelectedCategory.setText("Skin and membranes"); labelSelectedSubCategory.setText("SubCategory");}
     public void skinEntered(MouseEvent mouseEvent) {
         labelSkin.setUnderline(true);
         labelSkin.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -243,7 +271,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelComunication;
-    public void communicationClicked(MouseEvent mouseEvent) {clearAll(); vboxCommunication.setVisible(true); vboxCommunication.setDisable(false); labelSelectedCategory.setText("Communication");}
+    public void communicationClicked(MouseEvent mouseEvent) {clearAll(); vboxCommunication.setVisible(true); vboxCommunication.setDisable(false); labelSelectedCategory.setText("Communication"); labelSelectedSubCategory.setText("SubCategory");}
     public void communicationEntered(MouseEvent mouseEvent) {
         labelComunication.setUnderline(true);
         labelComunication.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -252,7 +280,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPshyco;
-    public void pshycoClicked(MouseEvent mouseEvent) {clearAll(); vboxPshyco.setVisible(true); vboxPshyco.setDisable(false); labelSelectedCategory.setText("Psychosocial relationships");}
+    public void pshycoClicked(MouseEvent mouseEvent) {clearAll(); vboxPshyco.setVisible(true); vboxPshyco.setDisable(false); labelSelectedCategory.setText("Psychosocial relationships"); labelSelectedSubCategory.setText("SubCategory");}
     public void pshycoEntered(MouseEvent mouseEvent) {
         labelPshyco.setUnderline(true);
         labelPshyco.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -261,7 +289,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelCirkulation;
-    public void respoClicked(MouseEvent mouseEvent) {clearAll(); vboxResparation.setVisible(true); vboxResparation.setDisable(false); labelSelectedCategory.setText("Respiration and circulation");}
+    public void respoClicked(MouseEvent mouseEvent) {clearAll(); vboxResparation.setVisible(true); vboxResparation.setDisable(false); labelSelectedCategory.setText("Respiration and circulation"); labelSelectedSubCategory.setText("SubCategory");}
     public void respoEntered(MouseEvent mouseEvent) {
         labelCirkulation.setUnderline(true);
         labelCirkulation.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -270,7 +298,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSSexuality;
-    public void sexualityClicked(MouseEvent mouseEvent) {clearAll(); vboxSexuality.setVisible(true); vboxSexuality.setDisable(false); labelSelectedCategory.setText("Sexuality");}
+    public void sexualityClicked(MouseEvent mouseEvent) {clearAll(); vboxSexuality.setVisible(true); vboxSexuality.setDisable(false); labelSelectedCategory.setText("Sexuality"); labelSelectedSubCategory.setText("SubCategory");}
     public void sexualityEntered(MouseEvent mouseEvent) {
         labelSSexuality.setUnderline(true);
         labelSSexuality.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -279,7 +307,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPains;
-    public void painsClicked(MouseEvent mouseEvent) {clearAll(); vboxPain.setVisible(true); vboxPain.setDisable(false); labelSelectedCategory.setText("Pains and senses");}
+    public void painsClicked(MouseEvent mouseEvent) {clearAll(); vboxPain.setVisible(true); vboxPain.setDisable(false); labelSelectedCategory.setText("Pains and senses"); labelSelectedSubCategory.setText("SubCategory");}
     public void painsEntered(MouseEvent mouseEvent) {
         labelPains.setUnderline(true);
         labelPains.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -288,7 +316,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSleep;
-    public void sleepClicked(MouseEvent mouseEvent) {clearAll(); vboxSleep.setVisible(true); vboxSleep.setDisable(false); labelSelectedCategory.setText("Sleep and rest");}
+    public void sleepClicked(MouseEvent mouseEvent) {clearAll(); vboxSleep.setVisible(true); vboxSleep.setDisable(false); labelSelectedCategory.setText("Sleep and rest"); labelSelectedSubCategory.setText("SubCategory");}
     public void sleepEntered(MouseEvent mouseEvent) {
         labelSleep.setUnderline(true);
         labelSleep.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -297,7 +325,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelKnowledge;
-    public void knowledgeClicked(MouseEvent mouseEvent) {clearAll(); vboxInsight.setVisible(true); vboxInsight.setDisable(false); labelSelectedCategory.setText("knowledge and development");}
+    public void knowledgeClicked(MouseEvent mouseEvent) {clearAll(); vboxInsight.setVisible(true); vboxInsight.setDisable(false); labelSelectedCategory.setText("knowledge and development"); labelSelectedSubCategory.setText("SubCategory");}
     public void knowledgeEntered(MouseEvent mouseEvent) {
         labelKnowledge.setUnderline(true);
         labelKnowledge.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -306,7 +334,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelWaste;
-    public void wastesClicked(MouseEvent mouseEvent) {clearAll(); vboxWastes.setVisible(true); vboxWastes.setDisable(false); labelSelectedCategory.setText("Excrement of wastes");}
+    public void wastesClicked(MouseEvent mouseEvent) {clearAll(); vboxWastes.setVisible(true); vboxWastes.setDisable(false); labelSelectedCategory.setText("Excrement of wastes"); labelSelectedSubCategory.setText("SubCategory");}
     public void wastesEntered(MouseEvent mouseEvent) {
         labelWaste.setUnderline(true);
         labelWaste.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -316,7 +344,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSelfCare;
-    public void selfcareClicked(MouseEvent mouseEvent) {clearAll(); vboxSelfCare.setVisible(true); vboxSelfCare.setDisable(false); labelSelectedCategory.setText("Selfcare");}
+    public void selfcareClicked(MouseEvent mouseEvent) {clearAll(); vboxSelfCare.setVisible(true); vboxSelfCare.setDisable(false); labelSelectedCategory.setText("Selfcare"); labelSelectedSubCategory.setText("SubCategory");}
     public void selfcareEntered(MouseEvent mouseEvent) {
         labelSelfCare.setUnderline(true);
         labelSelfCare.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -325,7 +353,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPracticalWork;
-    public void practicalClicked(MouseEvent mouseEvent) {clearAll(); vboxPracticalWork.setVisible(true); vboxPracticalWork.setDisable(false); labelSelectedCategory.setText("Practical work");}
+    public void practicalClicked(MouseEvent mouseEvent) {clearAll(); vboxPracticalWork.setVisible(true); vboxPracticalWork.setDisable(false); labelSelectedCategory.setText("Practical work"); labelSelectedSubCategory.setText("SubCategory");}
     public void pacticalEntered(MouseEvent mouseEvent) {
         labelPracticalWork.setUnderline(true);
         labelPracticalWork.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -334,7 +362,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelMobility;
-    public void mobilityClicked(MouseEvent mouseEvent) {clearAll(); vboxMobility.setVisible(true); vboxMobility.setDisable(false); labelSelectedCategory.setText("Mobility");}
+    public void mobilityClicked(MouseEvent mouseEvent) {clearAll(); vboxMobility.setVisible(true); vboxMobility.setDisable(false); labelSelectedCategory.setText("Mobility"); labelSelectedSubCategory.setText("SubCategory");}
     public void mobilityEntered(MouseEvent mouseEvent) {
         labelMobility.setUnderline(true);
         labelMobility.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -343,7 +371,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelMentalFunctions;
-    public void mentalClicked(MouseEvent mouseEvent) {clearAll(); vboxMentalFunction.setVisible(true); vboxMentalFunction.setDisable(false); labelSelectedCategory.setText("Mental functions");}
+    public void mentalClicked(MouseEvent mouseEvent) {clearAll(); vboxMentalFunction.setVisible(true); vboxMentalFunction.setDisable(false); labelSelectedCategory.setText("Mental functions"); labelSelectedSubCategory.setText("SubCategory");}
     public void mentalEntered(MouseEvent mouseEvent) {
         labelMentalFunctions.setUnderline(true);
         labelMentalFunctions.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -352,7 +380,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSocialLife;
-    public void socialClicked(MouseEvent mouseEvent) {clearAll(); vboxSocialLife.setVisible(true); vboxSocialLife.setDisable(false); labelSelectedCategory.setText("Social life");}
+    public void socialClicked(MouseEvent mouseEvent) {clearAll(); vboxSocialLife.setVisible(true); vboxSocialLife.setDisable(false); labelSelectedCategory.setText("Social life"); labelSelectedSubCategory.setText("SubCategory");}
     public void socialEntered(MouseEvent mouseEvent) {
         labelSocialLife.setUnderline(true);
         labelSocialLife.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -714,7 +742,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelInsight21;
-    public void insight21Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with insight in");}
+    public void insight21Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with insight in treatment goals");}
     public void insight21Enter(MouseEvent mouseEvent) {
         labelInsight21.setUnderline(true); labelInsight22.setUnderline(true);
         labelInsight21.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -726,7 +754,7 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelInsight22;
-    public void insight22Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("treatment goals");}
+    public void insight22Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with insight in treatment goals");}
     public void insight22Enter(MouseEvent mouseEvent) {
         labelInsight22.setUnderline(true); labelInsight21.setUnderline(true);
         labelInsight22.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -1127,18 +1155,5 @@ public class HealthDiagnoseController {
         labelSocialLife1.setUnderline(true);
         labelSocialLife1.addEventHandler(MouseEvent.MOUSE_EXITED,
                 event -> labelSocialLife1.setUnderline(false));
-    }
-
-
-    public void subCategoryActive(ActionEvent actionEvent) {
-
-    }
-
-    public void subCategoryPotential(ActionEvent actionEvent) {
-
-    }
-
-    public void subCategoryNotRelevant(ActionEvent actionEvent) {
-
     }
 }

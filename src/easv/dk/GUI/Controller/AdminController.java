@@ -1,14 +1,20 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.BE.Student;
+import easv.dk.BE.Teacher;
+import easv.dk.GUI.Model.StudentModel;
+import easv.dk.GUI.Model.TeacherModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class AdminController {
@@ -34,18 +40,6 @@ public class AdminController {
         stage.show();
     }
 
-    public void openCitizenOverview(ActionEvent actionEvent) throws Exception{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CitizenOverview.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-
-    }
-
     public void adminLogOut(ActionEvent actionEvent) throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to log out?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
@@ -65,6 +59,5 @@ public class AdminController {
         stage.centerOnScreen();
         stage.show();
     }
-
 
 }

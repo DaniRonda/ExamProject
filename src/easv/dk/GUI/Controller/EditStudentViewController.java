@@ -3,6 +3,7 @@ package easv.dk.GUI.Controller;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.Manager;
+import easv.dk.BLL.StudentManager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,7 +19,7 @@ public class EditStudentViewController {
     public Button confirmUpdateStudentBTN;
     public Button cancelUpdateStudentBTN;
     private Student selectedStudent;
- Manager manager = new Manager();
+ StudentManager studentManager = new StudentManager();
  private AdminViewController parentController;
 
  public EditStudentViewController() throws Exception {
@@ -33,7 +34,7 @@ public class EditStudentViewController {
      String studentEmail = studentEmail_txt.getText();
      String studentPassword = studentPassword_txt.getText();
      Student studentUpdated= new Student(studentFirstName,studentLastName,studentEmail,studentPassword,selectedStudent.getId());
-     manager.updateStudent(studentUpdated);
+     studentManager.updateStudent(studentUpdated);
      Stage stage = (Stage)confirmUpdateStudentBTN.getScene().getWindow();
      stage.close();
      parentController.initialize();
