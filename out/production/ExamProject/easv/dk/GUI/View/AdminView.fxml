@@ -20,28 +20,28 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TableView layoutX="114.0" layoutY="99.0" prefHeight="331.0" prefWidth="257.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686">
+      <TableView fx:id="teacherTable" layoutX="114.0" layoutY="99.0" prefHeight="331.0" prefWidth="257.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686">
         <columns>
-          <TableColumn prefWidth="75.0" text="First Name" />
-          <TableColumn prefWidth="75.0" text="Last Name" />
-            <TableColumn prefWidth="75.0" text="Email" />
+          <TableColumn prefWidth="85.0" text="First Name" />
+          <TableColumn prefWidth="95.0" text="Last Name" />
+            <TableColumn prefWidth="76.0" text="Email" />
         </columns>
       </TableView>
       <Button layoutX="114.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Add" AnchorPane.bottomAnchor="19.666666666666668" />
-      <Button fx:id="btnOpenAdminEditView" layoutX="164.0" layoutY="443.0" mnemonicParsing="false" onAction="#openAdminEditView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666668" />
-      <Button layoutX="320.0" layoutY="443.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" />
+      <Button fx:id="openEditTeacherViewBTN" layoutX="164.0" layoutY="443.0" mnemonicParsing="false" onAction="#openEditTeacherView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666668" />
+      <Button fx:id="deleteTeacherBTN" layoutX="320.0" layoutY="443.0" mnemonicParsing="false" onAction="#deleteTeacher" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" />
       <Label layoutX="403.0" layoutY="77.0" text="Students" AnchorPane.rightAnchor="238.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button layoutX="453.0" layoutY="443.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="200.0" />
+      <Button fx:id="openEditStudentViewBTN" layoutX="453.0" layoutY="443.0" mnemonicParsing="false" onAction="#openEditStudentView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="200.0" />
       <Button layoutX="403.0" layoutY="443.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="250.0" />
-      <Button layoutX="619.0" layoutY="443.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" AnchorPane.rightAnchor="21.333333333333336" />
-      <TableView layoutX="403.0" layoutY="99.0" prefHeight="331.0" prefWidth="265.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686" AnchorPane.rightAnchor="22.666666666666686" AnchorPane.topAnchor="99.0">
+      <Button fx:id="deleteStudentBTN" layoutX="619.0" layoutY="443.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" AnchorPane.rightAnchor="21.333333333333336" />
+      <TableView fx:id="studentTable" layoutX="403.0" layoutY="99.0" prefHeight="331.0" prefWidth="265.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686" AnchorPane.rightAnchor="22.666666666666686" AnchorPane.topAnchor="99.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="First Name" />
-          <TableColumn prefWidth="75.0" text="Last Name" />
-            <TableColumn prefWidth="75.0" text="Email" />
+          <TableColumn prefWidth="85.99999743700027" text="First Name" />
+          <TableColumn prefWidth="85.00000762939453" text="Last Name" />
+            <TableColumn prefWidth="93.99998474121094" text="Email" />
         </columns>
       </TableView>
       <VBox layoutX="7.0" layoutY="99.0" prefHeight="331.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />

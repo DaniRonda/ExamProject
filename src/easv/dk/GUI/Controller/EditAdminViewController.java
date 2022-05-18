@@ -1,7 +1,6 @@
 package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Admin;
-import easv.dk.BE.Teacher;
 import easv.dk.BLL.Manager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
@@ -46,5 +45,4 @@ public class EditAdminViewController {
         stage.close();
         parentController.initialize();
     }
-
 }

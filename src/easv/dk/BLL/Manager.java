@@ -41,7 +41,6 @@ public class Manager {
     }
 
 
-
     public Admin adminFound(String emails, String password) throws Exception {
         Admin admin = adminDAO.getAdminLogin(emails, password);
         if (admin != null) return loginHelper.getInstance(admin);
@@ -71,4 +70,22 @@ public class Manager {
     public void updateAdmin(Admin admin) throws Exception {
         adminDAO.updateAdmin(admin);
     }
+
+
+    public void deleteTeacher(Teacher selectedItem) throws Exception {
+        teacherDAO.deleteTeacher(selectedItem);
+    }
+
+    public void deleteStudent(Student selectedItem) throws Exception {
+        studentDAO.deleteStudent(selectedItem);
+    }
+
+    public List<Teacher> getAllTeachers() throws Exception{
+        return this.teacherDAO.getAllTeacher();
+    }
+
+    public List<Student> getAllStudents () throws Exception{
+        return this.studentDAO.getAllStudent();
+    }
+
 }
