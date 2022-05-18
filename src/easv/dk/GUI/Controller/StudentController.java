@@ -99,6 +99,8 @@ public class StudentController {
         stage.setTitle("Diagnose");
         stage.centerOnScreen();
         stage.show();
+        Stage stageThis = (Stage) btnStudentLogOut.getScene().getWindow();
+        stageThis.close();
     }
 
     public void openFunctionalAbilitiesView(ActionEvent actionEvent) throws Exception{

@@ -2,11 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -27,6 +28,11 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
+            <Label fx:id="labelName" layoutX="623.0" layoutY="49.0" text="Name">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <VBox fx:id="vboxHealth" layoutY="163.0" prefHeight="774.0" prefWidth="265.0" style="-fx-background-color: #B6D2E8;" AnchorPane.bottomAnchor="0.0">
@@ -600,9 +606,12 @@
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="radiobuttonActive" layoutX="585.0" layoutY="1.0" mnemonicParsing="false" onAction="#subCategoryActive" text="Active" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="0.0" toggleGroup="$group" />
-                  <RadioButton fx:id="radiobuttonPotential" layoutX="585.0" layoutY="18.0" mnemonicParsing="false" onAction="#subCategoryPotential" text="Potential" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="24.0" toggleGroup="$group" />
-                  <RadioButton fx:id="radiobuttonNotRelevant" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" onAction="#subCategoryNotRelevant" text="Not relevant" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" toggleGroup="$group" />
+                  <RadioButton fx:id="radiobuttonActive" layoutX="585.0" layoutY="1.0" mnemonicParsing="false" text="Active" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="0.0">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="radiobuttonPotential" layoutX="585.0" layoutY="18.0" mnemonicParsing="false" text="Potential" toggleGroup="$group" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="24.0" />
+                  <RadioButton fx:id="radiobuttonNotRelevant" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" text="Not relevant" toggleGroup="$group" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" />
                </children>
             </AnchorPane>
             <TextArea fx:id="textAreaProNote" layoutX="14.0" layoutY="105.0" prefHeight="115.0" prefWidth="708.0" />
@@ -628,18 +637,23 @@
             </Text>
             <TextArea fx:id="textAreaCurAssessment" layoutX="14.0" layoutY="259.0" prefHeight="115.0" prefWidth="708.0" />
             <TextArea fx:id="TextAreaObsNotes" layoutX="14.0" layoutY="564.0" prefHeight="115.0" prefWidth="708.0" />
-            <Button fx:id="buttonClientsWishes" layoutX="20.0" layoutY="696.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes" visible="false">
+            <Button fx:id="buttonClientsWishes" disable="true" layoutX="20.0" layoutY="696.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes" visible="false">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="ChoiceBoxAnticLvl" layoutX="14.0" layoutY="412.0" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
             <TextField fx:id="TextFieldFollowupDate" layoutX="14.0" layoutY="486.0" prefHeight="40.0" prefWidth="708.0" />
             <Text layoutX="15.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Followup Date" wrappingWidth="176.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
+            <Button fx:id="buttonSave" layoutX="20.0" layoutY="696.0" mnemonicParsing="false" onAction="#saveClient" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="ChoiceBoxAnticLvl" layoutX="14.0" layoutY="411.0" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
          </children>
       </AnchorPane>
    </children>

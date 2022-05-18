@@ -35,6 +35,8 @@ public class LogInController implements Initializable {
     private TextField TextFieldEmail;
     @FXML
     private PasswordField TextFieldPassword = new PasswordField();
+    @FXML
+    private Button ButtonSignIn;
 
     public LogInController() throws Exception {
     }
@@ -121,6 +123,8 @@ public class LogInController implements Initializable {
             adminCheck();
             teacherCheck();
             studentCheck();
+            Stage thisStage = (Stage) ButtonSignIn.getScene().getWindow();
+            thisStage.close();
         }
         public String getTextFieldPassword () {
             return this.TextFieldPassword.getText();
