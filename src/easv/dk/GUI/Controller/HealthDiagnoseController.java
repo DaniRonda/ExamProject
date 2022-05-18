@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -62,15 +64,31 @@ public class HealthDiagnoseController {
     private Label labelSelectedSubCategory;
     @FXML
             private Button buttonClientsWishes;
-
-    String selectedDiagnose;
-    String selectedCategory;
-    String selectedSubCategory;
-
     @FXML
-    private void isD(ActionEvent event){
-        txtAddress.setDisable(!rdDelivery.isArmed());
-        txtEmail.setDisable(!rdDelivery.isArmed());
+            private RadioButton radiobuttonActive;
+    @FXML
+            private RadioButton radiobuttonPotential;
+    @FXML
+            private RadioButton radiobuttonNotRelevant;
+    String selectedDiagnose;
+
+    public HealthDiagnoseController(){
+
+    }
+
+   
+    @FXML
+    private void initialize() {
+        ToggleGroup group = new ToggleGroup();
+        radiobuttonPotential.setToggleGroup(group);
+        radiobuttonActive.setToggleGroup(group);
+        radiobuttonNotRelevant.setToggleGroup(group);
+    }
+
+    private void ifIsArmed(){
+
+
+
     }
 
 
@@ -156,6 +174,8 @@ public class HealthDiagnoseController {
         vboxfunction.setVisible(true); vboxfunction.setDisable(false);
         vboxHealth.setVisible(false); vboxHealth.setDisable(true);
         selectedDiagnose = "functionalDiagnose";
+        labelSelectedCategory.setText("Category");
+        labelSelectedSubCategory.setText("SubCategory");
         buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);}
     public void mouseOverToHealthBtn(MouseEvent mouseEvent) {
         buttonHealth.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
@@ -169,6 +189,8 @@ public class HealthDiagnoseController {
         vboxHealth.setVisible(true); vboxHealth.setDisable(false);
         vboxfunction.setVisible(false); vboxfunction.setDisable(true);
         selectedDiagnose = "healthDiagnose";
+        labelSelectedCategory.setText("Category");
+        labelSelectedSubCategory.setText("SubCategory");
         buttonClientsWishes.setVisible(false); buttonClientsWishes.setDisable(true);}
     public void mouseOverToFunctionalBtn(MouseEvent mouseEvent) {
         buttonToFunctional.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
@@ -216,12 +238,7 @@ public class HealthDiagnoseController {
     public void skinEntered(MouseEvent mouseEvent) {
         labelSkin.setUnderline(true);
         labelSkin.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin.setUnderline(false);
-                    }
-                });
+                event -> labelSkin.setUnderline(false));
     }
 
     @FXML
@@ -303,12 +320,7 @@ public class HealthDiagnoseController {
     public void selfcareEntered(MouseEvent mouseEvent) {
         labelSelfCare.setUnderline(true);
         labelSelfCare.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSelfCare.setUnderline(false);
-                    }
-                });
+                event -> labelSelfCare.setUnderline(false));
     }
 
     @FXML
@@ -317,12 +329,7 @@ public class HealthDiagnoseController {
     public void pacticalEntered(MouseEvent mouseEvent) {
         labelPracticalWork.setUnderline(true);
         labelPracticalWork.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPracticalWork.setUnderline(false);
-                    }
-                });
+                event -> labelPracticalWork.setUnderline(false));
     }
 
     @FXML
@@ -331,12 +338,7 @@ public class HealthDiagnoseController {
     public void mobilityEntered(MouseEvent mouseEvent) {
         labelMobility.setUnderline(true);
         labelMobility.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelMobility.setUnderline(false);
-                    }
-                });
+                event -> labelMobility.setUnderline(false));
     }
 
     @FXML
@@ -345,12 +347,7 @@ public class HealthDiagnoseController {
     public void mentalEntered(MouseEvent mouseEvent) {
         labelMentalFunctions.setUnderline(true);
         labelMentalFunctions.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelMentalFunctions.setUnderline(false);
-                    }
-                });
+                event -> labelMentalFunctions.setUnderline(false));
     }
 
     @FXML
@@ -359,12 +356,7 @@ public class HealthDiagnoseController {
     public void socialEntered(MouseEvent mouseEvent) {
         labelSocialLife.setUnderline(true);
         labelSocialLife.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSocialLife.setUnderline(false);
-                    }
-                });
+                event -> labelSocialLife.setUnderline(false));
     }
 
 
@@ -376,12 +368,7 @@ public class HealthDiagnoseController {
     public void functionLevel1Entered(MouseEvent mouseEvent) {
         labelFunctionLevel1.setUnderline(true);
         labelFunctionLevel1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelFunctionLevel1.setUnderline(false);
-                    }
-                });
+                event -> labelFunctionLevel1.setUnderline(false));
     }
 
 
@@ -391,12 +378,7 @@ public class HealthDiagnoseController {
     public void functionLevel2Entered(MouseEvent mouseEvent) {
         labelFunctionLevel2.setUnderline(true);
         labelFunctionLevel2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelFunctionLevel2.setUnderline(false);
-                    }
-                });
+                event -> labelFunctionLevel2.setUnderline(false));
     }
 
     @FXML
@@ -405,12 +387,7 @@ public class HealthDiagnoseController {
     public void Apperatus1Entered(MouseEvent mouseEvent) {
         labelMovementapperatus1.setUnderline(true);
         labelMovementapperatus1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelMovementapperatus1.setUnderline(false);
-                    }
-                });
+                event -> labelMovementapperatus1.setUnderline(false));
     }
 
     @FXML
@@ -419,12 +396,7 @@ public class HealthDiagnoseController {
     public void nutrition1Entered(MouseEvent mouseEvent) {
         labelConsumtion1.setUnderline(true);
         labelConsumtion1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelConsumtion1.setUnderline(false);
-                    }
-                });
+                event -> labelConsumtion1.setUnderline(false));
     }
 
     @FXML
@@ -433,12 +405,7 @@ public class HealthDiagnoseController {
     public void nutrition2Entered(MouseEvent mouseEvent) {
         labelConsumtion2.setUnderline(true);
         labelConsumtion2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelConsumtion2.setUnderline(false);
-                    }
-                });
+                event -> labelConsumtion2.setUnderline(false));
     }
 
     @FXML
@@ -447,12 +414,7 @@ public class HealthDiagnoseController {
     public void nutrition3Entered(MouseEvent mouseEvent) {
         labelConsumtion3.setUnderline(true);
         labelConsumtion3.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelConsumtion3.setUnderline(false);
-                    }
-                });
+                event -> labelConsumtion3.setUnderline(false));
     }
 
     @FXML
@@ -461,12 +423,7 @@ public class HealthDiagnoseController {
     public void nutrition4Entered(MouseEvent mouseEvent) {
         labelConsumtion4.setUnderline(true);
         labelConsumtion4.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelConsumtion4.setUnderline(false);
-                    }
-                });
+                event -> labelConsumtion4.setUnderline(false));
     }
 
     @FXML
@@ -475,12 +432,7 @@ public class HealthDiagnoseController {
     public void nutrition5Entered(MouseEvent mouseEvent) {
         labelConsumtion5.setUnderline(true);
         labelConsumtion5.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelConsumtion5.setUnderline(false);
-                    }
-                });
+                event -> labelConsumtion5.setUnderline(false));
     }
 
     @FXML
@@ -489,12 +441,7 @@ public class HealthDiagnoseController {
     public void skin1Enter(MouseEvent mouseEvent) {
         labelSkin1.setUnderline(true);
         labelSkin1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin1.setUnderline(false);
-                    }
-                });
+                event -> labelSkin1.setUnderline(false));
 
     }
 
@@ -504,12 +451,7 @@ public class HealthDiagnoseController {
     public void skin2Enter(MouseEvent mouseEvent) {
         labelSkin2.setUnderline(true);
         labelSkin2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin2.setUnderline(false);
-                    }
-                });
+                event -> labelSkin2.setUnderline(false));
     }
 
     @FXML
@@ -518,12 +460,7 @@ public class HealthDiagnoseController {
     public void skin3Enter(MouseEvent mouseEvent) {
         labelSkin3.setUnderline(true);
         labelSkin3.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin3.setUnderline(false);
-                    }
-                });
+                event -> labelSkin3.setUnderline(false));
     }
 
     @FXML
@@ -532,12 +469,7 @@ public class HealthDiagnoseController {
     public void skin4Enter(MouseEvent mouseEvent) {
         labelSkin4.setUnderline(true);
         labelSkin4.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin4.setUnderline(false);
-                    }
-                });
+                event -> labelSkin4.setUnderline(false));
     }
 
     @FXML
@@ -546,12 +478,7 @@ public class HealthDiagnoseController {
     public void skin5Enter(MouseEvent mouseEvent) {
         labelSkin5.setUnderline(true);
         labelSkin5.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin5.setUnderline(false);
-                    }
-                });
+                event -> labelSkin5.setUnderline(false));
     }
 
     @FXML
@@ -560,12 +487,7 @@ public class HealthDiagnoseController {
     public void skin6Enter(MouseEvent mouseEvent) {
         labelSkin6.setUnderline(true);
         labelSkin6.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin6.setUnderline(false);
-                    }
-                });
+                event -> labelSkin6.setUnderline(false));
     }
 
     @FXML
@@ -574,12 +496,7 @@ public class HealthDiagnoseController {
     public void skin7Enter(MouseEvent mouseEvent) {
         labelSkin7.setUnderline(true);
         labelSkin7.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin7.setUnderline(false);
-                    }
-                });
+                event -> labelSkin7.setUnderline(false));
     }
 
     @FXML
@@ -588,12 +505,7 @@ public class HealthDiagnoseController {
     public void skin8Enter(MouseEvent mouseEvent) {
         labelSkin8.setUnderline(true);
         labelSkin8.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin8.setUnderline(false);
-                    }
-                });
+                event -> labelSkin8.setUnderline(false));
     }
 
     @FXML
@@ -602,11 +514,8 @@ public class HealthDiagnoseController {
     public void skin91Enter(MouseEvent mouseEvent) {
         labelSkin91.setUnderline(true); labelSkin92.setUnderline(true);
         labelSkin91.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin91.setUnderline(false); labelSkin92.setUnderline(false);
-                    }
+                event -> {
+                    labelSkin91.setUnderline(false); labelSkin92.setUnderline(false);
                 });
     }
 
@@ -616,11 +525,8 @@ public class HealthDiagnoseController {
     public void skin92Enter(MouseEvent mouseEvent) {
         labelSkin92.setUnderline(true); labelSkin91.setUnderline(true);
         labelSkin92.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSkin92.setUnderline(false); labelSkin91.setUnderline(false);
-                    }
+                event -> {
+                    labelSkin92.setUnderline(false); labelSkin91.setUnderline(false);
                 });
 
     }
@@ -631,12 +537,7 @@ public class HealthDiagnoseController {
     public void communication1Enter(MouseEvent mouseEvent) {
         labelCommunication.setUnderline(true);
         labelCommunication.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelCommunication.setUnderline(false);
-                    }
-                });
+                event -> labelCommunication.setUnderline(false));
     }
 
     @FXML
@@ -645,12 +546,7 @@ public class HealthDiagnoseController {
     public void pshyco1Enter(MouseEvent mouseEvent) {
         labelPshyco1.setUnderline(true);
         labelPshyco1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPshyco1.setUnderline(false);
-                    }
-                });
+                event -> labelPshyco1.setUnderline(false));
     }
 
     @FXML
@@ -659,12 +555,7 @@ public class HealthDiagnoseController {
     public void pshyco2Enter(MouseEvent mouseEvent) {
         labelPshyco2.setUnderline(true);
         labelPshyco2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPshyco2.setUnderline(false);
-                    }
-                });
+                event -> labelPshyco2.setUnderline(false));
     }
 
     @FXML
@@ -673,12 +564,7 @@ public class HealthDiagnoseController {
     public void pshyco3Enter(MouseEvent mouseEvent) {
         labelPshyco3.setUnderline(true);
         labelPshyco3.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPshyco3.setUnderline(false);
-                    }
-                });
+                event -> labelPshyco3.setUnderline(false));
     }
 
     @FXML
@@ -687,12 +573,7 @@ public class HealthDiagnoseController {
     public void pshyco4Enter(MouseEvent mouseEvent) {
         labelPshyco4.setUnderline(true);
         labelPshyco4.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPshyco4.setUnderline(false);
-                    }
-                });
+                event -> labelPshyco4.setUnderline(false));
     }
 
     @FXML
@@ -701,12 +582,7 @@ public class HealthDiagnoseController {
     public void resporation1Enter(MouseEvent mouseEvent) {
         labelResparation1.setUnderline(true);
         labelResparation1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelResparation1.setUnderline(false);
-                    }
-                });
+                event -> labelResparation1.setUnderline(false));
     }
 
     @FXML
@@ -715,12 +591,7 @@ public class HealthDiagnoseController {
     public void resporation2Enter(MouseEvent mouseEvent) {
         labelResparation2.setUnderline(true);
         labelResparation2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelResparation2.setUnderline(false);
-                    }
-                });
+                event -> labelResparation2.setUnderline(false));
     }
 
     @FXML
@@ -729,12 +600,7 @@ public class HealthDiagnoseController {
     public void Sexuality1Enter(MouseEvent mouseEvent) {
         labelSexuality.setUnderline(true);
         labelSexuality.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSexuality.setUnderline(false);
-                    }
-                });
+                event -> labelSexuality.setUnderline(false));
     }
 
     @FXML
@@ -743,12 +609,7 @@ public class HealthDiagnoseController {
     public void pain1Enter(MouseEvent mouseEvent) {
         labelPain1.setUnderline(true);
         labelPain1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPain1.setUnderline(false);
-                    }
-                });
+                event -> labelPain1.setUnderline(false));
     }
 
     @FXML
@@ -757,12 +618,7 @@ public class HealthDiagnoseController {
     public void pain2Enter(MouseEvent mouseEvent) {
         labelPain2.setUnderline(true);
         labelPain2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPain2.setUnderline(false);
-                    }
-                });
+                event -> labelPain2.setUnderline(false));
     }
 
 
@@ -772,12 +628,7 @@ public class HealthDiagnoseController {
     public void pain3Enter(MouseEvent mouseEvent) {
         labelPain3.setUnderline(true);
         labelPain3.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPain3.setUnderline(false);
-                    }
-                });
+                event -> labelPain3.setUnderline(false));
     }
 
 
@@ -787,12 +638,7 @@ public class HealthDiagnoseController {
     public void pain4Enter(MouseEvent mouseEvent) {
         labelPain4.setUnderline(true);
         labelPain4.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPain4.setUnderline(false);
-                    }
-                });
+                event -> labelPain4.setUnderline(false));
     }
 
 
@@ -802,12 +648,7 @@ public class HealthDiagnoseController {
     public void pain5Enter(MouseEvent mouseEvent) {
         labelPain5.setUnderline(true);
         labelPain5.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPain5.setUnderline(false);
-                    }
-                });
+                event -> labelPain5.setUnderline(false));
     }
 
 
@@ -817,12 +658,7 @@ public class HealthDiagnoseController {
     public void pain6Enter(MouseEvent mouseEvent) {
         labelPain6.setUnderline(true);
         labelPain6.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPain6.setUnderline(false);
-                    }
-                });
+                event -> labelPain6.setUnderline(false));
     }
 
 
@@ -832,12 +668,7 @@ public class HealthDiagnoseController {
     public void pain7Enter(MouseEvent mouseEvent) {
         labelPain7.setUnderline(true);
         labelPain7.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPain7.setUnderline(false);
-                    }
-                });
+                event -> labelPain7.setUnderline(false));
     }
 
 
@@ -847,12 +678,7 @@ public class HealthDiagnoseController {
     public void pain8Enter(MouseEvent mouseEvent) {
         labelPain8.setUnderline(true);
         labelPain8.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelPain8.setUnderline(false);
-                    }
-                });
+                event -> labelPain8.setUnderline(false));
     }
 
 
@@ -862,12 +688,7 @@ public class HealthDiagnoseController {
     public void Sleep1Enter(MouseEvent mouseEvent) {
         labelSleep1.setUnderline(true);
         labelSleep1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSleep1.setUnderline(false);
-                    }
-                });
+                event -> labelSleep1.setUnderline(false));
     }
 
 
@@ -877,12 +698,7 @@ public class HealthDiagnoseController {
     public void Sleep2Enter(MouseEvent mouseEvent) {
         labelSleep2.setUnderline(true);
         labelSleep2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelSleep2.setUnderline(false);
-                    }
-                });
+                event -> labelSleep2.setUnderline(false));
     }
 
 
@@ -892,12 +708,7 @@ public class HealthDiagnoseController {
     public void insight1Enter(MouseEvent mouseEvent) {
         labelInsight1.setUnderline(true);
         labelInsight1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelInsight1.setUnderline(false);
-                    }
-                });
+                event -> labelInsight1.setUnderline(false));
     }
 
 
@@ -907,11 +718,8 @@ public class HealthDiagnoseController {
     public void insight21Enter(MouseEvent mouseEvent) {
         labelInsight21.setUnderline(true); labelInsight22.setUnderline(true);
         labelInsight21.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelInsight21.setUnderline(false); labelInsight22.setUnderline(false);
-                    }
+                event -> {
+                    labelInsight21.setUnderline(false); labelInsight22.setUnderline(false);
                 });
     }
 
@@ -922,11 +730,8 @@ public class HealthDiagnoseController {
     public void insight22Enter(MouseEvent mouseEvent) {
         labelInsight22.setUnderline(true); labelInsight21.setUnderline(true);
         labelInsight22.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelInsight22.setUnderline(false); labelInsight21.setUnderline(false);
-                    }
+                event -> {
+                    labelInsight22.setUnderline(false); labelInsight21.setUnderline(false);
                 });
     }
 
@@ -937,12 +742,7 @@ public class HealthDiagnoseController {
     public void insight3Enter(MouseEvent mouseEvent) {
         labelInsight3.setUnderline(true);
         labelInsight3.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelInsight3.setUnderline(false);
-                    }
-                });
+                event -> labelInsight3.setUnderline(false));
     }
 
 
@@ -952,12 +752,7 @@ public class HealthDiagnoseController {
     public void insight4Enter(MouseEvent mouseEvent) {
         labelInsight4.setUnderline(true);
         labelInsight4.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelInsight4.setUnderline(false);
-                    }
-                });
+                event -> labelInsight4.setUnderline(false));
     }
 
 
@@ -967,12 +762,7 @@ public class HealthDiagnoseController {
     public void waste1Enter(MouseEvent mouseEvent) {
         labelWaste1.setUnderline(true);
         labelWaste1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelWaste1.setUnderline(false);
-                    }
-                });
+                event -> labelWaste1.setUnderline(false));
     }
 
 
@@ -982,12 +772,7 @@ public class HealthDiagnoseController {
     public void waste2Enter(MouseEvent mouseEvent) {
         labelWaste2.setUnderline(true);
         labelWaste2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelWaste2.setUnderline(false);
-                    }
-                });
+                event -> labelWaste2.setUnderline(false));
     }
 
 
@@ -997,12 +782,7 @@ public class HealthDiagnoseController {
     public void waste3Enter(MouseEvent mouseEvent) {
         labelWaste3.setUnderline(true);
         labelWaste3.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelWaste3.setUnderline(false);
-                    }
-                });
+                event -> labelWaste3.setUnderline(false));
     }
 
 
@@ -1012,12 +792,7 @@ public class HealthDiagnoseController {
     public void waste4Enter(MouseEvent mouseEvent) {
         labelWaste4.setUnderline(true);
         labelWaste4.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelWaste4.setUnderline(false);
-                    }
-                });
+                event -> labelWaste4.setUnderline(false));
     }
 
 
@@ -1027,12 +802,7 @@ public class HealthDiagnoseController {
     public void waste5Enter(MouseEvent mouseEvent) {
         labelWaste5.setUnderline(true);
         labelWaste5.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelWaste5.setUnderline(false);
-                    }
-                });
+                event -> labelWaste5.setUnderline(false));
     }
 
 
@@ -1042,12 +812,7 @@ public class HealthDiagnoseController {
     public void selfcare1Enter(MouseEvent mouseEvent) {
         labelselfcare1.setUnderline(true);
         labelselfcare1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelselfcare1.setUnderline(false);
-                    }
-                });
+                event -> labelselfcare1.setUnderline(false));
     }
 
 
@@ -1057,12 +822,7 @@ public class HealthDiagnoseController {
     public void selfcare2Enter(MouseEvent mouseEvent) {
         labelselfcare2.setUnderline(true);
         labelselfcare2.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelselfcare2.setUnderline(false);
-                    }
-                });
+                event -> labelselfcare2.setUnderline(false));
     }
 
 
@@ -1072,12 +832,7 @@ public class HealthDiagnoseController {
     public void selfcare3Entered(MouseEvent mouseEvent) {
         labelselfcare3.setUnderline(true);
         labelselfcare3.addEventHandler(MouseEvent.MOUSE_EXITED,
-                new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        labelselfcare3.setUnderline(false);
-                    }
-                });
+                event -> labelselfcare3.setUnderline(false));
     }
 
 
@@ -1375,4 +1130,15 @@ public class HealthDiagnoseController {
     }
 
 
+    public void subCategoryActive(ActionEvent actionEvent) {
+
+    }
+
+    public void subCategoryPotential(ActionEvent actionEvent) {
+
+    }
+
+    public void subCategoryNotRelevant(ActionEvent actionEvent) {
+
+    }
 }

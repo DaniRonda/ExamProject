@@ -29,7 +29,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <VBox fx:id="vboxHealth" disable="true" layoutY="163.0" prefHeight="774.0" prefWidth="265.0" style="-fx-background-color: #B6D2E8;" visible="false" AnchorPane.bottomAnchor="0.0">
+      <VBox fx:id="vboxHealth" layoutY="163.0" prefHeight="774.0" prefWidth="265.0" style="-fx-background-color: #B6D2E8;" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelFunctionLevel" onMouseClicked="#functionLevelCLiscke" onMouseEntered="#mouseOverFunction" prefHeight="48.0" prefWidth="176.0" text="Functionlevel">
                <font>
@@ -101,7 +101,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="vboxfunction" layoutY="126.0" prefHeight="774.0" prefWidth="265.0" style="-fx-background-color: #B6D2E8;">
+      <VBox fx:id="vboxfunction" disable="true" layoutY="126.0" prefHeight="774.0" prefWidth="265.0" style="-fx-background-color: #B6D2E8;" visible="false">
          <children>
             <Label fx:id="labelSelfCare" onMouseClicked="#selfcareClicked" onMouseEntered="#selfcareEntered" prefHeight="48.0" prefWidth="176.0" text="Selfcare">
                <font>
@@ -600,9 +600,9 @@
                         <Font name="Arial Bold" size="16.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="radiobuttonActive" layoutX="585.0" layoutY="1.0" mnemonicParsing="false" text="Active" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="0.0" />
-                  <RadioButton fx:id="radiobuttonPotential" layoutX="585.0" layoutY="18.0" mnemonicParsing="false" text="Potential" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="24.0" />
-                  <RadioButton fx:id="radiobuttonNotRelevant" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" text="Not relevant" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" />
+                  <RadioButton fx:id="radiobuttonActive" layoutX="585.0" layoutY="1.0" mnemonicParsing="false" onAction="#subCategoryActive" text="Active" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="0.0" toggleGroup="$group" />
+                  <RadioButton fx:id="radiobuttonPotential" layoutX="585.0" layoutY="18.0" mnemonicParsing="false" onAction="#subCategoryPotential" text="Potential" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="24.0" toggleGroup="$group" />
+                  <RadioButton fx:id="radiobuttonNotRelevant" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" onAction="#subCategoryNotRelevant" text="Not relevant" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" toggleGroup="$group" />
                </children>
             </AnchorPane>
             <TextArea fx:id="textAreaProNote" layoutX="14.0" layoutY="105.0" prefHeight="115.0" prefWidth="708.0" />
@@ -628,7 +628,7 @@
             </Text>
             <TextArea fx:id="textAreaCurAssessment" layoutX="14.0" layoutY="259.0" prefHeight="115.0" prefWidth="708.0" />
             <TextArea fx:id="TextAreaObsNotes" layoutX="14.0" layoutY="564.0" prefHeight="115.0" prefWidth="708.0" />
-            <Button fx:id="buttonClientsWishes" layoutX="20.0" layoutY="696.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes">
+            <Button fx:id="buttonClientsWishes" layoutX="20.0" layoutY="696.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes" visible="false">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
