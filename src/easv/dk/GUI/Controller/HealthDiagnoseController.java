@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -72,10 +73,16 @@ public class HealthDiagnoseController {
     private RadioButton radiobuttonNotRelevant;
     @FXML
     private ComboBox ChoiceBoxAnticLvl;
+    @FXML
+    private ComboBox comboBoxExecution;
+    @FXML
+    private ComboBox comboBoxROE;
 
 
     String selectedDiagnose;
     ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Lessens", "Remains the same", "Disappearing");
+    ObservableList<String> comboBoxOptionsEx = FXCollections.observableArrayList("Performs themselves", "Performs parts themselves", "Cannot perform themselves", "Not relevant");
+    ObservableList<String> comboBoxOptionsROE = FXCollections.observableArrayList("Does not experience limitations", "experiences limitations");
 
     public HealthDiagnoseController(){
 
@@ -89,6 +96,8 @@ public class HealthDiagnoseController {
         radiobuttonActive.setToggleGroup(group);
         radiobuttonNotRelevant.setToggleGroup(group);
         ChoiceBoxAnticLvl.setItems(choiceBoxOptions);
+        comboBoxExecution.setItems(comboBoxOptionsEx);
+        comboBoxROE.setItems(comboBoxOptionsEx);
     }
 
     private void ifIsArmed(){
@@ -139,21 +148,14 @@ public class HealthDiagnoseController {
     }
 
 
-
+    @FXML
+    private AnchorPane anchorGoals;
     public void sendToCaseScreen(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/caseView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("Log In");
-        stage.centerOnScreen();
-        stage.show();
-        Stage thisStage = (Stage) ButtonLogOut.getScene().getWindow();
-        thisStage.close();
-    }
+    anchorGoals.setVisible(true); anchorGoals.setDisable(false);}
 
+    public void returnFromGoals(ActionEvent actionEvent) {
+    anchorGoals.setVisible(false); anchorGoals.setDisable(true);
+    }
     @FXML
     private Button ButtonLogOut;
     public void logOut(ActionEvent actionEvent) throws IOException {
@@ -184,6 +186,15 @@ public class HealthDiagnoseController {
         Stage thisStage = (Stage) ButtonLogOut.getScene().getWindow();
         thisStage.close();
     }
+    public void saveClient(ActionEvent actionEvent) {
+        System.out.println("save");
+    }
+
+    public void saveClientGoals(ActionEvent actionEvent) {
+        System.out.println("saveGoal");
+    }
+
+
 
     @FXML
     private Button buttonHealth;
@@ -216,17 +227,7 @@ public class HealthDiagnoseController {
     }
 
     public void toClientsWishesScreen(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/ClientsWishesController.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("Student View");
-        stage.centerOnScreen();
-        stage.show();
-        Stage thisStage = (Stage) ButtonLogOut.getScene().getWindow();
-        thisStage.close();
+        anchorGoals.setVisible(true); anchorGoals.setDisable(false);
     }
 
 
@@ -1154,9 +1155,5 @@ public class HealthDiagnoseController {
         labelSocialLife1.setUnderline(true);
         labelSocialLife1.addEventHandler(MouseEvent.MOUSE_EXITED,
                 event -> labelSocialLife1.setUnderline(false));
-    }
-
-
-    public void saveClient(ActionEvent actionEvent) {
     }
 }
