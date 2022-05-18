@@ -16,9 +16,9 @@
    <children>
       <ToolBar layoutY="-1.0" prefHeight="52.0" prefWidth="691.0" style="-fx-background-color: #EFEFE6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
       <TextField layoutX="23.0" layoutY="14.0" promptText="🔎" />
-      <Label layoutX="114.0" layoutY="77.0" text="Teachers">
+      <Label layoutX="119.0" layoutY="73.0" text="Teachers">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Label>
       <TableView layoutX="114.0" layoutY="99.0" prefHeight="331.0" prefWidth="257.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686">
         <columns>
@@ -27,15 +27,15 @@
             <TableColumn prefWidth="75.0" text="Email" />
         </columns>
       </TableView>
-      <Button layoutX="114.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Add" AnchorPane.bottomAnchor="19.666666666666668" />
-      <Button fx:id="btnOpenAdminEditView" layoutX="164.0" layoutY="443.0" mnemonicParsing="false" onAction="#openAdminEditView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666668" />
+      <Button layoutX="114.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="New" AnchorPane.bottomAnchor="20.0" />
+      <Button fx:id="btnOpenAdminEditView" layoutX="167.0" layoutY="443.0" mnemonicParsing="false" onAction="#openAdminEditView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" />
       <Button layoutX="320.0" layoutY="443.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" />
-      <Label layoutX="403.0" layoutY="77.0" text="Students" AnchorPane.rightAnchor="238.0">
+      <Label layoutX="407.0" layoutY="73.0" text="Students" AnchorPane.rightAnchor="217.33333333333331">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Button layoutX="453.0" layoutY="443.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="200.0" />
-      <Button layoutX="403.0" layoutY="443.0" mnemonicParsing="false" text="Add" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="250.0" />
+      <Button layoutX="461.0" layoutY="443.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="192.0" />
+      <Button layoutX="407.0" layoutY="443.0" mnemonicParsing="false" text="New" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="244.0" />
       <Button layoutX="619.0" layoutY="443.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" AnchorPane.rightAnchor="21.333333333333336" />
       <TableView layoutX="403.0" layoutY="99.0" prefHeight="331.0" prefWidth="265.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686" AnchorPane.rightAnchor="22.666666666666686" AnchorPane.topAnchor="99.0">
         <columns>
@@ -47,21 +47,21 @@
       <VBox layoutX="7.0" layoutY="99.0" prefHeight="331.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
       <Button layoutX="17.0" layoutY="238.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Cases" />
       <Button fx:id="btnAdminLogOut" layoutX="619.0" layoutY="18.0" mnemonicParsing="false" onAction="#adminLogOut" text="Log Out" AnchorPane.rightAnchor="12.666666666666664" />
-      <Button layoutX="14.0" layoutY="155.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Citizens" />
+      <Button fx:id="btnOpenCitizenOverview" layoutX="14.0" layoutY="155.0" mnemonicParsing="false" onAction="#openCitizenOverview" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Citizens" />
       <Label layoutX="215.0" layoutY="7.0" prefHeight="52.0" prefWidth="38.0" />
       <ImageView fitHeight="45.0" fitWidth="67.0" layoutX="41.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/Screenshot%202022-05-17%20102959.png" />
+            <Image url="@../Pictures/Citizen.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="51.0" layoutX="38.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/Screenshot%202022-05-17%20103409.png" />
+            <Image url="@../Pictures/Case.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="36.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/Screenshot%202022-05-17%20103507.png" />
+            <Image url="@../Pictures/Template.png" />
          </image>
       </ImageView>
       <Button layoutX="17.0" layoutY="324.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Templates" />

@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class TeacherController {
 
     @FXML
-    private Button btnAddCitizen;
+    private Button btnNewCitizen;
     @FXML
     private Button btnTeacherLogOut;
 
@@ -38,9 +38,9 @@ public class TeacherController {
         stage.show();
     }
 
-    public void AddCitizen(ActionEvent actionEvent) throws Exception {
+    public void openNewCitizenView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/AddCitizenView .fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewCitizenView .fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

@@ -17,6 +17,9 @@ public class AdminController {
     private Button btnAdminLogOut;
 
     @FXML
+    private Button btnOpenCitizenOverview;
+
+    @FXML
     private Button btnOpenAdminEditView;
 
 
@@ -29,6 +32,18 @@ public class AdminController {
         stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
+    }
+
+    public void openCitizenOverview(ActionEvent actionEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CitizenOverview.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+
     }
 
     public void adminLogOut(ActionEvent actionEvent) throws Exception {
@@ -50,5 +65,6 @@ public class AdminController {
         stage.centerOnScreen();
         stage.show();
     }
+
 
 }
