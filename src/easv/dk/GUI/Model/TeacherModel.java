@@ -3,6 +3,7 @@ package easv.dk.GUI.Model;
 import easv.dk.BE.Admin;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.Manager;
+import easv.dk.BLL.TeacherManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,6 +17,10 @@ public class TeacherModel {
     public TeacherModel() throws Exception {
 
         getAllTeachers= FXCollections.observableArrayList();
+    }
+
+    public static void deleteCitizen(Object selectedItem) {
+       // TeacherManager.deleteCitizen(selectedItem);
     }
 
     public Teacher teacherFound(String emails, String password) throws Exception {
