@@ -51,4 +51,6 @@ public class TeacherController {
 
     public void openNewStudentView(ActionEvent actionEvent) {
     }
+
+
 }
