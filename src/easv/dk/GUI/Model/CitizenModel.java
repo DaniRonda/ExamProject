@@ -15,7 +15,7 @@ public class CitizenModel {
         getAllCitizens = FXCollections.observableArrayList();
     }
 
-    public static void deleteCitizen(Object selectedItem) throws Exception {
+    public static void deleteCitizen(Citizen selectedItem) throws Exception {
         CitizenManager.deleteCitizen(selectedItem);
     }
 

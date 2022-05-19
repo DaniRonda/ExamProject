@@ -1,5 +1,6 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.BE.Citizen;
 import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.TeacherModel;
 import javafx.event.ActionEvent;
@@ -60,7 +61,7 @@ public class TeacherController {
     }
 
     public void deleteCitizen(ActionEvent actionEvent) throws Exception {
-        CitizenModel.deleteCitizen(citizenTable.getSelectionModel().getSelectedItem());
+        CitizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
         citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
     }
 }

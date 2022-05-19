@@ -90,7 +90,7 @@ public class CitizenDAO {
     }
 
 
-    public static void deleteCitizen(Object citizen) throws Exception {
+    public static void deleteCitizen(Citizen citizen) throws Exception {
         Connection con = cm.getConnection();
         String sqlDeleteCitizen = "DELETE FROM Citizen WHERE ID=?;";
         PreparedStatement psDeleteCitizen = con.prepareStatement(sqlDeleteCitizen, Statement.RETURN_GENERATED_KEYS);
