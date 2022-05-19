@@ -102,7 +102,7 @@ public class HealthDiagnoseController {
         radiobuttonNotRelevant.setToggleGroup(group);
         ChoiceBoxAnticLvl.setItems(choiceBoxOptions);
         comboBoxExecution.setItems(comboBoxOptionsEx);
-        comboBoxROE.setItems(comboBoxOptionsEx);
+        comboBoxROE.setItems(comboBoxOptionsROE);
     }
 
     private void ifIsArmed(){

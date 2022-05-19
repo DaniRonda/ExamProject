@@ -4,6 +4,7 @@ import easv.dk.BE.Admin;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.TeacherManager;
 import easv.dk.BLL.Manager;
+import easv.dk.BLL.TeacherManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

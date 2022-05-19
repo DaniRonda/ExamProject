@@ -1,10 +1,14 @@
 package easv.dk.BLL;
 
+import easv.dk.DAL.CitizenDAO;
+import easv.dk.DAL.TeacherDAO;
+
 import easv.dk.DAL.TeacherDAO;
 import easv.dk.BE.Teacher;
 import java.util.List;
 
 public class TeacherManager {
+
 
     TeacherDAO teacherDAO = new TeacherDAO();
 

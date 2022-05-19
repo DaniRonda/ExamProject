@@ -16,7 +16,7 @@
 <AnchorPane prefHeight="643.0" prefWidth="845.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TeacherController">
    <children>
       <ToolBar layoutX="1.0" layoutY="2.0" prefHeight="74.0" prefWidth="845.0" style="-fx-background-color: #EFEFE6;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" />
-      <TableView layoutX="119.0" layoutY="125.0" maxWidth="1.7976931348623157E308" prefHeight="449.0" prefWidth="213.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="citizenTable" layoutX="119.0" layoutY="125.0" maxWidth="1.7976931348623157E308" prefHeight="449.0" prefWidth="213.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="125.0">
         <columns>
           <TableColumn prefWidth="75.0" text="First Name" />
           <TableColumn prefWidth="75.0" text="Last Name" />
@@ -39,7 +39,7 @@
       <Button layoutX="492.0" layoutY="587.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="30.66666666666663" AnchorPane.rightAnchor="302.33333333333337" />
       <Button fx:id="btnNewStudent" layoutX="601.0" layoutY="587.0" mnemonicParsing="false" onAction="#openNewStudentView" text="New" AnchorPane.bottomAnchor="30.66666666666663" AnchorPane.rightAnchor="204.0" />
       <Button layoutX="657.0" layoutY="587.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="30.66666666666663" AnchorPane.rightAnchor="151.33333333333337" />
-      <Button layoutX="281.0" layoutY="587.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="30.66666666666663" />
+      <Button fx:id="btnDeleteCitizen" layoutX="281.0" layoutY="587.0" mnemonicParsing="false" onAction="#deleteCitizen" text="Delete" AnchorPane.bottomAnchor="30.66666666666663" />
       <TextField layoutX="40.0" layoutY="23.0" prefHeight="26.0" prefWidth="196.0" promptText="🔎" AnchorPane.leftAnchor="40.0">
          <font>
             <Font name="System Bold" size="16.0" />
