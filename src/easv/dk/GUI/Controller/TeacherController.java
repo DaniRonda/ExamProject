@@ -61,7 +61,7 @@ public class TeacherController {
 
     public void openNewCitizenView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewCitizenView .fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewCitizenView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -70,7 +70,30 @@ public class TeacherController {
         stage.show();
     }
 
-    public void openNewStudentView(ActionEvent actionEvent) {
+    public void openNewStudentView(ActionEvent actionEvent) throws Exception{
+    }
+
+    public void openTemplateView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TemplateView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void openCaseView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CaseView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+
     }
 
     public void deleteCitizen(ActionEvent actionEvent) throws Exception {
