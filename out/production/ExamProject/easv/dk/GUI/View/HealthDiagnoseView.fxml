@@ -636,13 +636,13 @@
                </font>
             </Text>
             <TextArea fx:id="textAreaCurAssessment" layoutX="14.0" layoutY="259.0" prefHeight="115.0" prefWidth="708.0" />
-            <Button fx:id="buttonSave" layoutX="21.0" layoutY="696.0" mnemonicParsing="false" onAction="#saveClient" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="21.0">
+            <Button fx:id="buttonSave" layoutX="21.0" layoutY="696.0" mnemonicParsing="false" onAction="#saveClient" onMouseEntered="#saveEntered" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="21.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
             <TextArea fx:id="TextAreaObsNotes" layoutX="14.0" layoutY="564.0" prefHeight="115.0" prefWidth="708.0" />
-            <Button fx:id="buttonClientsWishes" disable="true" layoutX="20.0" layoutY="696.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes" visible="false">
+            <Button fx:id="buttonClientsWishes" disable="true" layoutX="20.0" layoutY="696.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" onMouseEntered="#clientsWishesEntered" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes" visible="false">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -656,7 +656,7 @@
             <ComboBox fx:id="ChoiceBoxAnticLvl" layoutX="14.0" layoutY="411.0" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
             <AnchorPane fx:id="anchorGoals" disable="true" prefHeight="774.0" prefWidth="736.0" style="-fx-background-color: #E3ECF8;" visible="false">
                <children>
-                  <Button fx:id="buttonSaveGoals" layoutX="203.0" layoutY="699.0" mnemonicParsing="false" onAction="#saveClientGoals" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
+                  <Button fx:id="buttonSaveGoals" layoutX="203.0" layoutY="699.0" mnemonicParsing="false" onAction="#saveClientGoals" onMouseEntered="#goalSaveEntered" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -666,7 +666,7 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Text>
-                  <ComboBox fx:id="comboBoxExecution" layoutX="14.0" layoutY="100.0" prefHeight="40.0" prefWidth="708.0" />
+                  <ComboBox fx:id="comboBoxExecution" layoutX="14.0" layoutY="100.0" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
                   <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="55.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Label fx:id="labelSelectedCategory1" layoutX="14.0" layoutY="14.0" text="Category" AnchorPane.topAnchor="9.0">
@@ -686,14 +686,14 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Text>
-                  <ComboBox fx:id="comboBoxROE" layoutX="14.0" layoutY="193.0" prefHeight="40.0" prefWidth="708.0" />
+                  <ComboBox fx:id="comboBoxROE" layoutX="14.0" layoutY="193.0" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
                   <Text layoutX="14.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizens wishes and goals" wrappingWidth="225.0000000000001">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Text>
                   <TextArea fx:id="textAreaGoals" layoutX="14.0" layoutY="284.0" prefHeight="218.0" prefWidth="708.0" />
-                  <Button fx:id="buttonReturn2" mnemonicParsing="false" onAction="#returnFromGoals" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Return" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="24.0">
+                  <Button fx:id="buttonReturn2" mnemonicParsing="false" onAction="#returnFromGoals" onMouseEntered="#goalReturnEntered" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Return" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="24.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>

@@ -77,6 +77,11 @@ public class HealthDiagnoseController {
     private ComboBox comboBoxExecution;
     @FXML
     private ComboBox comboBoxROE;
+    @FXML
+    private Label labelSelectedCategory1;
+    @FXML
+    private Label labelSelectedSubCategory1;
+
 
 
     String selectedDiagnose;
@@ -227,9 +232,46 @@ public class HealthDiagnoseController {
     }
 
     public void toClientsWishesScreen(ActionEvent actionEvent) throws IOException {
-        anchorGoals.setVisible(true); anchorGoals.setDisable(false);
+        if(labelSelectedCategory.equals ("Category") && labelSelectedSubCategory.equals("SubCategory")){
+            System.out.println("Select Category and SubCategory");
+        }
+        else {
+            labelSelectedCategory1.setText(labelSelectedCategory.getText());
+            labelSelectedSubCategory1.setText(labelSelectedSubCategory.getText());
+            anchorGoals.setVisible(true); anchorGoals.setDisable(false);
+        }
+
     }
 
+    @FXML
+    private Button buttonReturn2;
+    public void goalReturnEntered(MouseEvent mouseEvent) {
+        buttonReturn2.setStyle("-fx-border-color: #212121; -fx-background-color: #E6E6E6; -fx-border-radius: 15; -fx-background-radius: 15;");
+        buttonReturn2.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> buttonReturn2.setStyle("-fx-border-color: #8D8D8D; -fx-background-color:  #ECECEC; -fx-border-radius: 15; -fx-background-radius: 15;"));
+    }
+
+    @FXML
+    private Button buttonSaveGoals;
+    public void goalSaveEntered(MouseEvent mouseEvent) {
+        buttonSaveGoals.setStyle("-fx-border-color: #212121; -fx-background-color: #E6E6E6; -fx-border-radius: 15; -fx-background-radius: 15;");
+        buttonSaveGoals.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> buttonSaveGoals.setStyle("-fx-border-color: #8D8D8D; -fx-background-color:  #ECECEC; -fx-border-radius: 15; -fx-background-radius: 15;"));
+    }
+
+    @FXML
+    private Button buttonSave;
+    public void saveEntered(MouseEvent mouseEvent) {
+        buttonSave.setStyle("-fx-border-color: #212121; -fx-background-color: #E6E6E6; -fx-border-radius: 15; -fx-background-radius: 15;");
+        buttonSave.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> buttonSave.setStyle("-fx-border-color: #8D8D8D; -fx-background-color:  #ECECEC; -fx-border-radius: 15; -fx-background-radius: 15;"));
+    }
+
+    public void clientsWishesEntered(MouseEvent mouseEvent) {
+        buttonClientsWishes.setStyle("-fx-border-color: #212121; -fx-background-color: #E6E6E6; -fx-border-radius: 15; -fx-background-radius: 15;");
+        buttonClientsWishes.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> buttonClientsWishes.setStyle("-fx-border-color: #8D8D8D; -fx-background-color:  #ECECEC; -fx-border-radius: 15; -fx-background-radius: 15;"));
+    }
 
     @FXML
     private Label labelFunctionLevel;
@@ -1156,4 +1198,6 @@ public class HealthDiagnoseController {
         labelSocialLife1.addEventHandler(MouseEvent.MOUSE_EXITED,
                 event -> labelSocialLife1.setUnderline(false));
     }
+
+
 }
