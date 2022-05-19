@@ -61,5 +61,14 @@ public class AdminController {
     }
 
     public void openCitizenOverview(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CitizenOverview.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Log In");
+        stage.centerOnScreen();
+        stage.show();
     }
 }

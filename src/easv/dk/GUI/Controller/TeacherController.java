@@ -48,4 +48,7 @@ public class TeacherController {
         stage.centerOnScreen();
         stage.show();
     }
+
+    public void openNewStudentView(ActionEvent actionEvent) {
+    }
 }
