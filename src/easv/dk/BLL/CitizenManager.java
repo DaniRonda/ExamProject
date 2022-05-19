@@ -15,4 +15,8 @@ public class CitizenManager {
     public List<Citizen> getAllCitizens() throws Exception{
         return this.citizenDAO.getAllCitzens();
     }
+
+    public void deleteCitizen(Citizen selectedItem) throws Exception{
+        citizenDAO.deleteCitizen(selectedItem);
+    }
 }

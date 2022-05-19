@@ -17,8 +17,8 @@ public class CitizenModel {
         getAllCitizens = FXCollections.observableArrayList();
     }
 
-    public void deleteCitizen(Citizen selectedItem) throws SQLException {
-        //manager.deleteCitizen(selectedItem);
+    public void deleteCitizen(Citizen selectedItem) throws Exception {
+        citizenManager.deleteCitizen(selectedItem);
     }
 
     public void setGetAllCitizens(ObservableList<Citizen> getAllMovies) {
