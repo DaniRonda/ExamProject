@@ -51,7 +51,7 @@ public class StudentController {
 
     public void initialize() throws Exception {
         search();
-        // setUpTableView();
+        setUpTableView();
     }
 
     public void sendToCaseScreen(ActionEvent actionEvent) throws Exception {
@@ -150,11 +150,11 @@ public class StudentController {
         TableColumn<Citizen, String> column2 = new TableColumn<>("lastName");
         column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         TableColumn<Citizen, String> column3 = new TableColumn<>("adress");
-        column2.setCellValueFactory(new PropertyValueFactory<>("adress"));
+        column3.setCellValueFactory(new PropertyValueFactory<>("adress"));
         TableColumn<Citizen, String> column4 = new TableColumn<>("birthDate");
-        column2.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        column4.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
         TableColumn<Citizen, String> column5 = new TableColumn<>("phoneNumber");
-        column2.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        column5.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
         tableViewCitizens.getColumns().add(column1);
         tableViewCitizens.getColumns().add(column2);
