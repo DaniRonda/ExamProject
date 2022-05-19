@@ -22,7 +22,7 @@
           <TableColumn prefWidth="75.0" text="Last Name" />
         </columns>
       </TableView>
-      <TableView layoutX="601.0" layoutY="125.0" prefHeight="449.0" prefWidth="213.0" AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="30.66666666666663" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="studentTable" layoutX="601.0" layoutY="125.0" prefHeight="449.0" prefWidth="213.0" AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="30.66666666666663" AnchorPane.topAnchor="125.0">
          <columns>
             <TableColumn prefWidth="75.0" text="First Name" />
             <TableColumn prefWidth="75.0" text="Last Name" />
@@ -46,7 +46,7 @@
          </font>
       </TextField>
       <Button fx:id="btnTeacherLogOut" layoutX="750.0" layoutY="26.0" mnemonicParsing="false" onAction="#teacherLogOut" text="Log Out " AnchorPane.rightAnchor="31.5" />
-      <Button layoutX="763.0" layoutY="582.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="30.66666666666663" AnchorPane.rightAnchor="31.33333333333337" />
+      <Button fx:id="btnDeleteStudent" layoutX="763.0" layoutY="582.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="30.66666666666663" AnchorPane.rightAnchor="31.33333333333337" />
       <VBox layoutX="7.0" layoutY="127.0" prefHeight="449.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
       <Label layoutX="122.0" layoutY="99.0" text="Citizens">
          <font>

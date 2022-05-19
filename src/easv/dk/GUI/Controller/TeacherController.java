@@ -1,7 +1,9 @@
 package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BE.Student;
 import easv.dk.GUI.Model.CitizenModel;
+import easv.dk.GUI.Model.StudentModel;
 import easv.dk.GUI.Model.TeacherModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +19,8 @@ import javafx.stage.Stage;
 
 public class TeacherController {
 
+    public TableView studentTable;
+    public Button btnDeleteStudent;
     @FXML
     private TableView citizenTable;
     @FXML
@@ -63,5 +67,10 @@ public class TeacherController {
     public void deleteCitizen(ActionEvent actionEvent) throws Exception {
         CitizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
         citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
+    }
+
+    public void deleteStudent(ActionEvent actionEvent) {
+        StudentModel.deleteStudent((Student)studentTable.getSelectionModel().getSelectedItem());
+        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedIndex());
     }
 }
