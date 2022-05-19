@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CitizenModel {
     ObservableList<Citizen> getAllCitizens;
-    Manager manager = new Manager();
+    CitizenManager citizenManager = new CitizenManager();
 
     public CitizenModel() throws Exception {
         getAllCitizens = FXCollections.observableArrayList();
@@ -29,7 +29,7 @@ public class CitizenModel {
 
     public List<Citizen> getAllCitizen() throws Exception {
         this.getAllCitizens = FXCollections.observableArrayList();
-        this.getAllCitizens.addAll(this.manager.getAllCitizens());
+        this.getAllCitizens.addAll(this.citizenManager.getAllCitizens());
         return this.getAllCitizens;
     }
 

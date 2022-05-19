@@ -1,5 +1,6 @@
 package easv.dk.DAL;
 
+import easv.dk.BE.Admin;
 import easv.dk.BE.Citizen;
 
 import java.sql.Connection;

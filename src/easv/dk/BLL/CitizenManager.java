@@ -1,8 +1,22 @@
 package easv.dk.BLL;
 
+import easv.dk.BE.Citizen;
+import easv.dk.DAL.CitizenDAO;
+
+import java.util.List;
+
 import easv.dk.DAL.CitizenDAO;
 
 public class CitizenManager {
+
+    CitizenDAO citizenDAO = new CitizenDAO();
+
+    public CitizenManager() throws Exception {
+    }
+
+    public List<Citizen> getAllCitizens() throws Exception{
+        return this.citizenDAO.getAllCitzens();
+    }
 
     public static void deleteCitizen(Object selectedItem) {
         //CitizenDAO.deleteCitizen(selectedItem);
