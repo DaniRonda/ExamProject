@@ -10,10 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
@@ -29,6 +27,10 @@ public class TeacherController {
     private Button btnNewCitizen;
     @FXML
     private Button btnTeacherLogOut;
+    StudentModel studentModel = new StudentModel();
+
+    public TeacherController() throws Exception {
+    }
 
     public void teacherLogOut(ActionEvent actionEvent) throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to log out?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -69,8 +71,37 @@ public class TeacherController {
         citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
     }
 
-    public void deleteStudent(ActionEvent actionEvent) {
-        StudentModel.deleteStudent((Student)studentTable.getSelectionModel().getSelectedItem());
+    public void deleteStudent(ActionEvent actionEvent) throws Exception {
+        studentModel.deleteStudent((Student)studentTable.getSelectionModel().getSelectedItem());
         studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedIndex());
     }
+
+    public void setUpStudentTable() throws Exception {
+        TableColumn<Student, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Student, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Student, String> column3 = new TableColumn<>("Email");
+        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
+        studentTable.getColumns().clear();
+        studentTable.getColumns().add(column1);
+        studentTable.getColumns().add(column2);
+        studentTable.getColumns().add(column3);
+        studentTable.getItems().clear();
+        studentTable.getItems().addAll(studentModel.getAllStudents1());
+    }
+
+    /*public void setUpCitizenTable() throws Exception {
+        TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        citizenTable.getColumns().clear();
+        citizenTable.getColumns().add(column1);
+        citizenTable.getColumns().add(column2);
+        citizenTable.getItems().clear();
+        citizenTable.getItems().addAll(citizenModel.getAllCitizens1());
+    }*/
+
+
 }
