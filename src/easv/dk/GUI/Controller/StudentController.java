@@ -16,10 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.awt.TextField;
-import java.io.IOException;
-import java.sql.SQLException;
 
 public class StudentController {
     private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
@@ -56,7 +53,7 @@ public class StudentController {
 
     public void sendToCaseScreen(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/caseView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CaseView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

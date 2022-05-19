@@ -63,8 +63,8 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="15.0" layoutY="330.0" mnemonicParsing="false" style="-fx-background-color: #EFDFD2;" text="Templates" />
-      <Button layoutX="19.0" layoutY="217.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #EFDFD2;" text="Cases" />
+      <Button fx:id="btnOpenTemplateView" layoutX="15.0" layoutY="330.0" mnemonicParsing="false" onAction="#openTemplateView" style="-fx-background-color: #EFDFD2;" text="Templates" />
+      <Button fx:id="btnOpenCaseView" layoutX="19.0" layoutY="217.0" mnemonicParsing="false" onAction="#openCaseView" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #EFDFD2;" text="Cases" />
       <ImageView fitHeight="62.0" fitWidth="59.0" layoutX="25.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Pictures/Case.png" />

@@ -1,9 +1,9 @@
 package easv.dk.GUI.Controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class CitizenOverviewController {
 
@@ -11,5 +11,11 @@ public class CitizenOverviewController {
      private Button btnAssignStudent;
 
 
-    public void assignStudentToCitizen (ActionEvent actionEvent) throws Exception{}
+
+
+    public void assignStudentToCitizen(javafx.event.ActionEvent actionEvent) throws Exception {
+    }
+
+    public void openHomeView(ActionEvent actionEvent) {
+    }
 }
