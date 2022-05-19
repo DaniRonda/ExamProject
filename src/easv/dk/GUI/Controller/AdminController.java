@@ -60,7 +60,7 @@ public class AdminController {
         stage.show();
     }
 
-    public void openCitizenOverview(ActionEvent actionEvent) {
+    public void openCitizenOverview(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CitizenOverview.fxml"));
         Parent root = loader.load();
