@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="488.0" prefWidth="691.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.CitizenOverviewController">
+<AnchorPane prefHeight="488.0" prefWidth="691.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.View.CitizenOverview">
    <children>
       <ToolBar layoutY="-6.0" prefHeight="65.0" prefWidth="691.0" style="-fx-background-color: #EFEFE6;" />
       <TableView layoutX="138.0" layoutY="100.0" prefHeight="331.0" prefWidth="149.0" style="-fx-background-radius: 15;">
@@ -29,12 +29,12 @@
       <Button layoutX="35.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #EFDFD2;" text="Home" />
       <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="52.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/Home.png" />
+            <Image url="@../Pictures/Screenshot%202022-05-17%20103409.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="49.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/Citizen.jpg" />
+            <Image url="@../Pictures/Screenshot%202022-05-17%20103507.png" />
          </image>
       </ImageView>
       <TextField layoutX="11.0" layoutY="14.0" promptText="🔎" />
@@ -64,13 +64,13 @@
       <Button layoutX="182.0" layoutY="448.0" mnemonicParsing="false" text="Edit" />
       <Button layoutX="236.0" layoutY="448.0" mnemonicParsing="false" text="Delete" />
       <Button layoutX="433.0" layoutY="448.0" mnemonicParsing="false" text="Delete" />
-      <Button fx:id="btnAddStudent" layoutX="492.0" layoutY="101.0" mnemonicParsing="false" onAction="#assignStudentToCitizen" prefHeight="7.0" prefWidth="27.0" rotate="90.0" text="▼" />
+      <Button fx:id="btnAssignStudent" layoutX="492.0" layoutY="101.0" mnemonicParsing="false" onAction="#assignStudentToCitizen" prefHeight="7.0" prefWidth="27.0" rotate="90.0" text="▼" />
       <Button layoutX="526.0" layoutY="447.0" mnemonicParsing="false" text="New" />
       <Button layoutX="574.0" layoutY="447.0" mnemonicParsing="false" text="Edit" />
       <Button layoutX="626.0" layoutY="447.0" mnemonicParsing="false" text="Delete" />
       <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="54.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/Template.png" />
+            <Image url="@../Pictures/Screenshot%202022-05-17%20102959.png" />
          </image>
       </ImageView>
    </children>

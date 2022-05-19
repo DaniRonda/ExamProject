@@ -60,4 +60,6 @@ public class AdminController {
         stage.show();
     }
 
+    public void openCitizenOverview(ActionEvent actionEvent) {
+    }
 }
