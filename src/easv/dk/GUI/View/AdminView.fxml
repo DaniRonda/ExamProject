@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="488.0" prefWidth="691.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.AdminController">
+<AnchorPane prefHeight="488.0" prefWidth="691.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.AdminViewController">
    <children>
       <ToolBar layoutY="-1.0" prefHeight="52.0" prefWidth="691.0" style="-fx-background-color: #EFEFE6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
       <TextField layoutX="23.0" layoutY="14.0" promptText="🔎" />
@@ -28,7 +28,7 @@
         </columns>
       </TableView>
       <Button layoutX="114.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="New" AnchorPane.bottomAnchor="20.0" />
-      <Button fx:id="btnOpenAdminEditView" layoutX="167.0" layoutY="443.0" mnemonicParsing="false" onAction="#openAdminEditView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" />
+      <Button fx:id="btnOpenTeacherEditView" layoutX="167.0" layoutY="443.0" mnemonicParsing="false" onAction="#openTeacherEditView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" />
       <Button layoutX="320.0" layoutY="443.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" />
       <Label layoutX="407.0" layoutY="73.0" text="Students" AnchorPane.rightAnchor="217.33333333333331">
          <font>
