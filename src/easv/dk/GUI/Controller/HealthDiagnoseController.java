@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -72,10 +73,21 @@ public class HealthDiagnoseController {
     private RadioButton radiobuttonNotRelevant;
     @FXML
     private ComboBox ChoiceBoxAnticLvl;
+    @FXML
+    private ComboBox comboBoxExecution;
+    @FXML
+    private ComboBox comboBoxROE;
+    @FXML
+    private Label labelSelectedCategory1;
+    @FXML
+    private Label labelSelectedSubCategory1;
+
 
 
     String selectedDiagnose;
     ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Lessens", "Remains the same", "Disappearing");
+    ObservableList<String> comboBoxOptionsEx = FXCollections.observableArrayList("Performs themselves", "Performs parts themselves", "Cannot perform themselves", "Not relevant");
+    ObservableList<String> comboBoxOptionsROE = FXCollections.observableArrayList("Does not experience limitations", "experiences limitations");
 
     public HealthDiagnoseController(){
 
@@ -89,6 +101,8 @@ public class HealthDiagnoseController {
         radiobuttonActive.setToggleGroup(group);
         radiobuttonNotRelevant.setToggleGroup(group);
         ChoiceBoxAnticLvl.setItems(choiceBoxOptions);
+        comboBoxExecution.setItems(comboBoxOptionsEx);
+        comboBoxROE.setItems(comboBoxOptionsEx);
     }
 
     private void ifIsArmed(){
@@ -139,21 +153,14 @@ public class HealthDiagnoseController {
     }
 
 
-
+    @FXML
+    private AnchorPane anchorGoals;
     public void sendToCaseScreen(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/caseView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("Log In");
-        stage.centerOnScreen();
-        stage.show();
-        Stage thisStage = (Stage) ButtonLogOut.getScene().getWindow();
-        thisStage.close();
-    }
+    anchorGoals.setVisible(true); anchorGoals.setDisable(false);}
 
+    public void returnFromGoals(ActionEvent actionEvent) {
+    anchorGoals.setVisible(false); anchorGoals.setDisable(true);
+    }
     @FXML
     private Button ButtonLogOut;
     public void logOut(ActionEvent actionEvent) throws IOException {
@@ -184,6 +191,15 @@ public class HealthDiagnoseController {
         Stage thisStage = (Stage) ButtonLogOut.getScene().getWindow();
         thisStage.close();
     }
+    public void saveClient(ActionEvent actionEvent) {
+        System.out.println("save");
+    }
+
+    public void saveClientGoals(ActionEvent actionEvent) {
+        System.out.println("saveGoal");
+    }
+
+
 
     @FXML
     private Button buttonHealth;
@@ -216,19 +232,46 @@ public class HealthDiagnoseController {
     }
 
     public void toClientsWishesScreen(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/ClientsWishesController.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("Student View");
-        stage.centerOnScreen();
-        stage.show();
-        Stage thisStage = (Stage) ButtonLogOut.getScene().getWindow();
-        thisStage.close();
+        if(labelSelectedCategory.equals ("Category") && labelSelectedSubCategory.equals("SubCategory")){
+            System.out.println("Select Category and SubCategory");
+        }
+        else {
+            labelSelectedCategory1.setText(labelSelectedCategory.getText());
+            labelSelectedSubCategory1.setText(labelSelectedSubCategory.getText());
+            anchorGoals.setVisible(true); anchorGoals.setDisable(false);
+        }
+
     }
 
+    @FXML
+    private Button buttonReturn2;
+    public void goalReturnEntered(MouseEvent mouseEvent) {
+        buttonReturn2.setStyle("-fx-border-color: #212121; -fx-background-color: #E6E6E6; -fx-border-radius: 15; -fx-background-radius: 15;");
+        buttonReturn2.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> buttonReturn2.setStyle("-fx-border-color: #8D8D8D; -fx-background-color:  #ECECEC; -fx-border-radius: 15; -fx-background-radius: 15;"));
+    }
+
+    @FXML
+    private Button buttonSaveGoals;
+    public void goalSaveEntered(MouseEvent mouseEvent) {
+        buttonSaveGoals.setStyle("-fx-border-color: #212121; -fx-background-color: #E6E6E6; -fx-border-radius: 15; -fx-background-radius: 15;");
+        buttonSaveGoals.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> buttonSaveGoals.setStyle("-fx-border-color: #8D8D8D; -fx-background-color:  #ECECEC; -fx-border-radius: 15; -fx-background-radius: 15;"));
+    }
+
+    @FXML
+    private Button buttonSave;
+    public void saveEntered(MouseEvent mouseEvent) {
+        buttonSave.setStyle("-fx-border-color: #212121; -fx-background-color: #E6E6E6; -fx-border-radius: 15; -fx-background-radius: 15;");
+        buttonSave.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> buttonSave.setStyle("-fx-border-color: #8D8D8D; -fx-background-color:  #ECECEC; -fx-border-radius: 15; -fx-background-radius: 15;"));
+    }
+
+    public void clientsWishesEntered(MouseEvent mouseEvent) {
+        buttonClientsWishes.setStyle("-fx-border-color: #212121; -fx-background-color: #E6E6E6; -fx-border-radius: 15; -fx-background-radius: 15;");
+        buttonClientsWishes.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> buttonClientsWishes.setStyle("-fx-border-color: #8D8D8D; -fx-background-color:  #ECECEC; -fx-border-radius: 15; -fx-background-radius: 15;"));
+    }
 
     @FXML
     private Label labelFunctionLevel;
@@ -1157,6 +1200,4 @@ public class HealthDiagnoseController {
     }
 
 
-    public void saveClient(ActionEvent actionEvent) {
-    }
 }

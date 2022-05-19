@@ -1,15 +1,16 @@
 package easv.dk.GUI.Model;
 
 import easv.dk.BE.Admin;
+import easv.dk.BLL.AdminManager;
 import easv.dk.BLL.Manager;
 
 public class AdminModel {
-    Manager manager = new Manager();
+    AdminManager adminManager = new AdminManager();
 
     public AdminModel() throws Exception {
     }
 
     public Admin adminFound(String emails, String password) throws Exception {
-        return manager.adminFound(emails, password);
+        return adminManager.adminFound(emails, password);
     }
 }

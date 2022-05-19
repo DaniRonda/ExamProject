@@ -4,6 +4,7 @@ import easv.dk.BE.Admin;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.Manager;
+import easv.dk.BLL.StudentManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class StudentModel {
 
-    Manager manager = new Manager();
+    StudentManager studentManager = new StudentManager();
     ObservableList<Student> getAllStudents;
 
     public StudentModel() throws Exception {
@@ -19,16 +20,16 @@ public class StudentModel {
     }
 
     public Student studentFound(String emails, String password) throws Exception {
-        return manager.studentFound(emails, password);
+        return studentManager.studentFound(emails, password);
     }
 
     public void deleteStudent(Student selectedItem) throws Exception {
-        manager.deleteStudent(selectedItem);
+        studentManager.deleteStudent(selectedItem);
     }
 
     public List<Student> getAllStudents1 () throws Exception{
         this.getAllStudents=FXCollections.observableArrayList();
-        this.getAllStudents.addAll(this.manager.getAllStudents());
+        this.getAllStudents.addAll(this.studentManager.getAllStudents());
         return this.getAllStudents;
     }
 

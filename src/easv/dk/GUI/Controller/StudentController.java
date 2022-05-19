@@ -124,24 +124,20 @@ public class StudentController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             FilteredList<Citizen> filteredData = new FilteredList<>(dataList, b -> true);
             filteredData.setPredicate(citizen -> {
-
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
-
-
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue() > searchBar.textProperty()).collect(Collectors.toList());
+                //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue()
+                // > searchBar.textProperty()).collect(Collectors.toList());
                 if (citizen.getFirstName().toLowerCase().contains(lowerCaseFilter))
                     return true; // Filter title.
 
                 else return String.valueOf(citizen.getLastName()).contains(lowerCaseFilter); //getcase might be changed
             });
-
             SortedList<Citizen> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(tableViewCitizens.comparatorProperty());
             tableViewCitizens.setItems(sortedData);
