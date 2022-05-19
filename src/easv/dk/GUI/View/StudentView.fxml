@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
@@ -12,12 +11,7 @@
 <AnchorPane prefHeight="451.0" prefWidth="677.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.StudentController">
    <children>
       <ToolBar prefHeight="63.0" prefWidth="677.0" style="-fx-background-color: #EFEFE6;" />
-      <TableView fx:id="tableViewCitizens" layoutX="122.0" layoutY="72.0" prefHeight="325.0" prefWidth="239.0" style="-fx-background-radius: 15;">
-        <columns>
-          <TableColumn prefWidth="75.0" text="First Name" />
-          <TableColumn prefWidth="75.0" text="Last Name" />
-        </columns>
-      </TableView>
+      <TableView fx:id="tableViewCitizens" layoutX="122.0" layoutY="72.0" prefHeight="325.0" prefWidth="239.0" style="-fx-background-radius: 15;" />
       <Button fx:id="btnStudentLogOut" layoutX="590.0" layoutY="14.0" mnemonicParsing="false" onAction="#studentLogOut" text="Log Out" />
       <Button fx:id="btnHealthConditions" layoutX="122.0" layoutY="403.0" mnemonicParsing="false" onAction="#openHealthConditionsView" text="Health Conditions" />
       <Button fx:id="btnFunctionalAbilities" layoutX="245.0" layoutY="403.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" text="Functional Abilities" />
