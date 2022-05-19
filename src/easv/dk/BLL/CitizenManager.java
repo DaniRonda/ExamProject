@@ -13,7 +13,7 @@ public class CitizenManager {
     }
 
     public List<Citizen> getAllCitizens() throws Exception{
-        return this.citizenDAO.getAllCitzens();
+        return this.citizenDAO.getAllCitizens();
     }
 
     public static void deleteCitizen(Citizen selectedItem) throws Exception {

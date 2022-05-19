@@ -20,24 +20,24 @@ public class CitizenDAO {
 
 
 
-    public List<Citizen> getAllCitzens() throws Exception {
+    public List<Citizen> getAllCitizens() throws Exception {
         List<Citizen> citizenList = new ArrayList<>();
         Connection con = cm.getConnection();
         String sqlSelectCitizen = "\n" +
-                "select citezen.id,firstName,lastName,adress,birthDate,isTemplate,phoneNumber,schoolId from Citzen\n" +
-                "GROUP by citezen.id,name,lastName,adress,birthDate,isTemplate,phoneNumber,schoolId\n;";    //almost definitly wrong
+                "select citizen.id,firstName,lastName,address,birthDate,isTemplate,phoneNumber,school_id from Citizen\n" +
+                "GROUP by citizen.id,firstname,lastName,address,birthDate,isTemplate,phoneNumber,school_id\n;";    //almost definitly wrong
         PreparedStatement psSelectCitizen = con.prepareStatement(sqlSelectCitizen);
         ResultSet rs = psSelectCitizen.executeQuery();
         while (rs.next()) {
             String firstName = rs.getString("firstName");
             String lastName = rs.getString("lastName");
-            String adress = rs.getString("adress");
+            String address = rs.getString("address");
             Date birthDate = rs.getDate("birthDate");
             boolean isTemplate = rs.getBoolean("isTemplate");
             int phoneNumber = rs.getInt("phoneNumber");
-            int schoolId = rs.getInt("schoolId");
+            int schoolID = rs.getInt("school_id");
             int Id = rs.getInt("id");
-            Citizen citizen = new Citizen(firstName, lastName, adress, birthDate, phoneNumber, isTemplate, schoolId, Id);
+            Citizen citizen = new Citizen(firstName, lastName, address, birthDate, phoneNumber, isTemplate, schoolID, Id);
             citizenList.add(citizen);
         }
         rs.close();

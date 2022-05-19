@@ -1,6 +1,7 @@
 package easv.dk.GUI.Model;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BE.Student;
 import easv.dk.BLL.CitizenManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,5 +33,9 @@ public class CitizenModel {
     }
 
 
-
+    public List<Citizen> getAllCitizens1 () throws Exception{
+        this.getAllCitizens=FXCollections.observableArrayList();
+        this.getAllCitizens.addAll(this.citizenManager.getAllCitizens());
+        return this.getAllCitizens;
+    }
 }

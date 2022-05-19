@@ -28,8 +28,15 @@ public class TeacherController {
     @FXML
     private Button btnTeacherLogOut;
     StudentModel studentModel = new StudentModel();
+    CitizenModel citizenModel = new CitizenModel();
 
     public TeacherController() throws Exception {
+    }
+
+    @FXML
+    public void initialize() throws Exception {
+        setUpCitizenTable();
+        setUpStudentTable();
     }
 
     public void teacherLogOut(ActionEvent actionEvent) throws Exception {
@@ -91,7 +98,7 @@ public class TeacherController {
         studentTable.getItems().addAll(studentModel.getAllStudents1());
     }
 
-    /*public void setUpCitizenTable() throws Exception {
+    public void setUpCitizenTable() throws Exception {
         TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
@@ -101,7 +108,7 @@ public class TeacherController {
         citizenTable.getColumns().add(column2);
         citizenTable.getItems().clear();
         citizenTable.getItems().addAll(citizenModel.getAllCitizens1());
-    }*/
+    }
 
 
 }
