@@ -2,11 +2,9 @@ package easv.dk.GUI.Model;
 
 import easv.dk.BE.Citizen;
 import easv.dk.BLL.CitizenManager;
-import easv.dk.BLL.Manager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class CitizenModel {
@@ -17,7 +15,7 @@ public class CitizenModel {
         getAllCitizens = FXCollections.observableArrayList();
     }
 
-    public static void deleteCitizen(Object selectedItem) {
+    public static void deleteCitizen(Object selectedItem) throws Exception {
         CitizenManager.deleteCitizen(selectedItem);
     }
 

@@ -5,8 +5,6 @@ import easv.dk.DAL.CitizenDAO;
 
 import java.util.List;
 
-import easv.dk.DAL.CitizenDAO;
-
 public class CitizenManager {
 
     CitizenDAO citizenDAO = new CitizenDAO();
@@ -18,7 +16,7 @@ public class CitizenManager {
         return this.citizenDAO.getAllCitzens();
     }
 
-    public static void deleteCitizen(Object selectedItem) {
-        //CitizenDAO.deleteCitizen(selectedItem);
+    public static void deleteCitizen(Object selectedItem) throws Exception {
+        CitizenDAO.deleteCitizen(selectedItem);
     }
 }

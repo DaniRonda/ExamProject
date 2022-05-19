@@ -18,6 +18,8 @@ public class CitizenDAO {
         cm = new ConnectionManager();
     }
 
+
+
     public List<Citizen> getAllCitzens() throws Exception {
         List<Citizen> citizenList = new ArrayList<>();
         Connection con = cm.getConnection();
@@ -87,7 +89,8 @@ public class CitizenDAO {
         return citizenCreated;
     }
 
-    public void deleteCitizen(Citizen citizen) throws Exception {
+
+    public static void deleteCitizen(Object citizen) throws Exception {
         Connection con = cm.getConnection();
         String sqlDeleteCitizen = "DELETE FROM Citizen WHERE ID=?;";
         PreparedStatement psDeleteCitizen = con.prepareStatement(sqlDeleteCitizen, Statement.RETURN_GENERATED_KEYS);
@@ -95,6 +98,5 @@ public class CitizenDAO {
         psDeleteCitizen.execute();
         psDeleteCitizen.close();
         con.close();
-
     }
 }

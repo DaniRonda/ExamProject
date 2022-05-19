@@ -59,7 +59,7 @@ public class TeacherController {
     public void openNewStudentView(ActionEvent actionEvent) {
     }
 
-    public void deleteCitizen(ActionEvent actionEvent) {
+    public void deleteCitizen(ActionEvent actionEvent) throws Exception {
         CitizenModel.deleteCitizen(citizenTable.getSelectionModel().getSelectedItem());
         citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
     }
