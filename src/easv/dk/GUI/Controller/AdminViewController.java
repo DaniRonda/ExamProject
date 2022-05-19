@@ -19,17 +19,33 @@ import java.sql.SQLException;
 
 public class AdminViewController {
 
+    public Button openEditTeacherViewBTN;
+    public Button deleteTeacherBTN;
+    public Button openEditStudentViewBTN;
+    public Button deleteStudentBTN;
+    public TableView studentTable;
+    public TableView teacherTable;
     @FXML
     private Button btnAdminLogOut;
+    TeacherModel teacherModel = new TeacherModel();
+    StudentModel studentModel = new StudentModel();
+
+
+    public AdminViewController() throws Exception {
+    }
+
 
     @FXML
-    private Button btnOpenCitizenOverview;
+    public void initialize() throws Exception {
+        setUpTeacherTable();
+        setUpStudentTable();
+        //teacherFilter();
+        //studentFilter();
 
-    @FXML
-    private Button btnOpenAdminEditView;
+    }
 
 
-    public void openTeacherEditView (ActionEvent actionEvent) throws Exception {
+    public void openEditTeacherView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditTeacherView.fxml"));
         Parent root = loader.load();
@@ -60,23 +76,57 @@ public class AdminViewController {
         stage.show();
     }
 
-    public void openCitizenOverview(ActionEvent actionEvent) throws Exception {
+    public void deleteTeacher(ActionEvent actionEvent) throws Exception {
+        teacherModel.deleteTeacher((Teacher) teacherTable.getSelectionModel().getSelectedItem());
+        teacherTable.getItems().remove(teacherTable.getSelectionModel().getSelectedItem());
+    }
+
+    public void openEditStudentView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CitizenOverview.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditStudentView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("Log In");
         stage.centerOnScreen();
         stage.show();
     }
-    @FXML
-    public void initialize() throws Exception{
-      /*  setUpTeacherTable();
-        setUpSchoolTable();
-        filter();
-        */
+
+    public void deleteStudent(ActionEvent actionEvent) throws Exception {
+        studentModel.deleteStudent((Student) studentTable.getSelectionModel().getSelectedItem());
+        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedItem());
     }
 
+    public void setUpTeacherTable() throws Exception {
+        TableColumn<Teacher, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Teacher, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Teacher, String> column3 = new TableColumn<>("Email");
+        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
+        teacherTable.getColumns().clear();
+        teacherTable.getColumns().add(column1);
+        teacherTable.getColumns().add(column2);
+        teacherTable.getColumns().add(column3);
+        teacherTable.getItems().clear();
+        teacherTable.getItems().addAll(teacherModel.getAllTeachers1());
+    }
+
+    public void setUpStudentTable() throws Exception {
+        TableColumn<Student, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Student, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Student, String> column3 = new TableColumn<>("Email");
+        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
+        studentTable.getColumns().clear();
+        studentTable.getColumns().add(column1);
+        studentTable.getColumns().add(column2);
+        studentTable.getColumns().add(column3);
+        studentTable.getItems().clear();
+        studentTable.getItems().addAll(studentModel.getAllStudents1());
+    }
+
+    public void openCitizenOverview(ActionEvent actionEvent) {
+    }
 }

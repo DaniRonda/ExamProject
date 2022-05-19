@@ -20,7 +20,7 @@
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <TableView layoutX="114.0" layoutY="99.0" prefHeight="331.0" prefWidth="257.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686">
+      <TableView fx:id="teacherTable" layoutX="114.0" layoutY="99.0" prefHeight="331.0" prefWidth="257.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686">
         <columns>
           <TableColumn prefWidth="75.0" text="First Name" />
           <TableColumn prefWidth="75.0" text="Last Name" />
@@ -28,16 +28,16 @@
         </columns>
       </TableView>
       <Button layoutX="114.0" layoutY="442.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="New" AnchorPane.bottomAnchor="20.0" />
-      <Button fx:id="btnOpenTeacherEditView" layoutX="167.0" layoutY="443.0" mnemonicParsing="false" onAction="#openTeacherEditView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" />
-      <Button layoutX="320.0" layoutY="443.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" />
+      <Button fx:id="openEditTeacherViewBTN" layoutX="167.0" layoutY="443.0" mnemonicParsing="false" onAction="#openEditTeacherView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" />
+      <Button fx:id="deleteTeacherBTN" layoutX="320.0" layoutY="443.0" mnemonicParsing="false" onAction="#deleteTeacher" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" />
       <Label layoutX="407.0" layoutY="73.0" text="Students" AnchorPane.rightAnchor="217.33333333333331">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Button layoutX="461.0" layoutY="443.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="192.0" />
+      <Button fx:id="openEditStudentViewBTN" layoutX="461.0" layoutY="443.0" mnemonicParsing="false" onAction="#openEditStudentView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="192.0" />
       <Button layoutX="407.0" layoutY="443.0" mnemonicParsing="false" text="New" AnchorPane.bottomAnchor="19.666666666666686" AnchorPane.rightAnchor="244.0" />
-      <Button layoutX="619.0" layoutY="443.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" AnchorPane.rightAnchor="21.333333333333336" />
-      <TableView layoutX="403.0" layoutY="99.0" prefHeight="331.0" prefWidth="265.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686" AnchorPane.rightAnchor="22.666666666666686" AnchorPane.topAnchor="99.0">
+      <Button fx:id="deleteStudentBTN" layoutX="619.0" layoutY="443.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="19.666666666666668" AnchorPane.rightAnchor="21.333333333333336" />
+      <TableView fx:id="studentTable" layoutX="403.0" layoutY="99.0" prefHeight="331.0" prefWidth="265.0" style="-fx-background-radius: 15;" AnchorPane.bottomAnchor="57.666666666666686" AnchorPane.rightAnchor="22.666666666666686" AnchorPane.topAnchor="99.0">
         <columns>
           <TableColumn prefWidth="75.0" text="First Name" />
           <TableColumn prefWidth="75.0" text="Last Name" />
