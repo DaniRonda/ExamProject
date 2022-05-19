@@ -18,5 +18,6 @@ public class CitizenManager {
 
     public static void deleteCitizen(Citizen selectedItem) throws Exception {
         CitizenDAO.deleteCitizen(selectedItem);
+
     }
 }
