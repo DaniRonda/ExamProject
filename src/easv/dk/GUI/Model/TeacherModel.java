@@ -20,10 +20,6 @@ public class TeacherModel {
         getAllTeachers= FXCollections.observableArrayList();
     }
 
-    public static void deleteCitizen(Object selectedItem) {
-       // TeacherManager.deleteCitizen(selectedItem);
-    }
-
     public Teacher teacherFound(String emails, String password) throws Exception {
         return teacherManager.teacherFound(emails, password);
     }

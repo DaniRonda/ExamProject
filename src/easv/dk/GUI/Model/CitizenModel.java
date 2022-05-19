@@ -1,6 +1,7 @@
 package easv.dk.GUI.Model;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BLL.CitizenManager;
 import easv.dk.BLL.Manager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,9 +17,11 @@ public class CitizenModel {
         getAllCitizens = FXCollections.observableArrayList();
     }
 
-    public void deleteCitizen(Citizen selectedItem) throws SQLException {
-        //manager.deleteCitizen(selectedItem);
+    public static void deleteCitizen(Object selectedItem) {
+        CitizenManager.deleteCitizen(selectedItem);
     }
+
+
 
     public void setGetAllCitizens(ObservableList<Citizen> getAllMovies) {
         this.getAllCitizens = getAllCitizens;

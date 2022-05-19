@@ -9,9 +9,6 @@ import java.util.List;
 
 public class TeacherManager {
 
-    public static void deleteCitizen(Object selectedItem) {
-       // CitizenDAO.deleteCitizen(selectedItem);
-    }
 
     TeacherDAO teacherDAO = new TeacherDAO();
 

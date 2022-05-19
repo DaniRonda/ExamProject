@@ -1,5 +1,6 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.TeacherModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,7 +60,7 @@ public class TeacherController {
     }
 
     public void deleteCitizen(ActionEvent actionEvent) {
-        TeacherModel.deleteCitizen(citizenTable.getSelectionModel().getSelectedItem());
+        CitizenModel.deleteCitizen(citizenTable.getSelectionModel().getSelectedItem());
         citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
     }
 }

@@ -85,4 +85,15 @@ public class CitizenDAO {
         }
         return citizenCreated;
     }
+
+    public void deleteCitizen(Citizen citizen) throws Exception {
+        Connection con = cm.getConnection();
+        String sqlDeleteCitizen = "DELETE FROM Citizen WHERE ID=?;";
+        PreparedStatement psDeleteCitizen = con.prepareStatement(sqlDeleteCitizen, Statement.RETURN_GENERATED_KEYS);
+        psDeleteCitizen.setInt(1, citizen.getID());
+        psDeleteCitizen.execute();
+        psDeleteCitizen.close();
+        con.close();
+
+    }
 }
