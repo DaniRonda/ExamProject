@@ -13,13 +13,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="643.0" prefWidth="845.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TeacherController">
+<AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TeacherController">
    <children>
       <ToolBar layoutX="1.0" layoutY="2.0" prefHeight="74.0" prefWidth="845.0" style="-fx-background-color: #EFEFE6;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" />
-      <TableView fx:id="citizenTable" layoutX="119.0" layoutY="125.0" maxWidth="1.7976931348623157E308" prefHeight="449.0" prefWidth="213.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="119.0" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="citizenTable" layoutX="129.0" layoutY="125.0" maxWidth="1.7976931348623157E308" prefHeight="461.0" prefWidth="227.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="129.0" AnchorPane.topAnchor="125.0">
         <columns>
           <TableColumn prefWidth="75.0" text="First Name" />
           <TableColumn prefWidth="75.0" text="Last Name" />
+            <TableColumn prefWidth="75.0" text="Citizen ID" />
         </columns>
       </TableView>
       <TableView fx:id="studentTable" layoutX="601.0" layoutY="125.0" prefHeight="449.0" prefWidth="213.0" AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="30.66666666666663" AnchorPane.topAnchor="125.0">
@@ -28,7 +29,7 @@
             <TableColumn prefWidth="75.0" text="Last Name" />
          </columns>
       </TableView>
-      <ListView layoutX="353.0" layoutY="125.0" prefHeight="449.0" prefWidth="190.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="353.0" AnchorPane.rightAnchor="302.0" AnchorPane.topAnchor="125.0" />
+      <ListView layoutX="393.0" layoutY="121.0" prefHeight="449.0" prefWidth="190.0" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="393.0" AnchorPane.rightAnchor="262.0" AnchorPane.topAnchor="121.0" />
       <Button fx:id="btnNewCitizen" layoutX="119.0" layoutY="587.0" mnemonicParsing="false" onAction="#openNewCitizenView" text="New" AnchorPane.bottomAnchor="30.66666666666663" />
       <Button layoutX="171.0" layoutY="587.0" mnemonicParsing="false" text="Edit" AnchorPane.bottomAnchor="30.66666666666663" />
       <Button layoutX="543.0" layoutY="125.0" mnemonicParsing="false" rotate="90.0" text="▼" AnchorPane.rightAnchor="262.0">
