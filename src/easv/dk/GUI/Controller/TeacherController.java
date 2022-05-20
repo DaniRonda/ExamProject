@@ -71,6 +71,25 @@ public class TeacherController {
     }
 
     public void openNewStudentView(ActionEvent actionEvent) throws Exception{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewStudentView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void openEditStudentView(ActionEvent actionEvent)throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditStudentView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void openTemplateView(ActionEvent actionEvent) throws Exception {
@@ -132,6 +151,7 @@ public class TeacherController {
         citizenTable.getItems().clear();
         citizenTable.getItems().addAll(citizenModel.getAllCitizens1());
     }
+
 
 
 }
