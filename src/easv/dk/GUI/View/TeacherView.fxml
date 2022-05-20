@@ -22,7 +22,7 @@
           <TableColumn prefWidth="75.0" text="Last Name" />
         </columns>
       </TableView>
-      <TableView layoutX="601.0" layoutY="125.0" prefHeight="449.0" prefWidth="213.0" AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="30.66666666666663" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="studentTable" layoutX="601.0" layoutY="125.0" prefHeight="449.0" prefWidth="213.0" AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="30.66666666666663" AnchorPane.topAnchor="125.0">
          <columns>
             <TableColumn prefWidth="75.0" text="First Name" />
             <TableColumn prefWidth="75.0" text="Last Name" />
