@@ -1,4 +1,5 @@
 package easv.dk.GUI.Controller;
+import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.TeacherManager;
 import easv.dk.BLL.Manager;
@@ -38,6 +39,13 @@ public class EditTeacherViewController {
         Stage stage = (Stage)confirmUpdateTeacherBTN.getScene().getWindow();
         stage.close();
         parentController.initialize();
+    }
+
+    public void setInfo(Teacher selectedItem) {
+        selectedTeacher = selectedItem;
+        teacherFirstName_txt.setText(selectedItem.getFirstName());
+        teacherLastName_txt.setText(String.valueOf(selectedItem.getLastName()));
+        teacherEmail_txt.setText(String.valueOf(selectedItem.getEmail()));
     }
 
 
