@@ -41,7 +41,7 @@
       <Button layoutX="571.0" layoutY="594.0" mnemonicParsing="false" text="Delete" AnchorPane.bottomAnchor="30.66666666666663" AnchorPane.rightAnchor="328.33333333333337" />
       <Button fx:id="btnNewStudent" layoutX="693.0" layoutY="594.0" mnemonicParsing="false" onAction="#openNewStudentView" text="New" AnchorPane.bottomAnchor="30.66666666666663" AnchorPane.rightAnchor="217.0" />
       <Button fx:id="btnEditStudent" layoutX="748.0" layoutY="594.0" mnemonicParsing="false" onAction="#openEditStudentView" text="Edit" AnchorPane.bottomAnchor="30.66666666666663" AnchorPane.rightAnchor="165.33333333333337" />
-      <Button fx:id="btnDeleteCitizen" layoutX="305.0" layoutY="594.0" mnemonicParsing="false" onAction="#deleteCitizen" text="Delete" AnchorPane.bottomAnchor="30.66666666666663" />
+      <Button fx:id="btnDeleteCitizen" layoutX="303.0" layoutY="593.0" mnemonicParsing="false" onAction="#deleteCitizen" text="Delete" AnchorPane.bottomAnchor="31.0" />
       <TextField layoutX="8.0" layoutY="21.0" prefHeight="26.0" prefWidth="196.0" promptText="🔎" AnchorPane.leftAnchor="8.0">
          <font>
             <Font name="System Bold" size="16.0" />
