@@ -20,13 +20,17 @@ public class EditStudentViewController {
     public Button cancelUpdateStudentBTN;
     private Student selectedStudent;
  StudentManager studentManager = new StudentManager();
- private AdminViewController parentController;
+ private AdminViewController parentController1;
+ private TeacherController parentController2;
 
  public EditStudentViewController() throws Exception {
  }
 
  public void setParentController(AdminViewController adminViewController){
-  this.parentController = adminViewController;}
+  this.parentController1 = adminViewController;}
+
+ public void setParentController2(TeacherController teacherController){
+  this.parentController2 = teacherController;}
 
     public void confirmUpdateStudent(ActionEvent actionEvent) throws Exception {
      String studentFirstName= studentFirstName_txt.getText();
@@ -37,7 +41,7 @@ public class EditStudentViewController {
      studentManager.updateStudent(studentUpdated);
      Stage stage = (Stage)confirmUpdateStudentBTN.getScene().getWindow();
      stage.close();
-     parentController.initialize();
+     parentController1.initialize();
     }
 
     public void cancelUpdateStudent(ActionEvent actionEvent) {
@@ -48,4 +52,11 @@ public class EditStudentViewController {
       stage.close();
      }
     }
+
+  public void setInfo(Student selectedItem) {
+   selectedStudent = selectedItem;
+   studentFirstName_txt.setText(selectedItem.getFirstName());
+   studentLastName_txt.setText(String.valueOf(selectedItem.getLastName()));
+   studentEmail_txt.setText(String.valueOf(selectedItem.getEmail()));
+ }
 }

@@ -23,7 +23,7 @@
             <TableColumn prefWidth="75.0" text="Citizen ID" />
         </columns>
       </TableView>
-      <TableView fx:id="studentTable" layoutX="691.0" layoutY="125.0" prefHeight="461.0" prefWidth="227.0" AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="31.66666666666663" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="studentTable" layoutX="691.0" layoutY="125.0" prefHeight="461.0" prefWidth="227.0" AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="125.0">
          <columns>
             <TableColumn prefWidth="75.0" text="First Name" />
             <TableColumn prefWidth="75.0" text="Last Name" />
