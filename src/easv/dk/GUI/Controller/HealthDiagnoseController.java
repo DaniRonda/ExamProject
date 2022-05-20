@@ -12,7 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -81,7 +83,10 @@ public class HealthDiagnoseController {
     private Label labelSelectedCategory1;
     @FXML
     private Label labelSelectedSubCategory1;
-
+    @FXML
+    private Pane paneInfo;
+    @FXML
+    private Text textInfo;
 
 
     String selectedDiagnose;
@@ -434,7 +439,18 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelFunctionLevel1;
-    public void functionLevel1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with personal care");}
+    public void functionLevel1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with personal care");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with selfcare as a result of an illness, injury or disability, and where the complexity or a critical situation demands a special skill level among the workers, or when needing assistance to perform selfcare, dress and undressing and/or trip to the toilet." );
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void functionLevel1Entered(MouseEvent mouseEvent) {
         labelFunctionLevel1.setUnderline(true);
         labelFunctionLevel1.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -444,7 +460,25 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelFunctionLevel2;
-    public void functionLevel2Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with daily activities ");}
+    public void functionLevel2Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with daily activities ");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with\n" +
+                    " carrying out daily activities and where\n" +
+                    " the complexity or a critical situation requires a special level of competence in the staff.\n" +
+                    " eg need for assistance in coordination and\n" +
+                    " Planning of daily activities by loss of\n" +
+                    "Physical, Mental and Social Functioning, or by\n" +
+                    " need other support for planning and\n" +
+                    " Coordination of daily life.\n");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void functionLevel2Entered(MouseEvent mouseEvent) {
         labelFunctionLevel2.setUnderline(true);
         labelFunctionLevel2.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -453,7 +487,26 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelMovementapperatus1;
-    public void Apperatus1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mobility and movement"); }
+    public void Apperatus1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mobility and movement");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with\n" +
+                    " Movement disorders and problems in\n" +
+                    " moving, moving, changing the body position or\n" +
+                    " by inactivity as a result of illness, injury or\n" +
+                    " treatment, eg side effect of medication, or by\n" +
+                    " need other support to change the body position,\n" +
+                    " transfer and/or to move around.\n" +
+                    " eg citizens with Parkinson's disease and essential\n" +
+                    " tremor.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void Apperatus1Entered(MouseEvent mouseEvent) {
         labelMovementapperatus1.setUnderline(true);
         labelMovementapperatus1.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -462,7 +515,23 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelConsumtion1;
-    public void nutrition1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with fluid consumption"); }
+    public void nutrition1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with fluid consumption");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with\n" +
+                    " consuming a correct amount of fluid as a result of\n" +
+                    " illness or treatment, eg side effect of\n" +
+                    " medications where there is a risk of dehydration or\n" +
+                    " overlying, or when using other support for\n" +
+                    " fluid intake.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void nutrition1Entered(MouseEvent mouseEvent) {
         labelConsumtion1.setUnderline(true);
         labelConsumtion1.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -471,7 +540,29 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelConsumtion2;
-    public void nutrition2Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with food consumption"); }
+    public void nutrition2Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with food consumption");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with\n" +
+                    " consuming or absorbing nutrition and\n" +
+                    " vitamins/minerals or by\n" +
+                    " nutrition -related metabolic problems\n" +
+                    " as a result of illness or treatment, eg\n" +
+                    " Side effect of medicine.\n" +
+                    " eg citizens with dysphagia or short -intestinal syndrome,\n" +
+                    " or others who receive nutrition either\n" +
+                    " parenteral or via probe, or when using\n" +
+                    " other support for food intake.\n" +
+                    " The condition is also chosen by citizens with\n" +
+                    " diabetes.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void nutrition2Entered(MouseEvent mouseEvent) {
         labelConsumtion2.setUnderline(true);
         labelConsumtion2.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -480,7 +571,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelConsumtion3;
-    public void nutrition3Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Irregular weight chances"); }
+    public void nutrition3Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Irregular weight chances");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is chosen when the citizen has problems with\n" +
+                    " sudden change of weight as a result of illness\n" +
+                    " or treatment, eg side effect of medicine, or\n" +
+                    " need other support to deal with unplanned\n" +
+                    " weight change.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void nutrition3Entered(MouseEvent mouseEvent) {
         labelConsumtion3.setUnderline(true);
         labelConsumtion3.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -489,7 +595,21 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelConsumtion4;
-    public void nutrition4Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with obesity"); }
+    public void nutrition4Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with obesity");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is chosen when the citizen has problems with\n" +
+                    " overweight as a result of illness or treatment,\n" +
+                    " eg side effect of medicine, or use other\n" +
+                    " support to deal with overweight.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void nutrition4Entered(MouseEvent mouseEvent) {
         labelConsumtion4.setUnderline(true);
         labelConsumtion4.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -498,7 +618,21 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelConsumtion5;
-    public void nutrition5Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with anorexia"); }
+    public void nutrition5Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with anorexia");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with weight loss\n" +
+                    " and underweight as a result of illness or\n" +
+                    " treatment, eg side effect of medication, or use for\n" +
+                    " other support to deal with underweight..");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void nutrition5Entered(MouseEvent mouseEvent) {
         labelConsumtion5.setUnderline(true);
         labelConsumtion5.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -507,7 +641,20 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin1;
-    public void skin1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with surgical wounds"); }
+    public void skin1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with surgical wounds");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has problems with wounds that have occurred as a result of a surgical intervention after\n" +
+                    " an operation, or use for other support for\n" +
+                    " treatment of surgical wounds.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin1Enter(MouseEvent mouseEvent) {
         labelSkin1.setUnderline(true);
         labelSkin1.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -517,7 +664,20 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin2;
-    public void skin2Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with diabetic wounds");}
+    public void skin2Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with diabetic wounds");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with wounds that have arisen as a late complication to diabetes,\n" +
+                    " or need other support for treatment of\n" +
+                    " diabetic wound");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin2Enter(MouseEvent mouseEvent) {
         labelSkin2.setUnderline(true);
         labelSkin2.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -526,7 +686,21 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin3;
-    public void skin3Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with cancer wounds");}
+    public void skin3Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with cancer wounds");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with wounds\n" +
+                    " has occurred as a result of cancer and metastases,\n" +
+                    " or need other support for treatment of\n" +
+                    " Cancers");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin3Enter(MouseEvent mouseEvent) {
         labelSkin3.setUnderline(true);
         labelSkin3.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -535,7 +709,20 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin4;
-    public void skin4Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with pressure sores");}
+    public void skin4Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with pressure sores");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with wounds\n" +
+                    " has occurred as a result of pressure and/or shear, or\n" +
+                    " need other support for treating pressure ulcers");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin4Enter(MouseEvent mouseEvent) {
         labelSkin4.setUnderline(true);
         labelSkin4.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -544,7 +731,20 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin5;
-    public void skin5Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with arterial wounds");}
+    public void skin5Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with arterial wounds");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has problems with wounds that have occurred as a result of decreased arterial\n" +
+                    " blood supply, or use other support for\n" +
+                    " treatment of arterial wound.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin5Enter(MouseEvent mouseEvent) {
         labelSkin5.setUnderline(true);
         labelSkin5.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -553,7 +753,20 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin6;
-    public void skin6Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with venous wounds");}
+    public void skin6Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with venous wounds");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with wounds that have occurred as a result of venous insufficiency, typically\n" +
+                    " Failure to function of the venous flaps, or use\n" +
+                    " for other support for the treatment of venous wound");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin6Enter(MouseEvent mouseEvent) {
         labelSkin6.setUnderline(true);
         labelSkin6.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -562,7 +775,21 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin7;
-    public void skin7Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mixed wounds"); }
+    public void skin7Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mixed wounds");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with wounds that have occurred as a result of arterial and venous\n" +
+                    " insufficiency, typically a worsening of a venous wound,\n" +
+                    " or use for other support for treatment of\n" +
+                    " Mixing wounds.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin7Enter(MouseEvent mouseEvent) {
         labelSkin7.setUnderline(true);
         labelSkin7.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -571,7 +798,23 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin8;
-    public void skin8Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with trauma wounds");}
+    public void skin8Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with trauma wounds");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with wounds that have occurred as a result of trauma on hard tissue\n" +
+                    " and/or soft parts.\n" +
+                    " eg by fall or other accident, cut wounds,\n" +
+                    " skin scrapes, burns, etchings or\n" +
+                    " frostbite, or need other support for\n" +
+                    " Treatment of trauma wounds.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin8Enter(MouseEvent mouseEvent) {
         labelSkin8.setUnderline(true);
         labelSkin8.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -580,7 +823,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin91;
-    public void skin91Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Other problems with skin and mucous membrane ");}
+    public void skin91Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Other problems with skin and mucous membrane ");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with skin and\n" +
+                    " mucous membranes that are not wounds.\n" +
+                    " eg citizens who have fungal infection, scabies or\n" +
+                    " mrsa, or need other support for treating\n" +
+                    " skin and mucosal problems that are not wound.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin91Enter(MouseEvent mouseEvent) {
         labelSkin91.setUnderline(true); labelSkin92.setUnderline(true);
         labelSkin91.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -591,7 +849,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSkin92;
-    public void skin92Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Other problems with skin and mucous membrane");}
+    public void skin92Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Other problems with skin and mucous membrane");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with skin and\n" +
+                    " mucous membranes that are not wounds.\n" +
+                    " eg citizens who have fungal infection, scabies or\n" +
+                    " mrsa, or need other support for treating\n" +
+                    " skin and mucosal problems that are not wound.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void skin92Enter(MouseEvent mouseEvent) {
         labelSkin92.setUnderline(true); labelSkin91.setUnderline(true);
         labelSkin92.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -603,7 +876,23 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelCommunication;
-    public void communication1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with communication");}
+    public void communication1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with communication");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has trouble talking,\n" +
+                    " understanding, writing, spelling and reading as a result of illness,\n" +
+                    " injury or treatment, eg side effect of medicine.\n" +
+                    " eg citizens with a severe brain injury and/or\n" +
+                    " decreased level of consciousness, or need other\n" +
+                    " support for communication");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void communication1Enter(MouseEvent mouseEvent) {
         labelCommunication.setUnderline(true);
         labelCommunication.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -612,7 +901,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPshyco1;
-    public void pshyco1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with social contact");}
+    public void pshyco1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with social contact");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has trouble\n" +
+                    " dealing with socializing, adhering to social\n" +
+                    " norms, interacting with others or establishing and\n" +
+                    " maintaining relationships, or using other support\n" +
+                    " to function social");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pshyco1Enter(MouseEvent mouseEvent) {
         labelPshyco1.setUnderline(true);
         labelPshyco1.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -621,7 +925,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPshyco2;
-    public void pshyco2Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Emotional problems");}
+    public void pshyco2Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Emotional problems");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has trouble\n" +
+                    " dealing with feelings related to chronic\n" +
+                    " illness, injury or in connection with\n" +
+                    " life events, or need other support to\n" +
+                    " deal with feelings.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pshyco2Enter(MouseEvent mouseEvent) {
         labelPshyco2.setUnderline(true);
         labelPshyco2.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -630,7 +949,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPshyco3;
-    public void pshyco3Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("problems with drug misuse ");}
+    public void pshyco3Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("problems with drug misuse ");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with\n" +
+                    " sustained and harmful use of medicine, alcohol\n" +
+                    " or drugs that cause bodily, psychic\n" +
+                    " or social problems, or need other\n" +
+                    " support to deal with abuse problems.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pshyco3Enter(MouseEvent mouseEvent) {
         labelPshyco3.setUnderline(true);
         labelPshyco3.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -639,7 +973,25 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPshyco4;
-    public void pshyco4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Mental problems");}
+    public void pshyco4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Mental problems");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has problems with\n" +
+                    " mental or psychiatric symptoms as a result\n" +
+                    " of illness, injury or treatment, eg side effect\n" +
+                    " of medicine.\n" +
+                    " eg citizens with depression, bipolar disorder,\n" +
+                    " psychosis, eating disorder or schizophrenia, or\n" +
+                    "Need other support to deal with mental and\n" +
+                    " psychiatric symptoms\n");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pshyco4Enter(MouseEvent mouseEvent) {
         labelPshyco4.setUnderline(true);
         labelPshyco4.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -648,7 +1000,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelResparation1;
-    public void resporation1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Respiration problems");}
+    public void resporation1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Respiration problems");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has respiratory problems\n" +
+                    " as a result of illness or injury.\n" +
+                    " eg citizens with COPD, asthma, pneumonia,\n" +
+                    " tracheostomy, or need other support for\n" +
+                    " Handling of breathing problems.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void resporation1Enter(MouseEvent mouseEvent) {
         labelResparation1.setUnderline(true);
         labelResparation1.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -657,7 +1024,23 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelResparation2;
-    public void resporation2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Circulation problems");}
+    public void resporation2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Circulation problems");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has circulation problems\n" +
+                    " as a result of illness, injury or treatment, eg\n" +
+                    " Side effect of medicine.\n" +
+                    " eg citizens with cardiovascular problems, pacemaker,\n" +
+                    " in AK treatment, or need support for\n" +
+                    " handling cardio-vascular problems.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void resporation2Enter(MouseEvent mouseEvent) {
         labelResparation2.setUnderline(true);
         labelResparation2.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -666,7 +1049,21 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSexuality;
-    public void Sexuality1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with sexuality");}
+    public void Sexuality1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with sexuality");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has problems in terms of sexuality\n" +
+                    " as a result of illness, injury or treatment, eg\n" +
+                    " Side effect of medicine, need other support for\n" +
+                    " sexual activity.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void Sexuality1Enter(MouseEvent mouseEvent) {
         labelSexuality.setUnderline(true);
         labelSexuality.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -675,7 +1072,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPain1;
-    public void pain1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Acute pains");}
+    public void pain1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Acute pains");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is chosen when the citizen has problems with pain\n" +
+                    " characterized by the fact that they are suddenly inaugurating\n" +
+                    " and of short duration as a result of illness or\n" +
+                    " injury, or use other support to deal with\n" +
+                    " Acute pain.\n");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pain1Enter(MouseEvent mouseEvent) {
         labelPain1.setUnderline(true);
         labelPain1.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -684,7 +1096,21 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPain2;
-    public void pain2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Periodic pains");}
+    public void pain2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Periodic pains");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is chosen when the citizen has problems with pain\n" +
+                    " which sometimes occurs as a result of illness\n" +
+                    " or injury, or use other support to\n" +
+                    " deal with periodic pain.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pain2Enter(MouseEvent mouseEvent) {
         labelPain2.setUnderline(true);
         labelPain2.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -694,7 +1120,21 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPain3;
-    public void pain3Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Chronic pains");}
+    public void pain3Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Chronic pains");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with pain\\n\" +\n" +
+                    "                    \" which has lasted for more than 6 months as a result of\\n\" +\n" +
+                    "                    \" illness or injury, or need other support for\\n\" +\n" +
+                    "                    \" to deal with chronic pain");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pain3Enter(MouseEvent mouseEvent) {
         labelPain3.setUnderline(true);
         labelPain3.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -704,7 +1144,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPain4;
-    public void pain4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with vision");}
+    public void pain4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with vision");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has problems with the sense of sight\\n\" +\n" +
+                    "                    \" as a result of illness or injury.\\n\" +\n" +
+                    "                    \" eg citizens with cataracts, cataracts or\\n\" +\n" +
+                    "                    \" eye infection, or need other support to\\n\" +\n" +
+                    "                    \" compensate for changed sense of sight");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pain4Enter(MouseEvent mouseEvent) {
         labelPain4.setUnderline(true);
         labelPain4.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -714,7 +1169,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPain5;
-    public void pain5Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with olfaction");}
+    public void pain5Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with olfaction");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is chosen when the citizen has problems with\\n\" +\n" +
+                    "                    \" sense of smell as a result of illness, injury or\\n\" +\n" +
+                    "                    \" treatment, eg side effect of medicine, or use\\n\" +\n" +
+                    "                    \" for other support to compensate for changed\\n\" +\n" +
+                    "                    \" smell sense.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pain5Enter(MouseEvent mouseEvent) {
         labelPain5.setUnderline(true);
         labelPain5.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -724,7 +1194,21 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPain6;
-    public void pain6Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with hearing");}
+    public void pain6Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with hearing");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with hearing\\n\" +\n" +
+                    "                    \" as a result of illness or injury, or need\\n\" +\n" +
+                    "                    \" other support to compensate for changed\\n\" +\n" +
+                    "                    \" hearing.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pain6Enter(MouseEvent mouseEvent) {
         labelPain6.setUnderline(true);
         labelPain6.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -734,7 +1218,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPain7;
-    public void pain7Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with gustation");}
+    public void pain7Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with gustation");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is chosen when the citizen has problems with\\n\" +\n" +
+                    "                    \" Sense of taste due to illness, injury or\\n\" +\n" +
+                    "                    \" treatment, eg side effect of medicine, or use\\n\" +\n" +
+                    "                    \" for other support to compensate for changed\\n\" +\n" +
+                    "                    \" sense of taste.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pain7Enter(MouseEvent mouseEvent) {
         labelPain7.setUnderline(true);
         labelPain7.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -744,7 +1243,23 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelPain8;
-    public void pain8Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with taction");}
+    public void pain8Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with taction");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with sensation\n" +
+                    " as a result of illness, injury or treatment, eg\n" +
+                    " Side effect of medicine.\n" +
+                    " eg citizens with reduced sensation due to diabetic\n" +
+                    " neuropathy, or use other support to\n" +
+                    " compensate for changed Feeling sense.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void pain8Enter(MouseEvent mouseEvent) {
         labelPain8.setUnderline(true);
         labelPain8.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -754,7 +1269,23 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSleep1;
-    public void Sleep1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with sleep schedule");}
+    public void Sleep1Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with sleep schedule");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with\n" +
+                    " disruption of sleep and rest as a result of\n" +
+                    " illness, injury or treatment, eg side effect of\n" +
+                    " medicine, or need other support to\n" +
+                    " deal with inability to separate day\n" +
+                    " and night.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void Sleep1Enter(MouseEvent mouseEvent) {
         labelSleep1.setUnderline(true);
         labelSleep1.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -764,7 +1295,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelSleep2;
-    public void Sleep2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Sleep problems");}
+    public void Sleep2Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Sleep problems");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has sleep problems such as\n" +
+                    " consequence of illness, injury or treatment, eg\n" +
+                    " Side effect of medicine.\n" +
+                    " eg citizens with narcolepsy, or need other\n" +
+                    " support to compensate for poor sleep quality.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void Sleep2Enter(MouseEvent mouseEvent) {
         labelSleep2.setUnderline(true);
         labelSleep2.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -774,7 +1320,22 @@ public class HealthDiagnoseController {
 
     @FXML
     private Label labelInsight1;
-    public void insight1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with memory");}
+    public void insight1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with memory");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Is elected when the citizen has sleep problems such as\n" +
+                    " consequence of illness, injury or treatment, eg\n" +
+                    " Side effect of medicine.\n" +
+                    " eg citizens with narcolepsy, or need other\n" +
+                    " support to compensate for poor sleep quality.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
     public void insight1Enter(MouseEvent mouseEvent) {
         labelInsight1.setUnderline(true);
         labelInsight1.addEventHandler(MouseEvent.MOUSE_EXITED,

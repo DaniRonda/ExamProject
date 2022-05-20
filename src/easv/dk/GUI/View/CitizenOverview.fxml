@@ -22,7 +22,7 @@
           <TableColumn prefWidth="75.0" text="Last Name" />
         </columns>
       </TableView>
-      <Button layoutX="617.0" layoutY="14.0" mnemonicParsing="false" text="Log Out" />
+      <Button fx:id="btnCitizenLogOut" layoutX="617.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOutFromCitizenOverview" text="Log Out" />
       <VBox layoutX="19.0" layoutY="100.0" prefHeight="331.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
       <Button layoutX="35.0" layoutY="259.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #EFDFD2;" text="Cases" />
       <Button layoutX="34.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: #EFDFD2;" text="Templates" />
