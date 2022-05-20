@@ -45,7 +45,7 @@
         </columns>
       </TableView>
       <VBox layoutX="7.0" layoutY="99.0" prefHeight="331.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
-      <Button layoutX="17.0" layoutY="238.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Cases" />
+      <Button fx:id="openCaseViewBTN" layoutX="17.0" layoutY="238.0" mnemonicParsing="false" onAction="#openCaseView" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Cases" />
       <Button fx:id="btnAdminLogOut" layoutX="619.0" layoutY="18.0" mnemonicParsing="false" onAction="#adminLogOut" text="Log Out" AnchorPane.rightAnchor="12.666666666666664" />
       <Button fx:id="btnOpenCitizenOverview" layoutX="14.0" layoutY="155.0" mnemonicParsing="false" onAction="#openCitizenOverview" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Citizens" />
       <Label layoutX="215.0" layoutY="7.0" prefHeight="52.0" prefWidth="38.0" />
@@ -64,6 +64,6 @@
             <Image url="@../Pictures/Template.png" />
          </image>
       </ImageView>
-      <Button layoutX="17.0" layoutY="324.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Templates" />
+      <Button fx:id="openTemplateViewBTN" layoutX="17.0" layoutY="324.0" mnemonicParsing="false" onAction="#openTemplateView" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Templates" />
    </children>
 </AnchorPane>
