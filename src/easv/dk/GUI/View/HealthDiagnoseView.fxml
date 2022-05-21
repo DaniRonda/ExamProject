@@ -644,7 +644,7 @@
                </font>
             </Text>
             <TextArea fx:id="textAreaCurAssessment" layoutX="14.0" layoutY="229.0" prefHeight="101.0" prefWidth="610.0" />
-            <Button fx:id="buttonSave" layoutX="14.0" layoutY="593.0" mnemonicParsing="false" onAction="#saveClient" onMouseEntered="#saveEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="14.0">
+            <Button fx:id="buttonSave" layoutX="20.0" layoutY="602.0" mnemonicParsing="false" onAction="#saveClient" onMouseEntered="#saveEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="20.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -662,9 +662,9 @@
                </font>
             </Text>
             <ComboBox fx:id="ChoiceBoxAnticLvl" layoutX="14.0" layoutY="355.0" prefHeight="40.0" prefWidth="610.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
-            <AnchorPane fx:id="anchorGoals" disable="true" layoutY="2.0" prefHeight="632.0" prefWidth="640.0" style="-fx-background-color: #E3ECF8;" visible="false">
+            <AnchorPane fx:id="anchorGoals" disable="true" layoutY="2.0" prefHeight="644.0" prefWidth="640.0" style="-fx-background-color: #E3ECF8;" visible="false">
                <children>
-                  <Button fx:id="buttonSaveGoals" layoutX="179.0" layoutY="587.0" mnemonicParsing="false" onAction="#saveClientGoals" onMouseEntered="#goalSaveEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
+                  <Button fx:id="buttonSaveGoals" layoutX="164.0" layoutY="595.0" mnemonicParsing="false" onAction="#saveClientGoals" onMouseEntered="#goalSaveEntered" pickOnBounds="false" prefHeight="40.0" prefWidth="176.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -689,7 +689,7 @@
                      </font>
                   </Text>
                   <TextArea fx:id="textAreaGoals" layoutX="15.0" layoutY="426.0" prefHeight="153.0" prefWidth="610.0" />
-                  <Button fx:id="buttonReturn2" layoutX="26.0" layoutY="587.0" mnemonicParsing="false" onAction="#returnFromGoals" onMouseEntered="#goalReturnEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="138.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Return" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="26.0">
+                  <Button fx:id="buttonReturn2" layoutX="17.0" layoutY="587.0" mnemonicParsing="false" onAction="#returnFromGoals" onMouseEntered="#goalReturnEntered" pickOnBounds="false" prefHeight="40.0" prefWidth="147.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Return" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="17.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
