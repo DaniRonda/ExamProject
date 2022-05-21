@@ -80,10 +80,6 @@ public class HealthDiagnoseController {
     @FXML
     private ComboBox ChoiceBoxAnticLvl;
     @FXML
-    private ComboBox comboBoxExecution;
-    @FXML
-    private ComboBox comboBoxROE;
-    @FXML
     private Label labelSelectedCategory1;
     @FXML
     private Label labelSelectedSubCategory1;
@@ -115,8 +111,6 @@ public class HealthDiagnoseController {
 
     String selectedDiagnose;
     ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Lessens", "Remains the same", "Disappearing");
-    ObservableList<String> comboBoxOptionsEx = FXCollections.observableArrayList("Performs themselves", "Performs parts themselves", "Cannot perform themselves", "Not relevant");
-    ObservableList<String> comboBoxOptionsROE = FXCollections.observableArrayList("Does not experience limitations", "experiences limitations");
 
     public HealthDiagnoseController(){
 
@@ -221,6 +215,7 @@ public class HealthDiagnoseController {
         textAreaGoals.setText("");
     anchorGoals.setVisible(false); anchorGoals.setDisable(true);
     }
+
     @FXML
     private Button ButtonLogOut;
     public void logOut(ActionEvent actionEvent) throws IOException {
