@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -90,6 +91,26 @@ public class HealthDiagnoseController {
     private Pane paneInfo;
     @FXML
     private Text textInfo;
+    @FXML
+    private RadioButton radiButtonCurrent0;
+    @FXML
+    private RadioButton radiButtonCurrent1;
+    @FXML
+    private RadioButton radiButtonCurrent2;
+    @FXML
+    private RadioButton radiButtonCurrent3;
+    @FXML
+    private RadioButton radiButtonCurrent4;
+    @FXML
+    private RadioButton radiButtonExpected0;
+    @FXML
+    private RadioButton radiButtonExpected1;
+    @FXML
+    private RadioButton radiButtonExpected2;
+    @FXML
+    private RadioButton radiButtonExpected3;
+    @FXML
+    private RadioButton radiButtonExpected4;
 
 
     String selectedDiagnose;
@@ -100,14 +121,29 @@ public class HealthDiagnoseController {
     public HealthDiagnoseController(){
 
     }
-
-
+    ToggleGroup groupCurrent = new ToggleGroup();
+    ToggleGroup groupExpected = new ToggleGroup();
     @FXML
     private void initialize() {
         ToggleGroup group = new ToggleGroup();
         radiobuttonPotential.setToggleGroup(group);
         radiobuttonActive.setToggleGroup(group);
         radiobuttonNotRelevant.setToggleGroup(group);
+
+
+        radiButtonCurrent0.setToggleGroup(groupCurrent);
+        radiButtonCurrent1.setToggleGroup(groupCurrent);
+        radiButtonCurrent2.setToggleGroup(groupCurrent);
+        radiButtonCurrent3.setToggleGroup(groupCurrent);
+        radiButtonCurrent4.setToggleGroup(groupCurrent);
+
+
+        radiButtonExpected0.setToggleGroup(groupExpected);
+        radiButtonExpected1.setToggleGroup(groupExpected);
+        radiButtonExpected2.setToggleGroup(groupExpected);
+        radiButtonExpected3.setToggleGroup(groupExpected);
+        radiButtonExpected4.setToggleGroup(groupExpected);
+
         ChoiceBoxAnticLvl.setItems(choiceBoxOptions);
 
     }
@@ -159,13 +195,30 @@ public class HealthDiagnoseController {
     vboxSocialLife.setDisable(true);
     }
 
+    private void clearGroup(){
+        radiButtonCurrent0.setSelected(false);
+        radiButtonCurrent1.setSelected(false);
+        radiButtonCurrent2.setSelected(false);
+        radiButtonCurrent3.setSelected(false);
+        radiButtonCurrent4.setSelected(false);
+        radiButtonExpected0.setSelected(false);
+        radiButtonExpected1.setSelected(false);
+        radiButtonExpected2.setSelected(false);
+        radiButtonExpected3.setSelected(false);
+        radiButtonExpected4.setSelected(false);
+
+    }
 
     @FXML
     private AnchorPane anchorGoals;
     public void sendToCaseScreen(ActionEvent actionEvent) throws IOException {
     anchorGoals.setVisible(true); anchorGoals.setDisable(false);}
 
+    @FXML
+    private TextArea textAreaGoals;
     public void returnFromGoals(ActionEvent actionEvent) {
+        clearGroup();
+        textAreaGoals.setText("");
     anchorGoals.setVisible(false); anchorGoals.setDisable(true);
     }
     @FXML
@@ -1881,87 +1934,4 @@ public class HealthDiagnoseController {
                 event -> labelSocialLife1.setUnderline(false));
     }
 
-    @FXML
-    private ImageView imageCurrent0;
-    public void imageCurrent0clicked(MouseEvent mouseEvent) {
-
-        File file = new File("@../Pictures/1Captureblue.PNG");
-        Image image = new Image(file.toURI().toString());
-        imageCurrent0
-    }
-
-    public void imageCurrent0Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageCurrent1;
-    public void imageCurrent1clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageCurrent1Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageCurrent2;
-    public void imageCurrent2clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageCurrent2Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageCurrent3;
-    public void imageCurrent3clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageCurrent3Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageCurrent4;
-    public void imageCurrent4clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageCurrent4Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageExpected0;
-    public void imageExpected0Clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageExpected0Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageExpected1;
-    public void imageExpected1Clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageExpected1Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageExpected2;
-    public void imageExpected2Clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageExpected2Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageExpected3;
-    public void imageExpected3Clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageExpected3Entered(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    private ImageView imageExpected4;
-    public void imageExpected4Clicked(MouseEvent mouseEvent) {
-    }
-
-    public void imageExpected4Entered(MouseEvent mouseEvent) {
-    }
 }
