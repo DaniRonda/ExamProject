@@ -662,7 +662,7 @@
                </font>
             </Text>
             <ComboBox fx:id="ChoiceBoxAnticLvl" layoutX="14.0" layoutY="355.0" prefHeight="40.0" prefWidth="610.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
-            <AnchorPane fx:id="anchorGoals" disable="true" layoutY="2.0" prefHeight="632.0" prefWidth="640.0" style="-fx-background-color: #E3ECF8;">
+            <AnchorPane fx:id="anchorGoals" disable="true" layoutY="2.0" prefHeight="632.0" prefWidth="640.0" style="-fx-background-color: #E3ECF8;" visible="false">
                <children>
                   <Button fx:id="buttonSaveGoals" layoutX="179.0" layoutY="587.0" mnemonicParsing="false" onAction="#saveClientGoals" onMouseEntered="#goalSaveEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
                      <font>
