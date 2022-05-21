@@ -8,6 +8,8 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -593,7 +595,7 @@
             </Label>
          </children>
       </VBox>
-      <Pane fx:id="paneInfo" disable="true" layoutX="45.0" layoutY="135.0" prefHeight="203.0" prefWidth="211.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A9A9A9;" visible="false">
+      <Pane fx:id="paneInfo" disable="true" layoutX="45.0" layoutY="135.0" prefHeight="293.0" prefWidth="211.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A9A9A9;" visible="false">
          <children>
             <Text fx:id="textInfo" layoutX="4.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="203.0" />
          </children>
@@ -660,19 +662,13 @@
                </font>
             </Text>
             <ComboBox fx:id="ChoiceBoxAnticLvl" layoutX="14.0" layoutY="411.0" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
-            <AnchorPane fx:id="anchorGoals" disable="true" prefHeight="774.0" prefWidth="736.0" style="-fx-background-color: #E3ECF8;" visible="false">
+            <AnchorPane fx:id="anchorGoals" prefHeight="774.0" prefWidth="736.0" style="-fx-background-color: #E3ECF8;">
                <children>
                   <Button fx:id="buttonSaveGoals" layoutX="203.0" layoutY="699.0" mnemonicParsing="false" onAction="#saveClientGoals" onMouseEntered="#goalSaveEntered" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Text layoutX="14.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Execution" wrappingWidth="154.0000000000001">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Text>
-                  <ComboBox fx:id="comboBoxExecution" layoutX="14.0" layoutY="100.0" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
                   <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="55.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Label fx:id="labelSelectedCategory1" layoutX="14.0" layoutY="14.0" text="Category" AnchorPane.topAnchor="9.0">
@@ -687,23 +683,79 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Text layoutX="14.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Relevance of execution" wrappingWidth="211.0000000000001">
+                  <Text layoutX="14.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizens wishes and goals" wrappingWidth="225.0000000000001">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Text>
-                  <ComboBox fx:id="comboBoxROE" layoutX="14.0" layoutY="193.0" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
-                  <Text layoutX="14.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizens wishes and goals" wrappingWidth="225.0000000000001">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Text>
-                  <TextArea fx:id="textAreaGoals" layoutX="14.0" layoutY="284.0" prefHeight="218.0" prefWidth="708.0" />
+                  <TextArea fx:id="textAreaGoals" layoutX="14.0" layoutY="422.0" prefHeight="218.0" prefWidth="708.0" />
                   <Button fx:id="buttonReturn2" mnemonicParsing="false" onAction="#returnFromGoals" onMouseEntered="#goalReturnEntered" pickOnBounds="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Return" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="24.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Button>
+                  <Pane layoutX="24.0" layoutY="110.0" prefHeight="127.0" prefWidth="697.0" style="-fx-background-color: #FFFFFF;" />
+                  <Text layoutX="24.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected level" wrappingWidth="211.0000000000001">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="24.0" layoutY="272.0" prefHeight="127.0" prefWidth="697.0" style="-fx-background-color: #FFFFFF;" />
+                  <ImageView fx:id="imageCurrent0" fitHeight="127.0" fitWidth="127.0" layoutX="24.0" layoutY="110.0" onMouseClicked="#imageCurrent0clicked" onMouseEntered="#imageCurrent0Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/1Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageCurrent1" fitHeight="127.0" fitWidth="127.0" layoutX="178.0" layoutY="110.0" onMouseClicked="#imageCurrent1clicked" onMouseEntered="#imageCurrent1Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/2Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageCurrent2" fitHeight="127.0" fitWidth="127.0" layoutX="322.0" layoutY="110.0" onMouseClicked="#imageCurrent2clicked" onMouseEntered="#imageCurrent2Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/3Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageCurrent3" fitHeight="127.0" fitWidth="127.0" layoutX="472.0" layoutY="110.0" onMouseClicked="#imageCurrent3clicked" onMouseEntered="#imageCurrent3Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/4Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageCurrent4" fitHeight="127.0" fitWidth="127.0" layoutX="611.0" layoutY="110.0" onMouseClicked="#imageCurrent4clicked" onMouseEntered="#imageCurrent4Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/5Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageExpected0" fitHeight="127.0" fitWidth="127.0" layoutX="24.0" layoutY="272.0" onMouseClicked="#imageExpected0Clicked" onMouseEntered="#imageExpected0Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/1Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageExpected1" fitHeight="127.0" fitWidth="127.0" layoutX="178.0" layoutY="272.0" onMouseClicked="#imageExpected1Clicked" onMouseEntered="#imageExpected1Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/2Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageExpected2" fitHeight="127.0" fitWidth="127.0" layoutX="322.0" layoutY="272.0" onMouseClicked="#imageExpected2Clicked" onMouseEntered="#imageExpected2Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/3Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageExpected3" fitHeight="127.0" fitWidth="127.0" layoutX="472.0" layoutY="272.0" onMouseClicked="#imageExpected3Clicked" onMouseEntered="#imageExpected3Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/4Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageExpected4" fitHeight="127.0" fitWidth="127.0" layoutX="611.0" layoutY="272.0" onMouseClicked="#imageExpected4Clicked" onMouseEntered="#imageExpected4Entered" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Pictures/5Capture.PNG" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="24.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current level" wrappingWidth="211.0000000000001">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children>
