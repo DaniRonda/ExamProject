@@ -1,23 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="451.0" prefWidth="677.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.StudentController">
+<AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.StudentController">
    <children>
-      <ToolBar prefHeight="63.0" prefWidth="677.0" style="-fx-background-color: #EFEFE6;" />
-      <TableView fx:id="tableViewCitizens" layoutX="122.0" layoutY="72.0" prefHeight="325.0" prefWidth="239.0" style="-fx-background-radius: 15;" />
-      <Button fx:id="btnStudentLogOut" layoutX="590.0" layoutY="14.0" mnemonicParsing="false" onAction="#studentLogOut" text="Log Out" />
-      <Button fx:id="btnHealthConditions" layoutX="122.0" layoutY="403.0" mnemonicParsing="false" onAction="#openHealthConditionsView" text="Health Conditions" />
-      <Button fx:id="btnFunctionalAbilities" layoutX="245.0" layoutY="403.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" text="Functional Abilities" />
-      <ListView layoutX="376.0" layoutY="80.0" prefHeight="317.0" prefWidth="282.0" style="-fx-background-radius: 15;" />
-      <TextField layoutX="376.0" layoutY="80.0" prefHeight="25.0" prefWidth="282.0" text="General Information" />
-      <VBox layoutX="14.0" layoutY="73.0" prefHeight="331.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
-      <TextField fx:id="textFieldSearch2" layoutX="21.0" layoutY="14.0" promptText="🔎" />
+      <ToolBar layoutX="2.0" layoutY="-1.0" prefHeight="73.0" prefWidth="958.0" style="-fx-background-color: #EFEFE6 #EFEFE6;" />
+      <TableView fx:id="tableViewCitizens" layoutX="21.0" layoutY="82.0" prefHeight="491.0" prefWidth="334.0" style="-fx-background-radius: 15;" />
+      <Button fx:id="btnStudentLogOut" layoutX="845.0" layoutY="26.0" mnemonicParsing="false" onAction="#studentLogOut" text="Log Out" />
+      <Button fx:id="btnHealthConditions" layoutX="21.0" layoutY="579.0" mnemonicParsing="false" onAction="#openHealthConditionsView" text="Health Conditions" />
+      <Button fx:id="btnFunctionalAbilities" layoutX="143.0" layoutY="579.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" text="Functional Abilities" />
+      <TextField fx:id="textFieldSearch2" layoutX="33.0" layoutY="26.0" promptText="🔎" />
+      <GridPane gridLinesVisible="true" layoutX="386.0" layoutY="82.0" prefHeight="556.0" prefWidth="562.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="120.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="454.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Coping" wrappingWidth="43.00390625">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Motevation" wrappingWidth="70.0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ressources" wrappingWidth="63.0" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Roles" wrappingWidth="31.0" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Habits" wrappingWidth="37.0" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Education/job" wrappingWidth="80.0" GridPane.rowIndex="5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Life Story" wrappingWidth="57.0" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Health Information" wrappingWidth="70.0" GridPane.rowIndex="7">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aid" wrappingWidth="29.0" GridPane.rowIndex="8">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Furnishing Of The Living Space " wrappingWidth="100.0" GridPane.rowIndex="9">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Network" wrappingWidth="51.1875" GridPane.rowIndex="10">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="textAreaGeneralCoping" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" />
+            <TextArea fx:id="textAreaGeneralMotevation" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextArea fx:id="textAreaGeneralRessources" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextArea fx:id="textAreaGeneralRoles" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextArea fx:id="textAreaGeneralHabits" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextArea fx:id="textAreaGeneralEdu" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextArea fx:id="textAreaGeneralLifeStory" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextArea fx:id="textAreaGeneralHealthInfo" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextArea fx:id="textAreaGeneralAid" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextArea fx:id="textAreaGeneralFurnice" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextArea fx:id="textAreaGeneralNetwork" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
