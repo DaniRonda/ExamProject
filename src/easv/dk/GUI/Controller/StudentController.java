@@ -1,6 +1,9 @@
 package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BE.GeneralInfo;
+import easv.dk.BLL.GeneralInfoManager;
+import easv.dk.BLL.Manager;
 import easv.dk.GUI.Model.CitizenModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,9 +17,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.awt.TextField;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 public class StudentController {
     private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
@@ -36,7 +43,30 @@ public class StudentController {
     @FXML
     private TableView tableViewCitizens;
     @FXML
-    private ListView listViewAbout;
+    private TextArea textAreaGeneralCoping;
+    @FXML
+    private TextArea textAreaGeneralMotevation;
+    @FXML
+    private TextArea textAreaGeneralRessources;
+    @FXML
+    private TextArea textAreaGeneralRoles;
+    @FXML
+    private TextArea textAreaGeneralHabits;
+    @FXML
+    private TextArea textAreaGeneralEdu;
+    @FXML
+    private TextArea textAreaGeneralLifeStory;
+    @FXML
+    private TextArea textAreaGeneralHealthInfo;
+    @FXML
+    private TextArea textAreaGeneralAid;
+    @FXML
+    private TextArea textAreaGeneralFurnice;
+    @FXML
+    private TextArea textAreaGeneralNetwork;
+
+
+
 
     private final static int CitizenSelected = 0;   //constant
     private int mode = CitizenSelected;
@@ -165,23 +195,34 @@ public class StudentController {
 
     }
 
-    private void clearListView() {
-        listViewAbout.getItems().clear();
+    private void clearLists(){
+    textAreaGeneralCoping.clear();
+    textAreaGeneralMotevation.clear();
+    textAreaGeneralRessources.clear();
+    textAreaGeneralRoles.clear();
+    textAreaGeneralHabits.clear();
+    textAreaGeneralEdu.clear();
+    textAreaGeneralLifeStory.clear();
+    textAreaGeneralHealthInfo.clear();
+    textAreaGeneralAid.clear();
+    textAreaGeneralFurnice.clear();
+    textAreaGeneralNetwork.clear();
     }
 
-    public void showCitizenInfo() {
-        clearListView();
+    public void showCitizenInfo() throws Exception {
+        clearLists();
         mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();  //get selected movie in movie table
-        /*try {
-
+        try {
+            GeneralInfoManager bll = new GeneralInfoManager();  //get bll interface to use data from database
+            List<GeneralInfo> generalInfos = bll.getMoviesFromCategories(CitizenSelected);      //load movies for selected category
+            movieInCategory.getItems().addAll(movies);
 
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
-    }
+        }
 
 
 
