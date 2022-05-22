@@ -210,7 +210,7 @@ public class StudentController {
     }
 
     public void showCitizenInfo() throws Exception {
-        clearLists();
+       /* clearLists();
         mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();  //get selected movie in movie table
         try {
@@ -222,9 +222,9 @@ public class StudentController {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 
-}
+}}
 

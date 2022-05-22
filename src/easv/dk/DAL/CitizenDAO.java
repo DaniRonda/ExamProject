@@ -52,7 +52,7 @@ public class CitizenDAO {
         PreparedStatement psUpdateCitizen = con.prepareStatement(sqlUpdateCitizen, Statement.RETURN_GENERATED_KEYS);
         psUpdateCitizen.setString(1,citizen.getFirstName());
         psUpdateCitizen.setString(2,citizen.getLastName());
-        psUpdateCitizen.setString(3,citizen.getAdress());
+        psUpdateCitizen.setString(3,citizen.getAddress());
         psUpdateCitizen.setInt(4,citizen.getPhoneNumber());
         psUpdateCitizen.setInt(5,citizen.getSchoolID());
         psUpdateCitizen.executeUpdate();
@@ -67,7 +67,7 @@ public class CitizenDAO {
         PreparedStatement psInsertCitizen = con.prepareStatement(sqlSelectCitizen, Statement.RETURN_GENERATED_KEYS);
         psInsertCitizen.setString(1, citizen.getFirstName());
         psInsertCitizen.setString(2, citizen.getLastName());
-        psInsertCitizen.setString(3, citizen.getAdress());
+        psInsertCitizen.setString(3, citizen.getAddress());
         psInsertCitizen.setDate(4, (Date) citizen.getBirthDate());
         psInsertCitizen.setInt(5, citizen.getPhoneNumber());
         psInsertCitizen.setBoolean(6, citizen.isTemplate());
@@ -78,7 +78,7 @@ public class CitizenDAO {
         while (rs.next()) {
             citizenCreated = new Citizen (citizen.getFirstName(),
                     citizen.getLastName(),
-                    citizen.getAdress(),
+                    citizen.getAddress(),
                     citizen.getBirthDate(),
                     citizen.getPhoneNumber(),
                     citizen.isTemplate(),

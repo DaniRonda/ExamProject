@@ -82,7 +82,7 @@ public class CitizenStudentDAO {
     }
 
     public List<Student> getStudentFromCitizen(Citizen citizen) throws Exception {
-        List<Student> studentList = new ArrayList<>();
+        List<Student> students = new ArrayList<>();
         Connection con = cm.getConnection();
         String query = "select distinct Student.* from citizenStudent \n" +
                 "JOIN Student on citizenStudent.student_id=Student.id\n" +
@@ -97,12 +97,12 @@ public class CitizenStudentDAO {
             String email = resultSet.getString("email");
             String password = resultSet.getString("password");
            Student student = new Student(firstName, lastName, email, password, id);
-            studentList.add(student);
+            students.add(student);
         }
         resultSet.close();
         ps.close();
         con.close();
-        return studentList;
+        return students;
     }
 
 
@@ -165,5 +165,33 @@ public class CitizenStudentDAO {
 
 
     }
+
+    public List<Citizen> getCitizensFromStudent(Student student) throws Exception {
+        List<Citizen> citizens = new ArrayList<>();
+        Connection con = cm.getConnection();
+        String query = "select distinct Citizen.* from citizenStudent \n" +
+                "JOIN Citizen on citizenStudent.citizen_Id=citizen.id\n" +
+                "where student_id=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, student.getId());
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            String firstName = rs.getString("firstName");
+            String lastName = rs.getString("lastName");
+            String address = rs.getString("address");
+            java.sql.Date birthDate = rs.getDate("birthDate");
+            boolean isTemplate = rs.getBoolean("isTemplate");
+            int phoneNumber = rs.getInt("phoneNumber");
+            int schoolID = rs.getInt("school_id");
+            int ID = rs.getInt("id");
+            citizens.add(new Citizen(firstName,lastName,address,birthDate,phoneNumber, isTemplate,schoolID, ID));
+        }
+        rs.close();
+        ps.close();
+        con.close();
+        return citizens;
+    }
+
+
 }
 
