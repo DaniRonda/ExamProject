@@ -2,7 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
@@ -11,13 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TemplateViewController">
    <children>
       <ToolBar layoutX="1.0" layoutY="1.0" prefHeight="78.0" prefWidth="950.0" />
       <TextField layoutX="14.0" layoutY="27.0" promptText="🔎" />
-      <ListView layoutX="163.0" layoutY="118.0" prefHeight="449.0" prefWidth="205.0" />
-      <VBox layoutX="15.0" layoutY="112.0" prefHeight="449.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
+      <VBox layoutX="15.0" layoutY="121.0" prefHeight="449.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
       <Button fx:id="btnTemplateLogOut" layoutX="878.0" layoutY="27.0" mnemonicParsing="false" onAction="#logOutFromTemplateView" text="Log Out" />
       <Label layoutX="163.0" layoutY="92.0" text="Templates">
          <font>
@@ -25,19 +24,32 @@
          </font>
       </Label>
       <Button layoutX="35.0" layoutY="197.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #EFDFD2;" text="Home" />
-      <Button layoutX="34.0" layoutY="312.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #EFDFD2;" text="Cases" />
-      <ImageView fitHeight="87.0" fitWidth="59.0" layoutX="35.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="41.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Pictures/Home.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="87.0" fitWidth="59.0" layoutX="35.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Pictures/Case.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="163.0" layoutY="577.0" mnemonicParsing="false" text="New" />
-      <Button layoutX="214.0" layoutY="577.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="317.0" layoutY="577.0" mnemonicParsing="false" text="Delete" />
+      <Button layoutX="163.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="37.0" text="New" />
+      <Button layoutX="206.0" layoutY="577.0" mnemonicParsing="false" text="Edit" />
+      <Button layoutX="378.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
+      <Button layoutX="250.0" layoutY="577.0" mnemonicParsing="false" text="Duplicate" />
+      <TableView layoutX="163.0" layoutY="115.0" prefHeight="461.0" prefWidth="275.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <TableView layoutX="646.0" layoutY="115.0" prefHeight="461.0" prefWidth="275.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Label layoutX="694.0" layoutY="92.0" text="Citizens">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="646.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
    </children>
 </AnchorPane>
