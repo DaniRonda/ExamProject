@@ -16,16 +16,15 @@
 <AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.StudentController">
    <children>
       <ToolBar layoutX="2.0" layoutY="-1.0" prefHeight="73.0" prefWidth="958.0" style="-fx-background-color: #EFEFE6 #EFEFE6;" />
-      <TableView fx:id="tableViewCitizens" layoutX="21.0" layoutY="82.0" prefHeight="521.0" prefWidth="334.0" style="-fx-background-radius: 15;" />
-      <Button fx:id="btnStudentLogOut" layoutX="845.0" layoutY="26.0" mnemonicParsing="false" onAction="#studentLogOut" text="Log Out" />
+      <TableView fx:id="tableViewCitizens" layoutX="21.0" layoutY="108.0" prefHeight="495.0" prefWidth="334.0" style="-fx-background-radius: 15;" />
+      <Button fx:id="btnStudentLogOut" layoutX="886.0" layoutY="26.0" mnemonicParsing="false" onAction="#studentLogOut" prefHeight="25.0" prefWidth="59.0" text="Log Out" />
       <Button fx:id="btnHealthConditions" layoutX="21.0" layoutY="605.0" mnemonicParsing="false" onAction="#openHealthConditionsView" text="Health Conditions" />
       <Button fx:id="btnFunctionalAbilities" layoutX="143.0" layoutY="605.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" text="Functional Abilities" />
       <TextField fx:id="textFieldSearch2" layoutX="33.0" layoutY="26.0" promptText="🔎" />
-      <Button layoutX="386.0" layoutY="605.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Save" />
-      <Button layoutX="454.0" layoutY="605.0" mnemonicParsing="false" text="Update" />
-      <ScrollPane layoutX="385.0" layoutY="82.0" prefHeight="326.0" prefWidth="562.0">
+      <Button layoutX="386.0" layoutY="605.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Update" />
+      <ScrollPane layoutX="385.0" layoutY="281.0" prefHeight="319.0" prefWidth="562.0">
          <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="553.0" style="-fx-background-color: #BEB5CF;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="528.0" prefWidth="553.0" style="-fx-background-color: #BEB5CF;">
                <children>
                   <GridPane gridLinesVisible="true" prefHeight="521.0" prefWidth="562.0">
                     <columnConstraints>
@@ -118,5 +117,29 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+      <Text layoutX="385.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General Ingormation">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="386.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Case" wrappingWidth="34.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ScrollPane layoutX="385.0" layoutY="108.0" prefHeight="111.0" prefWidth="562.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="203.0" prefWidth="544.0">
+               <children>
+                  <TextField layoutX="-2.0" layoutY="3.0" prefHeight="203.0" prefWidth="562.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Text layoutX="22.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizens">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
