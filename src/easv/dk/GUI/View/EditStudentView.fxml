@@ -10,25 +10,25 @@
    <children>
       <Label layoutX="93.0" layoutY="81.0" text="First Name">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Label>
       <Label layoutX="93.0" layoutY="145.0" text="Last Name">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Label>
       <Label layoutX="93.0" layoutY="210.0" text="Email">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Label layoutX="96.0" layoutY="267.0" prefHeight="32.0" prefWidth="85.0" text="Password">
+      <Label layoutX="90.0" layoutY="268.0" prefHeight="32.0" prefWidth="85.0" text="Password">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Label>
-      <TextField fx:id="studentFirstName_txt" layoutX="195.0" layoutY="73.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="studentLastName_txt" layoutX="195.0" layoutY="137.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="studentEmail_txt" layoutX="195.0" layoutY="202.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="studentPassword_txt" layoutX="195.0" layoutY="264.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <Button fx:id="confirmUpdateStudentBTN" layoutX="424.0" layoutY="342.0" mnemonicParsing="false" onAction="#confirmUpdateStudent" style="-fx-background-radius: 50;" text="Confirm" />
-      <Button fx:id="cancelUpdateStudentBTN" layoutX="514.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelUpdateStudent" style="-fx-background-radius: 50;" text="Cancel" />
+      <TextField fx:id="studentFirstName_txt" layoutX="195.0" layoutY="73.0" prefHeight="39.0" prefWidth="229.0" />
+      <TextField fx:id="studentLastName_txt" layoutX="195.0" layoutY="137.0" prefHeight="39.0" prefWidth="229.0" />
+      <TextField fx:id="studentEmail_txt" layoutX="195.0" layoutY="202.0" prefHeight="39.0" prefWidth="229.0" />
+      <TextField fx:id="studentPassword_txt" layoutX="195.0" layoutY="264.0" prefHeight="39.0" prefWidth="229.0" />
+      <Button fx:id="confirmUpdateStudentBTN" layoutX="424.0" layoutY="342.0" mnemonicParsing="false" onAction="#confirmUpdateStudent" prefHeight="25.0" prefWidth="51.0" text="Save" />
+      <Button fx:id="cancelUpdateStudentBTN" layoutX="514.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelUpdateStudent" text="Cancel" />
    </children>
 </AnchorPane>
