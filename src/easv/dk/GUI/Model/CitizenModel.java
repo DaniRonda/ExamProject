@@ -47,6 +47,8 @@ public class CitizenModel {
         selectedItem.setStudentsInCitizen(newList);
         selectedItem.setStudentCount(selectedItem.getStudentCount() + 1);
         getAllCitizens.set(selectedIndex, selectedItem);
+    }
+    public void addInfoToCitizen(Citizen selectedItem, int selectedIndex){
 
     }
 }

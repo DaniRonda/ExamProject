@@ -23,6 +23,60 @@ public class CitizenGeneralInfoDAO {
         }
     }
 
+
+    public GeneralInfo createGeneralInfo(String coping, String motevation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network) throws Exception {
+        GeneralInfo generalInfo = null;
+        int ID = 0;
+        String query = "INSERT INTO GeneralInfo VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try(Connection connection = cm.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, coping);
+            preparedStatement.setString(2, motevation);
+            preparedStatement.setString(3, resources);
+            preparedStatement.setString(4, roles);
+            preparedStatement.setString(5, habits);
+            preparedStatement.setString(6, education);
+            preparedStatement.setString(7, lifestory);
+            preparedStatement.setString(8, healthinfo);
+            preparedStatement.setString(9, aid);
+            preparedStatement.setString(10, furnishing);
+            preparedStatement.setString(11, network);
+
+            int created = preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+            if (resultSet.next()){
+                ID = resultSet.getInt(1);
+            }
+            if (created != 0){
+                generalInfo = new GeneralInfo(ID, coping, motevation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network);
+            }
+        }
+        return generalInfo;
+    }
+
+    public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
+        String query =  "UPDATE General_Information SET coping = ?, motevation = ?, resources = ?, roles = ?, habits = ?, education = ?, lifestory = ?, healthinfo = ?, aid = ?, furnishing = ?, network = ? WHERE ID = ?";
+        try (Connection connection = cm.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, generalInfo.getCoping());
+            preparedStatement.setString(2, generalInfo.getMotevation());
+            preparedStatement.setString(3, generalInfo.getResources());
+            preparedStatement.setString(4, generalInfo.getRoles());
+            preparedStatement.setString(5, generalInfo.getHabits());
+            preparedStatement.setString(6, generalInfo.getEducation());
+            preparedStatement.setString(7, generalInfo.getLifestory());
+            preparedStatement.setString(8, generalInfo.getHealthinfo());
+            preparedStatement.setString(9, generalInfo.getAid());
+            preparedStatement.setString(10, generalInfo.getFurnishing());
+            preparedStatement.setString(11, generalInfo.getNetwork());
+            preparedStatement.setInt(12, generalInfo.getID());
+
+            preparedStatement.executeUpdate();
+        }
+    }
+
     public GeneralInfoCitizen createCatMovie(GeneralInfoCitizen generalInfoCitizen) throws Exception {
         GeneralInfoCitizen generalInfoCitizen1 = new GeneralInfoCitizen(generalInfoCitizen.getCitizen_id(),generalInfoCitizen.getGeneralinfo_id());
         Connection con = cm.getConnection();

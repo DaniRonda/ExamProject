@@ -232,8 +232,16 @@ public class StudentController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+}
 
+    public void addInfoToCitizen(ActionEvent actionEvent) {
+        if (tableViewCitizens.getSelectionModel().getSelectedIndex() != -1) {
+            try {
+                citizenmodel.addInfoToCitizen((Citizen) tableViewCitizens.getSelectionModel().getSelectedItem(), tableViewCitizens.getSelectionModel().getSelectedIndex());
+            } catch (Exception ex) {
+            }
+        }
+    }
 
-
-}}
+}
 
