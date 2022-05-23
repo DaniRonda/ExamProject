@@ -1,8 +1,10 @@
 package easv.dk.GUI.Model;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.Student;
 import easv.dk.BLL.CitizenManager;
+import easv.dk.BLL.GeneralInfoManager;
 import easv.dk.BLL.Manager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,8 +15,11 @@ public class CitizenModel {
     ObservableList<Citizen> getAllCitizens;
     CitizenManager citizenManager = new CitizenManager();
     Manager manager = new Manager();
+    GeneralInfoManager managerInfo;
+    public static Citizen clickedCitizen;;
 
     public CitizenModel() throws Exception {
+        managerInfo = new GeneralInfoManager();
         getAllCitizens = FXCollections.observableArrayList();
     }
 
@@ -48,7 +53,12 @@ public class CitizenModel {
         selectedItem.setStudentCount(selectedItem.getStudentCount() + 1);
         getAllCitizens.set(selectedIndex, selectedItem);
     }
-    public void addInfoToCitizen(Citizen selectedItem, int selectedIndex){
-
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
+        return managerInfo.getGeneralInfo(idGeneralInfo);
+    }
+    public Citizen setCurrentCitizen(Citizen citizen){
+        clickedCitizen = citizen;
+        System.out.println("Current citizen: " + clickedCitizen);
+        return clickedCitizen;
     }
 }

@@ -77,7 +77,7 @@ public class StudentController {
     public void initialize() throws Exception {
         search();
         setUpTableView();
-        //showCitizenInfo();
+       // showCitizenInfo();
     }
 
     public void sendToCaseScreen(ActionEvent actionEvent) throws Exception {
@@ -208,13 +208,13 @@ public class StudentController {
     textAreaGeneralNetwork.clear();
     }
 
-    public void showCitizenInfo() throws Exception {
+    /*public void showCitizenInfo() throws Exception {
         clearLists();
         mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();  //get selected movie in movie table
         try {
             GeneralInfoManager bll = new GeneralInfoManager();  //get bll interface to use data from database
-            List<GeneralInfo> generalInfo = bll.getInfoFrom(selectedCitizen);      //load movies for selected category
+            List<GeneralInfo> generalInfo = citizenmodel.getGeneralInfo(selectedCitizen);      //load movies for selected category
             textAreaGeneralCoping.setText(String.valueOf(generalInfo.get(1)));
             textAreaGeneralMotevation.setText(String.valueOf(generalInfo.get(2)));
             textAreaGeneralRessources.setText(String.valueOf(generalInfo.get(3)));
@@ -240,7 +240,7 @@ public class StudentController {
             } catch (Exception ex) {
             }
         }
-    }
+    }*/
 
 }
 
