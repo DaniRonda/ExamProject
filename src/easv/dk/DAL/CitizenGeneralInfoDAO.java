@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class CitizenGeneralInfoDAO {
 
-
+    //Citizen citizen1 = new Citizen();
     ConnectionManager cm;
 
     public CitizenGeneralInfoDAO() {
@@ -99,35 +100,36 @@ public class CitizenGeneralInfoDAO {
         return generalInfoCitizen1;
     }
 
-    public List<GeneralInfo> getAllCategoriesForGivenCitizen(Citizen citizen) throws Exception {
-        List<GeneralInfo> generalInfolist = new ArrayList<>();
-        Connection con = cm.getConnection();
-        String query = "select distinct generalinfo.* from GeneralInfoCitizen \n" +
-                "JOIN generalinfo on GeneralInfoCitizen.generalinfo_id=generalinfo.id\n" +
-                "where citizen_id=?";
-        PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, citizen.getID());
-        ResultSet resultSet = ps.executeQuery();
-        while (resultSet.next()) {
-            int ID = resultSet.getInt("id");
-            String coping = resultSet.getString("coping");
-            String motevation = resultSet.getString("motevation");
-            String resources = resultSet.getString("resources");
-            String roles = resultSet.getString("roles");
-            String habits = resultSet.getString("habits");
-            String education = resultSet.getString("education");
-            String lifestory = resultSet.getString("lifestory");
-            String healthinfo = resultSet.getString("healthinfo");
-            String aid = resultSet.getString("aid");
-            String furnishing = resultSet.getString("furnishing");
-            String network = resultSet.getString("network");
+
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
+        GeneralInfo generalInfo = null;
+        String query =  "SELECT * FROM GeneralInfo WHERE ID = ?";
+
+        try (Connection connection = cm.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, idGeneralInfo);
+            preparedStatement.execute();
+
+            ResultSet resultSet = preparedStatement.getResultSet();
+            if (resultSet.next()){
+                int ID = resultSet.getInt("ID");
+                String coping = resultSet.getString("coping");
+                String motevation = resultSet.getString("motevation");
+                String resources = resultSet.getString("resources");
+                String roles = resultSet.getString("roles");
+                String habits = resultSet.getString("habits");
+                String education = resultSet.getString("education");
+                String lifestory = resultSet.getString("lifestory");
+                String healthinfo = resultSet.getString("healthinfo");
+                String aid = resultSet.getString("aid");
+                String furnishing = resultSet.getString("furnishing");
+                String network = resultSet.getString("network");
 
 
-            generalInfolist.add(new GeneralInfo(ID, coping, motevation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network));
+                generalInfo = new GeneralInfo(ID, coping, motevation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network);
+                System.out.println(generalInfo);
+            }
         }
-        resultSet.close();
-        ps.close();
-        con.close();
-        return generalInfolist;
+        return generalInfo;
     }
 }

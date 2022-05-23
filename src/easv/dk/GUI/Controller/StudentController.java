@@ -3,7 +3,6 @@ package easv.dk.GUI.Controller;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
 import easv.dk.BLL.GeneralInfoManager;
-import easv.dk.BLL.Manager;
 import easv.dk.GUI.Model.CitizenModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.awt.TextField;
@@ -79,7 +77,7 @@ public class StudentController {
     public void initialize() throws Exception {
         search();
         setUpTableView();
-        //showCitizenInfo();
+       // showCitizenInfo();
     }
 
     public void sendToCaseScreen(ActionEvent actionEvent) throws Exception {
@@ -119,7 +117,7 @@ public class StudentController {
 
     public void openHealthConditionsView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthDiagnoseView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -210,13 +208,13 @@ public class StudentController {
     textAreaGeneralNetwork.clear();
     }
 
-    public void showCitizenInfo() throws Exception {
+    /*public void showCitizenInfo() throws Exception {
         clearLists();
         mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();  //get selected movie in movie table
         try {
             GeneralInfoManager bll = new GeneralInfoManager();  //get bll interface to use data from database
-            List<GeneralInfo> generalInfo = bll.getInfoFrom(selectedCitizen);      //load movies for selected category
+            List<GeneralInfo> generalInfo = citizenmodel.getGeneralInfo(selectedCitizen);      //load movies for selected category
             textAreaGeneralCoping.setText(String.valueOf(generalInfo.get(1)));
             textAreaGeneralMotevation.setText(String.valueOf(generalInfo.get(2)));
             textAreaGeneralRessources.setText(String.valueOf(generalInfo.get(3)));
@@ -242,7 +240,7 @@ public class StudentController {
             } catch (Exception ex) {
             }
         }
-    }
+    }*/
 
 }
 
