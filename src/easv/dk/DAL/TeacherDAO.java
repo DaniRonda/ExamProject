@@ -51,28 +51,19 @@ public class TeacherDAO {
 
 
     public Teacher createTeacher(Teacher teacher) throws Exception {
-        Teacher teacherCreated = null;
         Connection con = cm.getConnection();
-        String sqlSelectTeacher = "INSERT INTO Teacher VALUES(?,?,?,?,?)";
+        String sqlSelectTeacher = "INSERT INTO Teacher VALUES(?,?,?,?,?,?)";
         PreparedStatement psInsertTeacher = con.prepareStatement(sqlSelectTeacher, Statement.RETURN_GENERATED_KEYS);
-        psInsertTeacher.setString(1, teacher.getFirstName());
-        psInsertTeacher.setString(2, teacher.getLastName());
-        psInsertTeacher.setString(3, teacher.getEmail());
-        psInsertTeacher.setString(4, teacher.getPassword());
-        psInsertTeacher.setString (5, teacher.getSchool());
+        psInsertTeacher.setString(2, teacher.getFirstName());
+        psInsertTeacher.setString(3, teacher.getLastName());
+        psInsertTeacher.setString(4, teacher.getEmail());
+        psInsertTeacher.setString(5, teacher.getPassword());
+        psInsertTeacher.setString (6, teacher.getSchool());
+        psInsertTeacher.setInt(1,teacher.getId());
         psInsertTeacher.addBatch();
         psInsertTeacher.executeBatch();
-        ResultSet rs = psInsertTeacher.getGeneratedKeys();
-        while (rs.next()) {
-            teacherCreated = new Teacher (teacher.getFirstName(),
-                    teacher.getLastName(),
-                    teacher.getEmail(),
-                    teacher.getPassword(),
-                    teacher.getSchool(),
-                    rs.getInt(1)
-            );
-        }
-        return teacherCreated;
+
+        return teacher;
     }
 
     public List<Teacher> getAllTeacher() throws Exception {
