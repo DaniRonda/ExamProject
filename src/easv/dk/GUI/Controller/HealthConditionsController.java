@@ -135,8 +135,7 @@ public class HealthConditionsController {
         radiButtonExpected4.setToggleGroup(groupExpected);
 
         ChoiceBoxAnticLvl.setItems(choiceBoxOptions);
-
-        if(studentModel.diagnose == 1){
+        if(StudentModel.diagnose == 1){
             vboxfunction.setVisible(true); vboxfunction.setDisable(false);
             vboxHealth.setVisible(false); vboxHealth.setDisable(true);
             selectedDiagnose = "functionalDiagnose";
@@ -155,6 +154,7 @@ public class HealthConditionsController {
         buttonClientsWishes.setVisible(false);
         buttonClientsWishes.setDisable(true);
     }
+        System.out.println(StudentModel.diagnose);
     }
 
     private void ifIsArmed(){

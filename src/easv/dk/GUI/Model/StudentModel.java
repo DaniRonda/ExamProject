@@ -32,10 +32,10 @@ public class StudentModel {
         this.getAllStudents.addAll(this.studentManager.getAllStudents());
         return this.getAllStudents;
     }
-    public int diagnose = 0;
+    static public int diagnose = 0;
 
 
-    public int diagnoseSelected(){
+    static public int diagnoseSelected(){
         return diagnose;
     }
 }
