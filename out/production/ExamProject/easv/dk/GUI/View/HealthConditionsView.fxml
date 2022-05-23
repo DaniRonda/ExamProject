@@ -21,21 +21,16 @@
       <AnchorPane layoutX="1.0" prefHeight="95.0" prefWidth="1127.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Button fx:id="ButtonToCase" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendToCaseScreen" prefHeight="62.0" prefWidth="100.0" text="Button" visible="false" />
-            <Button fx:id="ButtonLogOut" layoutX="14.0" layoutY="56.0" mnemonicParsing="false" onAction="#logOut" prefHeight="33.0" prefWidth="100.0" style="-fx-background-radius: 25; -fx-background-color: #D3D3D3;" text="Log Out" AnchorPane.bottomAnchor="19.0">
+            <Button fx:id="ButtonLogOut" layoutX="1005.0" layoutY="21.0" mnemonicParsing="false" onAction="#logOut" prefHeight="33.0" prefWidth="100.0" text="Log Out" AnchorPane.bottomAnchor="40.99999999999999">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="buttonReturn" layoutX="15.0" layoutY="5.0" mnemonicParsing="false" onAction="#Return" prefHeight="33.0" prefWidth="99.0" style="-fx-background-radius: 25; -fx-background-color: #D3D3D3;" text="Return" AnchorPane.topAnchor="5.0">
+            <Button fx:id="buttonReturn" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onAction="#Return" prefHeight="33.0" prefWidth="99.0" text="Return" AnchorPane.topAnchor="31.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
-            <Label fx:id="labelName" layoutX="545.0" layoutY="38.0" text="Name">
-               <font>
-                  <Font name="Arial Bold" size="20.0" />
-               </font>
-            </Label>
          </children>
       </AnchorPane>
       <VBox fx:id="vboxHealth" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #B6D2E8;" AnchorPane.bottomAnchor="0.0">
