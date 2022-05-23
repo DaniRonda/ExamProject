@@ -142,4 +142,7 @@ public class GeneralInfo {
                 ", network='" + network + '\'' +
                 '}';
     }
+
+
+
 }
