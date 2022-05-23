@@ -49,17 +49,18 @@ public class CitizenDAO {
 
     public void updateCitizen(Citizen citizen) throws Exception {
         Connection con = cm.getConnection();
-        String sqlUpdateCitizen = "UPDATE  Citizen SET firstName=?, lastName=? address=?, phoneNumber=?, schoolID=? WHERE ID=?;";
-        PreparedStatement psUpdateCitizen = con.prepareStatement(sqlUpdateCitizen, Statement.RETURN_GENERATED_KEYS);
+        String sqlUpdateCitizen = "UPDATE  Citizen SET firstName=?, lastName=?, address=?, phoneNumber=?, school_id=? WHERE ID=?;";
+        PreparedStatement psUpdateCitizen = con.prepareStatement(sqlUpdateCitizen);
         psUpdateCitizen.setString(1,citizen.getFirstName());
         psUpdateCitizen.setString(2,citizen.getLastName());
         psUpdateCitizen.setString(3,citizen.getAddress());
         psUpdateCitizen.setInt(4,citizen.getPhoneNumber());
         psUpdateCitizen.setInt(5,citizen.getSchoolID());
-        psUpdateCitizen.setBoolean(6,citizen.isTemplate());
-        psUpdateCitizen.executeUpdate();
+        psUpdateCitizen.setInt(6,citizen.getID());
+        psUpdateCitizen.execute();
         psUpdateCitizen.close();
         con.close();
+        System.out.println(citizen.getFirstName()+" "+citizen.getID());
     }
 
     public Citizen createCitizen(Citizen citizen) throws Exception {
