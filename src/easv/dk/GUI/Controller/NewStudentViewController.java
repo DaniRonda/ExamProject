@@ -1,5 +1,8 @@
 package easv.dk.GUI.Controller;
 
+
+
+
 import easv.dk.BE.Student;
 import easv.dk.BLL.StudentManager;
 import javafx.event.ActionEvent;
@@ -16,8 +19,11 @@ public class NewStudentViewController {
     public TextField studentPassword_txt;
     public Button confirmNewStudentBTN;
     public Button cancelNewStudentBTN;
-    private TeacherController parentController;
     StudentManager studentManager = new StudentManager();
+    private AdminViewController parentController;
+    public void setParentController(AdminViewController adminViewController){
+        this.parentController = adminViewController;
+    }
 
     public NewStudentViewController() throws Exception {
     }
@@ -42,4 +48,8 @@ public class NewStudentViewController {
             stage.close();
         }
     }
+
+    public void setInfo(Student selectedItem) {
+    }
+
 }

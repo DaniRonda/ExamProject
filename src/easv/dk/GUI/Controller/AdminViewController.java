@@ -139,7 +139,7 @@ public class AdminViewController {
 
     public void openCitizenOverview(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CitizenOverView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TeacherView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -188,6 +188,9 @@ public class AdminViewController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewStudentView.fxml"));
         Parent root = loader.load();
+        NewStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
