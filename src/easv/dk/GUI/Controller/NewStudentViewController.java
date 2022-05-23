@@ -1,5 +1,8 @@
 package easv.dk.GUI.Controller;
 
+
+
+
 import easv.dk.BE.Student;
 import easv.dk.BLL.StudentManager;
 import javafx.event.ActionEvent;
@@ -48,4 +51,5 @@ public class NewStudentViewController {
 
     public void setInfo(Student selectedItem) {
     }
+
 }
