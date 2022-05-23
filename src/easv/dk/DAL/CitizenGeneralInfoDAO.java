@@ -45,7 +45,7 @@ public class CitizenGeneralInfoDAO {
     }
 
     public List<GeneralInfo> getAllCategoriesForGivenCitizen(Citizen citizen) throws Exception {
-        List<GeneralInfo> generalInfo = new ArrayList<>();
+        List<GeneralInfo> generalInfolist = new ArrayList<>();
         Connection con = cm.getConnection();
         String query = "select distinct generalinfo.* from GeneralInfoCitizen \n" +
                 "JOIN generalinfo on GeneralInfoCitizen.generalinfo_id=generalinfo.id\n" +
@@ -68,11 +68,11 @@ public class CitizenGeneralInfoDAO {
             String network = resultSet.getString("network");
 
 
-            generalInfo.add(new GeneralInfo(ID, coping, motevation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network));
+            generalInfolist.add(new GeneralInfo(ID, coping, motevation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network));
         }
         resultSet.close();
         ps.close();
         con.close();
-        return generalInfo;
+        return generalInfolist;
     }
 }

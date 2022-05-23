@@ -210,19 +210,28 @@ public class StudentController {
     }
 
     public void showCitizenInfo() throws Exception {
-       /* clearLists();
+        clearLists();
         mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();  //get selected movie in movie table
         try {
             GeneralInfoManager bll = new GeneralInfoManager();  //get bll interface to use data from database
-            List<GeneralInfo> generalInfos = bll.getMoviesFromCategories(CitizenSelected);      //load movies for selected category
-            movieInCategory.getItems().addAll(movies);
-
+            List<GeneralInfo> generalInfo = bll.getInfoFrom(selectedCitizen);      //load movies for selected category
+            textAreaGeneralCoping.setText(String.valueOf(generalInfo.get(1)));
+            textAreaGeneralMotevation.setText(String.valueOf(generalInfo.get(2)));
+            textAreaGeneralRessources.setText(String.valueOf(generalInfo.get(3)));
+            textAreaGeneralRoles.setText(String.valueOf(generalInfo.get(4)));
+            textAreaGeneralHabits.setText(String.valueOf(generalInfo.get(5)));
+            textAreaGeneralEdu.setText(String.valueOf(generalInfo.get(6)));
+            textAreaGeneralLifeStory.setText(String.valueOf(generalInfo.get(7)));
+            textAreaGeneralHealthInfo.setText(String.valueOf(generalInfo.get(8)));
+            textAreaGeneralAid.setText(String.valueOf(generalInfo.get(9)));
+            textAreaGeneralFurnice.setText(String.valueOf(generalInfo.get(10)));
+            textAreaGeneralNetwork.setText(String.valueOf(generalInfo.get(11)));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        }*/
+        }
 
 
 
