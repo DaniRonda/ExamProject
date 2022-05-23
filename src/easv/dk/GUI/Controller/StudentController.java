@@ -3,7 +3,6 @@ package easv.dk.GUI.Controller;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
 import easv.dk.BLL.GeneralInfoManager;
-import easv.dk.BLL.Manager;
 import easv.dk.GUI.Model.CitizenModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.awt.TextField;
@@ -119,7 +117,7 @@ public class StudentController {
 
     public void openHealthConditionsView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthDiagnoseView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
