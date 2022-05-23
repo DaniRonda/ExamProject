@@ -22,12 +22,12 @@
          </font></Label>
       <TableView fx:id="teacherTable" layoutX="135.0" layoutY="99.0" prefHeight="462.0" prefWidth="352.0" AnchorPane.bottomAnchor="69.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="First Name" />
-          <TableColumn prefWidth="75.0" text="Last Name" />
-            <TableColumn prefWidth="76.0" text="Email" />
+          <TableColumn prefWidth="114.0" text="First Name" />
+          <TableColumn prefWidth="132.0" text="Last Name" />
+            <TableColumn prefWidth="105.0" text="Email" />
         </columns>
       </TableView>
-      <Button layoutX="135.0" layoutY="584.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="40.0" text="New" AnchorPane.bottomAnchor="40.0" />
+      <Button fx:id="openNewTeacherViewBTN" layoutX="135.0" layoutY="584.0" mnemonicParsing="false" onAction="#openNewTeacherView" prefHeight="26.0" prefWidth="40.0" text="New" AnchorPane.bottomAnchor="40.0" />
       <Button fx:id="openEditTeacherViewBTN" layoutX="207.0" layoutY="584.0" mnemonicParsing="false" onAction="#openEditTeacherView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="40.0" />
       <Button fx:id="deleteTeacherBTN" layoutX="436.0" layoutY="584.0" mnemonicParsing="false" onAction="#deleteTeacher" text="Delete" AnchorPane.bottomAnchor="40.66666666666663" />
       <Label layoutX="557.0" layoutY="89.0" text="Students" AnchorPane.rightAnchor="332.5">
@@ -35,13 +35,13 @@
             <Font name="System Bold" size="16.0" />
          </font></Label>
       <Button fx:id="openEditStudentViewBTN" layoutX="630.0" layoutY="584.0" mnemonicParsing="false" onAction="#openEditStudentView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="282.0" />
-      <Button layoutX="551.0" layoutY="584.0" mnemonicParsing="false" text="New" AnchorPane.bottomAnchor="40.66666666666663" AnchorPane.rightAnchor="359.0" />
+      <Button fx:id="openNewStudentViewBTN" layoutX="551.0" layoutY="584.0" mnemonicParsing="false" onAction="#openNewStudentView" text="New" AnchorPane.bottomAnchor="40.66666666666663" AnchorPane.rightAnchor="359.0" />
       <Button fx:id="deleteStudentBTN" layoutX="850.0" layoutY="584.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="47.5" />
       <TableView fx:id="studentTable" layoutX="551.0" layoutY="119.0" prefHeight="462.0" prefWidth="352.0" AnchorPane.bottomAnchor="69.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="First Name" />
-          <TableColumn prefWidth="75.0" text="Last Name" />
-            <TableColumn prefWidth="75.0" text="Email" />
+          <TableColumn prefWidth="122.0" text="First Name" />
+          <TableColumn prefWidth="116.0" text="Last Name" />
+            <TableColumn prefWidth="113.0" text="Email" />
         </columns>
       </TableView>
       <VBox layoutX="7.0" layoutY="119.0" prefHeight="461.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />

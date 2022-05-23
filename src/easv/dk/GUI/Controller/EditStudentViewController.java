@@ -20,17 +20,21 @@ public class EditStudentViewController {
     public Button cancelUpdateStudentBTN;
     private Student selectedStudent;
  StudentManager studentManager = new StudentManager();
- private AdminViewController parentController1;
- private TeacherController parentController2;
+ private AdminViewController parentController;
 
  public EditStudentViewController() throws Exception {
  }
 
  public void setParentController(AdminViewController adminViewController){
-  this.parentController1 = adminViewController;}
+  this.parentController = adminViewController;}
 
- public void setParentController2(TeacherController teacherController){
-  this.parentController2 = teacherController;}
+
+ public void setInfo(Student selectedItem) {
+  selectedStudent = selectedItem;
+  studentFirstName_txt.setText(selectedItem.getFirstName());
+  studentLastName_txt.setText(String.valueOf(selectedItem.getLastName()));
+  studentEmail_txt.setText(String.valueOf(selectedItem.getEmail()));
+ }
 
     public void confirmUpdateStudent(ActionEvent actionEvent) throws Exception {
      String studentFirstName= studentFirstName_txt.getText();
@@ -41,7 +45,7 @@ public class EditStudentViewController {
      studentManager.updateStudent(studentUpdated);
      Stage stage = (Stage)confirmUpdateStudentBTN.getScene().getWindow();
      stage.close();
-     parentController1.initialize();
+     parentController.initialize();
     }
 
     public void cancelUpdateStudent(ActionEvent actionEvent) {
@@ -53,11 +57,6 @@ public class EditStudentViewController {
      }
     }
 
-  public void setInfo(Student selectedItem) {
-   selectedStudent = selectedItem;
-   studentFirstName_txt.setText(selectedItem.getFirstName());
-   studentLastName_txt.setText(String.valueOf(selectedItem.getLastName()));
-   studentEmail_txt.setText(String.valueOf(selectedItem.getEmail()));
- }
+
 
 }

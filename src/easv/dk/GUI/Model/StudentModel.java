@@ -32,5 +32,10 @@ public class StudentModel {
         this.getAllStudents.addAll(this.studentManager.getAllStudents());
         return this.getAllStudents;
     }
+    static public int diagnose = 0;
 
+
+    static public int diagnoseSelected(){
+        return diagnose;
+    }
 }

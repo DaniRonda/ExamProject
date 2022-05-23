@@ -4,6 +4,7 @@ import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
 import easv.dk.BLL.GeneralInfoManager;
 import easv.dk.GUI.Model.CitizenModel;
+import easv.dk.GUI.Model.StudentModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -62,6 +63,7 @@ public class StudentController {
     private TextArea textAreaGeneralFurnice;
     @FXML
     private TextArea textAreaGeneralNetwork;
+    StudentModel studentModel = new StudentModel();
 
 
 
@@ -127,11 +129,12 @@ public class StudentController {
         stage.show();
         Stage stageThis = (Stage) btnStudentLogOut.getScene().getWindow();
         stageThis.close();
+        StudentModel.diagnose = 1;
     }
 
     public void openFunctionalAbilitiesView(ActionEvent actionEvent) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/FunctionalAbilitiesView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -139,6 +142,7 @@ public class StudentController {
         stage.setTitle("Functional Abilities");
         stage.centerOnScreen();
         stage.show();
+        StudentModel.diagnose = 2;
     }
 
 

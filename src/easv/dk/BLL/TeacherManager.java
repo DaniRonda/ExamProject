@@ -1,9 +1,7 @@
 package easv.dk.BLL;
 
-import easv.dk.DAL.CitizenDAO;
 import easv.dk.DAL.TeacherDAO;
 
-import easv.dk.DAL.TeacherDAO;
 import easv.dk.BE.Teacher;
 import java.util.List;
 
@@ -32,5 +30,9 @@ public class TeacherManager {
 
     public List<Teacher> getAllTeachers() throws Exception{
         return this.teacherDAO.getAllTeacher();
+    }
+
+    public Teacher createTeacher(Teacher teacher) throws Exception {
+        return this.teacherDAO.createTeacher(teacher);
     }
 }

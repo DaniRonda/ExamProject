@@ -1,5 +1,6 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.GUI.Model.StudentModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -102,12 +103,12 @@ public class HealthConditionsController {
     private RadioButton radiButtonExpected3;
     @FXML
     private RadioButton radiButtonExpected4;
-
+    StudentModel studentModel = new StudentModel();
 
     String selectedDiagnose;
     ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Lessens", "Remains the same", "Disappearing");
 
-    public HealthConditionsController(){
+    public HealthConditionsController() throws Exception {
 
     }
     ToggleGroup groupCurrent = new ToggleGroup();
@@ -134,7 +135,26 @@ public class HealthConditionsController {
         radiButtonExpected4.setToggleGroup(groupExpected);
 
         ChoiceBoxAnticLvl.setItems(choiceBoxOptions);
+        if(StudentModel.diagnose == 1){
+            vboxfunction.setVisible(true); vboxfunction.setDisable(false);
+            vboxHealth.setVisible(false); vboxHealth.setDisable(true);
+            selectedDiagnose = "functionalDiagnose";
+            labelSelectedCategory.setText("Category");
+            labelSelectedSubCategory.setText("SubCategory");
+            buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);}
 
+        else{
+        vboxHealth.setVisible(true);
+        vboxHealth.setDisable(false);
+        vboxfunction.setVisible(false);
+        vboxfunction.setDisable(true);
+        selectedDiagnose = "healthDiagnose";
+        labelSelectedCategory.setText("Category");
+        labelSelectedSubCategory.setText("SubCategory");
+        buttonClientsWishes.setVisible(false);
+        buttonClientsWishes.setDisable(true);
+    }
+        System.out.println(StudentModel.diagnose);
     }
 
     private void ifIsArmed(){
