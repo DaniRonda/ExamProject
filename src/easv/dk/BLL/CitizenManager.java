@@ -1,8 +1,11 @@
 package easv.dk.BLL;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BE.Student;
 import easv.dk.DAL.CitizenDAO;
+import easv.dk.DAL.CitizenGeneralInfoDAO;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class CitizenManager {
@@ -20,4 +23,13 @@ public class CitizenManager {
         CitizenDAO.deleteCitizen(selectedItem);
 
     }
+
+    public void updateCitizen(Citizen citizen) throws Exception{
+        citizenDAO.updateCitizen(citizen);
+    }
+
+    public void addInfoToCitizen(Citizen selectedItem, ) throws SQLException {
+        CitizenGeneralInfoDAO.addMovieToCategory(selectedItem, selectedMovie);
+    }
+
 }

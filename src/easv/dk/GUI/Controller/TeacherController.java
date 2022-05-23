@@ -2,9 +2,9 @@ package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
+import easv.dk.BLL.Manager;
 import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.StudentModel;
-import easv.dk.GUI.Model.TeacherModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +14,22 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
 
 public class TeacherController {
 
     public TableView studentTable;
     public Button btnDeleteStudent;
+    public Button btnRemoveStudents;
+    public Button btnNewStudent;
+    public Button btnEditStudent;
+    public ListView assignedStudents;
+    public Button btnCitizenToStudent;
+    public Button btnOpenTemplateView;
+    public Button btnOpenCaseView;
     @FXML
     private TableView citizenTable;
     @FXML
@@ -29,6 +40,9 @@ public class TeacherController {
     private Button btnTeacherLogOut;
     StudentModel studentModel = new StudentModel();
     CitizenModel citizenModel = new CitizenModel();
+    private final static int StudentSelected = 0;
+    private final static int CitizenSelected = 1;
+    private int mode = StudentSelected;
 
     public TeacherController() throws Exception {
     }
@@ -37,6 +51,9 @@ public class TeacherController {
     public void initialize() throws Exception {
         setUpCitizenTable();
         setUpStudentTable();
+        studentTable.setOnMouseClicked(event -> showStudentCitizenInList());
+        citizenTable.setOnMouseClicked(event -> showCitizenStudentInList());
+
     }
 
     public void teacherLogOut(ActionEvent actionEvent) throws Exception {
@@ -85,9 +102,9 @@ public class TeacherController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditStudentView.fxml"));
         Parent root = loader.load();
-        //EditStudentViewController control = loader.getController();
-        //control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
-        //control.setParentController2(this);
+        EditStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setParentController2(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
@@ -155,6 +172,64 @@ public class TeacherController {
         citizenTable.getItems().addAll(citizenModel.getAllCitizens1());
     }
 
+    public void addCitizenToStudent(ActionEvent actionEvent) {
+        if (citizenTable.getSelectionModel().getSelectedIndex() != -1 && studentTable.getSelectionModel().getSelectedIndex() != -1) {
+            try {
+                citizenModel.addToCitizen((Citizen) citizenTable.getSelectionModel().getSelectedItem(), citizenTable.getSelectionModel().getSelectedIndex(), (Student) studentTable.getSelectionModel().getSelectedItem());
+            } catch (Exception ex) {
+            }
+        }
+    }
+    public void removeStudents(ActionEvent actionEvent) throws Exception {
+        Student selectedStudent;
+        Citizen selectedCitizen;
+        if (mode == StudentSelected) {
+            selectedStudent = (Student) studentTable.getSelectionModel().getSelectedItem();
+            selectedCitizen = assignedStudents.getItems().size() > 0 ? (Citizen) assignedStudents.getItems().get(0) : null;
+        } else {
+            selectedStudent = assignedStudents.getItems().size() > 0 ? (Student) assignedStudents.getItems().get(0) : null;
+            selectedCitizen = (Citizen) citizenTable.getSelectionModel().getSelectedItem();
+        }
+        removeStudentFromCitizen(selectedStudent, selectedCitizen);
+        assignedStudents.getItems().clear();
+    }
+    private void removeStudentFromCitizen (Student selectedStudent, Citizen selectedCitizen) throws Exception {
+        if (selectedStudent == null || selectedCitizen == null) return;
+        try {
+            Manager manager = new Manager();
+            manager.removeStudentFromCitizen(selectedStudent.getId(), selectedCitizen.getID());
+            initialize();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+    public void showStudentCitizenInList() {
+        clearListView();
+        mode = StudentSelected;
+        Student selectedStudent = (Student) studentTable.getSelectionModel().getSelectedItem();
+        try {
+            Manager manager = new Manager();
+            List<Citizen> citizens = manager.getCitizensFromStudent(selectedStudent);
+            assignedStudents.getItems().addAll(citizens);
+               } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void showCitizenStudentInList()  {
+        clearListView();
+        mode = CitizenSelected;
+        Citizen selectedCitizen = (Citizen) citizenTable.getSelectionModel().getSelectedItem();
+        try {
+            Manager manager = new Manager();
+            List<Student> students = manager.getStudentFromCitizen(selectedCitizen);
+            assignedStudents.getItems().addAll(students);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void clearListView() {
+        assignedStudents.getItems().clear();
+    }
 }

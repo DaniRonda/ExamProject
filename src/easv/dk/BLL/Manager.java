@@ -4,10 +4,7 @@ import easv.dk.BE.Admin;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
-import easv.dk.DAL.AdminDAO;
-import easv.dk.DAL.CitizenDAO;
-import easv.dk.DAL.StudentDAO;
-import easv.dk.DAL.TeacherDAO;
+import easv.dk.DAL.*;
 import easv.dk.GUI.Controller.LogInController;
 
 import java.sql.SQLException;
@@ -19,6 +16,7 @@ public class Manager {
     CitizenDAO citizenDAO = new CitizenDAO();
     StudentDAO studentDAO = new StudentDAO();
     TeacherDAO teacherDAO = new TeacherDAO();
+    CitizenStudentDAO citizenStudentDAO = new CitizenStudentDAO();
 
 
     public Manager() throws Exception {
@@ -35,4 +33,19 @@ public class Manager {
         String mail = logInController.getTextFieldMail();
         return mail;
     }
+
+    public void addCitizenToStudent(Citizen citizen, Student student) throws Exception {
+        citizenStudentDAO.AddCitizenToStudent(citizen, student);
+    }
+    public void removeStudentFromCitizen (int studentId, int citizenId) throws Exception {
+        citizenStudentDAO.removeCitizenFromStudent(new Citizen("", "","",null,0,false,0, citizenId), new Student("", "", "", "", studentId));
+    }
+    public List<Citizen> getCitizensFromStudent(Student student) throws Exception {
+        return citizenStudentDAO.getCitizensFromStudent(student);
+    }
+
+    public List<Student> getStudentFromCitizen(Citizen citizen) throws Exception {
+        return citizenStudentDAO.getStudentFromCitizen(citizen);
+    }
+
 }

@@ -1,22 +1,26 @@
 package easv.dk.BE;
 
 import java.util.Date;
+import java.util.List;
+import java.time.LocalDate;
 
 public class Citizen {
     private String firstName;
     private String lastName;
-    private String adress;
+    private String address;
     private java.util.Date birthDate;
     private int phoneNumber;
     private boolean isTemplate;
     private int schoolID;
     private int ID;
+    private int studentCount = 0;
+    private List<Student> studentsInCitizen;
 
 
-    public Citizen(String firstName, String lastName, String adress, Date birthDate, int phoneNumber, boolean isTemplate, int schoolID, int ID) {
+    public Citizen(String firstName, String lastName, String address, Date birthDate, int phoneNumber, boolean isTemplate, int schoolID, int ID) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.adress = adress;
+        this.address = address;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
         this.isTemplate = isTemplate;
@@ -39,12 +43,12 @@ public class Citizen {
         this.lastName = lastName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Date getBirthDate() {
@@ -85,6 +89,23 @@ public class Citizen {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+
+    public List<Student> getStudentsInCitizen() {
+        return studentsInCitizen;
+    }
+
+    public int getStudentCount() {
+        return studentCount;
+    }
+
+    public void setStudentCount(int studentCount) {
+        this.studentCount = studentCount;
+    }
+
+    public void setStudentsInCitizen(List<Student> studentsInCitizen) {
+        this.studentsInCitizen = studentsInCitizen;
     }
 
 }

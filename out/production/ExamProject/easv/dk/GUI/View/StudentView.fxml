@@ -15,12 +15,12 @@
 <AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.StudentController">
    <children>
       <ToolBar layoutX="2.0" layoutY="-1.0" prefHeight="73.0" prefWidth="958.0" style="-fx-background-color: #EFEFE6 #EFEFE6;" />
-      <TableView fx:id="tableViewCitizens" layoutX="21.0" layoutY="82.0" prefHeight="491.0" prefWidth="334.0" style="-fx-background-radius: 15;" />
+      <TableView fx:id="tableViewCitizens" layoutX="21.0" layoutY="82.0" prefHeight="521.0" prefWidth="334.0" style="-fx-background-radius: 15;" />
       <Button fx:id="btnStudentLogOut" layoutX="845.0" layoutY="26.0" mnemonicParsing="false" onAction="#studentLogOut" text="Log Out" />
-      <Button fx:id="btnHealthConditions" layoutX="21.0" layoutY="579.0" mnemonicParsing="false" onAction="#openHealthConditionsView" text="Health Conditions" />
-      <Button fx:id="btnFunctionalAbilities" layoutX="143.0" layoutY="579.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" text="Functional Abilities" />
+      <Button fx:id="btnHealthConditions" layoutX="21.0" layoutY="605.0" mnemonicParsing="false" onAction="#openHealthConditionsView" text="Health Conditions" />
+      <Button fx:id="btnFunctionalAbilities" layoutX="143.0" layoutY="605.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" text="Functional Abilities" />
       <TextField fx:id="textFieldSearch2" layoutX="33.0" layoutY="26.0" promptText="🔎" />
-      <GridPane gridLinesVisible="true" layoutX="386.0" layoutY="82.0" prefHeight="556.0" prefWidth="562.0">
+      <GridPane gridLinesVisible="true" layoutX="386.0" layoutY="82.0" prefHeight="521.0" prefWidth="562.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="120.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="454.0" />
@@ -39,57 +39,57 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Coping" wrappingWidth="43.00390625">
+            <Text fx:id="textGeneralCoping" strokeType="OUTSIDE" strokeWidth="0.0" text="Coping" wrappingWidth="43.00390625">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Motevation" wrappingWidth="70.0" GridPane.rowIndex="1">
+            <Text fx:id="textGeneralMotevation" strokeType="OUTSIDE" strokeWidth="0.0" text="Motevation" wrappingWidth="70.0" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ressources" wrappingWidth="63.0" GridPane.rowIndex="2">
+            <Text fx:id="textGeneralRessources" strokeType="OUTSIDE" strokeWidth="0.0" text="Ressources" wrappingWidth="63.0" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Roles" wrappingWidth="31.0" GridPane.rowIndex="3">
+            <Text fx:id="textGeneralRoles" strokeType="OUTSIDE" strokeWidth="0.0" text="Roles" wrappingWidth="31.0" GridPane.rowIndex="3">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Habits" wrappingWidth="37.0" GridPane.rowIndex="4">
+            <Text fx:id="textGeneralHabits" strokeType="OUTSIDE" strokeWidth="0.0" text="Habits" wrappingWidth="37.0" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Education/job" wrappingWidth="80.0" GridPane.rowIndex="5">
+            <Text fx:id="textGeneralEducation" strokeType="OUTSIDE" strokeWidth="0.0" text="Education/job" wrappingWidth="80.0" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Life Story" wrappingWidth="57.0" GridPane.rowIndex="6">
+            <Text fx:id="textGeneralLifeStory" strokeType="OUTSIDE" strokeWidth="0.0" text="Life Story" wrappingWidth="57.0" GridPane.rowIndex="6">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Health Information" wrappingWidth="70.0" GridPane.rowIndex="7">
+            <Text fx:id="textGeneralHealth" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Information" wrappingWidth="70.0" GridPane.rowIndex="7">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aid" wrappingWidth="29.0" GridPane.rowIndex="8">
+            <Text fx:id="textGeneralAid" strokeType="OUTSIDE" strokeWidth="0.0" text="Aid" wrappingWidth="29.0" GridPane.rowIndex="8">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Furnishing Of The Living Space " wrappingWidth="100.0" GridPane.rowIndex="9">
+            <Text fx:id="textGeneralFurnice" strokeType="OUTSIDE" strokeWidth="0.0" text="Furnishing Of The Living Space " wrappingWidth="100.0" GridPane.rowIndex="9">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Network" wrappingWidth="51.1875" GridPane.rowIndex="10">
+            <Text fx:id="textGeneralNetwork" strokeType="OUTSIDE" strokeWidth="0.0" text="Network" wrappingWidth="51.1875" GridPane.rowIndex="10">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -107,5 +107,7 @@
             <TextArea fx:id="textAreaGeneralNetwork" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
          </children>
       </GridPane>
+      <Button layoutX="386.0" layoutY="605.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Save" />
+      <Button layoutX="454.0" layoutY="605.0" mnemonicParsing="false" text="Update" />
    </children>
 </AnchorPane>
