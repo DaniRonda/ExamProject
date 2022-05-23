@@ -2,6 +2,7 @@ package easv.dk.BE;
 
 import java.util.Date;
 import java.util.List;
+import java.time.LocalDate;
 
 public class Citizen {
     private String firstName;

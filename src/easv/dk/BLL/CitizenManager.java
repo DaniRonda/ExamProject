@@ -1,6 +1,7 @@
 package easv.dk.BLL;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BE.Student;
 import easv.dk.DAL.CitizenDAO;
 
 import java.util.List;
@@ -19,5 +20,9 @@ public class CitizenManager {
     public static void deleteCitizen(Citizen selectedItem) throws Exception {
         CitizenDAO.deleteCitizen(selectedItem);
 
+    }
+
+    public void updateCitizen(Citizen citizen) throws Exception{
+        citizenDAO.updateCitizen(citizen);
     }
 }
