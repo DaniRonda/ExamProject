@@ -12,6 +12,7 @@ import java.util.List;
 
 public class CitizenGeneralInfoDAO {
 
+
     ConnectionManager cm;
 
     public CitizenGeneralInfoDAO() {
