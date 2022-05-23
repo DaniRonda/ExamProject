@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.EditCitizenViewController">
    <children>
       <Label layoutX="58.0" layoutY="50.0" text="First Name">
@@ -18,10 +17,6 @@
             <Font size="18.0" />
          </font></Label>
       <Label layoutX="58.0" layoutY="180.0" prefHeight="27.0" prefWidth="71.0" text="Address">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
-      <Label layoutX="58.0" layoutY="245.0" prefHeight="32.0" prefWidth="85.0" text="Birthdate">
          <font>
             <Font size="18.0" />
          </font></Label>

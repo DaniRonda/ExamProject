@@ -11,7 +11,7 @@ import java.util.List;
 public class GeneralInfoManager {
     CitizenGeneralInfoDAO citizenGeneralInfoDAO = new CitizenGeneralInfoDAO();
 
-   public List<GeneralInfo> getInfoFrom(Citizen citizen) throws Exception {
-        return citizenGeneralInfoDAO.getAllCategoriesForGivenCitizen(citizen);
+    public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
+        return citizenGeneralInfoDAO.getGeneralInfo(idGeneralInfo);
     }
 }
