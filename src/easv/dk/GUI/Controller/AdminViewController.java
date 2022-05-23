@@ -174,6 +174,9 @@ public class AdminViewController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewTeacherView.fxml"));
         Parent root = loader.load();
+        NewTeacherViewController control = loader.getController();
+        control.setInfo((Teacher) teacherTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
