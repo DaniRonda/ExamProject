@@ -1,8 +1,6 @@
 package easv.dk.GUI.Controller;
-import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.TeacherManager;
-import easv.dk.BLL.Manager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -47,8 +45,6 @@ public class EditTeacherViewController {
         teacherLastName_txt.setText(String.valueOf(selectedItem.getLastName()));
         teacherEmail_txt.setText(String.valueOf(selectedItem.getEmail()));
     }
-
-
 
 
     public void cancelUpdateTeacher(ActionEvent actionEvent) {
