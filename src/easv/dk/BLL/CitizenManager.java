@@ -1,6 +1,7 @@
 package easv.dk.BLL;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.Student;
 import easv.dk.DAL.CitizenDAO;
 import easv.dk.DAL.CitizenGeneralInfoDAO;
@@ -28,8 +29,13 @@ public class CitizenManager {
         citizenDAO.updateCitizen(citizen);
     }
 
+
     /*public void addInfoToCitizen(Citizen selectedItem, ) throws SQLException {
         CitizenGeneralInfoDAO.addMovieToCategory(selectedItem, selectedMovie);
+
+    /*public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
+        return .getGeneralInfo(idGeneralInfo);
+
     }*/
 
 }

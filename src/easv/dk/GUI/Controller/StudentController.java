@@ -79,6 +79,7 @@ public class StudentController {
     public void initialize() throws Exception {
         search();
         setUpTableView();
+        //showCitizenInfo();
     }
 
     public void sendToCaseScreen(ActionEvent actionEvent) throws Exception {
