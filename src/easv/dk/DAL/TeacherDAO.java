@@ -62,7 +62,6 @@ public class TeacherDAO {
         psInsertTeacher.setInt(1,teacher.getId());
         psInsertTeacher.addBatch();
         psInsertTeacher.executeBatch();
-
         return teacher;
     }
 
