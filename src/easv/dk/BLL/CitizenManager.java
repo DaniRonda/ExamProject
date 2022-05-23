@@ -29,8 +29,13 @@ public class CitizenManager {
         citizenDAO.updateCitizen(citizen);
     }
 
+
+    /*public void addInfoToCitizen(Citizen selectedItem, ) throws SQLException {
+        CitizenGeneralInfoDAO.addMovieToCategory(selectedItem, selectedMovie);
+
     /*public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
         return .getGeneralInfo(idGeneralInfo);
+
     }*/
 
 }

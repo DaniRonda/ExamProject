@@ -26,6 +26,7 @@ public class TeacherController {
     public Button btnRemoveStudents;
     public Button btnNewStudent;
     public Button btnEditStudent;
+    public Button btnEditCitizen;
     public ListView assignedStudents;
     public Button btnCitizenToStudent;
     public Button btnOpenTemplateView;
@@ -80,6 +81,20 @@ public class TeacherController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewCitizenView.fxml"));
         Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void openEditCitizenView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditCitizenView.fxml"));
+        Parent root = loader.load();
+        EditCitizenViewController control = loader.getController();
+        control.setInfo((Citizen) citizenTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
