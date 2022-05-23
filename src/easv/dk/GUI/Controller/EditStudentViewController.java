@@ -59,4 +59,5 @@ public class EditStudentViewController {
    studentLastName_txt.setText(String.valueOf(selectedItem.getLastName()));
    studentEmail_txt.setText(String.valueOf(selectedItem.getEmail()));
  }
+
 }

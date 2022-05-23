@@ -56,6 +56,7 @@ public class CitizenDAO {
         psUpdateCitizen.setString(3,citizen.getAddress());
         psUpdateCitizen.setInt(4,citizen.getPhoneNumber());
         psUpdateCitizen.setInt(5,citizen.getSchoolID());
+        psUpdateCitizen.setBoolean(6,citizen.isTemplate());
         psUpdateCitizen.executeUpdate();
         psUpdateCitizen.close();
         con.close();

@@ -28,8 +28,8 @@ public class CitizenManager {
         citizenDAO.updateCitizen(citizen);
     }
 
-    public void addInfoToCitizen(Citizen selectedItem, ) throws SQLException {
+    /*public void addInfoToCitizen(Citizen selectedItem, ) throws SQLException {
         CitizenGeneralInfoDAO.addMovieToCategory(selectedItem, selectedMovie);
-    }
+    }*/
 
 }
