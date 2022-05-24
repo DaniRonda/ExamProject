@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="388.0" prefWidth="609.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.NewTemplateViewController">
    <children>
       <TextField layoutX="225.0" layoutY="47.0" />
@@ -33,11 +32,10 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-
       <Button fx:id="btnOpenCase" layoutX="408.0" layoutY="47.0" mnemonicParsing="false" onAction="#openCaseView" prefHeight="25.0" prefWidth="143.0" text="Case" />
-      <Button layoutX="408.0" layoutY="83.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="General Information" />
-      <Button layoutX="408.0" layoutY="162.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Functional Abilities" />
-      <Button layoutX="408.0" layoutY="123.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Health Conditions" />
+      <Button layoutX="408.0" layoutY="83.0" mnemonicParsing="false" onAction="#openGeneralInfoView" prefHeight="25.0" prefWidth="143.0" text="General Information" />
+      <Button layoutX="408.0" layoutY="162.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" prefHeight="25.0" prefWidth="143.0" text="Functional Abilities" />
+      <Button layoutX="408.0" layoutY="123.0" mnemonicParsing="false" onAction="#openHealthConditionsView" prefHeight="25.0" prefWidth="143.0" text="Health Conditions" />
       <Button layoutX="442.0" layoutY="353.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Save" />
       <Button layoutX="522.0" layoutY="353.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Cancel" />
    </children>

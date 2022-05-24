@@ -44,8 +44,7 @@
             <TableColumn prefWidth="113.0" text="Email" />
         </columns>
       </TableView>
-      <VBox layoutX="7.0" layoutY="119.0" prefHeight="461.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
-      <Button fx:id="openCaseViewBTN" layoutX="17.0" layoutY="273.0" mnemonicParsing="false" onAction="#openCaseView" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Cases" />
+      <VBox layoutX="6.0" layoutY="119.0" prefHeight="461.0" prefWidth="99.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 15;" />
       <Button fx:id="btnAdminLogOut" layoutX="619.0" layoutY="18.0" mnemonicParsing="false" onAction="#adminLogOut" text="Log Out" AnchorPane.rightAnchor="12.666666666666664" />
       <Button fx:id="btnOpenCitizenOverview" layoutX="16.0" layoutY="173.0" mnemonicParsing="false" onAction="#openCitizenOverview" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Citizens" />
       <Label layoutX="215.0" layoutY="7.0" prefHeight="52.0" prefWidth="38.0" />
@@ -54,16 +53,11 @@
             <Image url="@../Pictures/Citizen.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="51.0" layoutX="37.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Pictures/Case.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="36.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="36.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Pictures/Template.png" />
          </image>
       </ImageView>
-      <Button fx:id="openTemplateViewBTN" layoutX="17.0" layoutY="373.0" mnemonicParsing="false" onAction="#openTemplateView" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Templates" />
+      <Button fx:id="openTemplateViewBTN" layoutX="16.0" layoutY="272.0" mnemonicParsing="false" onAction="#openTemplateView" prefHeight="17.0" prefWidth="79.0" style="-fx-background-color: #EFDFD2;" text="Templates" />
    </children>
 </AnchorPane>

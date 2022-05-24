@@ -61,7 +61,7 @@ public class TemplateViewController {
         stage.show();
     }
 
-    public void setupTemplateTable() throws Exception{
+    public void setupTemplateTable() throws Exception {
         TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
@@ -71,6 +71,7 @@ public class TemplateViewController {
         templateTable.getColumns().add(column2);
         templateTable.getItems().clear();
         templateTable.getItems().addAll(citizenModel.getAllCitizens1());
+    }
 
     public void openNewTemplateView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
