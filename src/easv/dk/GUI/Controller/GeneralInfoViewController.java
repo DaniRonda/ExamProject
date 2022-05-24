@@ -44,5 +44,6 @@ public class GeneralInfoViewController {
     }
 
     public void saveInfo(ActionEvent actionEvent) {
+
     }
 }
