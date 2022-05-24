@@ -19,25 +19,25 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <Button fx:id="buttonReturn" mnemonicParsing="false" text="Return">
+            <Button fx:id="buttonReturn" mnemonicParsing="false" onAction="#returnTo" text="Return">
                <HBox.margin>
                   <Insets left="310.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="buttonLogOut" mnemonicParsing="false" text="Log out">
+            <Button fx:id="buttonLogOut" mnemonicParsing="false" onAction="#logOut" text="Log out">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
          </children>
       </HBox>
-      <TextArea layoutX="47.0" layoutY="174.0" prefHeight="318.0" prefWidth="807.0" />
+      <TextArea fx:id="textAreaCase" layoutX="47.0" layoutY="174.0" prefHeight="318.0" prefWidth="807.0" />
       <Text layoutX="47.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Case">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Button layoutX="48.0" layoutY="497.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" text="Save">
+      <Button fx:id="buttonSave" layoutX="48.0" layoutY="497.0" mnemonicParsing="false" onAction="#saveCase" prefHeight="35.0" prefWidth="64.0" text="Save">
          <font>
             <Font size="16.0" />
          </font>

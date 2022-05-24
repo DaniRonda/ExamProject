@@ -110,7 +110,7 @@ public class TemplateHealthConditionViewController {
     }
     ToggleGroup groupCurrent = new ToggleGroup();
     ToggleGroup groupExpected = new ToggleGroup();
-    
+
 
     @FXML
     private void initialize() {
