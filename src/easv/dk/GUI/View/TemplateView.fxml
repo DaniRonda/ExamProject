@@ -29,7 +29,7 @@
             <Image url="@../Pictures/Home.png" />
          </image>
       </ImageView>
-      <Button layoutX="163.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="37.0" text="New" />
+      <Button fx:id="btnNewTemplate" layoutX="163.0" layoutY="577.0" mnemonicParsing="false" onAction="#openNewTemplateView" prefHeight="25.0" prefWidth="37.0" text="New" />
       <Button layoutX="206.0" layoutY="577.0" mnemonicParsing="false" text="Edit" />
       <Button layoutX="399.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
       <Button layoutX="250.0" layoutY="577.0" mnemonicParsing="false" text="Duplicate" />

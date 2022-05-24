@@ -72,5 +72,15 @@ public class TemplateViewController {
         templateTable.getItems().clear();
         templateTable.getItems().addAll(citizenModel.getAllCitizens1());
 
+    public void openNewTemplateView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewTemplateView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+
     }
 }
