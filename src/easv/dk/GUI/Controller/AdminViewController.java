@@ -13,6 +13,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 
 public class AdminViewController {
 
@@ -25,6 +27,8 @@ public class AdminViewController {
     public Button openCaseViewBTN;
     public Button btnOpenCitizenOverview;
     public Button openTemplateViewBTN;
+    public Button openNewTeacherViewBTN;
+    public Button openNewStudentViewBTN;
     @FXML
     private Button btnAdminLogOut;
     TeacherModel teacherModel = new TeacherModel();
@@ -88,9 +92,9 @@ public class AdminViewController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditStudentView.fxml"));
         Parent root = loader.load();
-        //EditStudentViewController control = loader.getController();
-        //control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
-        //control.setParentController(this);
+        EditStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
@@ -135,7 +139,7 @@ public class AdminViewController {
 
     public void openCitizenOverview(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CitizenOverView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TeacherView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -159,6 +163,34 @@ public class AdminViewController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TemplateView.fxml"));
         Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void openNewTeacherView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewTeacherView.fxml"));
+        Parent root = loader.load();
+        NewTeacherViewController control = loader.getController();
+        control.setInfo((Teacher) teacherTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void openNewStudentView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewStudentView.fxml"));
+        Parent root = loader.load();
+        NewStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);

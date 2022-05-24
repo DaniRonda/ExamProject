@@ -1,8 +1,6 @@
 package easv.dk.GUI.Controller;
-import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.TeacherManager;
-import easv.dk.BLL.Manager;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -31,10 +29,9 @@ public class EditTeacherViewController {
     public void confirmUpdateTeacher(ActionEvent actionEvent) throws Exception {
         String teacherFirstName= teacherFirstName_txt.getText();
         String teacherLastName=teacherLastName_txt.getText();
-        String teacherSchool=teacherSchool_txt.getText();
         String teacherEmail = teacherEmail_txt.getText();
         String teacherPassword = teacherPassword_txt.getText();
-        Teacher teacherUpdated = new Teacher(teacherFirstName, teacherLastName,teacherEmail,teacherPassword, teacherSchool,selectedTeacher.getId());
+        Teacher teacherUpdated = new Teacher(teacherFirstName, teacherLastName,teacherEmail,teacherPassword, selectedTeacher.getSchool(),selectedTeacher.getId());
         teacherManager.updateTeacher(teacherUpdated);
         Stage stage = (Stage)confirmUpdateTeacherBTN.getScene().getWindow();
         stage.close();
@@ -47,8 +44,6 @@ public class EditTeacherViewController {
         teacherLastName_txt.setText(String.valueOf(selectedItem.getLastName()));
         teacherEmail_txt.setText(String.valueOf(selectedItem.getEmail()));
     }
-
-
 
 
     public void cancelUpdateTeacher(ActionEvent actionEvent) {

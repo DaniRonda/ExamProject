@@ -23,33 +23,34 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="35.0" layoutY="197.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #EFDFD2;" text="Home" />
+      <Button fx:id="btnHomeScreenTeacher" layoutX="35.0" layoutY="197.0" mnemonicParsing="false" onAction="#openTeacherView" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #EFDFD2;" text="Home" />
       <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="41.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Pictures/Home.png" />
          </image>
       </ImageView>
-      <Button layoutX="163.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="37.0" text="New" />
-      <Button layoutX="206.0" layoutY="577.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="378.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
+      <Button fx:id="btnNewTemplate" layoutX="163.0" layoutY="577.0" mnemonicParsing="false" onAction="#openNewTemplateView" prefHeight="25.0" prefWidth="46.0" text="New" />
+      <Button layoutX="211.0" layoutY="577.0" mnemonicParsing="false" text="Edit" />
+      <Button layoutX="399.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
       <Button layoutX="250.0" layoutY="577.0" mnemonicParsing="false" text="Duplicate" />
-      <TableView layoutX="163.0" layoutY="115.0" prefHeight="461.0" prefWidth="275.0">
+      <TableView fx:id="templateTable" layoutX="163.0" layoutY="115.0" prefHeight="461.0" prefWidth="296.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="150.0" text="First Name" />
+          <TableColumn prefWidth="150.0" text="Last Name" />
         </columns>
       </TableView>
-      <TableView layoutX="646.0" layoutY="115.0" prefHeight="461.0" prefWidth="275.0">
+      <TableView layoutX="526.0" layoutY="115.0" prefHeight="461.0" prefWidth="402.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="150.0" text="First Name" />
+          <TableColumn prefWidth="150.0" text="Last Name" />
+            <TableColumn prefWidth="100.0" text="Birth Date" />
         </columns>
       </TableView>
-      <Label layoutX="694.0" layoutY="92.0" text="Citizens">
+      <Label layoutX="526.0" layoutY="92.0" text="Citizens">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="646.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
+      <Button layoutX="525.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
    </children>
 </AnchorPane>

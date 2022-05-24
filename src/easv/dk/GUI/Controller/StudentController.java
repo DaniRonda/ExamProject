@@ -129,7 +129,7 @@ public class StudentController {
         stage.show();
         Stage stageThis = (Stage) btnStudentLogOut.getScene().getWindow();
         stageThis.close();
-        studentModel.diagnose = 1;
+        StudentModel.diagnose = 1;
     }
 
     public void openFunctionalAbilitiesView(ActionEvent actionEvent) throws Exception{
@@ -142,7 +142,7 @@ public class StudentController {
         stage.setTitle("Functional Abilities");
         stage.centerOnScreen();
         stage.show();
-        studentModel.diagnose = 2;
+        StudentModel.diagnose = 2;
     }
 
 

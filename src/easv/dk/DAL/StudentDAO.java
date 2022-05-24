@@ -48,26 +48,17 @@ public class StudentDAO {
     }
 
     public Student CreateStudent(Student student) throws Exception {
-        Student studentCreated = null;
         Connection con = cm.getConnection();
-        String sqlSelectStudent = "INSERT INTO Student VALUES(?,?,?,?)";
+        String sqlSelectStudent = "INSERT INTO Student VALUES(?,?,?,?,?)";
         PreparedStatement psInstertStudent = con.prepareStatement(sqlSelectStudent, Statement.RETURN_GENERATED_KEYS);
-        psInstertStudent.setString(1, student.getFirstName());
-        psInstertStudent.setString(2, student.getLastName());
-        psInstertStudent.setString(3, student.getEmail());
-        psInstertStudent.setString(4, student.getPassword());
+        psInstertStudent.setString(2, student.getFirstName());
+        psInstertStudent.setString(3, student.getLastName());
+        psInstertStudent.setString(4, student.getEmail());
+        psInstertStudent.setString(5, student.getPassword());
+        psInstertStudent.setInt(1,student.getId());
         psInstertStudent.addBatch();
         psInstertStudent.executeBatch();
-        ResultSet rs = psInstertStudent.getGeneratedKeys();
-        while (rs.next()) {
-            studentCreated = new Student(student.getFirstName(),
-                    student.getLastName(),
-                    student.getEmail(),
-                    student.getPassword(),
-                    rs.getInt(1)
-            );
-        }
-        return studentCreated;
+        return student;
     }
 
     public List<Student> getAllStudent() throws Exception {
@@ -93,12 +84,13 @@ public class StudentDAO {
 
     public void updateStudent(Student student) throws Exception {
         Connection con = cm.getConnection();
-        String sqlUpdateStudent = "UPDATE  Student SET firstName=?, lastName=? email=?, password=? WHERE ID=?;";
+        String sqlUpdateStudent = "UPDATE  Student SET firstName=?, lastName=?, email=?, password=? WHERE ID=?;";
         PreparedStatement psUpdateStudent = con.prepareStatement(sqlUpdateStudent, Statement.RETURN_GENERATED_KEYS);
         psUpdateStudent.setString(1,student.getFirstName());
         psUpdateStudent.setString(2,student.getLastName());
         psUpdateStudent.setString(3,student.getEmail());
         psUpdateStudent.setString(4,student.getPassword());
+        psUpdateStudent.setInt(5,student.getId());
         psUpdateStudent.executeUpdate();
         psUpdateStudent.close();
         con.close();

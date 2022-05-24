@@ -29,4 +29,8 @@ public class StudentManager {
     public List<Student> getAllStudents() throws Exception{
         return this.studentDAO.getAllStudent();
     }
+
+    public Student createStudent(Student student) throws Exception {
+        return studentDAO.CreateStudent(student);
+    }
 }
