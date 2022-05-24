@@ -16,24 +16,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="728.0" prefWidth="1114.0" style="-fx-background-color: #ECECEC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.HealthConditionsController">
+<AnchorPane prefHeight="728.0" prefWidth="1114.0" style="-fx-background-color: #C9DDEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TemplateHealthConditionViewController">
    <children>
-      <AnchorPane layoutX="1.0" prefHeight="95.0" prefWidth="1127.0" style="-fx-background-color: #FFFFFF;">
+      <AnchorPane layoutX="1.0" prefHeight="87.0" prefWidth="1127.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Button fx:id="ButtonToCase" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendToCaseScreen" prefHeight="62.0" prefWidth="100.0" text="Button" visible="false" />
-            <Button fx:id="ButtonLogOut" layoutX="1005.0" layoutY="21.0" mnemonicParsing="false" onAction="#logOut" prefHeight="33.0" prefWidth="100.0" text="Log Out" AnchorPane.bottomAnchor="40.99999999999999">
+            <Button fx:id="ButtonLogOut" layoutX="1005.0" layoutY="31.0" mnemonicParsing="false" onAction="#logOut" prefHeight="33.0" prefWidth="100.0" text="Log Out" AnchorPane.bottomAnchor="23.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="buttonReturn" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onAction="#Return" prefHeight="33.0" prefWidth="99.0" text="Return" AnchorPane.topAnchor="31.0">
+            <Button fx:id="buttonReturn" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onAction="#returnTemplate" prefHeight="33.0" prefWidth="99.0" text="Return" AnchorPane.topAnchor="31.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <VBox fx:id="vboxHealth" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #B6D2E8;" AnchorPane.bottomAnchor="0.0">
+      <VBox fx:id="vboxHealth" layoutY="84.0" prefHeight="646.0" prefWidth="231.0" style="-fx-background-color: #B6D2E8;" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelFunctionLevel" onMouseClicked="#functionLevelCLiscke" onMouseEntered="#mouseOverFunction" prefHeight="48.0" prefWidth="176.0" text="Functionlevel">
                <font>
@@ -105,7 +105,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="vboxfunction" disable="true" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #B6D2E8;" visible="false">
+      <VBox fx:id="vboxfunction" disable="true" layoutY="86.0" prefHeight="646.0" prefWidth="231.0" style="-fx-background-color: #B6D2E8;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelSelfCare" onMouseClicked="#selfcareClicked" onMouseEntered="#selfcareEntered" prefHeight="48.0" prefWidth="176.0" text="Selfcare">
                <font>
@@ -142,7 +142,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="VBoxFunctionLevel" layoutX="243.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;">
+      <VBox fx:id="VBoxFunctionLevel" disable="true" layoutX="231.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelFunctionLevel1" onMouseClicked="#functionLevel1Clicked" onMouseEntered="#functionLevel1Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with personal care">
                <font>
@@ -156,16 +156,21 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxMovementapperatus" disable="true" layoutX="243.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxMovementapperatus" disable="true" layoutX="231.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
-            <Label fx:id="labelMovementapperatus1" onMouseClicked="#Apperatus1Clicked" onMouseEntered="#Apperatus1Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with mobility and movement">
+            <Label fx:id="labelMovementapperatus11" onMouseClicked="#Apperatus11Clicked" onMouseEntered="#Apperatus11Entered" prefHeight="27.0" prefWidth="277.0" text="Problems with mobility and ">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelMovementapperatus12" onMouseClicked="#Apperatus12Clicked" onMouseEntered="#Apperatus12Entered" prefHeight="20.0" prefWidth="277.0" text="movement">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxConsumtion" disable="true" layoutX="242.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxConsumtion" disable="true" layoutX="230.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelConsumtion1" onMouseClicked="#nutrition1Clicked" onMouseEntered="#nutrition1Entered" prefHeight="48.0" prefWidth="298.0" text="Problems with fluid consumption">
                <font>
@@ -194,7 +199,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxSkin" disable="true" layoutX="242.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxSkin" disable="true" layoutX="230.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelSkin1" onMouseClicked="#skin1Clicked" onMouseEntered="#skin1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with surgical wounds">
                <font>
@@ -248,7 +253,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxCommunication" disable="true" layoutX="244.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxCommunication" disable="true" layoutX="232.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelCommunication" onMouseClicked="#communication1Clicked" onMouseEntered="#communication1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with communication">
                <font>
@@ -257,7 +262,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxPshyco" disable="true" layoutX="243.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxPshyco" disable="true" layoutX="231.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelPshyco1" onMouseClicked="#pshyco1Clicked" onMouseEntered="#pshyco1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with social contact">
                <font>
@@ -281,7 +286,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxResparation" disable="true" layoutX="244.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxResparation" disable="true" layoutX="232.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelResparation1" onMouseClicked="#resporation1Click" onMouseEntered="#resporation1Enter" prefHeight="48.0" prefWidth="298.0" text="Respiration problems">
                <font>
@@ -295,7 +300,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxSexuality" disable="true" layoutX="244.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxSexuality" disable="true" layoutX="232.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelSexuality" onMouseClicked="#Sexuality1Clicked" onMouseEntered="#Sexuality1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with sexuality">
                <font>
@@ -304,7 +309,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxPain" disable="true" layoutX="243.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxPain" disable="true" layoutX="231.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelPain1" onMouseClicked="#pain1Click" onMouseEntered="#pain1Enter" prefHeight="48.0" prefWidth="298.0" text="Acute pains">
                <font>
@@ -348,7 +353,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxSleep" disable="true" layoutX="242.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxSleep" disable="true" layoutX="230.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelSleep1" onMouseClicked="#Sleep1Click" onMouseEntered="#Sleep1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with sleep schedule">
                <font>
@@ -362,7 +367,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxInsight" disable="true" layoutX="243.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxInsight" disable="true" layoutX="231.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelInsight1" onMouseClicked="#insight1Clicked" onMouseEntered="#insight1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with memory">
                <font>
@@ -391,7 +396,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxWastes" disable="true" layoutX="243.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxWastes" disable="true" layoutX="231.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelWaste1" onMouseClicked="#waste1Click" onMouseEntered="#waste1Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with urination">
                <font>
@@ -408,7 +413,12 @@
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="labelWaste4" onMouseClicked="#waste4Click" onMouseEntered="#waste4Enter" prefHeight="48.0" prefWidth="298.0" text="Problems with stomach and intestines ">
+            <Label fx:id="labelWaste41" onMouseClicked="#waste41Click" onMouseEntered="#waste41Enter" prefHeight="20.0" prefWidth="277.0" text="Problems with stomach and">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelWaste42" onMouseClicked="#waste42Click" onMouseEntered="#waste42Enter" prefHeight="9.0" prefWidth="277.0" text="intestines ">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -420,7 +430,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxSelfCare" disable="true" layoutX="242.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxSelfCare" disable="true" layoutX="230.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelselfcare1" onMouseClicked="#selfcare1Clicked" onMouseEntered="#selfcare1Enter" prefHeight="48.0" prefWidth="298.0" text="Ability to clean themselves">
                <font>
@@ -464,7 +474,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxPracticalWork" disable="true" layoutX="242.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxPracticalWork" disable="true" layoutX="230.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelParcticalWork1" onMouseClicked="#practical1Click" onMouseEntered="#practical1Enter" prefHeight="48.0" prefWidth="298.0" text="Perform housework">
                <font>
@@ -488,7 +498,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxMobility" disable="true" layoutX="242.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxMobility" disable="true" layoutX="230.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelMobility1" onMouseClicked="#mobility1Click" onMouseEntered="#mobility1Enter" prefHeight="48.0" prefWidth="298.0" text="Lifting and carrying ">
                <font>
@@ -537,9 +547,14 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxMentalFunction" disable="true" layoutX="242.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxMentalFunction" disable="true" layoutX="230.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
-            <Label fx:id="labelMentalFunction1" onMouseClicked="#mentalFunction1Clicked" onMouseEntered="#mentalFunction1Enter" prefHeight="44.0" prefWidth="298.0" text="Communication/Technical equipment">
+            <Label fx:id="labelMentalFunction11" onMouseClicked="#mentalFunction11Clicked" onMouseEntered="#mentalFunction11Enter" prefHeight="24.0" prefWidth="277.0" text="Communication/Technical">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelMentalFunction12" onMouseClicked="#mentalFunction12Clicked" onMouseEntered="#mentalFunction12Enter" prefHeight="5.0" prefWidth="277.0" text="equipment">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -581,7 +596,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxSocialLife" disable="true" layoutX="242.0" layoutY="84.0" prefHeight="644.0" prefWidth="244.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxSocialLife" disable="true" layoutX="230.0" layoutY="84.0" prefHeight="646.0" prefWidth="277.0" style="-fx-background-color: #C9DDEE;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelSocialLife1" onMouseClicked="#socialLife1Clicked" onMouseEntered="#socialLife1Enter" prefHeight="44.0" prefWidth="298.0" text="Paid occupation">
                <font>
@@ -595,9 +610,9 @@
             <Text fx:id="textInfo" layoutX="4.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="203.0" />
          </children>
       </Pane>
-      <AnchorPane fx:id="diagnoseAnchor" layoutX="487.0" layoutY="84.0" prefHeight="644.0" prefWidth="638.0" style="-fx-background-color: #E3ECF8;">
+      <AnchorPane fx:id="diagnoseAnchor" layoutX="507.0" layoutY="87.0" prefHeight="646.0" prefWidth="621.0" style="-fx-background-color: #E3ECF8;">
          <children>
-            <AnchorPane layoutX="8.0" layoutY="14.0" prefHeight="55.0" prefWidth="648.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="14.0">
+            <AnchorPane layoutX="19.0" layoutY="14.0" prefHeight="55.0" prefWidth="585.0" style="-fx-background-color: #FFFFFF;" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="14.0">
                <children>
                   <Label fx:id="labelSelectedCategory" layoutX="14.0" layoutY="14.0" text="Category" AnchorPane.topAnchor="9.0">
                      <font>
@@ -618,54 +633,54 @@
                   <RadioButton fx:id="radiobuttonNotRelevant" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" text="Not relevant" toggleGroup="$group" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" />
                </children>
             </AnchorPane>
-            <TextArea fx:id="textAreaProNote" layoutX="14.0" layoutY="98.0" prefHeight="101.0" prefWidth="610.0" />
-            <Text layoutX="14.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Professional Note" wrappingWidth="154.0000000000001">
+            <TextArea fx:id="textAreaProNote" layoutX="19.0" layoutY="97.0" prefHeight="101.0" prefWidth="585.0" promptText=" intestines " />
+            <Text layoutX="19.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Professional Note" wrappingWidth="154.0000000000001">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="16.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Assessment" wrappingWidth="193.0" AnchorPane.topAnchor="208.705078125">
+            <Text layoutX="19.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Assessment" wrappingWidth="193.0" AnchorPane.topAnchor="207.705078125">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="14.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anticipated Level" wrappingWidth="154.0" AnchorPane.topAnchor="334.705078125">
+            <Text layoutX="19.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anticipated Level" wrappingWidth="154.0" AnchorPane.topAnchor="333.705078125">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="15.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observeing Notes" wrappingWidth="176.0">
+            <Text layoutX="19.0" layoutY="486.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observeing Notes" wrappingWidth="176.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
-            <TextArea fx:id="textAreaCurAssessment" layoutX="14.0" layoutY="229.0" prefHeight="101.0" prefWidth="610.0" />
-            <Button fx:id="buttonSave" layoutX="20.0" layoutY="602.0" mnemonicParsing="false" onAction="#saveClient" onMouseEntered="#saveEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="20.0">
+            <TextArea fx:id="textAreaCurAssessment" layoutX="19.0" layoutY="228.0" prefHeight="101.0" prefWidth="585.0" />
+            <Button fx:id="buttonSave" layoutX="19.0" layoutY="602.0" mnemonicParsing="false" onAction="#saveClient" onMouseEntered="#saveEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="19.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
-            <TextArea fx:id="TextAreaObsNotes" layoutX="14.0" layoutY="492.0" prefHeight="101.0" prefWidth="610.0" />
-            <Button fx:id="buttonClientsWishes" disable="true" layoutX="20.0" layoutY="602.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" onMouseEntered="#clientsWishesEntered" pickOnBounds="false" prefHeight="42.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes" visible="false">
+            <TextArea fx:id="TextAreaObsNotes" layoutX="19.0" layoutY="491.0" prefHeight="101.0" prefWidth="585.0" />
+            <Button fx:id="buttonClientsWishes" disable="true" layoutX="48.0" layoutY="602.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" onMouseEntered="#clientsWishesEntered" pickOnBounds="false" prefHeight="42.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes" visible="false">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Button>
-            <TextField fx:id="TextFieldFollowupDate" layoutX="14.0" layoutY="423.0" prefHeight="40.0" prefWidth="610.0" />
-            <Text layoutX="16.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Followup Date" wrappingWidth="176.0">
+            <TextField fx:id="TextFieldFollowupDate" layoutX="19.0" layoutY="421.0" prefHeight="40.0" prefWidth="585.0" />
+            <Text layoutX="19.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Followup Date" wrappingWidth="176.0">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
-            <ComboBox fx:id="ChoiceBoxAnticLvl" layoutX="14.0" layoutY="355.0" prefHeight="40.0" prefWidth="610.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
-            <AnchorPane fx:id="anchorGoals" disable="true" layoutY="2.0" prefHeight="644.0" prefWidth="640.0" style="-fx-background-color: #E3ECF8;" visible="false">
+            <ComboBox fx:id="ChoiceBoxAnticLvl" layoutX="19.0" layoutY="354.0" prefHeight="40.0" prefWidth="585.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
+            <AnchorPane fx:id="anchorGoals" disable="true" layoutX="-1.0" layoutY="1.0" prefHeight="644.0" prefWidth="621.0" style="-fx-background-color: #E3ECF8;" visible="false">
                <children>
-                  <Button fx:id="buttonSaveGoals" layoutX="164.0" layoutY="595.0" mnemonicParsing="false" onAction="#saveClientGoals" onMouseEntered="#goalSaveEntered" pickOnBounds="false" prefHeight="40.0" prefWidth="176.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
+                  <Button fx:id="buttonSaveGoals" layoutX="189.0" layoutY="595.0" mnemonicParsing="false" onAction="#saveClientGoals" onMouseEntered="#goalSaveEntered" pickOnBounds="false" prefHeight="40.0" prefWidth="176.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Button>
-                  <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="55.0" prefWidth="610.0" style="-fx-background-color: #FFFFFF;">
+                  <AnchorPane layoutX="33.0" layoutY="14.0" prefHeight="55.0" prefWidth="580.0" style="-fx-background-color: #FFFFFF;">
                      <children>
                         <Label fx:id="labelSelectedCategory1" layoutX="14.0" layoutY="14.0" text="Category" AnchorPane.topAnchor="9.0">
                            <font>
@@ -679,126 +694,97 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Text layoutX="17.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizens wishes and goals" wrappingWidth="225.0000000000001">
+                  <Text layoutX="46.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizens wishes and goals" wrappingWidth="225.0000000000001">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Text>
-                  <TextArea fx:id="textAreaGoals" layoutX="15.0" layoutY="426.0" prefHeight="153.0" prefWidth="610.0" />
-                  <Button fx:id="buttonReturn2" layoutX="17.0" layoutY="587.0" mnemonicParsing="false" onAction="#returnFromGoals" onMouseEntered="#goalReturnEntered" pickOnBounds="false" prefHeight="40.0" prefWidth="147.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Return" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="17.0">
+                  <TextArea fx:id="textAreaGoals" layoutX="35.0" layoutY="426.0" prefHeight="153.0" prefWidth="585.0" />
+                  <Button fx:id="buttonReturn2" layoutX="39.0" layoutY="595.0" mnemonicParsing="false" onAction="#returnFromGoals" onMouseEntered="#goalReturnEntered" pickOnBounds="false" prefHeight="40.0" prefWidth="147.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Return" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="39.0">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Pane layoutX="24.0" layoutY="98.0" prefHeight="115.0" prefWidth="610.0" style="-fx-background-color: #FFFFFF;">
+                  <Text layoutX="46.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected level" wrappingWidth="211.0000000000001">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="31.0" layoutY="262.0" prefHeight="115.0" prefWidth="585.0" style="-fx-background-color: #FFFFFF;">
                      <children>
-                        <ImageView fx:id="imageCurrent1" fitHeight="115.0" fitWidth="110.0" layoutX="126.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/2Capture.PNG" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="imageCurrent0" fitHeight="115.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageExpected0" fitHeight="115.0" fitWidth="113.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Pictures/1Capture.PNG" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="imageCurrent2" fitHeight="115.0" fitWidth="112.0" layoutX="254.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageExpected1" fitHeight="115.0" fitWidth="110.0" layoutX="135.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/2Capture.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageExpected2" fitHeight="115.0" fitWidth="112.0" layoutX="260.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Pictures/3Capture.PNG" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="imageCurrent3" fitHeight="115.0" fitWidth="102.0" layoutX="384.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageExpected3" fitHeight="115.0" fitWidth="102.0" layoutX="382.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Pictures/4Capture.PNG" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="imageCurrent4" fitHeight="115.0" fitWidth="99.0" layoutX="497.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageExpected4" fitHeight="115.0" fitWidth="111.0" layoutX="474.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Pictures/5Capture.PNG" />
                            </image>
                         </ImageView>
                      </children>
                   </Pane>
-                  <Text layoutX="24.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected level" wrappingWidth="211.0000000000001">
+                  <Text layoutX="46.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current level" wrappingWidth="211.0000000000001">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Pane layoutX="20.0" layoutY="262.0" prefHeight="115.0" prefWidth="610.0" style="-fx-background-color: #FFFFFF;">
-                     <children>
-                        <ImageView fx:id="imageExpected0" fitHeight="115.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/1Capture.PNG" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="imageExpected1" fitHeight="115.0" fitWidth="110.0" layoutX="128.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/2Capture.PNG" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="imageExpected2" fitHeight="115.0" fitWidth="112.0" layoutX="254.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/3Capture.PNG" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="imageExpected3" fitHeight="115.0" fitWidth="102.0" layoutX="391.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/4Capture.PNG" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="imageExpected4" fitHeight="115.0" fitWidth="111.0" layoutX="509.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Pictures/5Capture.PNG" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Text layoutX="24.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current level" wrappingWidth="211.0000000000001">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                  </Text>
-                  <RadioButton fx:id="radiButtonCurrent0" layoutX="26.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 0">
+                  <RadioButton fx:id="radiButtonCurrent0" layoutX="52.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 0">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radiButtonCurrent1" layoutX="151.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 1">
+                  <RadioButton fx:id="radiButtonCurrent1" layoutX="174.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 1">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radiButtonCurrent2" layoutX="280.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 2">
+                  <RadioButton fx:id="radiButtonCurrent2" layoutX="301.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 2">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radiButtonCurrent3" layoutX="414.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 3">
+                  <RadioButton fx:id="radiButtonCurrent3" layoutX="420.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 3">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radiButtonCurrent4" layoutX="531.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 4">
+                  <RadioButton fx:id="radiButtonCurrent4" layoutX="540.0" layoutY="213.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 4">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radiButtonExpected0" layoutX="26.0" layoutY="377.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 0">
+                  <RadioButton fx:id="radiButtonExpected0" layoutX="52.0" layoutY="377.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 0">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radiButtonExpected1" layoutX="151.0" layoutY="377.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 1">
+                  <RadioButton fx:id="radiButtonExpected1" layoutX="174.0" layoutY="377.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 1">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radiButtonExpected2" layoutX="280.0" layoutY="377.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 2">
+                  <RadioButton fx:id="radiButtonExpected2" layoutX="301.0" layoutY="377.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 2">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="radiButtonExpected3" layoutX="414.0" layoutY="377.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 3">
+                  <RadioButton fx:id="radiButtonExpected3" layoutX="420.0" layoutY="377.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="78.0" text="level 3">
                      <font>
                         <Font name="Arial Bold" size="15.0" />
                      </font>
@@ -808,6 +794,35 @@
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </RadioButton>
+                  <Pane layoutX="33.0" layoutY="98.0" prefHeight="115.0" prefWidth="585.0" style="-fx-background-color: #FFFFFF;">
+                     <children>
+                        <ImageView fx:id="imageExpected01" fitHeight="115.0" fitWidth="113.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/1Capture.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageExpected11" fitHeight="115.0" fitWidth="110.0" layoutX="135.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/2Capture.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageExpected21" fitHeight="115.0" fitWidth="112.0" layoutX="260.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/3Capture.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageExpected31" fitHeight="115.0" fitWidth="102.0" layoutX="382.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/4Capture.PNG" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imageExpected41" fitHeight="115.0" fitWidth="111.0" layoutX="474.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Pictures/5Capture.PNG" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
                </children>
             </AnchorPane>
          </children>

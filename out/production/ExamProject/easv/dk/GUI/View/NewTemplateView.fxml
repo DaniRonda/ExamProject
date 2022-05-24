@@ -33,7 +33,7 @@
          </font>
       </Label>
       <Button fx:id="btnOpenCase" layoutX="408.0" layoutY="47.0" mnemonicParsing="false" onAction="#openCaseView" prefHeight="25.0" prefWidth="143.0" text="Case" />
-      <Button layoutX="408.0" layoutY="83.0" mnemonicParsing="false" onAction="#openGeneralInfoView" prefHeight="25.0" prefWidth="143.0" text="General Information" />
+      <Button fx:id="buttonGeneralInfo" layoutX="408.0" layoutY="83.0" mnemonicParsing="false" onAction="#openGeneralInfoView1" prefHeight="25.0" prefWidth="143.0" text="General Information" />
       <Button layoutX="408.0" layoutY="162.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" prefHeight="25.0" prefWidth="143.0" text="Functional Abilities" />
       <Button layoutX="408.0" layoutY="123.0" mnemonicParsing="false" onAction="#openHealthConditionsView" prefHeight="25.0" prefWidth="143.0" text="Health Conditions" />
       <Button layoutX="442.0" layoutY="353.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Save" />

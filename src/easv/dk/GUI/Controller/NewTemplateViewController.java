@@ -21,7 +21,7 @@ public class NewTemplateViewController {
         stage.show();
     }
 
-    public void openGeneralInfoView(ActionEvent actionEvent) throws IOException {
+    public void openGeneralInfoView1(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/GeneralInfoView.fxml"));
         Parent root = loader.load();
