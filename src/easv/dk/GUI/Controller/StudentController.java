@@ -175,15 +175,15 @@ public class StudentController {
     }
 
     public void setUpTableView() throws Exception {
-        TableColumn<Citizen, String> column1 = new TableColumn<>("firstName");
+        TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        TableColumn<Citizen, String> column2 = new TableColumn<>("lastName");
+        TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
         column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        TableColumn<Citizen, String> column3 = new TableColumn<>("adress");
+        TableColumn<Citizen, String> column3 = new TableColumn<>("Address");
         column3.setCellValueFactory(new PropertyValueFactory<>("adress"));
-        TableColumn<Citizen, String> column4 = new TableColumn<>("birthDate");
+        TableColumn<Citizen, String> column4 = new TableColumn<>("Birthdate");
         column4.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
-        TableColumn<Citizen, String> column5 = new TableColumn<>("phoneNumber");
+        TableColumn<Citizen, String> column5 = new TableColumn<>("Phone Number");
         column5.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
         tableViewCitizens.getColumns().add(column1);
