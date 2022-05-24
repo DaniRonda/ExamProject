@@ -18,6 +18,10 @@ public class NewCitizenViewController {
     public TextField createCitizenPhoneNumber_txt;
     public TextField createCitizenSchoolID_txt;
     public DatePicker createCitizenBirthDatePicker;
+    public ChoiceBox createCitizenTemplate_CB;
+
+    public String[] cbValues = {"True", "False"};
+
 
     CitizenManager citizenManager = new CitizenManager();
     private TeacherController parentController;
@@ -29,12 +33,18 @@ public class NewCitizenViewController {
     public NewCitizenViewController() throws Exception {
     }
 
-    public void confirmCreateCitizen(ActionEvent actionEvent) throws Exception {
+    public void populateChoiceBox(ChoiceBox createCitizenTemplate_CB) {
+        createCitizenTemplate_CB.getItems().addAll(cbValues);
+    }
+
+    /*public void confirmCreateCitizen(ActionEvent actionEvent) throws Exception {
         String createCitizenFirstName = createCitizenFirstName_txt.getText();
         String createCitizenLastName = createCitizenLastName_txt.getText();
         String createCitizenAddress = createCitizenAddress_txt.getText();
         int createCitizenPhoneNumber = createCitizenPhoneNumber_txt.getProperties().size();
         int createCitizenSchoolID = createCitizenSchoolID_txt.getProperties().size();
-        //Date createCitizenBirthDate = createCitizenBirthDatePicker.getValue().
-    }
+        boolean createCitizenTemplate = (boolean) createCitizenTemplate_CB.getValue();
+        //Date createCitizenBirthDate = createCitizenBirthDatePicker.
+        Citizen citizenCreated = new Citizen(createCitizenFirstName, createCitizenLastName, createCitizenAddress, createCitizenPhoneNumber, createCitizenSchoolID, )
+    }*/
 }
