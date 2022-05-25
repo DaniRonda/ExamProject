@@ -633,7 +633,7 @@
                   <RadioButton fx:id="radiobuttonNotRelevant" layoutX="585.0" layoutY="38.0" mnemonicParsing="false" text="Not relevant" toggleGroup="$group" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" />
                </children>
             </AnchorPane>
-            <TextArea fx:id="textAreaProNote" layoutX="19.0" layoutY="97.0" prefHeight="101.0" prefWidth="585.0" promptText=" intestines " />
+            <TextArea fx:id="textAreaProNote" layoutX="19.0" layoutY="97.0" prefHeight="101.0" prefWidth="585.0" />
             <Text layoutX="19.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Professional Note" wrappingWidth="154.0000000000001">
                <font>
                   <Font name="Arial Bold" size="18.0" />

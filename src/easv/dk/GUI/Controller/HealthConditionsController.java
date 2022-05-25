@@ -551,8 +551,8 @@ public class HealthConditionsController {
     }
 
     @FXML
-    private Label labelMovementapperatus1;
-    public void Apperatus1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mobility and movement");
+    private Label labelMovementapperatus11;
+    public void Apperatus11Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mobility and movement");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " Movement disorders and problems in\n" +
@@ -572,10 +572,46 @@ public class HealthConditionsController {
             }
         });
     }
-    public void Apperatus1Entered(MouseEvent mouseEvent) {
-        labelMovementapperatus1.setUnderline(true);
-        labelMovementapperatus1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                event -> labelMovementapperatus1.setUnderline(false));
+    public void Apperatus11Entered(MouseEvent mouseEvent) {
+        labelMovementapperatus11.setUnderline(true); labelMovementapperatus12.setUnderline(true);
+        labelMovementapperatus11.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    labelMovementapperatus11.setUnderline(false);
+                    labelMovementapperatus12.setUnderline(false);
+                });
+
+
+    }
+
+    @FXML
+    private Label labelMovementapperatus12;
+    public void Apperatus12Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mobility and movement");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with\n" +
+                    " Movement disorders and problems in\n" +
+                    " moving, moving, changing the body position or\n" +
+                    " by inactivity as a result of illness, injury or\n" +
+                    " treatment, eg side effect of medication, or by\n" +
+                    " need other support to change the body position,\n" +
+                    " transfer and/or to move around.\n" +
+                    " eg citizens with Parkinson's disease and essential\n" +
+                    " tremor.");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
+    public void Apperatus12Entered(MouseEvent mouseEvent) {
+        labelMovementapperatus12.setUnderline(true); labelMovementapperatus11.setUnderline(true);
+        labelMovementapperatus12.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    labelMovementapperatus12.setUnderline(false);
+                    labelMovementapperatus11.setUnderline(false);
+                });
     }
 
     @FXML
@@ -1585,8 +1621,8 @@ public class HealthConditionsController {
 
 
     @FXML
-    private Label labelWaste4;
-    public void waste4Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with stomach and intestines ");
+    private Label labelWaste41;
+    public void waste41Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with stomach and intestines ");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with stomach\n" +
                     " and gut as a result of illness, injury or\n" +
@@ -1604,10 +1640,40 @@ public class HealthConditionsController {
             }
         });
     }
-    public void waste4Enter(MouseEvent mouseEvent) {
-        labelWaste4.setUnderline(true);
-        labelWaste4.addEventHandler(MouseEvent.MOUSE_EXITED,
-                event -> labelWaste4.setUnderline(false));
+    public void waste41Enter(MouseEvent mouseEvent) {
+        labelWaste41.setUnderline(true); labelWaste42.setUnderline(true);
+        labelWaste41.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    labelWaste41.setUnderline(false); labelWaste42.setUnderline(false);
+                });
+    }
+
+    @FXML
+    private Label labelWaste42;
+    public void waste42Click(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with stomach and intestines ");
+        if(mouseEvent.getClickCount() == 2){
+            textInfo.setText("Chosen when the citizen has problems with stomach\n" +
+                    " and gut as a result of illness, injury or\n" +
+                    " treatment, eg side effect of medicine.\n" +
+                    " eg citizens with ileostomy, colostomy and\n" +
+                    " diseases of the liver, bile roads or hemorrhoids,\n" +
+                    " or use For other support to deal with\n" +
+                    " digestive problems");
+            paneInfo.setDisable(false); paneInfo.setVisible(true);
+        }
+        labelSelectedCategory.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                paneInfo.setDisable(true); paneInfo.setVisible(false);
+            }
+        });
+    }
+    public void waste42Enter(MouseEvent mouseEvent) {
+        labelWaste42.setUnderline(true); labelWaste41.setUnderline(true);
+        labelWaste42.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    labelWaste42.setUnderline(false); labelWaste41.setUnderline(false);
+                });
     }
 
 
@@ -1856,12 +1922,25 @@ public class HealthConditionsController {
 
 
     @FXML
-    private Label labelMentalFunction1;
-    public void mentalFunction1Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Communication/Technical equipment");}
-    public void mentalFunction1Enter(MouseEvent mouseEvent) {
-        labelMentalFunction1.setUnderline(true);
-        labelMentalFunction1.addEventHandler(MouseEvent.MOUSE_EXITED,
-                event -> labelMentalFunction1.setUnderline(false));
+    private Label labelMentalFunction11;
+    public void mentalFunction11Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Communication/Technical equipment");}
+    public void mentalFunction11Enter(MouseEvent mouseEvent) {
+        labelMentalFunction11.setUnderline(true); labelMentalFunction12.setUnderline(true);
+        labelMentalFunction11.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    labelMentalFunction11.setUnderline(false); labelMentalFunction12.setUnderline(false);
+                });
+    }
+
+    @FXML
+    private Label labelMentalFunction12;
+    public void mentalFunction12Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Communication/Technical equipment");}
+    public void mentalFunction12Enter(MouseEvent mouseEvent) {
+        labelMentalFunction12.setUnderline(true); labelMentalFunction11.setUnderline(true);
+        labelMentalFunction12.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    labelMentalFunction12.setUnderline(false); labelMentalFunction11.setUnderline(false);
+                });
     }
 
 
