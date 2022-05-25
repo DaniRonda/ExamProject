@@ -100,6 +100,10 @@ public class TemplateHealthConditionViewController {
     private RadioButton radiButtonExpected3;
     @FXML
     private RadioButton radiButtonExpected4;
+    @FXML
+    private AnchorPane anchorYellow;
+    @FXML
+    private AnchorPane diagnoseAnchor;
     StudentModel studentModel = new StudentModel();
 
     String selectedDiagnose;
@@ -137,10 +141,12 @@ public class TemplateHealthConditionViewController {
         if(StudentModel.diagnose == 1){
             vboxfunction.setVisible(true); vboxfunction.setDisable(false);
             vboxHealth.setVisible(false); vboxHealth.setDisable(true);
+            anchorYellow.setVisible(true); anchorYellow.setDisable(false);
             selectedDiagnose = "functionalDiagnose";
             labelSelectedCategory.setText("Category");
             labelSelectedSubCategory.setText("SubCategory");
-            buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);}
+            buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);
+        diagnoseAnchor.setStyle("-fx-background-color:  #FFF5CA;");}
 
 
         else{
@@ -153,6 +159,7 @@ public class TemplateHealthConditionViewController {
             labelSelectedSubCategory.setText("SubCategory");
             buttonClientsWishes.setVisible(false);
             buttonClientsWishes.setDisable(true);
+            diagnoseAnchor.setStyle("-fx-background-color:   #E3ECF8;");
         }
         System.out.println(StudentModel.diagnose);
     }
@@ -270,7 +277,9 @@ public class TemplateHealthConditionViewController {
         selectedDiagnose = "functionalDiagnose";
         labelSelectedCategory.setText("Category");
         labelSelectedSubCategory.setText("SubCategory");
-        buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);}
+        buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);
+        anchorYellow.setVisible(true); anchorYellow.setDisable(false);
+        diagnoseAnchor.setStyle("-fx-background-color:  #FFF5CA;");}
     public void mouseOverToHealthBtn(MouseEvent mouseEvent) {
         buttonHealth.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
         buttonHealth.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -285,7 +294,9 @@ public class TemplateHealthConditionViewController {
         selectedDiagnose = "healthDiagnose";
         labelSelectedCategory.setText("Category");
         labelSelectedSubCategory.setText("SubCategory");
-        buttonClientsWishes.setVisible(false); buttonClientsWishes.setDisable(true);}
+        buttonClientsWishes.setVisible(false); buttonClientsWishes.setDisable(true);
+        anchorYellow.setVisible(false); anchorYellow.setDisable(true);
+        diagnoseAnchor.setStyle("-fx-background-color:   #E3ECF8;");}
     public void mouseOverToFunctionalBtn(MouseEvent mouseEvent) {
         buttonToFunctional.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
         buttonToFunctional.addEventHandler(MouseEvent.MOUSE_EXITED,
