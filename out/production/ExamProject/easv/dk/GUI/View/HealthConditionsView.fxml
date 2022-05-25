@@ -105,7 +105,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox fx:id="vboxfunction" disable="true" layoutY="84.0" prefHeight="646.0" prefWidth="225.0" style="-fx-background-color: #B6D2E8;" visible="false" AnchorPane.bottomAnchor="0.0">
+      <VBox fx:id="vboxfunction" layoutY="84.0" prefHeight="646.0" prefWidth="225.0" style="-fx-background-color: #FFE884;" visible="false" AnchorPane.bottomAnchor="0.0">
          <children>
             <Label fx:id="labelSelfCare" onMouseClicked="#selfcareClicked" onMouseEntered="#selfcareEntered" prefHeight="48.0" prefWidth="176.0" text="Selfcare">
                <font>
@@ -204,7 +204,7 @@
                </font>
             </Text>
             <ComboBox fx:id="ChoiceBoxAnticLvl" layoutX="19.0" layoutY="354.0" prefHeight="40.0" prefWidth="585.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #8D8D8D;" />
-            <AnchorPane fx:id="anchorGoals" disable="true" layoutX="-1.0" layoutY="1.0" prefHeight="644.0" prefWidth="610.0" style="-fx-background-color: #E3ECF8;" visible="false">
+            <AnchorPane fx:id="anchorGoals" disable="true" layoutX="-1.0" layoutY="1.0" prefHeight="644.0" prefWidth="610.0" style="-fx-background-color: #FFF5CA;" visible="false">
                <children>
                   <Button fx:id="buttonSaveGoals" layoutX="189.0" layoutY="595.0" mnemonicParsing="false" onAction="#saveClientGoals" onMouseEntered="#goalSaveEntered" pickOnBounds="false" prefHeight="40.0" prefWidth="176.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes">
                      <font>
@@ -357,6 +357,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="anchorYellow" disable="true" layoutX="225.0" layoutY="86.0" prefHeight="646.0" prefWidth="285.0" style="-fx-background-color: #FFF1B2;" visible="false" />
       <Pane fx:id="paneInfo" disable="true" layoutX="45.0" layoutY="93.0" prefHeight="303.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #A9A9A9;" visible="false">
          <children>
             <Text fx:id="textInfo" layoutX="4.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="203.0" />
@@ -378,7 +379,7 @@
       </VBox>
       <VBox fx:id="vboxMovementapperatus" disable="true" layoutX="225.0" layoutY="85.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #C9DDEE;" visible="false">
          <children>
-            <Label fx:id="labelMovementapperatus11" onMouseClicked="#Apperatus11Clicked" onMouseEntered="#Apperatus11Entered" prefHeight="27.0" prefWidth="277.0" text="Problems with mobility and ">
+            <Label fx:id="labelMovementapperatus11" onMouseClicked="#Apperatus111Clicked" onMouseEntered="#Apperatus111Entered" prefHeight="27.0" prefWidth="277.0" text="Problems with mobility and ">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
@@ -650,7 +651,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxSelfCare" disable="true" layoutX="225.0" layoutY="87.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxSelfCare" layoutX="225.0" layoutY="87.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #FFF1B2;" visible="false">
          <children>
             <Label fx:id="labelselfcare1" onMouseClicked="#selfcare1Clicked" onMouseEntered="#selfcare1Enter" prefHeight="48.0" prefWidth="298.0" text="Ability to clean themselves">
                <font>
@@ -694,7 +695,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxPracticalWork" disable="true" layoutX="225.0" layoutY="86.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxPracticalWork" disable="true" layoutX="225.0" layoutY="86.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #FFF1B2;" visible="false">
          <children>
             <Label fx:id="labelParcticalWork1" onMouseClicked="#practical1Click" onMouseEntered="#practical1Enter" prefHeight="48.0" prefWidth="298.0" text="Perform housework">
                <font>
@@ -718,7 +719,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxMobility" disable="true" layoutX="225.0" layoutY="85.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxMobility" disable="true" layoutX="225.0" layoutY="85.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #FFF1B2;" visible="false">
          <children>
             <Label fx:id="labelMobility1" onMouseClicked="#mobility1Click" onMouseEntered="#mobility1Enter" prefHeight="48.0" prefWidth="298.0" text="Lifting and carrying ">
                <font>
@@ -767,7 +768,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxMentalFunction" disable="true" layoutX="225.0" layoutY="85.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxMentalFunction" disable="true" layoutX="225.0" layoutY="85.0" prefHeight="644.0" prefWidth="285.0" style="-fx-background-color: #FFF1B2;" visible="false">
          <children>
             <Label fx:id="labelMentalFunction11" onMouseClicked="#mentalFunction11Clicked" onMouseEntered="#mentalFunction11Enter" prefHeight="24.0" prefWidth="277.0" text="Communication/Technical">
                <font>
@@ -816,7 +817,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="vboxSocialLife" disable="true" layoutX="225.0" layoutY="85.0" prefHeight="637.0" prefWidth="285.0" style="-fx-background-color: #C9DDEE;" visible="false">
+      <VBox fx:id="vboxSocialLife" disable="true" layoutX="225.0" layoutY="85.0" prefHeight="637.0" prefWidth="285.0" style="-fx-background-color: #FFF1B2;" visible="false">
          <children>
             <Label fx:id="labelSocialLife1" onMouseClicked="#socialLife1Clicked" onMouseEntered="#socialLife1Enter" prefHeight="44.0" prefWidth="298.0" text="Paid occupation">
                <font>

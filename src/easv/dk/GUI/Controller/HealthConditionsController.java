@@ -103,6 +103,10 @@ public class HealthConditionsController {
     private RadioButton radiButtonExpected3;
     @FXML
     private RadioButton radiButtonExpected4;
+    @FXML
+    private AnchorPane anchorYellow;
+    @FXML
+    private AnchorPane diagnoseAnchor;
     StudentModel studentModel = new StudentModel();
 
     String selectedDiagnose;
@@ -138,10 +142,12 @@ public class HealthConditionsController {
         if(StudentModel.diagnose == 1){
             vboxfunction.setVisible(true); vboxfunction.setDisable(false);
             vboxHealth.setVisible(false); vboxHealth.setDisable(true);
+            anchorYellow.setVisible(true); anchorYellow.setDisable(false);
             selectedDiagnose = "functionalDiagnose";
             labelSelectedCategory.setText("Category");
             labelSelectedSubCategory.setText("SubCategory");
-            buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);}
+            buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);
+        diagnoseAnchor.setStyle("-fx-background-color:  #FFF5CA;");}
 
         else{
         vboxHealth.setVisible(true);
@@ -153,6 +159,7 @@ public class HealthConditionsController {
         labelSelectedSubCategory.setText("SubCategory");
         buttonClientsWishes.setVisible(false);
         buttonClientsWishes.setDisable(true);
+            diagnoseAnchor.setStyle("-fx-background-color:   #E3ECF8;");
     }
         System.out.println(StudentModel.diagnose);
     }
@@ -274,12 +281,16 @@ public class HealthConditionsController {
     @FXML
     private Button buttonHealth;
     public void toFunctional(ActionEvent actionEvent) {
+        clearAll();
         vboxfunction.setVisible(true); vboxfunction.setDisable(false);
         vboxHealth.setVisible(false); vboxHealth.setDisable(true);
         selectedDiagnose = "functionalDiagnose";
         labelSelectedCategory.setText("Category");
         labelSelectedSubCategory.setText("SubCategory");
-        buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);}
+        buttonClientsWishes.setVisible(true); buttonClientsWishes.setDisable(false);
+        anchorYellow.setVisible(true); anchorYellow.setDisable(false);
+        diagnoseAnchor.setStyle("-fx-background-color:  #FFF5CA;");
+    }
     public void mouseOverToHealthBtn(MouseEvent mouseEvent) {
         buttonHealth.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
         buttonHealth.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -289,12 +300,17 @@ public class HealthConditionsController {
     @FXML
     private Button buttonToFunctional;
     public void toHealth(ActionEvent actionEvent) {
+        clearAll();
         vboxHealth.setVisible(true); vboxHealth.setDisable(false);
         vboxfunction.setVisible(false); vboxfunction.setDisable(true);
         selectedDiagnose = "healthDiagnose";
         labelSelectedCategory.setText("Category");
         labelSelectedSubCategory.setText("SubCategory");
-        buttonClientsWishes.setVisible(false); buttonClientsWishes.setDisable(true);}
+        buttonClientsWishes.setVisible(false); buttonClientsWishes.setDisable(true);
+        anchorYellow.setVisible(false); anchorYellow.setDisable(true);
+        diagnoseAnchor.setStyle("-fx-background-color:   #E3ECF8;");
+    }
+
     public void mouseOverToFunctionalBtn(MouseEvent mouseEvent) {
         buttonToFunctional.setStyle("-fx-border-color: #212121; -fx-background-color: #DEDEDE; -fx-border-radius: 15; -fx-background-radius: 15;");
         buttonToFunctional.addEventHandler(MouseEvent.MOUSE_EXITED,
@@ -552,7 +568,7 @@ public class HealthConditionsController {
 
     @FXML
     private Label labelMovementapperatus11;
-    public void Apperatus11Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mobility and movement");
+    public void Apperatus111Clicked(MouseEvent mouseEvent) {labelSelectedSubCategory.setText("Problems with mobility and movement");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " Movement disorders and problems in\n" +
@@ -572,7 +588,7 @@ public class HealthConditionsController {
             }
         });
     }
-    public void Apperatus11Entered(MouseEvent mouseEvent) {
+    public void Apperatus111Entered(MouseEvent mouseEvent) {
         labelMovementapperatus11.setUnderline(true); labelMovementapperatus12.setUnderline(true);
         labelMovementapperatus11.addEventHandler(MouseEvent.MOUSE_EXITED,
                 event -> {
