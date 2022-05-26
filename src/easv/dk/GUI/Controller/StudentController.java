@@ -292,7 +292,7 @@ public class StudentController {
                 });
     }
 
-    public void resClicked(MouseEvent mouseEvent) {
+    public void resourcesClicked(MouseEvent mouseEvent) {
         if(mouseEvent.getClickCount() == 2){
             textAreaInfo.setText("The physical or mental forces that the citizen\n" +
                     "has to a certain extent available and can exploit.\n" +
@@ -310,7 +310,7 @@ public class StudentController {
         });
     }
 
-    public void resEnter(MouseEvent mouseEvent) {
+    public void resourcesEnter(MouseEvent mouseEvent) {
         textGeneralRessources.setUnderline(true); textGeneralRessources.setUnderline(true);
         textGeneralRessources.addEventHandler(MouseEvent.MOUSE_EXITED,
                 event -> {
