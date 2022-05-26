@@ -32,7 +32,7 @@
       <TextField fx:id="teacherPassword_txt" layoutX="232.0" layoutY="221.0" prefHeight="38.0" prefWidth="206.0" />
       <TextField fx:id="teacherEmail_txt" layoutX="232.0" layoutY="171.0" prefHeight="38.0" prefWidth="206.0" />
       <TextField fx:id="teacherLastName_txt" layoutX="232.0" layoutY="120.0" prefHeight="38.0" prefWidth="206.0" />
-      <Button fx:id="confirmUpdateTeacherBTN" layoutX="321.0" layoutY="310.0" mnemonicParsing="false" onAction="#confirmUpdateTeacher" prefHeight="25.0" prefWidth="51.0" text="Save" />
-      <Button fx:id="cancelUpdateTeacherBTN" layoutX="386.0" layoutY="310.0" mnemonicParsing="false" onAction="#cancelUpdateTeacher" prefHeight="25.0" prefWidth="51.0" text="Cancel" />
+      <Button fx:id="btnSaveUpdateTeacher" layoutX="321.0" layoutY="310.0" mnemonicParsing="false" onAction="#saveUpdateTeacher" prefHeight="25.0" prefWidth="51.0" text="Save" />
+      <Button fx:id="btnCancelUpdateTeacher" layoutX="386.0" layoutY="310.0" mnemonicParsing="false" onAction="#cancelUpdateTeacher" prefHeight="25.0" prefWidth="51.0" text="Cancel" />
    </children>
 </AnchorPane>

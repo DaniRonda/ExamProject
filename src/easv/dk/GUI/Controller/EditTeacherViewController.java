@@ -1,6 +1,7 @@
 package easv.dk.GUI.Controller;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.TeacherManager;
+import easv.dk.GUI.Model.TeacherModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -26,7 +27,7 @@ public class EditTeacherViewController {
     private Button btnCancelUpdateTeacher;
 
     private Teacher selectedTeacher;
-    TeacherManager teacherManager = new TeacherManager();
+    TeacherModel teacherModel = new TeacherModel();
     private AdminViewController parentController;
 
     public void setParentController(AdminViewController adminViewController){
@@ -42,7 +43,7 @@ public class EditTeacherViewController {
         String teacherEmail = teacherEmail_txt.getText();
         String teacherPassword = teacherPassword_txt.getText();
         Teacher teacherUpdated = new Teacher(teacherFirstName, teacherLastName,teacherEmail,teacherPassword, selectedTeacher.getId());
-        teacherManager.updateTeacher(teacherUpdated);
+        teacherModel.saveUpdateTeacher(teacherUpdated);
         Stage stage = (Stage)btnSaveUpdateTeacher.getScene().getWindow();
         stage.close();
         parentController.initialize();

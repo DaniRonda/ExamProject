@@ -84,7 +84,7 @@ public class TeacherDAO {
         return teacherList;
     }
 
-    public void updateTeacher(Teacher teacher) throws Exception {
+    public void saveUpdateTeacher(Teacher teacher) throws Exception {
         Connection con = cm.getConnection();
         String sqlUpdateTeacher = "UPDATE  Teacher SET firstName=?, lastName=? , email=?, password=? WHERE ID=?;";
         PreparedStatement psUpdateTeacher = con.prepareStatement(sqlUpdateTeacher, Statement.RETURN_GENERATED_KEYS);
