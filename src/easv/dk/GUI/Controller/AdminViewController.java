@@ -19,27 +19,26 @@ import java.io.IOException;
 public class AdminViewController {
 
     @FXML
-    private Button openEditTeacherViewBTN;
+    private Button btnOpenEditTeacherView;
     @FXML
-    private Button deleteTeacherBTN;
+    private Button btnDeleteTeacher;
     @FXML
-    private Button openEditStudentViewBTN;
+    private Button btnOpenEditStudentView;
     @FXML
-    private Button deleteStudentBTN;
+    private Button btnDeleteStudent;
     @FXML
     private TableView studentTable;
     @FXML
     private TableView teacherTable;
+
     @FXML
-    private Button openCaseViewBTN;
+    private Button btnOpenTeacherView;
     @FXML
-    private Button btnOpenCitizenOverview;
+    private Button btnOpenTemplateView;
     @FXML
-    private Button openTemplateViewBTN;
+    private Button btnOpenNewTeacherView;
     @FXML
-    private Button openNewTeacherViewBTN;
-    @FXML
-    private Button openNewStudentViewBTN;
+    private Button btnOpenNewStudentView;
     @FXML
     private Button btnAdminLogOut;
     TeacherModel teacherModel = new TeacherModel();
@@ -148,7 +147,7 @@ public class AdminViewController {
         studentTable.getItems().addAll(studentModel.getAllStudents1());
     }
 
-    public void openCitizenOverview(ActionEvent actionEvent) throws Exception {
+    public void openTeacherView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TeacherView.fxml"));
         Parent root = loader.load();
@@ -159,16 +158,6 @@ public class AdminViewController {
         stage.show();
     }
 
-    public void openCaseView(ActionEvent actionEvent) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CaseView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-    }
 
     public void openTemplateView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();

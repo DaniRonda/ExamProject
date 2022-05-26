@@ -16,7 +16,5 @@ public class AdminManager {
         else return null;
     }
 
-    public void updateAdmin(Admin admin) throws Exception{
-        adminDAO.updateAdmin(admin);
-    }
+
 }

@@ -82,27 +82,9 @@ public class AdminDAO {
     }
 
 
-    public void updateAdmin(Admin admin) throws Exception {
-        Connection con = cm.getConnection();
-        String sqlUpdateAdmin = "UPDATE  Admin SET emails=?, password=? WHERE ID=?;";
-        PreparedStatement psUpdateAdmin = con.prepareStatement(sqlUpdateAdmin, Statement.RETURN_GENERATED_KEYS);
-        psUpdateAdmin.setString(1, admin.getEmail());
-        psUpdateAdmin.setString(2, admin.getPassword());
-        psUpdateAdmin.executeUpdate();
-        psUpdateAdmin.close();
-        con.close();
-    }
 
-    public void deleteAdmin(Admin admin) throws Exception {
-        Connection con = cm.getConnection();
-        String sqlDeleteAdmin = "DELETE FROM Admin WHERE ID=?;";
-        PreparedStatement psDeleteAdmin = con.prepareStatement(sqlDeleteAdmin, Statement.RETURN_GENERATED_KEYS);
-        psDeleteAdmin.setInt(1, admin.getId());
-        psDeleteAdmin.execute();
-        psDeleteAdmin.close();
-        con.close();
 
-    }
+
 
 
 

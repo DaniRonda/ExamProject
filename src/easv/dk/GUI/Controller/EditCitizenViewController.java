@@ -19,7 +19,7 @@ public class EditCitizenViewController {
     @FXML
     private TextField citizenPhoneNumber_txt;
     @FXML
-    private Button confirmUpdateCitizenBTN;
+    private Button btnConfirmUpdateCitizen;
     @FXML
     private Button cancelUpdateCitizenBTN;
     @FXML
@@ -42,7 +42,7 @@ public class EditCitizenViewController {
         int citizenPhoneNumber = citizenPhoneNumber_txt.getProperties().size();
         Citizen citizenUpdated = new Citizen(citizenFirstName,citizenLastName,citizenAddress, selectedCitizen.getBirthDate(), citizenPhoneNumber, selectedCitizen.isTemplate(), selectedCitizen.getID());
         citizenManager.updateCitizen(citizenUpdated);
-        Stage stage = (Stage)confirmUpdateCitizenBTN.getScene().getWindow();
+        Stage stage = (Stage)btnConfirmUpdateCitizen.getScene().getWindow();
         stage.close();
         parentController.initialize();
     }
