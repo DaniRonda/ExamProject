@@ -4,6 +4,7 @@ import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.TeacherManager;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -11,15 +12,24 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class NewTeacherViewController {
-    public Button cancelNewTeacherBTN;
-    public Button confirmNewTeacherBTN;
-    public TextField teacherLastName_txt;
-    public TextField teacherSchool_txt;
-    public TextField teacherEmail_txt;
-    public TextField teacherPassword_txt;
-    public TextField teacherFirstName_txt;
+    @FXML
+    private Button cancelNewTeacherBTN;
+    @FXML
+    private Button confirmNewTeacherBTN;
+    @FXML
+    private TextField teacherLastName_txt;
+    @FXML
+    private TextField teacherSchool_txt;
+    @FXML
+    private TextField teacherEmail_txt;
+    @FXML
+    private TextField teacherPassword_txt;
+    @FXML
+    private TextField teacherFirstName_txt;
+
     TeacherManager teacherManager = new TeacherManager();
     private AdminViewController parentController;
+
     public void setParentController(AdminViewController adminViewController){
         this.parentController = adminViewController;
     }

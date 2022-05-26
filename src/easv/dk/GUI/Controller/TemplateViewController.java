@@ -15,12 +15,12 @@ import javafx.stage.Stage;
 
 public class TemplateViewController {
 
-    public TableView templateTable;
-    CitizenModel citizenModel = new CitizenModel();
-
+    @FXML
+    private TableView templateTable;
     @FXML
     private Button btnTemplateLogOut;
 
+    CitizenModel citizenModel = new CitizenModel();
     public TemplateViewController() throws Exception {
     }
 
