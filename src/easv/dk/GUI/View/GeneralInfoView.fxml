@@ -117,14 +117,14 @@
                   <Insets left="310.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="buttonLogOut" mnemonicParsing="false" onAction="#logOut" text="Log out">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-            </Button>
          </children>
       </HBox>
-      <Button fx:id="buttonSave" layoutX="6.0" layoutY="591.0" mnemonicParsing="false" onAction="#saveInfo" prefHeight="31.0" prefWidth="79.0" text="Save">
+      <Button fx:id="btnSaveUpdateGeneralInfor" layoutX="760.0" layoutY="600.0" mnemonicParsing="false" onAction="#saveUpdateGeneralInfo" prefHeight="31.0" prefWidth="79.0" text="Save">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnCancelUpdateGeneralInfo" layoutX="856.0" layoutY="600.0" mnemonicParsing="false" onAction="#cancelUpdateGeneralInfo" prefHeight="31.0" prefWidth="79.0" text="Cancel">
          <font>
             <Font size="16.0" />
          </font>

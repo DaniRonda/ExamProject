@@ -5,36 +5,44 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 
-import java.io.IOException;
 
 
 public class GeneralInfoViewController {
+
     @FXML
     private Text textName;
-    public void returnTo(ActionEvent actionEvent) throws IOException {
+    @FXML
+    private Button btnCancelUpdateGeneralInfo;
+    @FXML
+    private Button btnSaveUpdateGeneralInfo;
+
+
+
+    public void returnTo(ActionEvent actionEvent) throws Exception {
         Stage thisStage = (Stage) textName.getScene().getWindow();
         thisStage.close();
     }
 
-    public void logOut(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/LogInView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("Log In");
-        stage.centerOnScreen();
-        stage.show();
-        Stage thisStage = (Stage) textName.getScene().getWindow();
-        thisStage.close();
+
+    public void saveUpdateGeneralInfo(ActionEvent actionEvent) {
     }
 
-    public void saveInfo(ActionEvent actionEvent) {
 
+    public void cancelUpdateGeneralInfo(ActionEvent actionEvent) throws Exception{
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES) {
+            Stage stage = (Stage) btnCancelUpdateGeneralInfo.getScene().getWindow();
+            stage.close();
+        }
     }
+
+
 }
