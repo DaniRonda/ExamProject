@@ -34,14 +34,14 @@ public class Manager {
         return mail;
     }
 
-    public void addCitizenToStudent(Citizen citizen, Student student) throws Exception {
-        citizenStudentDAO.AddCitizenToStudent(citizen, student);
+    public void addCitizenToStudent(Citizen selectedItem, Student selectedStudent) throws Exception {
+        citizenStudentDAO.AddCitizenToStudent(selectedItem, selectedStudent);
     }
     public void removeStudentFromCitizen (int studentId, int citizenId) throws Exception {
         citizenStudentDAO.removeCitizenFromStudent(new Citizen("", "","",null,0,false, citizenId), new Student("", "", "", "", studentId));
     }
     public List<Citizen> getCitizensFromStudent(Student student) throws Exception {
-        return citizenStudentDAO.getCitizensFromStudent(student);
+        return citizenStudentDAO.getAllCitizensForGivenStudent(student);
     }
 
     public List<Student> getStudentFromCitizen(Citizen citizen) throws Exception {

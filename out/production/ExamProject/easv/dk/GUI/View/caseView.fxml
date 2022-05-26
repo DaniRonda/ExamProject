@@ -5,23 +5,26 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.CaseController">
+<AnchorPane prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.CaseViewController">
    <children>
-      <TextField layoutX="171.0" layoutY="50.0" />
-      <Label layoutX="42.0" layoutY="50.0" text="Case name">
+      <HBox alignment="CENTER" prefHeight="71.0" prefWidth="902.0" style="-fx-background-color: #EFEFE6;" />
+      <TextArea fx:id="textAreaCase" layoutX="169.0" layoutY="189.0" prefHeight="303.0" prefWidth="685.0" />
+      <Button fx:id="btnSaveCase" layoutX="725.0" layoutY="513.0" mnemonicParsing="false" onAction="#saveCase" prefHeight="25.0" prefWidth="57.0" text="Save" />
+      <Label layoutX="29.0" layoutY="124.0" text="Case name">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextArea layoutX="174.0" layoutY="127.0" prefHeight="200.0" prefWidth="391.0" />
-      <Label layoutX="42.0" layoutY="127.0" text="Case description">
+      <TextField layoutX="169.0" layoutY="124.0" prefHeight="25.0" prefWidth="189.0" />
+      <Button fx:id="btnCancelCreatingCase" layoutX="804.0" layoutY="513.0" mnemonicParsing="false" onAction="#cancelCreatingCase" text="Cancel" />
+      <Label layoutX="29.0" layoutY="176.0" text="Case description">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="450.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Save" />
-      <Button layoutX="513.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Cancel" />
+      <Button fx:id="btnReturn" layoutX="801.0" layoutY="25.0" mnemonicParsing="false" onAction="#returnToPreviousView" prefHeight="25.0" prefWidth="57.0" text="Return" />
    </children>
 </AnchorPane>

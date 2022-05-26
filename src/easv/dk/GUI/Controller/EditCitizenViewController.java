@@ -3,6 +3,7 @@ package easv.dk.GUI.Controller;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BLL.CitizenManager;
+import easv.dk.GUI.Model.CitizenModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -19,13 +20,13 @@ public class EditCitizenViewController {
     @FXML
     private TextField citizenPhoneNumber_txt;
     @FXML
-    private Button btnConfirmUpdateCitizen;
+    private Button btnSaveUpdateCitizen;
     @FXML
     private Button btnCancelUpdateCitizen;
     @FXML
     private Citizen selectedCitizen;
 
-    CitizenManager citizenManager = new CitizenManager();
+    CitizenModel citizenModel = new CitizenModel();
     private TeacherController parentController;
 
     public void setParentController(TeacherController teacherController){
@@ -35,14 +36,14 @@ public class EditCitizenViewController {
     public EditCitizenViewController() throws Exception {
     }
 
-    public void confirmUpdateCitizen(ActionEvent actionEvent) throws Exception {
+    public void saveUpdateCitizen(ActionEvent actionEvent) throws Exception {
         String citizenFirstName= citizenFirstName_txt.getText();
         String citizenLastName= citizenLastName_txt.getText();
         String citizenAddress = citizenAddress_txt.getText();
         int citizenPhoneNumber = citizenPhoneNumber_txt.getProperties().size();
         Citizen citizenUpdated = new Citizen(citizenFirstName,citizenLastName,citizenAddress, selectedCitizen.getBirthDate(), citizenPhoneNumber, selectedCitizen.isTemplate(), selectedCitizen.getID());
-        citizenManager.updateCitizen(citizenUpdated);
-        Stage stage = (Stage)btnConfirmUpdateCitizen.getScene().getWindow();
+        citizenModel.updateCitizen(citizenUpdated);
+        Stage stage = (Stage)btnSaveUpdateCitizen.getScene().getWindow();
         stage.close();
         parentController.initialize();
     }

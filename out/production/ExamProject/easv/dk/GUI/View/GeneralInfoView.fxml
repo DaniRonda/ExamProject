@@ -112,11 +112,6 @@
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="950.0" style="-fx-background-color: #EFEFE6;">
          <children>
             <HBox prefHeight="66.0" prefWidth="449.0" />
-            <Text fx:id="textName" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
             <Button fx:id="buttonReturn" mnemonicParsing="false" onAction="#returnTo" text="Return">
                <HBox.margin>
                   <Insets left="310.0" />

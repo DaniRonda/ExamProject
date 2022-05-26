@@ -50,7 +50,7 @@ public class EditStudentViewController {
      String studentEmail = studentEmail_txt.getText();
      String studentPassword = studentPassword_txt.getText();
      Student studentUpdated= new Student(studentFirstName,studentLastName,studentEmail,studentPassword,selectedStudent.getId());
-     studentManager.updateStudent(studentUpdated);
+     studentManager.saveUpdateStudent(studentUpdated);
      Stage stage = (Stage)btnSaveUpdateStudent.getScene().getWindow();
      stage.close();
      parentController.initialize();

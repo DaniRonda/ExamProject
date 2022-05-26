@@ -82,7 +82,7 @@ public class StudentDAO {
         return studentList;
     }
 
-    public void updateStudent(Student student) throws Exception {
+    public void saveUpdateStudent(Student student) throws Exception {
         Connection con = cm.getConnection();
         String sqlUpdateStudent = "UPDATE  Student SET firstName=?, lastName=?, email=?, password=? WHERE ID=?;";
         PreparedStatement psUpdateStudent = con.prepareStatement(sqlUpdateStudent, Statement.RETURN_GENERATED_KEYS);

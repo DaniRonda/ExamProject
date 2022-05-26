@@ -61,4 +61,9 @@ public class CitizenModel {
         System.out.println("Current citizen: " + clickedCitizen);
         return clickedCitizen;
     }
-}
+
+    public void updateCitizen(Citizen citizenUpdated) throws Exception {
+            citizenManager.updateCitizen(citizenUpdated);
+         }
+    }
+

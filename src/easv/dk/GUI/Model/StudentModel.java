@@ -1,6 +1,7 @@
 package easv.dk.GUI.Model;
 
 import easv.dk.BE.Admin;
+import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.Manager;
@@ -33,6 +34,10 @@ public class StudentModel {
         return this.getAllStudents;
     }
     static public int diagnose = 0;
+
+    public void saveUpdateStudent(Student student) throws Exception{
+        studentManager.saveUpdateStudent(student);
+    }
 
 
     static public int diagnoseSelected(){

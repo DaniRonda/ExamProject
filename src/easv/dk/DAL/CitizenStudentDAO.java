@@ -61,24 +61,15 @@ public class CitizenStudentDAO {
 
 
     public CitizenStudent createCitizenStudent(CitizenStudent citizenStudent) throws Exception {
-        CitizenStudent citizenStudent1 = new CitizenStudent(citizenStudent.getCitizenID(),citizenStudent.getStudentID());
         Connection con = cm.getConnection();
         String query = "insert into citizenStudent (student_id,citizen_id) values(?,?);";
         PreparedStatement ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         ps.setInt(1, citizenStudent.getStudentID());
         ps.setInt(2, citizenStudent.getCitizenID());
         ps.execute();
-        ResultSet resultSet = ps.getGeneratedKeys();
-        while (resultSet.next()) {
-            citizenStudent1.setStudentID(citizenStudent.getStudentID());
-            citizenStudent1.setCitizenID(citizenStudent.getCitizenID());
-            citizenStudent1.setId(resultSet.getInt(1));
-        }
-        resultSet.close();
         ps.close();
         con.close();
-
-        return citizenStudent1;
+        return citizenStudent;
     }
 
     public List<Student> getStudentFromCitizen(Citizen citizen) throws Exception {
@@ -106,17 +97,6 @@ public class CitizenStudentDAO {
     }
 
 
-    public void updateCitizenStudent(CitizenStudent citizenStudent) throws Exception {
-        Connection con = cm.getConnection();
-        String sqlUpdateCitizenStudent = "UPDATE citizenStudent SET citizen_Id=?, student_Id=?, WHERE citizenStudent_id=?;";
-        PreparedStatement psUpdateCitizenStudent = con.prepareStatement(sqlUpdateCitizenStudent, Statement.RETURN_GENERATED_KEYS);
-        psUpdateCitizenStudent.setInt(1, citizenStudent.getCitizenID());
-        psUpdateCitizenStudent.setDouble(2, citizenStudent.getStudentID());
-        psUpdateCitizenStudent.setInt(3, citizenStudent.getId());
-        psUpdateCitizenStudent.executeUpdate();
-        psUpdateCitizenStudent.close();
-        con.close();
-    }
 
     public List<Student> getAllStudentsForGivenCitizen(Citizen citizen) throws Exception {
         return getStudentFromCitizen(citizen);
@@ -137,7 +117,6 @@ public class CitizenStudentDAO {
             String lastName = resultSet.getString("lastName");
             String address = resultSet.getString("address");
             int phoneNumber = resultSet.getInt("phoneNumber");
-            int schoolID = resultSet.getInt("School_id");
             boolean isTemplate = resultSet.getBoolean("isTemplate");
             Date birthdate = resultSet.getDate("birthDate");
 
@@ -164,32 +143,6 @@ public class CitizenStudentDAO {
         con.close();
 
 
-    }
-
-    public List<Citizen> getCitizensFromStudent(Student student) throws Exception {
-        List<Citizen> citizens = new ArrayList<>();
-        Connection con = cm.getConnection();
-        String query = "select distinct Citizen.* from citizenStudent \n" +
-                "JOIN Citizen on citizenStudent.citizen_Id=citizen.id\n" +
-                "where student_id=?";
-        PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, student.getId());
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            String firstName = rs.getString("firstName");
-            String lastName = rs.getString("lastName");
-            String address = rs.getString("address");
-            java.sql.Date birthDate = rs.getDate("birthDate");
-            boolean isTemplate = rs.getBoolean("isTemplate");
-            int phoneNumber = rs.getInt("phoneNumber");
-            int schoolID = rs.getInt("school_id");
-            int ID = rs.getInt("id");
-            citizens.add(new Citizen(firstName,lastName,address,birthDate,phoneNumber, isTemplate, ID));
-        }
-        rs.close();
-        ps.close();
-        con.close();
-        return citizens;
     }
 
 
