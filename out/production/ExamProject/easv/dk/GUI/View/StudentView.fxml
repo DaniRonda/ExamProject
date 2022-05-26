@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -18,18 +19,27 @@
       <ToolBar layoutX="2.0" layoutY="-1.0" prefHeight="73.0" prefWidth="958.0" style="-fx-background-color: #EFEFE6 #EFEFE6;" />
       <TableView fx:id="tableViewCitizens" layoutX="21.0" layoutY="108.0" prefHeight="495.0" prefWidth="334.0" style="-fx-background-radius: 15;" />
       <Button fx:id="btnStudentLogOut" layoutX="886.0" layoutY="26.0" mnemonicParsing="false" onAction="#studentLogOut" prefHeight="25.0" prefWidth="59.0" text="Log Out" />
-      <Button fx:id="btnHealthConditions" layoutX="21.0" layoutY="605.0" mnemonicParsing="false" onAction="#openHealthConditionsView" text="Health Conditions" />
-      <Button fx:id="btnFunctionalAbilities" layoutX="143.0" layoutY="605.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" text="Functional Abilities" />
+      <Button fx:id="btnHealthConditions" layoutX="22.0" layoutY="607.0" mnemonicParsing="false" onAction="#openHealthConditionsView" prefHeight="34.0" prefWidth="142.0" text="Health Conditions">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="btnFunctionalAbilities" layoutX="171.0" layoutY="607.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" prefHeight="34.0" prefWidth="142.0" text="Functional Abilities">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
       <TextField fx:id="textFieldSearch2" layoutX="33.0" layoutY="26.0" promptText="🔎" />
-      <Button layoutX="386.0" layoutY="605.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Update" />
-      <ScrollPane layoutX="385.0" layoutY="281.0" prefHeight="319.0" prefWidth="562.0">
+      <Button layoutX="386.0" layoutY="431.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" text="Update">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <ScrollPane layoutX="386.0" layoutY="112.0" prefHeight="319.0" prefWidth="562.0">
          <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="528.0" prefWidth="553.0" style="-fx-background-color: #BEB5CF;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="356.0" prefWidth="748.0" style="-fx-background-color: #BEB5CF;">
                <children>
-                  <GridPane gridLinesVisible="true" prefHeight="521.0" prefWidth="562.0">
+                  <GridPane gridLinesVisible="true" prefHeight="356.0" prefWidth="749.0">
                     <columnConstraints>
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="120.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="454.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="147.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="608.0" minWidth="10.0" prefWidth="602.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -45,57 +55,57 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Text fx:id="textGeneralCoping" strokeType="OUTSIDE" strokeWidth="0.0" text="Coping" wrappingWidth="43.00390625">
+                        <Text fx:id="textGeneralCoping" onMouseClicked="#copingClikced" onMouseEntered="#copingEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Coping" wrappingWidth="43.00390625">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralMotevation" strokeType="OUTSIDE" strokeWidth="0.0" text="Motevation" wrappingWidth="70.0" GridPane.rowIndex="1">
+                        <Text fx:id="textGeneralMotevation" onMouseClicked="#motivationClicked" onMouseEntered="#motivationEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivation" wrappingWidth="70.0" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralRessources" strokeType="OUTSIDE" strokeWidth="0.0" text="Ressources" wrappingWidth="63.0" GridPane.rowIndex="2">
+                        <Text fx:id="textGeneralRessources" onMouseClicked="#resClicked" onMouseEntered="#resEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Ressources" wrappingWidth="69.0" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralRoles" strokeType="OUTSIDE" strokeWidth="0.0" text="Roles" wrappingWidth="31.0" GridPane.rowIndex="3">
+                        <Text fx:id="textGeneralRoles" onMouseClicked="#rolesClicked" onMouseEntered="#rolesEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Roles" wrappingWidth="35.0" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralHabits" strokeType="OUTSIDE" strokeWidth="0.0" text="Habits" wrappingWidth="37.0" GridPane.rowIndex="4">
+                        <Text fx:id="textGeneralHabits" onMouseClicked="#habitsClicked" onMouseEntered="#habitsEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Habits" wrappingWidth="37.0" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralEducation" strokeType="OUTSIDE" strokeWidth="0.0" text="Education/job" wrappingWidth="80.0" GridPane.rowIndex="5">
+                        <Text fx:id="textGeneralEducation" onMouseClicked="#jobsClicked" onMouseEntered="#jobsEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Education/job" wrappingWidth="80.0" GridPane.rowIndex="5">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralLifeStory" strokeType="OUTSIDE" strokeWidth="0.0" text="Life Story" wrappingWidth="57.0" GridPane.rowIndex="6">
+                        <Text fx:id="textGeneralLifeStory" onMouseClicked="#lifestoryClicked" onMouseEntered="#lifestoryEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Life Story" wrappingWidth="57.0" GridPane.rowIndex="6">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralHealth" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Information" wrappingWidth="70.0" GridPane.rowIndex="7">
+                        <Text fx:id="textGeneralHealth" onMouseClicked="#healthClicked" onMouseEntered="#healthEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Information" wrappingWidth="70.0" GridPane.rowIndex="7">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralAid" strokeType="OUTSIDE" strokeWidth="0.0" text="Aid" wrappingWidth="29.0" GridPane.rowIndex="8">
+                        <Text fx:id="textGeneralAid" onMouseClicked="#aidClicked" onMouseEntered="#aidEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Aid" wrappingWidth="29.0" GridPane.rowIndex="8">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralFurnice" strokeType="OUTSIDE" strokeWidth="0.0" text="Furnishing Of The Living Space " wrappingWidth="100.0" GridPane.rowIndex="9">
+                        <Text fx:id="textGeneralFurnice" onMouseClicked="#furniceClicked" onMouseEntered="#furniceEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Furnishing Of The Living Space " wrappingWidth="100.0" GridPane.rowIndex="9">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralNetwork" strokeType="OUTSIDE" strokeWidth="0.0" text="Network" wrappingWidth="51.1875" GridPane.rowIndex="10">
+                        <Text fx:id="textGeneralNetwork" onMouseClicked="#networkClicked" onMouseEntered="#networkEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Network" wrappingWidth="51.1875" GridPane.rowIndex="10">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -117,29 +127,34 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <Text layoutX="385.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General Information">
+      <Text layoutX="386.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General Information">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="386.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Case" wrappingWidth="45.0">
+      <Text layoutX="386.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Case" wrappingWidth="45.0">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <ScrollPane layoutX="385.0" layoutY="108.0" prefHeight="111.0" prefWidth="562.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="203.0" prefWidth="544.0">
-               <children>
-                  <TextField layoutX="-2.0" layoutY="3.0" prefHeight="203.0" prefWidth="562.0" />
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
       <Text layoutX="22.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizens">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
+      <ScrollPane layoutX="386.0" layoutY="489.0" prefHeight="133.0" prefWidth="569.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="118.0" prefWidth="748.0">
+               <children>
+                  <TextArea prefHeight="119.0" prefWidth="749.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Pane fx:id="infoPane" layoutX="536.0" layoutY="113.0" prefHeight="133.0" prefWidth="346.0" visible="false">
+         <children>
+            <TextArea fx:id="textAreaInfo" layoutY="1.0" prefHeight="133.0" prefWidth="346.0" promptText="textAreaInfo" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

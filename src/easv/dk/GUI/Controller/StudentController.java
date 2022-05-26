@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +18,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.awt.TextField;
@@ -63,6 +67,33 @@ public class StudentController {
     private TextArea textAreaGeneralFurnice;
     @FXML
     private TextArea textAreaGeneralNetwork;
+    @FXML
+    private Text textGeneralCoping;
+    @FXML
+    private Text textGeneralMotevation;
+    @FXML
+    private Text textGeneralRessources;
+    @FXML
+    private Text textGeneralRoles;
+    @FXML
+    private Text textGeneralHabits;
+    @FXML
+    private Text textGeneralEducation;
+    @FXML
+    private Text textGeneralLifeStory;
+    @FXML
+    private Text textGeneralHealth;
+    @FXML
+    private Text textGeneralAid;
+    @FXML
+    private Text textGeneralFurnice;
+    @FXML
+    private Text textGeneralNetwork;
+    @FXML
+    private Pane infoPane;
+    @FXML
+    private TextArea textAreaInfo;
+
     StudentModel studentModel = new StudentModel();
 
 
@@ -210,6 +241,291 @@ public class StudentController {
     textAreaGeneralAid.clear();
     textAreaGeneralFurnice.clear();
     textAreaGeneralNetwork.clear();
+    }
+
+    public void copingClikced(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("Citizen's conscious or unconscious\n" +
+                    " handling of life/disease - both\n" +
+                    " challenges and opportunities");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void copingEnter(MouseEvent mouseEvent) {
+        textGeneralCoping.setUnderline(true); textGeneralCoping.setUnderline(true);
+        textGeneralCoping.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralCoping.setUnderline(false);
+                    textGeneralCoping.setUnderline(false);
+                });
+    }
+
+    public void motivationClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("The driving force behind that the citizen is acting in\n" +
+                    " a certain way or starts in motion\n" +
+                    " with/maintains a task/effort.\n");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void motivationEnter(MouseEvent mouseEvent) {
+        textGeneralMotevation.setUnderline(true); textGeneralMotevation.setUnderline(true);
+        textGeneralMotevation.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralMotevation.setUnderline(false);
+                    textGeneralMotevation.setUnderline(false);
+                });
+    }
+
+    public void resClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("The physical or mental forces that the citizen\n" +
+                    "has to a certain extent available and can exploit.\n" +
+                    "Physical powers, for example, can be in the form of\n"  +
+                    "physical health and strength. Mental powers can, for example, \n" +
+                    "be in form of mental health and strength,including thoughts \n" +
+                    "and ways of relating to situations and other people.");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void resEnter(MouseEvent mouseEvent) {
+        textGeneralRessources.setUnderline(true); textGeneralRessources.setUnderline(true);
+        textGeneralRessources.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralRessources.setUnderline(false);
+                    textGeneralRessources.setUnderline(false);
+                });
+    }
+
+    public void rolesClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("The roles that are particularly important to\n" +
+                    " the citizen in relation to family, work and\n" +
+                    " Society.");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void rolesEnter(MouseEvent mouseEvent) {
+        textGeneralRoles.setUnderline(true); textGeneralRoles.setUnderline(true);
+        textGeneralRoles.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralRoles.setUnderline(false);
+                    textGeneralRoles.setUnderline(false);
+                });
+    }
+
+    public void habitsClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("Regular behavior as the citizen has\n" +
+                    " learned through still repetition and\n" +
+                    " execution in whole or in part unconscious.\n" +
+                    "Habits are, for example, the circadian rhythm, \n" +
+                    "the way to be accused, contact with fellow human beings and\n" +
+                    "relationships, way of looking at the world.");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void habitsEnter(MouseEvent mouseEvent) {
+        textGeneralHabits.setUnderline(true); textGeneralHabits.setUnderline(true);
+        textGeneralHabits.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralHabits.setUnderline(false);
+                    textGeneralHabits.setUnderline(false);
+                });
+    }
+
+    public void jobsClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("Current or previous educational and/or business background.\n" +
+                    "eg primary school, vocational education and\n" +
+                    "Higher education");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void jobsEnter(MouseEvent mouseEvent) {
+        textGeneralEducation.setUnderline(true); textGeneralEducation.setUnderline(true);
+        textGeneralEducation.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralEducation.setUnderline(false);
+                    textGeneralEducation.setUnderline(false);
+                });
+    }
+
+    public void lifestoryClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("A description of the citizen's experience of essential events,\n" +
+                    "interests and tasks throughout life.");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void lifestoryEnter(MouseEvent mouseEvent) {
+        textGeneralLifeStory.setUnderline(true); textGeneralLifeStory.setUnderline(true);
+        textGeneralLifeStory.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralLifeStory.setUnderline(false);
+                    textGeneralLifeStory.setUnderline(false);
+                });
+    }
+
+    public void healthClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("Health Information:\n" +
+                    " Current or previous illnesses and\n" +
+                    " Disability that affect\n" +
+                    " Citizen's situation.\n" +
+                    " Healthcare contacts\n" +
+                    " Employee or entities within\n" +
+                    " the Healthcare the Citizen is affiliated to,\n" +
+                    " eg ophthalmologist, dentist, foot therapist or\n" +
+                    " department/ Ambulatory.");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void healthEnter(MouseEvent mouseEvent) {
+        textGeneralHealth.setUnderline(true); textGeneralHealth.setUnderline(true);
+        textGeneralHealth.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralHealth.setUnderline(false);
+                    textGeneralHealth.setUnderline(false);
+                });
+    }
+
+    public void aidClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("Equipment, products and technology such as\n" +
+                    " used by the citizen in daily\n" +
+                    " activities, incl. Such as adapted\n" +
+                    " or specially made to, implanted in,\n" +
+                    " located on or near the person which\n" +
+                    " uses them. (Including ordinary\n" +
+                    " objects and aids and technology\n" +
+                    " for personal use).");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void aidEnter(MouseEvent mouseEvent) {
+        textGeneralAid.setUnderline(true); textGeneralAid.setUnderline(true);
+        textGeneralAid.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralAid.setUnderline(false);
+                    textGeneralAid.setUnderline(false);
+                });
+    }
+
+    public void furniceClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("A description of the physical framework of the home\n" +
+                    " and surroundings that have an impact on\n" +
+                    " the Citizen's everyday life and functioning.");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void furniceEnter(MouseEvent mouseEvent) {
+        textGeneralFurnice.setUnderline(true); textGeneralFurnice.setUnderline(true);
+        textGeneralFurnice.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralFurnice.setUnderline(false);
+                    textGeneralFurnice.setUnderline(false);
+                });
+    }
+
+    public void networkClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            textAreaInfo.setText("A description of the physical framework of the home\n" +
+                    " and surroundings that have an impact on\n" +
+                    " the Citizen's everyday life and functioning.\n" +
+                    "A public network consists of personal\n" +
+                    " helpers, healthcare professionals and other\n" +
+                    " Professionals Primarily Care providers.\n" +
+                    " Private network is family, relative,\n" +
+                    " friends and acquaintances.");
+            infoPane.setDisable(false); infoPane.setVisible(true);
+        }
+        textGeneralCoping.getScene().addEventFilter(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                infoPane.setDisable(true); infoPane.setVisible(false);
+            }
+        });
+    }
+
+    public void networkEnter(MouseEvent mouseEvent) {
+        textGeneralNetwork.setUnderline(true); textGeneralNetwork.setUnderline(true);
+        textGeneralNetwork.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                    textGeneralNetwork.setUnderline(false);
+                    textGeneralNetwork.setUnderline(false);
+                });
     }
 
     /*public void showCitizenInfo() throws Exception {
