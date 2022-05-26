@@ -21,12 +21,12 @@
       <AnchorPane layoutX="1.0" prefHeight="86.0" prefWidth="1127.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <Button fx:id="ButtonToCase" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendToCaseScreen" prefHeight="62.0" prefWidth="100.0" text="Button" visible="false" />
-            <Button fx:id="ButtonLogOut" layoutX="1018.0" layoutY="31.0" mnemonicParsing="false" onAction="#logOut" prefHeight="33.0" prefWidth="87.0" text="Log Out" AnchorPane.bottomAnchor="23.0">
+            <Button fx:id="btnLogOut" layoutX="1018.0" layoutY="31.0" mnemonicParsing="false" onAction="#logOut" prefHeight="33.0" prefWidth="87.0" text="Log Out" AnchorPane.bottomAnchor="23.0">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="buttonReturn" layoutX="886.0" layoutY="29.0" mnemonicParsing="false" onAction="#Return" prefHeight="33.0" prefWidth="99.0" text="Return" AnchorPane.topAnchor="29.0">
+            <Button fx:id="btnReturn" layoutX="886.0" layoutY="29.0" mnemonicParsing="false" onAction="#Return" prefHeight="33.0" prefWidth="99.0" text="Return" AnchorPane.topAnchor="29.0">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
