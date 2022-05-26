@@ -21,7 +21,7 @@ public class EditCitizenViewController {
     @FXML
     private Button btnConfirmUpdateCitizen;
     @FXML
-    private Button cancelUpdateCitizenBTN;
+    private Button btnCancelUpdateCitizen;
     @FXML
     private Citizen selectedCitizen;
 
@@ -51,7 +51,7 @@ public class EditCitizenViewController {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.YES) {
-            Stage stage = (Stage) cancelUpdateCitizenBTN.getScene().getWindow();
+            Stage stage = (Stage) btnCancelUpdateCitizen.getScene().getWindow();
             stage.close();
         }
     }
