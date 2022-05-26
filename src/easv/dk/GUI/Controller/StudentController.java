@@ -30,9 +30,10 @@ import java.util.List;
 
 public class StudentController {
     private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
-    public javafx.scene.control.TextField textFieldSearch2;
-    public Button ButtonToCase;
-
+    @FXML
+    private javafx.scene.control.TextField textFieldSearch2;
+    @FXML
+    private Button ButtonToCase;
     @FXML
     private Button sendToCaseScreen;
     @FXML

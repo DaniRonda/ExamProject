@@ -4,18 +4,27 @@ import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BLL.CitizenManager;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 
 public class EditCitizenViewController {
-    public TextField citizenFirstName_txt;
-    public TextField citizenLastName_txt;
-    public TextField citizenAddress_txt;
-    public TextField citizenPhoneNumber_txt;
-    public Button confirmUpdateCitizenBTN;
-    public Button cancelUpdateCitizenBTN;
+    @FXML
+    private TextField citizenFirstName_txt;
+    @FXML
+    private TextField citizenLastName_txt;
+    @FXML
+    private TextField citizenAddress_txt;
+    @FXML
+    private TextField citizenPhoneNumber_txt;
+    @FXML
+    private Button confirmUpdateCitizenBTN;
+    @FXML
+    private Button cancelUpdateCitizenBTN;
+    @FXML
     private Citizen selectedCitizen;
+
     CitizenManager citizenManager = new CitizenManager();
     private TeacherController parentController;
 

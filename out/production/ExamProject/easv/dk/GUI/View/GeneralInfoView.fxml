@@ -42,7 +42,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralMotevation" strokeType="OUTSIDE" strokeWidth="0.0" text="Motevation" wrappingWidth="70.0" GridPane.rowIndex="1">
+                        <Text fx:id="textGeneralMotevation" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivation" wrappingWidth="70.0" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>

@@ -4,6 +4,7 @@ import easv.dk.BE.Admin;
 import easv.dk.BLL.AdminManager;
 import easv.dk.BLL.Manager;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -12,21 +13,28 @@ import javafx.stage.Stage;
 
 
 public class EditAdminViewController {
-    private AdminViewController parentController;
-    public void setParentController(AdminViewController adminViewController){
-        this.parentController = adminViewController;
-    }
-    public TextField adminPassword_txt;
-    public TextField adminEmail_txt;
-    public Button confirmUpdateAdminBTN;
-    public Button cancelUpdateAdminBTN;
-    private Admin selectedAdmin;
-    AdminManager adminManager = new AdminManager();
 
+
+    @FXML
+    private TextField adminPassword_txt;
+    @FXML
+    private TextField adminEmail_txt;
+    @FXML
+    private Button confirmUpdateAdminBTN;
+    @FXML
+    private Button cancelUpdateAdminBTN;
+    @FXML
+    private Admin selectedAdmin;
+
+    AdminManager adminManager = new AdminManager();
+    private AdminViewController parentController;
 
     public EditAdminViewController() throws Exception {
     }
 
+    public void setParentController(AdminViewController adminViewController){
+        this.parentController = adminViewController;
+    }
 
     public void cancelUpdateAdmin(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);

@@ -18,17 +18,28 @@ import java.io.IOException;
 
 public class AdminViewController {
 
-    public Button openEditTeacherViewBTN;
-    public Button deleteTeacherBTN;
-    public Button openEditStudentViewBTN;
-    public Button deleteStudentBTN;
-    public TableView studentTable;
-    public TableView teacherTable;
-    public Button openCaseViewBTN;
-    public Button btnOpenCitizenOverview;
-    public Button openTemplateViewBTN;
-    public Button openNewTeacherViewBTN;
-    public Button openNewStudentViewBTN;
+    @FXML
+    private Button openEditTeacherViewBTN;
+    @FXML
+    private Button deleteTeacherBTN;
+    @FXML
+    private Button openEditStudentViewBTN;
+    @FXML
+    private Button deleteStudentBTN;
+    @FXML
+    private TableView studentTable;
+    @FXML
+    private TableView teacherTable;
+    @FXML
+    private Button openCaseViewBTN;
+    @FXML
+    private Button btnOpenCitizenOverview;
+    @FXML
+    private Button openTemplateViewBTN;
+    @FXML
+    private Button openNewTeacherViewBTN;
+    @FXML
+    private Button openNewStudentViewBTN;
     @FXML
     private Button btnAdminLogOut;
     TeacherModel teacherModel = new TeacherModel();
