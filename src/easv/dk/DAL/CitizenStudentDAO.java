@@ -141,7 +141,7 @@ public class CitizenStudentDAO {
             boolean isTemplate = resultSet.getBoolean("isTemplate");
             Date birthdate = resultSet.getDate("birthDate");
 
-            citizens.add(new Citizen(firstName,lastName, address, birthdate ,phoneNumber, isTemplate,schoolID, ID));
+            citizens.add(new Citizen(firstName,lastName, address, birthdate ,phoneNumber, isTemplate, ID));
         }
         resultSet.close();
         ps.close();
@@ -184,7 +184,7 @@ public class CitizenStudentDAO {
             int phoneNumber = rs.getInt("phoneNumber");
             int schoolID = rs.getInt("school_id");
             int ID = rs.getInt("id");
-            citizens.add(new Citizen(firstName,lastName,address,birthDate,phoneNumber, isTemplate,schoolID, ID));
+            citizens.add(new Citizen(firstName,lastName,address,birthDate,phoneNumber, isTemplate, ID));
         }
         rs.close();
         ps.close();

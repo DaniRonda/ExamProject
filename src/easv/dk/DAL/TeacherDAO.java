@@ -37,9 +37,8 @@ public class TeacherDAO {
                 String lastName = resultSet.getString("lastName");
                 String emails = resultSet.getString("email");
                 String login = resultSet.getString("password");
-                String school = resultSet.getString("school");
                 System.out.println("admin found");
-                teacherfound = new Teacher(firstName, lastName, emails, password, school, ID);
+                teacherfound = new Teacher(firstName, lastName, emails, password, ID);
             }
         }
         catch (Exception e){
@@ -52,13 +51,12 @@ public class TeacherDAO {
 
     public Teacher createTeacher(Teacher teacher) throws Exception {
         Connection con = cm.getConnection();
-        String sqlSelectTeacher = "INSERT INTO Teacher VALUES(?,?,?,?,?,?)";
+        String sqlSelectTeacher = "INSERT INTO Teacher VALUES(?,?,?,?,?)";
         PreparedStatement psInsertTeacher = con.prepareStatement(sqlSelectTeacher, Statement.RETURN_GENERATED_KEYS);
         psInsertTeacher.setString(2, teacher.getFirstName());
         psInsertTeacher.setString(3, teacher.getLastName());
         psInsertTeacher.setString(4, teacher.getEmail());
         psInsertTeacher.setString(5, teacher.getPassword());
-        psInsertTeacher.setString (6, teacher.getSchool());
         psInsertTeacher.setInt(1,teacher.getId());
         psInsertTeacher.addBatch();
         psInsertTeacher.executeBatch();
@@ -68,7 +66,7 @@ public class TeacherDAO {
     public List<Teacher> getAllTeacher() throws Exception {
         List<Teacher> teacherList = new ArrayList<>();
         Connection con = cm.getConnection();
-        String sqlSelectTeacher = "select teacher.id,firstName, lastName, email,password, school from Teacher;";
+        String sqlSelectTeacher = "select teacher.id,firstName, lastName, email,password from Teacher;";
         PreparedStatement psSelectTeacher = con.prepareStatement(sqlSelectTeacher);
         ResultSet rs = psSelectTeacher.executeQuery();
         while (rs.next()) {
@@ -76,9 +74,8 @@ public class TeacherDAO {
             String lastName = rs.getString("lastName");
             String email = rs.getString("email");
             String password = rs.getString("password");
-            String school = rs.getString("school");
             int id = rs.getInt("id");
-            Teacher teacher = new Teacher (firstName, lastName, email, password, school, id);
+            Teacher teacher = new Teacher (firstName, lastName, email, password, id);
             teacherList.add(teacher);
         }
         rs.close();
@@ -89,14 +86,13 @@ public class TeacherDAO {
 
     public void updateTeacher(Teacher teacher) throws Exception {
         Connection con = cm.getConnection();
-        String sqlUpdateTeacher = "UPDATE  Teacher SET firstName=?, lastName=? , email=?, password=?, school=? WHERE ID=?;";
+        String sqlUpdateTeacher = "UPDATE  Teacher SET firstName=?, lastName=? , email=?, password=? WHERE ID=?;";
         PreparedStatement psUpdateTeacher = con.prepareStatement(sqlUpdateTeacher, Statement.RETURN_GENERATED_KEYS);
         psUpdateTeacher.setString(1,teacher.getFirstName());
         psUpdateTeacher.setString(2,teacher.getLastName());
         psUpdateTeacher.setString(3,teacher.getEmail());
         psUpdateTeacher.setString(4,teacher.getPassword());
-        psUpdateTeacher.setString(5,teacher.getSchool());
-        psUpdateTeacher.setInt(6,teacher.getId());
+        psUpdateTeacher.setInt(5,teacher.getId());
         psUpdateTeacher.executeUpdate();
         psUpdateTeacher.close();
         con.close();

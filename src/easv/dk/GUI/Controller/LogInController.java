@@ -23,10 +23,7 @@ import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
 
-    Manager manager = new Manager();
-    AdminModel adminModel = new AdminModel();
-    TeacherModel teacherModel = new TeacherModel();
-    StudentModel studentModel = new StudentModel();
+
     @FXML
     private Button BtnCancel;
     @FXML
@@ -37,6 +34,11 @@ public class LogInController implements Initializable {
     private PasswordField TextFieldPassword = new PasswordField();
     @FXML
     private Button ButtonSignIn;
+
+    Manager manager = new Manager();
+    AdminModel adminModel = new AdminModel();
+    TeacherModel teacherModel = new TeacherModel();
+    StudentModel studentModel = new StudentModel();
 
     public LogInController() throws Exception {
     }

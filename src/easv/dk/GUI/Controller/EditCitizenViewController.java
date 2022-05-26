@@ -40,7 +40,7 @@ public class EditCitizenViewController {
         String citizenLastName= citizenLastName_txt.getText();
         String citizenAddress = citizenAddress_txt.getText();
         int citizenPhoneNumber = citizenPhoneNumber_txt.getProperties().size();
-        Citizen citizenUpdated = new Citizen(citizenFirstName,citizenLastName,citizenAddress, selectedCitizen.getBirthDate(), citizenPhoneNumber, selectedCitizen.isTemplate(), selectedCitizen.getSchoolID(), selectedCitizen.getID());
+        Citizen citizenUpdated = new Citizen(citizenFirstName,citizenLastName,citizenAddress, selectedCitizen.getBirthDate(), citizenPhoneNumber, selectedCitizen.isTemplate(), selectedCitizen.getID());
         citizenManager.updateCitizen(citizenUpdated);
         Stage stage = (Stage)confirmUpdateCitizenBTN.getScene().getWindow();
         stage.close();

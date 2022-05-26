@@ -25,8 +25,8 @@ public class CitizenDAO {
         List<Citizen> citizenList = new ArrayList<>();
         Connection con = cm.getConnection();
         String sqlSelectCitizen = "\n" +
-                "select citizen.id,firstName,lastName,address,birthDate,isTemplate,phoneNumber,school_id from Citizen\n" +
-                "GROUP by citizen.id,firstname,lastName,address,birthDate,isTemplate,phoneNumber,school_id\n;";    //almost definitly wrong
+                "select citizen.id,firstName,lastName,address,birthDate,isTemplate,phoneNumber from Citizen\n" +
+                "GROUP by citizen.id,firstname,lastName,address,birthDate,isTemplate,phoneNumber\n;";    //almost definitly wrong
         PreparedStatement psSelectCitizen = con.prepareStatement(sqlSelectCitizen);
         ResultSet rs = psSelectCitizen.executeQuery();
         while (rs.next()) {
@@ -36,9 +36,8 @@ public class CitizenDAO {
             Date birthDate = rs.getDate("birthDate");
             boolean isTemplate = rs.getBoolean("isTemplate");
             int phoneNumber = rs.getInt("phoneNumber");
-            int schoolID = rs.getInt("school_id");
             int Id = rs.getInt("id");
-            Citizen citizen = new Citizen(firstName, lastName, address, birthDate, phoneNumber, isTemplate, schoolID, Id);
+            Citizen citizen = new Citizen(firstName, lastName, address, birthDate, phoneNumber, isTemplate, Id);
             citizenList.add(citizen);
         }
         rs.close();
@@ -49,14 +48,13 @@ public class CitizenDAO {
 
     public void updateCitizen(Citizen citizen) throws Exception {
         Connection con = cm.getConnection();
-        String sqlUpdateCitizen = "UPDATE  Citizen SET firstName=?, lastName=?, address=?, phoneNumber=?, school_id=? WHERE ID=?;";
+        String sqlUpdateCitizen = "UPDATE  Citizen SET firstName=?, lastName=?, address=?, phoneNumber=? WHERE ID=?;";
         PreparedStatement psUpdateCitizen = con.prepareStatement(sqlUpdateCitizen);
         psUpdateCitizen.setString(1,citizen.getFirstName());
         psUpdateCitizen.setString(2,citizen.getLastName());
         psUpdateCitizen.setString(3,citizen.getAddress());
         psUpdateCitizen.setInt(4,citizen.getPhoneNumber());
-        psUpdateCitizen.setInt(5,citizen.getSchoolID());
-        psUpdateCitizen.setInt(6,citizen.getID());
+        psUpdateCitizen.setInt(5,citizen.getID());
         psUpdateCitizen.execute();
         psUpdateCitizen.close();
         con.close();
@@ -66,7 +64,7 @@ public class CitizenDAO {
     public Citizen createCitizen(Citizen citizen) throws Exception {
         Citizen citizenCreated = null;
         Connection con = cm.getConnection();
-        String sqlSelectCitizen = "INSERT INTO Citizen VALUES(?,?,?,?,?,?,?)";
+        String sqlSelectCitizen = "INSERT INTO Citizen VALUES(?,?,?,?,?,?)";
         PreparedStatement psInsertCitizen = con.prepareStatement(sqlSelectCitizen, Statement.RETURN_GENERATED_KEYS);
         psInsertCitizen.setString(1, citizen.getFirstName());
         psInsertCitizen.setString(2, citizen.getLastName());
@@ -74,7 +72,6 @@ public class CitizenDAO {
         psInsertCitizen.setDate(4, (Date) citizen.getBirthDate());
         psInsertCitizen.setInt(5, citizen.getPhoneNumber());
         psInsertCitizen.setBoolean(6, citizen.isTemplate());
-        psInsertCitizen.setInt (7,citizen.getSchoolID());
         psInsertCitizen.addBatch();
         psInsertCitizen.executeBatch();
         ResultSet rs = psInsertCitizen.getGeneratedKeys();
@@ -85,7 +82,6 @@ public class CitizenDAO {
                     citizen.getBirthDate(),
                     citizen.getPhoneNumber(),
                     citizen.isTemplate(),
-                    citizen.getSchoolID(),
                     rs.getInt(1)
             );
         }

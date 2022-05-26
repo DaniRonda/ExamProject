@@ -13,24 +13,31 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-
 public class TeacherController {
-
-    public TableView studentTable;
-    public Button btnDeleteStudent;
-    public Button btnRemoveStudents;
-    public Button btnNewStudent;
-    public Button btnEditStudent;
-    public Button btnEditCitizen;
-    public ListView assignedStudents;
-    public Button btnCitizenToStudent;
-    public Button btnOpenTemplateView;
-    public Button btnOpenCaseView;
+    @FXML
+    private TableView studentTable;
+    @FXML
+    private Button btnDeleteStudent;
+    @FXML
+    private Button btnRemoveStudents;
+    @FXML
+    private Button btnNewStudent;
+    @FXML
+    private Button btnEditStudent;
+    @FXML
+    private Button btnEditCitizen;
+    @FXML
+    private ListView assignedStudents;
+    @FXML
+    private Button btnCitizenToStudent;
+    @FXML
+    private Button btnOpenTemplateView;
+    @FXML
+    private Button btnOpenCaseView;
     @FXML
     private TableView citizenTable;
     @FXML
@@ -39,6 +46,7 @@ public class TeacherController {
     private Button btnNewCitizen;
     @FXML
     private Button btnTeacherLogOut;
+
     StudentModel studentModel = new StudentModel();
     CitizenModel citizenModel = new CitizenModel();
     private final static int StudentSelected = 0;

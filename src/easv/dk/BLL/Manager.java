@@ -38,7 +38,7 @@ public class Manager {
         citizenStudentDAO.AddCitizenToStudent(citizen, student);
     }
     public void removeStudentFromCitizen (int studentId, int citizenId) throws Exception {
-        citizenStudentDAO.removeCitizenFromStudent(new Citizen("", "","",null,0,false,0, citizenId), new Student("", "", "", "", studentId));
+        citizenStudentDAO.removeCitizenFromStudent(new Citizen("", "","",null,0,false, citizenId), new Student("", "", "", "", studentId));
     }
     public List<Citizen> getCitizensFromStudent(Student student) throws Exception {
         return citizenStudentDAO.getCitizensFromStudent(student);
