@@ -22,7 +22,7 @@ public class EditStudentViewController {
  @FXML
  private TextField studentPassword_txt;
  @FXML
- private Button confirmUpdateStudentBTN;
+ private Button btnSaveUpdateStudent;
  @FXML
  private Button cancelUpdateStudentBTN;
 
@@ -44,14 +44,14 @@ public class EditStudentViewController {
   studentEmail_txt.setText(String.valueOf(selectedItem.getEmail()));
  }
 
-    public void confirmUpdateStudent(ActionEvent actionEvent) throws Exception {
+    public void saveUpdateStudent(ActionEvent actionEvent) throws Exception {
      String studentFirstName= studentFirstName_txt.getText();
      String studentLastName=studentLastName_txt.getText();
      String studentEmail = studentEmail_txt.getText();
      String studentPassword = studentPassword_txt.getText();
      Student studentUpdated= new Student(studentFirstName,studentLastName,studentEmail,studentPassword,selectedStudent.getId());
      studentManager.updateStudent(studentUpdated);
-     Stage stage = (Stage)confirmUpdateStudentBTN.getScene().getWindow();
+     Stage stage = (Stage)btnSaveUpdateStudent.getScene().getWindow();
      stage.close();
      parentController.initialize();
     }

@@ -28,7 +28,7 @@
       <TextField fx:id="studentLastName_txt" layoutX="195.0" layoutY="137.0" prefHeight="39.0" prefWidth="229.0" />
       <TextField fx:id="studentEmail_txt" layoutX="195.0" layoutY="202.0" prefHeight="39.0" prefWidth="229.0" />
       <TextField fx:id="studentPassword_txt" layoutX="195.0" layoutY="264.0" prefHeight="39.0" prefWidth="229.0" />
-      <Button fx:id="confirmUpdateStudentBTN" layoutX="424.0" layoutY="342.0" mnemonicParsing="false" onAction="#confirmUpdateStudent" prefHeight="25.0" prefWidth="51.0" text="Save" />
+      <Button fx:id="btnSaveUpdateStudent" layoutX="445.0" layoutY="342.0" mnemonicParsing="false" onAction="#saveUpdateStudent" prefHeight="25.0" prefWidth="51.0" text="Save" />
       <Button fx:id="cancelUpdateStudentBTN" layoutX="514.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancelUpdateStudent" text="Cancel" />
    </children>
 </AnchorPane>
