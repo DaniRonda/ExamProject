@@ -23,7 +23,7 @@ public class EditTeacherViewController {
     @FXML
     private Button btnSaveUpdateTeacher;
     @FXML
-    private Button cancelUpdateTeacherBTN;
+    private Button btnCancelUpdateTeacher;
 
     private Teacher selectedTeacher;
     TeacherManager teacherManager = new TeacherManager();
@@ -36,7 +36,7 @@ public class EditTeacherViewController {
     public EditTeacherViewController() throws Exception {
     }
 
-    public void savemUpdateTeacher(ActionEvent actionEvent) throws Exception {
+    public void saveUpdateTeacher(ActionEvent actionEvent) throws Exception {
         String teacherFirstName= teacherFirstName_txt.getText();
         String teacherLastName=teacherLastName_txt.getText();
         String teacherEmail = teacherEmail_txt.getText();
@@ -60,7 +60,7 @@ public class EditTeacherViewController {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.YES) {
-            Stage stage = (Stage) cancelUpdateTeacherBTN.getScene().getWindow();
+            Stage stage = (Stage) btnCancelUpdateTeacher.getScene().getWindow();
             stage.close();
     }
     }
