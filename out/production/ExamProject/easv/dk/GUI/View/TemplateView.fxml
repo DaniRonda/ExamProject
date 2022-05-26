@@ -33,7 +33,7 @@
       <Button layoutX="206.0" layoutY="577.0" mnemonicParsing="false" text="Edit" />
       <Button layoutX="399.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
       <Button layoutX="250.0" layoutY="577.0" mnemonicParsing="false" text="Duplicate" />
-      <TableView layoutX="163.0" layoutY="115.0" prefHeight="461.0" prefWidth="296.0">
+      <TableView fx:id="templateTable" layoutX="163.0" layoutY="115.0" prefHeight="461.0" prefWidth="296.0">
         <columns>
           <TableColumn prefWidth="150.0" text="First Name" />
           <TableColumn prefWidth="150.0" text="Last Name" />

@@ -1,6 +1,7 @@
 package easv.dk.GUI.Controller;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -22,6 +25,7 @@ public class GeneralInfoViewController {
     private Button btnCancelUpdateGeneralInfo;
     @FXML
     private Button btnSaveUpdateGeneralInfo;
+
 
 
 

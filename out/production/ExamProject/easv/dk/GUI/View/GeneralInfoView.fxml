@@ -47,7 +47,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralRessources" strokeType="OUTSIDE" strokeWidth="0.0" text="Ressources" wrappingWidth="63.0" GridPane.rowIndex="2">
+                        <Text fx:id="textGeneralResources" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources" wrappingWidth="63.0" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -127,6 +127,11 @@
       <Button fx:id="btnCancelUpdateGeneralInfo" layoutX="856.0" layoutY="600.0" mnemonicParsing="false" onAction="#cancelUpdateGeneralInfo" prefHeight="31.0" prefWidth="79.0" text="Cancel">
          <font>
             <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnOpenCopingInfo" alignment="CENTER_RIGHT" layoutX="132.0" layoutY="87.0" mnemonicParsing="false" onAction="#openCopingInfo" prefHeight="25.0" prefWidth="9.0" style="-fx-background-color: #BEB5CF;" text="?" textAlignment="RIGHT">
+         <font>
+            <Font name="System Bold" size="16.0" />
          </font>
       </Button>
    </children>
