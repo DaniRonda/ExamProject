@@ -24,7 +24,7 @@ public class EditStudentViewController {
  @FXML
  private Button btnSaveUpdateStudent;
  @FXML
- private Button cancelUpdateStudentBTN;
+ private Button btnCancelUpdateStudent;
 
     private Student selectedStudent;
  StudentManager studentManager = new StudentManager();
@@ -60,7 +60,7 @@ public class EditStudentViewController {
      Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Discard changes ?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
      alert.showAndWait();
      if (alert.getResult() == ButtonType.YES) {
-      Stage stage = (Stage) cancelUpdateStudentBTN.getScene().getWindow();
+      Stage stage = (Stage) btnCancelUpdateStudent.getScene().getWindow();
       stage.close();
      }
     }

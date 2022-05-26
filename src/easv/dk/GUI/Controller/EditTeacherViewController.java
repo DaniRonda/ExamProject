@@ -21,7 +21,7 @@ public class EditTeacherViewController {
     @FXML
     private TextField teacherLastName_txt;
     @FXML
-    private Button confirmUpdateTeacherBTN;
+    private Button btnSaveUpdateTeacher;
     @FXML
     private Button cancelUpdateTeacherBTN;
 
@@ -36,14 +36,14 @@ public class EditTeacherViewController {
     public EditTeacherViewController() throws Exception {
     }
 
-    public void confirmUpdateTeacher(ActionEvent actionEvent) throws Exception {
+    public void savemUpdateTeacher(ActionEvent actionEvent) throws Exception {
         String teacherFirstName= teacherFirstName_txt.getText();
         String teacherLastName=teacherLastName_txt.getText();
         String teacherEmail = teacherEmail_txt.getText();
         String teacherPassword = teacherPassword_txt.getText();
         Teacher teacherUpdated = new Teacher(teacherFirstName, teacherLastName,teacherEmail,teacherPassword, selectedTeacher.getId());
         teacherManager.updateTeacher(teacherUpdated);
-        Stage stage = (Stage)confirmUpdateTeacherBTN.getScene().getWindow();
+        Stage stage = (Stage)btnSaveUpdateTeacher.getScene().getWindow();
         stage.close();
         parentController.initialize();
     }
