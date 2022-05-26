@@ -18,8 +18,8 @@ public class StudentManager {
         else return null;
     }
 
-    public void updateStudent(Student student) throws Exception{
-        studentDAO.updateStudent(student);
+    public void saveUpdateStudent(Student student) throws Exception{
+        studentDAO.saveUpdateStudent(student);
     }
 
     public void deleteStudent(Student selectedItem) throws Exception{
