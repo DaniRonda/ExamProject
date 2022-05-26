@@ -10,22 +10,22 @@
    <children>
       <Label layoutX="118.0" layoutY="79.0" text="First Name">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="118.0" layoutY="128.0" text="Last Name">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="122.0" layoutY="240.0" text="Email">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="122.0" layoutY="289.0" text="Password">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="122.0" layoutY="183.0" text="School">
@@ -33,12 +33,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="teacherFirstName_txt" layoutX="232.0" layoutY="71.0" prefHeight="38.0" prefWidth="206.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="teacherPassword_txt" layoutX="232.0" layoutY="281.0" prefHeight="38.0" prefWidth="206.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="teacherEmail_txt" layoutX="232.0" layoutY="232.0" prefHeight="38.0" prefWidth="206.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="teacherSchool_txt" layoutX="232.0" layoutY="175.0" prefHeight="38.0" prefWidth="206.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="teacherLastName_txt" layoutX="232.0" layoutY="120.0" prefHeight="38.0" prefWidth="206.0" style="-fx-background-radius: 50;" />
-      <Button fx:id="confirmNewTeacherBTN" layoutX="391.0" layoutY="336.0" mnemonicParsing="false" onAction="#confirmNewTeacher" prefHeight="38.0" prefWidth="74.0" style="-fx-background-radius: 50;" text="Confirm" />
-      <Button fx:id="cancelNewTeacherBTN" layoutX="494.0" layoutY="336.0" mnemonicParsing="false" onAction="#cancelNewTeacher" prefHeight="38.0" prefWidth="74.0" style="-fx-background-radius: 50;" text="Cancel" />
+      <TextField fx:id="teacherFirstName_txt" layoutX="232.0" layoutY="71.0" prefHeight="38.0" prefWidth="206.0" />
+      <TextField fx:id="teacherPassword_txt" layoutX="232.0" layoutY="281.0" prefHeight="38.0" prefWidth="206.0" />
+      <TextField fx:id="teacherEmail_txt" layoutX="232.0" layoutY="232.0" prefHeight="38.0" prefWidth="206.0" />
+      <TextField fx:id="teacherSchool_txt" layoutX="232.0" layoutY="175.0" prefHeight="38.0" prefWidth="206.0" />
+      <TextField fx:id="teacherLastName_txt" layoutX="232.0" layoutY="120.0" prefHeight="38.0" prefWidth="206.0" />
+      <Button fx:id="confirmNewTeacherBTN" layoutX="322.0" layoutY="335.0" mnemonicParsing="false" onAction="#confirmNewTeacher" prefHeight="25.0" prefWidth="51.0" text="Save" />
+      <Button fx:id="cancelNewTeacherBTN" layoutX="386.0" layoutY="335.0" mnemonicParsing="false" onAction="#cancelNewTeacher" prefHeight="25.0" prefWidth="51.0" text="Cancel" />
    </children>
 </AnchorPane>

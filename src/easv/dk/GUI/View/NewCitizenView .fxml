@@ -7,31 +7,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="507.0" prefWidth="541.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.NewCitizenViewController">
+<AnchorPane prefHeight="507.0" prefWidth="550.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.NewCitizenViewController">
    <children>
       <Label layoutX="50.0" layoutY="50.0" prefHeight="27.0" prefWidth="94.0" text="First Name">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="51.0" layoutY="105.0" prefHeight="27.0" prefWidth="87.0" text="Last Name">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="50.0" layoutY="160.0" prefHeight="27.0" prefWidth="68.0" text="Address">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="50.0" layoutY="380.0" prefHeight="27.0" prefWidth="87.0" text="Birth Date">
+      <Label layoutX="50.0" layoutY="380.0" prefHeight="27.0" prefWidth="87.0" text="Birthdate">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="50.0" layoutY="215.0" text="Phone Number">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <Label layoutX="50.0" layoutY="325.0" text="School ID">
@@ -41,17 +41,17 @@
       </Label>
       <Label layoutX="50.0" layoutY="270.0" text="Template">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="createCitizenLastName_txt" layoutX="223.0" layoutY="100.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="createCitizenFirstName_txt" layoutX="223.0" layoutY="45.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="createCitizenAddress_txt" layoutX="223.0" layoutY="155.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="createCitizenPhoneNumber_txt" layoutX="223.0" layoutY="210.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="createCitizenTemplate" layoutX="223.0" layoutY="265.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <TextField fx:id="createCitizenSchoolID_txt" layoutX="223.0" layoutY="320.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 50;" />
-      <Button fx:id="confirmCreateCitizenBTN" layoutX="338.0" layoutY="434.0" mnemonicParsing="false" onAction="#confirmCreateCitizen" text="Create Citizen" />
-      <Button fx:id="cancelCreateCitizenBTN" layoutX="248.0" layoutY="434.0" mnemonicParsing="false" text="Cancel" />
+      <TextField fx:id="createCitizenLastName_txt" layoutX="223.0" layoutY="100.0" prefHeight="39.0" prefWidth="229.0" />
+      <TextField fx:id="createCitizenFirstName_txt" layoutX="223.0" layoutY="45.0" prefHeight="39.0" prefWidth="229.0" />
+      <TextField fx:id="createCitizenAddress_txt" layoutX="223.0" layoutY="155.0" prefHeight="39.0" prefWidth="229.0" />
+      <TextField fx:id="createCitizenPhoneNumber_txt" layoutX="223.0" layoutY="210.0" prefHeight="39.0" prefWidth="229.0" />
+      <TextField fx:id="createCitizenTemplate" layoutX="223.0" layoutY="265.0" prefHeight="39.0" prefWidth="229.0" />
+      <TextField fx:id="createCitizenSchoolID_txt" layoutX="223.0" layoutY="320.0" prefHeight="39.0" prefWidth="229.0" />
+      <Button fx:id="confirmCreateCitizenBTN" layoutX="338.0" layoutY="449.0" mnemonicParsing="false" onAction="#confirmCreateCitizen" prefHeight="25.0" prefWidth="51.0" text="Save" />
+      <Button fx:id="cancelCreateCitizenBTN" layoutX="400.0" layoutY="449.0" mnemonicParsing="false" text="Cancel" />
       <DatePicker fx:id="createCitizenBirthDatePicker" layoutX="223.0" layoutY="375.0" prefHeight="39.0" prefWidth="229.0" style="-fx-background-radius: 0;" />
    </children>
 </AnchorPane>
