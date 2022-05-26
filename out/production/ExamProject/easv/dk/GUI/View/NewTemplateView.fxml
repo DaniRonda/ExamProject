@@ -6,37 +6,49 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="388.0" prefWidth="609.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.NewTemplateViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.NewTemplateViewController">
    <children>
-      <TextField layoutX="225.0" layoutY="47.0" />
-      <Label layoutX="53.0" layoutY="47.0" text="First Name">
+      <TextField layoutX="202.0" layoutY="34.0" prefHeight="36.0" prefWidth="172.0" />
+      <Label layoutX="53.0" layoutY="39.0" text="First Name">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="225.0" layoutY="83.0" />
-      <TextField layoutX="225.0" layoutY="123.0" />
-      <TextField layoutX="225.0" layoutY="162.0" />
-      <Label layoutX="54.0" layoutY="83.0" text="Last Name">
+      <TextField layoutX="202.0" layoutY="94.0" prefHeight="36.0" prefWidth="172.0" />
+      <TextField layoutX="202.0" layoutY="147.0" prefHeight="36.0" prefWidth="172.0" />
+      <TextField layoutX="202.0" layoutY="207.0" prefHeight="36.0" prefWidth="172.0" />
+      <Label layoutX="54.0" layoutY="99.0" text="Last Name">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="162.0" text="Phone Number">
+      <Label layoutX="54.0" layoutY="212.0" text="Phone Number">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="123.0" text="Birth Date">
+      <Label layoutX="53.0" layoutY="152.0" text="Birthdate">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnOpenCase" layoutX="408.0" layoutY="47.0" mnemonicParsing="false" onAction="#openCaseView" prefHeight="25.0" prefWidth="143.0" text="Case" />
-      <Button fx:id="buttonGeneralInfo" layoutX="408.0" layoutY="83.0" mnemonicParsing="false" onAction="#openGeneralInfoView1" prefHeight="25.0" prefWidth="143.0" text="General Information" />
-      <Button layoutX="408.0" layoutY="162.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" prefHeight="25.0" prefWidth="143.0" text="Functional Abilities" />
-      <Button layoutX="408.0" layoutY="123.0" mnemonicParsing="false" onAction="#openHealthConditionsView" prefHeight="25.0" prefWidth="143.0" text="Health Conditions" />
-      <Button layoutX="442.0" layoutY="353.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Save" />
-      <Button layoutX="522.0" layoutY="353.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Cancel" />
+      <Button fx:id="btnOpenCase" layoutX="407.0" layoutY="34.0" mnemonicParsing="false" onAction="#openCaseView" prefHeight="36.0" prefWidth="172.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 10;" text="Case" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="buttonGeneralInfo" layoutX="407.0" layoutY="94.0" mnemonicParsing="false" onAction="#openGeneralInfoView1" prefHeight="36.0" prefWidth="172.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 10;" text="General Information">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="407.0" layoutY="207.0" mnemonicParsing="false" onAction="#openFunctionalAbilitiesView" prefHeight="36.0" prefWidth="172.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 10;" text="Functional Abilities">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="407.0" layoutY="147.0" mnemonicParsing="false" onAction="#openHealthConditionsView" prefHeight="36.0" prefWidth="172.0" style="-fx-background-color: #BEB5CF; -fx-background-radius: 10;" text="Health Conditions">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="443.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Save" />
+      <Button layoutX="521.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Cancel" />
    </children>
 </AnchorPane>

@@ -19,8 +19,6 @@ public class NewTeacherViewController {
     @FXML
     private TextField teacherLastName_txt;
     @FXML
-    private TextField teacherSchool_txt;
-    @FXML
     private TextField teacherEmail_txt;
     @FXML
     private TextField teacherPassword_txt;
