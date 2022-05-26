@@ -43,8 +43,7 @@ public class NewTeacherViewController {
         String teacherLastName=teacherLastName_txt.getText();
         String teacherEmail = teacherEmail_txt.getText();
         String teacherPassword = teacherPassword_txt.getText();
-        String teacherSchool = teacherSchool_txt.getText();
-        Teacher teacherCreated= new Teacher (teacherFirstName, teacherLastName, teacherEmail, teacherPassword, teacherSchool, 0);
+        Teacher teacherCreated= new Teacher (teacherFirstName, teacherLastName, teacherEmail, teacherPassword, 0);
         teacherManager.createTeacher(teacherCreated);
         Stage stage = (Stage)confirmNewTeacherBTN.getScene().getWindow();
         stage.close();

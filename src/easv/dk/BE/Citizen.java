@@ -11,20 +11,18 @@ public class Citizen {
     private java.util.Date birthDate;
     private int phoneNumber;
     private boolean isTemplate;
-    private int schoolID;
     private int ID;
     private int studentCount = 0;
     private List<Student> studentsInCitizen;
 
 
-    public Citizen(String firstName, String lastName, String address, Date birthDate, int phoneNumber, boolean isTemplate, int schoolID, int ID) {
+    public Citizen(String firstName, String lastName, String address, Date birthDate, int phoneNumber, boolean isTemplate, int ID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
         this.isTemplate = isTemplate;
-        this.schoolID = schoolID;
         this.ID = ID;
     }
     public String getFirstName() {
@@ -75,13 +73,6 @@ public class Citizen {
         isTemplate = template;
     }
 
-    public int getSchoolID() {
-        return schoolID;
-    }
-
-    public void setSchoolID(int schoolID) {
-        this.schoolID = schoolID;
-    }
 
     public int getID() {
         return ID;

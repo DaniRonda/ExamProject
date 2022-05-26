@@ -41,7 +41,7 @@ public class EditTeacherViewController {
         String teacherLastName=teacherLastName_txt.getText();
         String teacherEmail = teacherEmail_txt.getText();
         String teacherPassword = teacherPassword_txt.getText();
-        Teacher teacherUpdated = new Teacher(teacherFirstName, teacherLastName,teacherEmail,teacherPassword, selectedTeacher.getSchool(),selectedTeacher.getId());
+        Teacher teacherUpdated = new Teacher(teacherFirstName, teacherLastName,teacherEmail,teacherPassword, selectedTeacher.getId());
         teacherManager.updateTeacher(teacherUpdated);
         Stage stage = (Stage)confirmUpdateTeacherBTN.getScene().getWindow();
         stage.close();

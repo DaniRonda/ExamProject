@@ -49,9 +49,8 @@ public class NewCitizenViewController {
         String createCitizenLastName = createCitizenLastName_txt.getText();
         String createCitizenAddress = createCitizenAddress_txt.getText();
         int createCitizenPhoneNumber = createCitizenPhoneNumber_txt.getProperties().size();
-        int createCitizenSchoolID = createCitizenSchoolID_txt.getProperties().size();
         boolean createCitizenTemplate = (boolean) createCitizenTemplate_CB.getValue();
         //Date createCitizenBirthDate = createCitizenBirthDatePicker.
-        Citizen citizenCreated = new Citizen(createCitizenFirstName, createCitizenLastName, createCitizenAddress, createCitizenPhoneNumber, createCitizenSchoolID, )
+        Citizen citizenCreated = new Citizen(createCitizenFirstName, createCitizenLastName, createCitizenAddress, createCitizenPhoneNumber )
     }*/
 }
