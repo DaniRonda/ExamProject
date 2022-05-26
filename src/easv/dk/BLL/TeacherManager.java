@@ -20,8 +20,8 @@ public class TeacherManager {
         else return null;
     }
 
-    public void updateTeacher(Teacher teacher) throws Exception{
-        teacherDAO.updateTeacher(teacher);
+    public void saveUpdateTeacher(Teacher teacher) throws Exception{
+        teacherDAO.saveUpdateTeacher(teacher);
     }
 
     public void deleteTeacher(Teacher selectedItem) throws Exception{

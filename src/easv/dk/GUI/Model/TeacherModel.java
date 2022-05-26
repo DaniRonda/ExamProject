@@ -34,4 +34,7 @@ public class TeacherModel {
         return this.getAllTeachers;
     }
 
+    public void saveUpdateTeacher(Teacher teacherUpdated) throws Exception {
+        teacherManager.saveUpdateTeacher(teacherUpdated);
+    }
 }
