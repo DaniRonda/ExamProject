@@ -94,8 +94,11 @@ public class StudentController {
     private Pane infoPane;
     @FXML
     private TextArea textAreaInfo;
+    @FXML
+    private  TextArea textAreaCase;
 
-    private boolean isCreated = false;
+    private boolean infoisCreated = false;
+    private boolean caseisCreated = false;
     private GeneralInfo generalInfo;
     private Citizen citizen;
 
@@ -120,11 +123,11 @@ public class StudentController {
 
         citizenmodel.getAllGeneralInfo().forEach(generalInfo1 -> {
             if (generalInfo1.getCitizen() == selectedCitizen.getID()) {
-                isCreated = true;
+                infoisCreated = true;
                 generalInfo = generalInfo1;
             }
         });
-        if (!isCreated) {
+        if (!infoisCreated) {
             String placeholder = "empty";
             generalInfo = citizenmodel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getID());
         }
@@ -151,7 +154,7 @@ public class StudentController {
         }
     }
 
-    public void updateInfo(ActionEvent actionEvent) throws Exception {
+    public void updatePressed(ActionEvent actionEvent) throws Exception {
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
         String coping = textAreaGeneralCoping.getText();
         String motivation = textAreaGeneralMotevation.getText();
@@ -168,6 +171,20 @@ public class StudentController {
 
         GeneralInfo infoToBeUpdated = new GeneralInfo(selectedCitizen.getID(), coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network,citizen );
         citizenmodel.updateGeneralInfo(infoToBeUpdated);
+    }
+
+    public void showCase(Citizen citizen2){
+        textAreaCase.clear();
+        mode = CitizenSelected;
+        Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
+
+        citizenmodel.getAllGeneralInfo().forEach(generalInfo1 -> {
+            if (generalInfo1.getCitizen() == selectedCitizen.getID()) {
+                infoisCreated = true;
+                generalInfo = generalInfo1;
+            }
+        });
+
     }
 
     public void initialize() throws Exception {
@@ -602,9 +619,6 @@ public class StudentController {
                     textGeneralNetwork.setUnderline(false);
                 });
     }
-
-
-
 
 
 
