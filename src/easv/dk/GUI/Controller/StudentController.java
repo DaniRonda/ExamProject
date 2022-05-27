@@ -1,5 +1,6 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.BE.Case;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
 import easv.dk.BLL.GeneralInfoManager;
@@ -100,6 +101,7 @@ public class StudentController {
     private boolean infoisCreated = false;
     private boolean caseisCreated = false;
     private GeneralInfo generalInfo;
+    private Case case1;
     private Citizen citizen;
 
 
@@ -173,19 +175,31 @@ public class StudentController {
         citizenmodel.updateGeneralInfo(infoToBeUpdated);
     }
 
-    /*public void showCase(Citizen citizen2){
+    public void showCase(Citizen citizen2) throws Exception {
         textAreaCase.clear();
         mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
 
-        citizenmodel.getAllGeneralInfo().forEach(generalInfo1 -> {
-            if (generalInfo1.getCitizen() == selectedCitizen.getID()) {
-                infoisCreated = true;
-                generalInfo = generalInfo1;
+        citizenmodel.getCases().forEach(cases1 -> {
+            if (cases1.getCitizen() == selectedCitizen.getID()) {
+                caseisCreated = true;
+                case1 = cases1;
             }
         });
+        if (!caseisCreated) {
+            String placeholder = "empty";
+            case1 = citizenmodel.createCade(placeholder, citizen.getID());
+        }
+        this.citizen = selectedCitizen;
 
-    }*/
+        try {
+            //load movies for selected category
+            textAreaCase.setText(String.valueOf(case1.getCasetext()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void initialize() throws Exception {
         search();
@@ -193,6 +207,7 @@ public class StudentController {
         tableViewCitizens.setOnMouseClicked(event -> {
             try {
                 showCitizenInfo(citizen);
+                showCase(citizen);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -1,11 +1,14 @@
 package easv.dk.GUI.Model;
 
+import easv.dk.BE.Case;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.Student;
+import easv.dk.BLL.CaseManager;
 import easv.dk.BLL.CitizenManager;
 import easv.dk.BLL.GeneralInfoManager;
 import easv.dk.BLL.Manager;
+import easv.dk.DAL.CaseDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,6 +19,7 @@ public class CitizenModel {
     CitizenManager citizenManager = new CitizenManager();
     Manager manager = new Manager();
     GeneralInfoManager managerInfo;
+    CaseManager caseManager = new CaseManager();
     public static Citizen clickedCitizen;;
 
     public CitizenModel() throws Exception {
@@ -27,7 +31,9 @@ public class CitizenModel {
         CitizenManager.deleteCitizen(selectedItem);
     }
 
-
+    public Case createCade(String caseText,  int citizen) throws Exception{
+        return caseManager.createCase(caseText, citizen);
+    }
 
     public void setGetAllCitizens(ObservableList<Citizen> getAllMovies) {
         this.getAllCitizens = getAllCitizens;
@@ -77,6 +83,14 @@ public class CitizenModel {
 
     public List<GeneralInfo> getAllGeneralInfo() throws Exception {
         return managerInfo.getAllGeneralInfo();
+    }
+
+    public Case getCase(int idCase) throws Exception {
+        return caseManager.getCase(idCase);
+    }
+
+    public List<Case> getCases() throws Exception {
+        return caseManager.getCases();
     }
     }
 
