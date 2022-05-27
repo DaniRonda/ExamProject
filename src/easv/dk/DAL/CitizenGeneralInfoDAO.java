@@ -27,6 +27,8 @@ public class CitizenGeneralInfoDAO {
     }
 
 
+
+
     public GeneralInfo createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) throws Exception {
         GeneralInfo generalInfo = null;
         int ID = 0;
@@ -60,7 +62,7 @@ public class CitizenGeneralInfoDAO {
         return generalInfo;
     }
 
-    public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
+    public void updateGeneralInfo1(GeneralInfo generalInfo) throws Exception {
         String query =  "UPDATE Generalinfo1 SET coping = ?, motivation = ?, resources = ?, roles = ?, habits = ?, education = ?, lifestory = ?, healthinfo = ?, aid = ?, furnishing = ?, network = ?, citizen = ? WHERE ID = ?";
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);

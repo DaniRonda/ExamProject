@@ -151,6 +151,25 @@ public class StudentController {
         }
     }
 
+    public void updateInfo(ActionEvent actionEvent) throws Exception {
+        Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
+        String coping = textAreaGeneralCoping.getText();
+        String motivation = textAreaGeneralMotevation.getText();
+        String resources = textAreaGeneralRessources.getText();
+        String roles = textAreaGeneralRoles.getText();
+        String habits = textAreaGeneralHabits.getText();
+        String education = textAreaGeneralEdu.getText();
+        String lifestory = textAreaGeneralLifeStory.getText();
+        String healthinfo = textAreaGeneralHealthInfo.getText();
+        String aid = textAreaGeneralAid.getText();
+        String furnishing = textAreaGeneralFurnice.getText();
+        String network = textAreaGeneralNetwork.getText();
+        int citizen = generalInfo.getCitizen();
+
+        GeneralInfo infoToBeUpdated = new GeneralInfo(selectedCitizen.getID(), coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network,citizen );
+        citizenmodel.updateGeneralInfo(infoToBeUpdated);
+    }
+
     public void initialize() throws Exception {
         search();
         setUpTableView();

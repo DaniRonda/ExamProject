@@ -62,6 +62,10 @@ public class CitizenModel {
         return clickedCitizen;
     }
 
+    public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
+        managerInfo.updateGeneralInfo(generalInfo);
+    }
+
     public void updateCitizen(Citizen citizenUpdated) throws Exception {
             citizenManager.updateCitizen(citizenUpdated);
          }
