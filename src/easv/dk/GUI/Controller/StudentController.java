@@ -173,7 +173,7 @@ public class StudentController {
         citizenmodel.updateGeneralInfo(infoToBeUpdated);
     }
 
-    public void showCase(Citizen citizen2){
+    /*public void showCase(Citizen citizen2){
         textAreaCase.clear();
         mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
@@ -185,7 +185,7 @@ public class StudentController {
             }
         });
 
-    }
+    }*/
 
     public void initialize() throws Exception {
         search();
