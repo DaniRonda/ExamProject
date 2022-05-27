@@ -2,6 +2,7 @@ package easv.dk.DAL;
 
 import easv.dk.BE.Admin;
 import easv.dk.BE.Citizen;
+import easv.dk.BE.GeneralInfo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -98,4 +99,6 @@ public class CitizenDAO {
         psDeleteCitizen.close();
         con.close();
     }
+
+
 }

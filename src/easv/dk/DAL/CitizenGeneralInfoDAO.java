@@ -4,6 +4,7 @@ import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.GeneralInfoCitizen;
 import easv.dk.BE.Student;
+import jdk.jshell.spi.ExecutionControl;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -26,15 +27,15 @@ public class CitizenGeneralInfoDAO {
     }
 
 
-    public GeneralInfo createGeneralInfo(String coping, String motevation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network) throws Exception {
+    public GeneralInfo createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) throws Exception {
         GeneralInfo generalInfo = null;
         int ID = 0;
-        String query = "INSERT INTO GeneralInfo VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO GeneralInfo VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, coping);
-            preparedStatement.setString(2, motevation);
+            preparedStatement.setString(2, motivation);
             preparedStatement.setString(3, resources);
             preparedStatement.setString(4, roles);
             preparedStatement.setString(5, habits);
@@ -44,6 +45,7 @@ public class CitizenGeneralInfoDAO {
             preparedStatement.setString(9, aid);
             preparedStatement.setString(10, furnishing);
             preparedStatement.setString(11, network);
+            preparedStatement.setInt(12, citizen);
 
             int created = preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -52,14 +54,14 @@ public class CitizenGeneralInfoDAO {
                 ID = resultSet.getInt(1);
             }
             if (created != 0){
-                generalInfo = new GeneralInfo(ID, coping, motevation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network);
+                generalInfo = new GeneralInfo(ID, coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network, citizen);
             }
         }
         return generalInfo;
     }
 
     public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
-        String query =  "UPDATE General_Information SET coping = ?, motevation = ?, resources = ?, roles = ?, habits = ?, education = ?, lifestory = ?, healthinfo = ?, aid = ?, furnishing = ?, network = ? WHERE ID = ?";
+        String query =  "UPDATE Generalinfo1 SET coping = ?, motivation = ?, resources = ?, roles = ?, habits = ?, education = ?, lifestory = ?, healthinfo = ?, aid = ?, furnishing = ?, network = ?, citizen = ? WHERE ID = ?";
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, generalInfo.getCoping());
@@ -73,7 +75,8 @@ public class CitizenGeneralInfoDAO {
             preparedStatement.setString(9, generalInfo.getAid());
             preparedStatement.setString(10, generalInfo.getFurnishing());
             preparedStatement.setString(11, generalInfo.getNetwork());
-            preparedStatement.setInt(12, generalInfo.getID());
+            preparedStatement.setInt( 12, generalInfo.getCitizen());
+            preparedStatement.setInt(13, generalInfo.getID());
 
             preparedStatement.executeUpdate();
         }
@@ -98,12 +101,47 @@ public class CitizenGeneralInfoDAO {
         con.close();
 
         return generalInfoCitizen1;
+
+
+
+    }
+
+    public List<GeneralInfo> getAllGeneralInfo() throws Exception {
+        List<GeneralInfo> generalInfoArrayList = new ArrayList<>();
+        String query = "SELECT * FROM Generalinfo1";
+        try (Connection connection = cm.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.execute();
+
+            ResultSet resultSet = preparedStatement.getResultSet();
+
+            while (resultSet.next()) {
+                int ID = resultSet.getInt("ID");
+                String coping = resultSet.getString("coping");
+                String motivation = resultSet.getString("motivation");
+                String resources = resultSet.getString("resources");
+                String roles = resultSet.getString("roles");
+                String habits = resultSet.getString("habits");
+                String education = resultSet.getString("education");
+                String lifestory = resultSet.getString("lifestory");
+                String healthinfo = resultSet.getString("healthinfo");
+                String aid = resultSet.getString("aid");
+                String furnishing = resultSet.getString("furnishing");
+                String network = resultSet.getString("network");
+                int citizen = resultSet.getInt("citizen");
+
+
+                GeneralInfo generalInfo = new GeneralInfo(ID, coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network, citizen);
+                generalInfoArrayList.add(generalInfo);
+            }
+        }
+        return generalInfoArrayList;
     }
 
 
     public GeneralInfo getGeneralInfo(int idGeneralInfo) throws Exception {
         GeneralInfo generalInfo = null;
-        String query =  "SELECT * FROM GeneralInfo WHERE ID = ?";
+        String query =  "SELECT * FROM Generalinfo1 WHERE ID = ?";
 
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -114,7 +152,7 @@ public class CitizenGeneralInfoDAO {
             if (resultSet.next()){
                 int ID = resultSet.getInt("ID");
                 String coping = resultSet.getString("coping");
-                String motevation = resultSet.getString("motevation");
+                String motivation = resultSet.getString("motivation");
                 String resources = resultSet.getString("resources");
                 String roles = resultSet.getString("roles");
                 String habits = resultSet.getString("habits");
@@ -124,9 +162,10 @@ public class CitizenGeneralInfoDAO {
                 String aid = resultSet.getString("aid");
                 String furnishing = resultSet.getString("furnishing");
                 String network = resultSet.getString("network");
+                int citizen = resultSet.getInt("citizen");
 
 
-                generalInfo = new GeneralInfo(ID, coping, motevation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network);
+                generalInfo = new GeneralInfo(ID, coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network, citizen);
                 System.out.println(generalInfo);
             }
         }

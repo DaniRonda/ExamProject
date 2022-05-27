@@ -65,5 +65,14 @@ public class CitizenModel {
     public void updateCitizen(Citizen citizenUpdated) throws Exception {
             citizenManager.updateCitizen(citizenUpdated);
          }
+
+    public GeneralInfo createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizenId) throws Exception {
+        return managerInfo.createGeneralInfo(coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network, citizenId);
+    }
+
+
+    public List<GeneralInfo> getAllGeneralInfo() throws Exception {
+        return managerInfo.getAllGeneralInfo();
+    }
     }
 

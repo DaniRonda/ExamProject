@@ -16,6 +16,7 @@ public class Citizen {
     private List<Student> studentsInCitizen;
 
 
+
     public Citizen(String firstName, String lastName, String address, Date birthDate, int phoneNumber, boolean isTemplate, int ID) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -99,4 +100,18 @@ public class Citizen {
         this.studentsInCitizen = studentsInCitizen;
     }
 
+    @Override
+    public String toString() {
+        return "Citizen{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", birthDate=" + birthDate +
+                ", phoneNumber=" + phoneNumber +
+                ", isTemplate=" + isTemplate +
+                ", ID=" + ID +
+                ", studentCount=" + studentCount +
+                ", studentsInCitizen=" + studentsInCitizen +
+                '}';
+    }
 }

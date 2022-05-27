@@ -55,57 +55,57 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Text fx:id="textGeneralCoping" onMouseClicked="#copingClikced" onMouseEntered="#copingEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Coping" wrappingWidth="43.00390625">
+                        <Text fx:id="textGeneralCoping" onMouseClicked="#copingClikced" onMouseEntered="#copingEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Coping❔" wrappingWidth="53.00390625">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralMotevation" onMouseClicked="#motivationClicked" onMouseEntered="#motivationEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivation" wrappingWidth="70.0" GridPane.rowIndex="1">
+                        <Text fx:id="textGeneralMotivation" onMouseClicked="#motivationClicked" onMouseEntered="#motivationEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivation❔" wrappingWidth="76.0" GridPane.rowIndex="1">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralRessources" onMouseClicked="#resClicked" onMouseEntered="#resEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Ressources" wrappingWidth="69.0" GridPane.rowIndex="2">
+                        <Text fx:id="textGeneralResources" onMouseClicked="#resourcesClicked" onMouseEntered="#resourcesEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources❔" wrappingWidth="69.0" GridPane.rowIndex="2">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralRoles" onMouseClicked="#rolesClicked" onMouseEntered="#rolesEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Roles" wrappingWidth="35.0" GridPane.rowIndex="3">
+                        <Text fx:id="textGeneralRoles" onMouseClicked="#rolesClicked" onMouseEntered="#rolesEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Roles❔" wrappingWidth="47.0" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralHabits" onMouseClicked="#habitsClicked" onMouseEntered="#habitsEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Habits" wrappingWidth="37.0" GridPane.rowIndex="4">
+                        <Text fx:id="textGeneralHabits" onMouseClicked="#habitsClicked" onMouseEntered="#habitsEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Habits❔" wrappingWidth="49.0" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralEducation" onMouseClicked="#jobsClicked" onMouseEntered="#jobsEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Education/job" wrappingWidth="80.0" GridPane.rowIndex="5">
+                        <Text fx:id="textGeneralEducation" onMouseClicked="#jobsClicked" onMouseEntered="#jobsEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Education/job❔" wrappingWidth="93.0" GridPane.rowIndex="5">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralLifeStory" onMouseClicked="#lifestoryClicked" onMouseEntered="#lifestoryEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Life Story" wrappingWidth="57.0" GridPane.rowIndex="6">
+                        <Text fx:id="textGeneralLifeStory" onMouseClicked="#lifestoryClicked" onMouseEntered="#lifestoryEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Life Story❔" wrappingWidth="67.0" GridPane.rowIndex="6">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralHealth" onMouseClicked="#healthClicked" onMouseEntered="#healthEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Information" wrappingWidth="70.0" GridPane.rowIndex="7">
+                        <Text fx:id="textGeneralHealth" onMouseClicked="#healthClicked" onMouseEntered="#healthEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Information❔" wrappingWidth="82.0" GridPane.rowIndex="7">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralAid" onMouseClicked="#aidClicked" onMouseEntered="#aidEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Aid" wrappingWidth="29.0" GridPane.rowIndex="8">
+                        <Text fx:id="textGeneralAid" onMouseClicked="#aidClicked" onMouseEntered="#aidEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Aid❔" wrappingWidth="38.0" GridPane.rowIndex="8">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralFurnice" onMouseClicked="#furniceClicked" onMouseEntered="#furniceEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Furnishing Of The Living Space " wrappingWidth="100.0" GridPane.rowIndex="9">
+                        <Text fx:id="textGeneralFurnice" onMouseClicked="#furniceClicked" onMouseEntered="#furniceEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Furnishing Of The Living Space ❔" wrappingWidth="103.0" GridPane.rowIndex="9">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-                        <Text fx:id="textGeneralNetwork" onMouseClicked="#networkClicked" onMouseEntered="#networkEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Network" wrappingWidth="51.1875" GridPane.rowIndex="10">
+                        <Text fx:id="textGeneralNetwork" onMouseClicked="#networkClicked" onMouseEntered="#networkEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Network❔" wrappingWidth="63.1875" GridPane.rowIndex="10">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>

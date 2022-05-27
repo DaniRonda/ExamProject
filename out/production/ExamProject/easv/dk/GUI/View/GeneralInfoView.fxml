@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -103,6 +104,7 @@
                         <TextArea fx:id="textAreaGeneralAid" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                         <TextArea fx:id="textAreaGeneralFurnice" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                         <TextArea fx:id="textAreaGeneralNetwork" prefHeight="68.0" prefWidth="444.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <Pane prefHeight="89.0" prefWidth="736.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
@@ -112,7 +114,7 @@
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="950.0" style="-fx-background-color: #EFEFE6;">
          <children>
             <HBox prefHeight="66.0" prefWidth="449.0" />
-            <Button fx:id="buttonReturn" mnemonicParsing="false" onAction="#returnTo" text="Return">
+            <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#returnTo" text="Return">
                <HBox.margin>
                   <Insets left="310.0" />
                </HBox.margin>
@@ -127,11 +129,6 @@
       <Button fx:id="btnCancelUpdateGeneralInfo" layoutX="856.0" layoutY="600.0" mnemonicParsing="false" onAction="#cancelUpdateGeneralInfo" prefHeight="31.0" prefWidth="79.0" text="Cancel">
          <font>
             <Font size="16.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnOpenCopingInfo" alignment="CENTER_RIGHT" layoutX="132.0" layoutY="87.0" mnemonicParsing="false" onAction="#openCopingInfo" prefHeight="25.0" prefWidth="9.0" style="-fx-background-color: #BEB5CF;" text="?" textAlignment="RIGHT">
-         <font>
-            <Font name="System Bold" size="16.0" />
          </font>
       </Button>
    </children>

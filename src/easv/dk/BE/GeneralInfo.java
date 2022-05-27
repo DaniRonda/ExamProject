@@ -3,7 +3,7 @@ package easv.dk.BE;
 public class GeneralInfo {
     private int ID;
     private String coping;
-    private String motevation;
+    private String motivation;
     private String resources;
     private String roles;
     private String habits;
@@ -13,11 +13,12 @@ public class GeneralInfo {
     private String aid;
     private String furnishing;
     private String network;
+    private int citizen;
 
-    public GeneralInfo(int id, String coping, String motevation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network) {
+    public GeneralInfo(int id, String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) {
         ID = id;
         this.coping = coping;
-        this.motevation = motevation;
+        this.motivation = motivation;
         this.resources = resources;
         this.roles = roles;
         this.habits = habits;
@@ -27,6 +28,15 @@ public class GeneralInfo {
         this.aid = aid;
         this.furnishing = furnishing;
         this.network = network;
+        this.citizen = citizen;
+    }
+
+    public int getCitizen() {
+        return citizen;
+    }
+
+    public void setCitizen(int citizen) {
+        this.citizen = citizen;
     }
 
     public int getID() {
@@ -46,11 +56,11 @@ public class GeneralInfo {
     }
 
     public String getMotevation() {
-        return motevation;
+        return motivation;
     }
 
     public void setMotevation(String motevation) {
-        this.motevation = motevation;
+        this.motivation = motevation;
     }
 
     public String getResources() {
@@ -130,7 +140,7 @@ public class GeneralInfo {
         return "GeneralInfo{" +
                 "ID=" + ID +
                 ", coping='" + coping + '\'' +
-                ", motevation='" + motevation + '\'' +
+                ", motevation='" + motivation + '\'' +
                 ", resources='" + resources + '\'' +
                 ", roles='" + roles + '\'' +
                 ", habits='" + habits + '\'' +

@@ -95,6 +95,11 @@ public class StudentController {
     @FXML
     private TextArea textAreaInfo;
 
+    private boolean isCreated = false;
+    private GeneralInfo generalInfo;
+    private Citizen citizen;
+
+
     StudentModel studentModel = new StudentModel();
 
 
@@ -108,10 +113,54 @@ public class StudentController {
     public StudentController() throws Exception {
     }
 
+    public void showCitizenInfo(Citizen citizen1) throws Exception {
+        clearLists();
+        mode = CitizenSelected;
+        Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
+
+        citizenmodel.getAllGeneralInfo().forEach(generalInfo1 -> {
+            if (generalInfo1.getCitizen() == selectedCitizen.getID()) {
+                isCreated = true;
+                generalInfo = generalInfo1;
+            }
+        });
+        if (!isCreated) {
+            String placeholder = "empty";
+            generalInfo = citizenmodel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getID());
+        }
+        this.citizen = selectedCitizen;
+
+
+          //get selected movie in movie table
+        try {
+            GeneralInfoManager bll = new GeneralInfoManager();  //get bll interface to use data from database
+                  //load movies for selected category
+            textAreaGeneralCoping.setText(String.valueOf(generalInfo.getCoping()));
+            textAreaGeneralMotevation.setText(String.valueOf(generalInfo.getMotevation()));
+            textAreaGeneralRessources.setText(String.valueOf(generalInfo.getResources()));
+            textAreaGeneralRoles.setText(String.valueOf(generalInfo.getRoles()));
+            textAreaGeneralHabits.setText(String.valueOf(generalInfo.getHabits()));
+            textAreaGeneralEdu.setText(String.valueOf(generalInfo.getEducation()));
+            textAreaGeneralLifeStory.setText(String.valueOf(generalInfo.getLifestory()));
+            textAreaGeneralHealthInfo.setText(String.valueOf(generalInfo.getHealthinfo()));
+            textAreaGeneralAid.setText(String.valueOf(generalInfo.getAid()));
+            textAreaGeneralFurnice.setText(String.valueOf(generalInfo.getFurnishing()));
+            textAreaGeneralNetwork.setText(String.valueOf(generalInfo.getNetwork()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void initialize() throws Exception {
         search();
         setUpTableView();
-       // showCitizenInfo();
+        tableViewCitizens.setOnMouseClicked(event -> {
+            try {
+                showCitizenInfo(citizen);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void sendToCaseScreen(ActionEvent actionEvent) throws Exception {
@@ -212,7 +261,7 @@ public class StudentController {
         TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
         column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         TableColumn<Citizen, String> column3 = new TableColumn<>("Address");
-        column3.setCellValueFactory(new PropertyValueFactory<>("adress"));
+        column3.setCellValueFactory(new PropertyValueFactory<>("address"));
         TableColumn<Citizen, String> column4 = new TableColumn<>("Birthdate");
         column4.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
         TableColumn<Citizen, String> column5 = new TableColumn<>("Phone Number");
@@ -529,39 +578,11 @@ public class StudentController {
                 });
     }
 
-    /*public void showCitizenInfo() throws Exception {
-        clearLists();
-        mode = CitizenSelected;
-        Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();  //get selected movie in movie table
-        try {
-            GeneralInfoManager bll = new GeneralInfoManager();  //get bll interface to use data from database
-            List<GeneralInfo> generalInfo = citizenmodel.getGeneralInfo(selectedCitizen);      //load movies for selected category
-            textAreaGeneralCoping.setText(String.valueOf(generalInfo.get(1)));
-            textAreaGeneralMotevation.setText(String.valueOf(generalInfo.get(2)));
-            textAreaGeneralRessources.setText(String.valueOf(generalInfo.get(3)));
-            textAreaGeneralRoles.setText(String.valueOf(generalInfo.get(4)));
-            textAreaGeneralHabits.setText(String.valueOf(generalInfo.get(5)));
-            textAreaGeneralEdu.setText(String.valueOf(generalInfo.get(6)));
-            textAreaGeneralLifeStory.setText(String.valueOf(generalInfo.get(7)));
-            textAreaGeneralHealthInfo.setText(String.valueOf(generalInfo.get(8)));
-            textAreaGeneralAid.setText(String.valueOf(generalInfo.get(9)));
-            textAreaGeneralFurnice.setText(String.valueOf(generalInfo.get(10)));
-            textAreaGeneralNetwork.setText(String.valueOf(generalInfo.get(11)));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-}
 
-    public void addInfoToCitizen(ActionEvent actionEvent) {
-        if (tableViewCitizens.getSelectionModel().getSelectedIndex() != -1) {
-            try {
-                citizenmodel.addInfoToCitizen((Citizen) tableViewCitizens.getSelectionModel().getSelectedItem(), tableViewCitizens.getSelectionModel().getSelectedIndex());
-            } catch (Exception ex) {
-            }
-        }
-    }*/
+
 
 }
+
+
+
 
