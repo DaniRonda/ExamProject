@@ -11,10 +11,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-
-
 public class TemplateViewController {
-
+    @FXML
+    private Button btnDeleteCitizen;
+    @FXML
+    private TableView citizenTableTemplateView;
+    @FXML
+    private Button btnDeleteTemplate;
     @FXML
     private TableView templateTable;
     @FXML
@@ -83,5 +86,13 @@ public class TemplateViewController {
         stage.centerOnScreen();
         stage.show();
 
+    }
+
+    public void deleteTemplate(ActionEvent actionEvent) {
+    }
+
+    public void deleteCitizenTemplateView(ActionEvent actionEvent) throws Exception {
+        CitizenModel.deleteCitizen((Citizen)citizenTableTemplateView.getSelectionModel().getSelectedItem());
+        citizenTableTemplateView.getItems().remove(citizenTableTemplateView.getSelectionModel().getSelectedIndex());
     }
 }
