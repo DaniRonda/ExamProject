@@ -180,31 +180,37 @@ public class StudentController {
 
 
     public void search() throws Exception {
+        new Thread(() ->{
         textFieldSearch2.textProperty().addListener((observable, oldValue, newValue) -> {
-            try {
-                dataList.addAll(citizenmodel.getAllCitizen()); //<-- depending on what name the method gets
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            FilteredList<Citizen> filteredData = new FilteredList<>(dataList, b -> true);
-            filteredData.setPredicate(citizen -> {
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
+
+                try {
+                    dataList.addAll(citizenmodel.getAllCitizen()); //<-- depending on what name the method gets
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                String lowerCaseFilter = newValue.toLowerCase();
+                FilteredList<Citizen> filteredData = new FilteredList<>(dataList, b -> true);
+                filteredData.setPredicate(citizen -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
 
-                //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue()
-                // > searchBar.textProperty()).collect(Collectors.toList());
-                if (citizen.getFirstName().toLowerCase().contains(lowerCaseFilter))
-                    return true; // Filter title.
+                    //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue()
+                    // > searchBar.textProperty()).collect(Collectors.toList());
+                    if (citizen.getFirstName().toLowerCase().contains(lowerCaseFilter))
+                        return true; // Filter title.
 
-                else return String.valueOf(citizen.getLastName()).contains(lowerCaseFilter); //getcase might be changed
+                    else
+                        return String.valueOf(citizen.getLastName()).contains(lowerCaseFilter); //getcase might be changed
+                });
+                SortedList<Citizen> sortedData = new SortedList<>(filteredData);
+                sortedData.comparatorProperty().bind(tableViewCitizens.comparatorProperty());
+                tableViewCitizens.setItems(sortedData);
             });
-            SortedList<Citizen> sortedData = new SortedList<>(filteredData);
-            sortedData.comparatorProperty().bind(tableViewCitizens.comparatorProperty());
-            tableViewCitizens.setItems(sortedData);
-        });
+        }).start();
+
     }
+
 
     public void setUpTableView() throws Exception {
         TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
@@ -562,6 +568,8 @@ public class StudentController {
             }
         }
     }*/
+
+
 
 }
 
