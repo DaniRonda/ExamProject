@@ -12,14 +12,10 @@ import java.util.List;
 
 public class Manager {
 
-    AdminDAO adminDAO = new AdminDAO();
-    CitizenDAO citizenDAO = new CitizenDAO();
-    StudentDAO studentDAO = new StudentDAO();
-    TeacherDAO teacherDAO = new TeacherDAO();
-    CitizenStudentDAO citizenStudentDAO = new CitizenStudentDAO();
+    private IDataAccess dataAccess;
 
 
-    public Manager() throws Exception {
+    public Manager() throws Exception {dataAccess= DALFacade.getInstance();
     }
 
     public String getLogInPassword() throws Exception {
@@ -35,17 +31,17 @@ public class Manager {
     }
 
     public void addCitizenToStudent(Citizen selectedItem, Student selectedStudent) throws Exception {
-        citizenStudentDAO.AddCitizenToStudent(selectedItem, selectedStudent);
+        dataAccess.AddCitizenToStudent(selectedItem, selectedStudent);
     }
     public void removeStudentFromCitizen (int studentId, int citizenId) throws Exception {
-        citizenStudentDAO.removeCitizenFromStudent(new Citizen("", "","",null,0,false, citizenId), new Student("", "", "", "", studentId));
+        dataAccess.removeCitizenFromStudent(new Citizen("", "","",null,0,false, citizenId), new Student("", "", "", "", studentId));
     }
     public List<Citizen> getCitizensFromStudent(Student student) throws Exception {
-        return citizenStudentDAO.getAllCitizensForGivenStudent(student);
+        return dataAccess.getCitizenFromStudent(student);
     }
 
     public List<Student> getStudentFromCitizen(Citizen citizen) throws Exception {
-        return citizenStudentDAO.getStudentFromCitizen(citizen);
+        return dataAccess.getStudentFromCitizen(citizen);
     }
 
 }

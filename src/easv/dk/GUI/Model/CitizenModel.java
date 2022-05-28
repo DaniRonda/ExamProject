@@ -22,11 +22,11 @@ public class CitizenModel {
         getAllCitizens = FXCollections.observableArrayList();
     }
 
-    public static void deleteCitizen(Citizen selectedItem) throws Exception {
-        CitizenManager.deleteCitizen(selectedItem);
+    public void deleteCitizen(Citizen selectedItem) throws Exception {
+        citizenManager.deleteCitizen(selectedItem);
     }
 
-    public Case createCade(String caseText,  int citizen) throws Exception{
+    public Case createCase(String caseText,  int citizen) throws Exception{
         return caseManager.createCase(caseText, citizen);
     }
 

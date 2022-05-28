@@ -106,7 +106,7 @@ public class TemplateViewController {
     }
 
     public void deleteCitizenTemplateView(ActionEvent actionEvent) throws Exception {
-        CitizenModel.deleteCitizen((Citizen)citizenTableTemplateView.getSelectionModel().getSelectedItem());
+        citizenModel.deleteCitizen((Citizen)citizenTableTemplateView.getSelectionModel().getSelectedItem());
         citizenTableTemplateView.getItems().remove(citizenTableTemplateView.getSelectionModel().getSelectedIndex());
     }
 }

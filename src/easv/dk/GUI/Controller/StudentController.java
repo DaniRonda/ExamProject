@@ -190,7 +190,7 @@ public class StudentController {
         });
         if (!caseisCreated) {
             String placeholder = "empty";
-            case1 = citizenmodel.createCade(placeholder, citizen.getID());
+            case1 = citizenmodel.createCase(placeholder, citizen.getID());
         }
         this.citizen = selectedCitizen;
 
