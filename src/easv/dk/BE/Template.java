@@ -65,7 +65,7 @@ public class Template {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean isTemplate() {
+    public boolean isTemplate(boolean b) {
         return isTemplate;
     }
 

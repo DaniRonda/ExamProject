@@ -61,4 +61,20 @@ public class TemplatesDAO {
         con.close();
         System.out.println(template.getFirstName()+" "+template.getID());
     }
+
+    public Template createTemplate(Template template) throws Exception{
+        Connection con = cm.getConnection();
+        String sqlCreateTemplate = "INSERT INTO Citizen VALUES(?,?,?,?,?,?,?)";
+        PreparedStatement psCreateTemplate = con.prepareStatement(sqlCreateTemplate, Statement.RETURN_GENERATED_KEYS);
+        psCreateTemplate.setString(1,template.getFirstName());
+        psCreateTemplate.setString(2,template.getLastName());
+        psCreateTemplate.setString(3,template.getAddress());
+        psCreateTemplate.setInt(4,template.getPhoneNumber());
+        psCreateTemplate.setDate(5, (Date) template.getBirthDate());
+        psCreateTemplate.setBoolean(6, template.isTemplate(true));
+        psCreateTemplate.setInt(7,template.getID());
+        psCreateTemplate.addBatch();
+        psCreateTemplate.executeBatch();
+        return template;
+    }
 }

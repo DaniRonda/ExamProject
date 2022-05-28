@@ -17,6 +17,9 @@ public class TemplateManager {
         return this.templateDAO.getAllTemplates();
     }
 
+    public void createTemplate(Template template) throws Exception{
+        templateDAO.createTemplate(template);
+    }
 
     public void updateTemplate(Template template) throws Exception{
         templateDAO.updateTemplate(template);
