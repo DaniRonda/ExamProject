@@ -1,13 +1,7 @@
 package easv.dk.GUI.Model;
 
-import easv.dk.BE.Case;
-import easv.dk.BE.Citizen;
-import easv.dk.BE.GeneralInfo;
-import easv.dk.BE.Student;
-import easv.dk.BLL.CaseManager;
-import easv.dk.BLL.CitizenManager;
-import easv.dk.BLL.GeneralInfoManager;
-import easv.dk.BLL.Manager;
+import easv.dk.BE.*;
+import easv.dk.BLL.*;
 import easv.dk.DAL.CaseDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +14,7 @@ public class CitizenModel {
     Manager manager = new Manager();
     GeneralInfoManager managerInfo;
     CaseManager caseManager = new CaseManager();
+    DiagnoseManager diagnoseManager = new DiagnoseManager();
     public static Citizen clickedCitizen;;
 
     public CitizenModel() throws Exception {
@@ -91,6 +86,37 @@ public class CitizenModel {
 
     public List<Case> getCases() throws Exception {
         return caseManager.getCases();
+    }
+    public HealthDiagnose getHealthDiagnose(int idHealthDiagnose) throws Exception {
+        return diagnoseManager.getHealthDiagnose(idHealthDiagnose);
+    }
+
+    public List<HealthDiagnose> getAllHealthDiagnose() throws Exception {
+        return diagnoseManager.getAllHealthDiagnose();
+    }
+
+    public void updateHealthDiagnose(HealthDiagnose healthDiagnose) throws Exception {
+        diagnoseManager.updateHealthDiagnose(healthDiagnose);
+    }
+
+    public HealthDiagnose createHealthDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen) throws Exception{
+        return diagnoseManager.createHealthDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, citizen);
+    }
+
+    public FunctionalDiagnose getFunctionalDiagnose(int idFunctionalDiagnose) throws Exception {
+        return diagnoseManager.getFunctionalDiagnose(idFunctionalDiagnose);
+    }
+
+    public List<FunctionalDiagnose> getAllFunctionalDiagnose() throws Exception {
+        return diagnoseManager.getAllFunctionalDiagnose();
+    }
+
+    public void updateFunctionalDiagnose(FunctionalDiagnose functionalDiagnose) throws Exception {
+        diagnoseManager.updateFunctionalDiagnose(functionalDiagnose);
+    }
+
+    public FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen) throws Exception{
+        return diagnoseManager.createFunctionalDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen);
     }
     }
 
