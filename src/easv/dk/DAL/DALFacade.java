@@ -32,7 +32,7 @@ public class DALFacade implements IDataAccess{
     @Override
     public void createCitizen(Citizen citizen) throws Exception {citizenDAO.createCitizen(citizen);}
     @Override
-    public Student createStudent(Student student) throws Exception {studentDAO.saveUpdateStudent(student);
+    public Student createStudent(Student student) throws Exception {studentDAO.CreateStudent(student);
         return student;
     }
     @Override

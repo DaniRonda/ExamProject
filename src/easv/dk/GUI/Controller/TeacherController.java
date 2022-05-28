@@ -114,6 +114,9 @@ public class TeacherController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewStudentView.fxml"));
         Parent root = loader.load();
+        //NewStudentViewController control = loader.getController();
+        //control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        //control.setParentController2(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
