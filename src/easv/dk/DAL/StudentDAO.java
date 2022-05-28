@@ -1,6 +1,5 @@
 package easv.dk.DAL;
 
-import easv.dk.BE.Admin;
 import easv.dk.BE.Student;
 
 import java.sql.Connection;
