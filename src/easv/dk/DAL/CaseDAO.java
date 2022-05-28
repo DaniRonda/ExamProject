@@ -46,6 +46,18 @@ public class CaseDAO {
         return case1;
     }
 
+    public void updateCase(Case case1) throws Exception {
+        String query =  "UPDATE [Case] SET caseText = ?, citizen = ? WHERE ID = ?";
+        try (Connection connection = cm.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, case1.getCasetext());
+            preparedStatement.setInt( 2, case1.getCitizen());
+            preparedStatement.setInt(3, case1.getID());
+
+            preparedStatement.executeUpdate();
+        }
+    }
+
     public List<Case> getAllCases() throws Exception {
         List<Case> caseArrayList = new ArrayList<>();
         String query = "SELECT * FROM [Case]";
