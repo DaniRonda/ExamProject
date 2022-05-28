@@ -5,7 +5,7 @@ import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.DAL.*;
-import easv.dk.GUI.Controller.LogInController;
+import easv.dk.GUI.Controller.LogInViewController;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -19,13 +19,13 @@ public class Manager {
     }
 
     public String getLogInPassword() throws Exception {
-        LogInController logInController = new LogInController();
+        LogInViewController logInController = new LogInViewController();
         String password = logInController.getTextFieldPassword();
         return password;
     }
 
     public String getLogInEmail() throws Exception {
-        LogInController logInController = new LogInController();
+        LogInViewController logInController = new LogInViewController();
         String mail = logInController.getTextFieldMail();
         return mail;
     }
