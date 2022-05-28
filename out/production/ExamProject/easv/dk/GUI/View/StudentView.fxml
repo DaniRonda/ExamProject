@@ -28,7 +28,7 @@
             <Font size="14.0" />
          </font></Button>
       <TextField fx:id="textFieldSearch2" layoutX="33.0" layoutY="26.0" promptText="🔎" />
-      <Button layoutX="386.0" layoutY="431.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" text="Update">
+      <Button fx:id="updatebtn" layoutX="386.0" layoutY="431.0" mnemonicParsing="false" onAction="#updatePressed" prefHeight="30.0" prefWidth="84.0" text="Update">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -60,16 +60,12 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-
                         <Text fx:id="textGeneralMotivation" onMouseClicked="#motivationClicked" onMouseEntered="#motivationEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivation❔" wrappingWidth="76.0" GridPane.rowIndex="1">
-
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
-
                         <Text fx:id="textGeneralResources" onMouseClicked="#resourcesClicked" onMouseEntered="#resourcesEnter" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources❔" wrappingWidth="69.0" GridPane.rowIndex="2">
-
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -150,7 +146,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="118.0" prefWidth="748.0">
                <children>
-                  <TextArea prefHeight="119.0" prefWidth="749.0" />
+                  <TextArea fx:id="textAreaCase" prefHeight="119.0" prefWidth="749.0" />
                </children>
             </AnchorPane>
         </content>

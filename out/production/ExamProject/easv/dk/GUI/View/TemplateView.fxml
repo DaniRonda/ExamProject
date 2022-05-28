@@ -31,15 +31,10 @@
       </ImageView>
       <Button fx:id="btnNewTemplate" layoutX="163.0" layoutY="577.0" mnemonicParsing="false" onAction="#openNewTemplateView" prefHeight="25.0" prefWidth="37.0" text="New" />
       <Button layoutX="206.0" layoutY="577.0" mnemonicParsing="false" text="Edit" />
-      <Button layoutX="399.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
+      <Button fx:id="btnDeleteTemplate" layoutX="399.0" layoutY="577.0" mnemonicParsing="false" onAction="#deleteTemplate" prefHeight="25.0" prefWidth="59.0" text="Delete" />
       <Button layoutX="250.0" layoutY="577.0" mnemonicParsing="false" text="Duplicate" />
-      <TableView fx:id="templateTable" layoutX="163.0" layoutY="115.0" prefHeight="461.0" prefWidth="296.0">
-        <columns>
-          <TableColumn prefWidth="150.0" text="First Name" />
-          <TableColumn prefWidth="150.0" text="Last Name" />
-        </columns>
-      </TableView>
-      <TableView layoutX="526.0" layoutY="115.0" prefHeight="461.0" prefWidth="402.0">
+      <TableView fx:id="templateTable" layoutX="163.0" layoutY="115.0" prefHeight="461.0" prefWidth="296.0" />
+      <TableView fx:id="citizenTableTemplateView" layoutX="526.0" layoutY="115.0" prefHeight="461.0" prefWidth="402.0">
         <columns>
           <TableColumn prefWidth="150.0" text="First Name" />
           <TableColumn prefWidth="150.0" text="Last Name" />
@@ -51,6 +46,6 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="525.0" layoutY="577.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="Delete" />
+      <Button fx:id="btnDeleteCitizen" layoutX="869.0" layoutY="577.0" mnemonicParsing="false" onAction="#deleteCitizenTemplateView" prefHeight="25.0" prefWidth="59.0" text="Delete" />
    </children>
 </AnchorPane>

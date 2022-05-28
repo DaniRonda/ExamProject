@@ -30,7 +30,6 @@ public class AdminViewController {
     private TableView studentTable;
     @FXML
     private TableView teacherTable;
-
     @FXML
     private Button btnOpenTeacherView;
     @FXML

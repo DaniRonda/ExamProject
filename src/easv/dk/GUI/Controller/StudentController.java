@@ -1,5 +1,6 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.BE.Case;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
 import easv.dk.BLL.GeneralInfoManager;
@@ -94,9 +95,13 @@ public class StudentController {
     private Pane infoPane;
     @FXML
     private TextArea textAreaInfo;
+    @FXML
+    private  TextArea textAreaCase;
 
-    private boolean isCreated = false;
+    private boolean infoisCreated = false;
+    private boolean caseisCreated = false;
     private GeneralInfo generalInfo;
+    private Case case1;
     private Citizen citizen;
 
 
@@ -113,6 +118,8 @@ public class StudentController {
     public StudentController() throws Exception {
     }
 
+
+
     public void showCitizenInfo(Citizen citizen1) throws Exception {
         clearLists();
         mode = CitizenSelected;
@@ -120,11 +127,11 @@ public class StudentController {
 
         citizenmodel.getAllGeneralInfo().forEach(generalInfo1 -> {
             if (generalInfo1.getCitizen() == selectedCitizen.getID()) {
-                isCreated = true;
+                infoisCreated = true;
                 generalInfo = generalInfo1;
             }
         });
-        if (!isCreated) {
+        if (!infoisCreated) {
             String placeholder = "empty";
             generalInfo = citizenmodel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getID());
         }
@@ -151,12 +158,58 @@ public class StudentController {
         }
     }
 
+    public void updatePressed(ActionEvent actionEvent) throws Exception {
+        Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
+        String coping = textAreaGeneralCoping.getText();
+        String motivation = textAreaGeneralMotevation.getText();
+        String resources = textAreaGeneralRessources.getText();
+        String roles = textAreaGeneralRoles.getText();
+        String habits = textAreaGeneralHabits.getText();
+        String education = textAreaGeneralEdu.getText();
+        String lifestory = textAreaGeneralLifeStory.getText();
+        String healthinfo = textAreaGeneralHealthInfo.getText();
+        String aid = textAreaGeneralAid.getText();
+        String furnishing = textAreaGeneralFurnice.getText();
+        String network = textAreaGeneralNetwork.getText();
+        int citizen = generalInfo.getCitizen();
+
+        GeneralInfo infoToBeUpdated = new GeneralInfo(selectedCitizen.getID(), coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network,citizen );
+        citizenmodel.updateGeneralInfo(infoToBeUpdated);
+    }
+
+    public void showCase(Citizen citizen2) throws Exception {
+        textAreaCase.clear();
+        mode = CitizenSelected;
+        Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
+
+        citizenmodel.getCases().forEach(cases1 -> {
+            if (cases1.getCitizen() == selectedCitizen.getID()) {
+                caseisCreated = true;
+                case1 = cases1;
+            }
+        });
+        if (!caseisCreated) {
+            String placeholder = "empty";
+            case1 = citizenmodel.createCade(placeholder, citizen.getID());
+        }
+        this.citizen = selectedCitizen;
+
+        try {
+            //load movies for selected category
+            textAreaCase.setText(String.valueOf(case1.getCasetext()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void initialize() throws Exception {
         search();
         setUpTableView();
         tableViewCitizens.setOnMouseClicked(event -> {
             try {
                 showCitizenInfo(citizen);
+                showCase(citizen);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -199,6 +252,7 @@ public class StudentController {
 
 
     public void openHealthConditionsView(ActionEvent actionEvent) throws Exception {
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
         Parent root = loader.load();
@@ -211,6 +265,7 @@ public class StudentController {
         Stage stageThis = (Stage) btnStudentLogOut.getScene().getWindow();
         stageThis.close();
         StudentModel.diagnose = 1;
+
     }
 
     public void openFunctionalAbilitiesView(ActionEvent actionEvent) throws Exception{
@@ -583,9 +638,6 @@ public class StudentController {
                     textGeneralNetwork.setUnderline(false);
                 });
     }
-
-
-
 
 
 
