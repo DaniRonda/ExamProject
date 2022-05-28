@@ -23,10 +23,10 @@ public class HealthConditionDAO {
         }
     }
 
-    public HealthDiagnose createHealthCondition(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen) throws Exception {
+    public HealthDiagnose createHealthCondition(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) throws Exception {
         HealthDiagnose healthDiagnose = null;
         int ID = 0;
-        String query = "INSERT INTO HealthDiagnose VALUES(?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO HealthDiagnose VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -36,6 +36,7 @@ public class HealthConditionDAO {
             preparedStatement.setString(4, followupdate);
             preparedStatement.setString(5, observenote);
             preparedStatement.setInt(6, citizen);
+            preparedStatement.setInt(7, healthtype);
 
             int created = preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -44,14 +45,14 @@ public class HealthConditionDAO {
                 ID = resultSet.getInt(1);
             }
             if (created != 0){
-                healthDiagnose = new HealthDiagnose(ID, profnote, currentass, anticipatedlvl, followupdate, observenote, citizen);
+                healthDiagnose = new HealthDiagnose(ID, profnote, currentass, anticipatedlvl, followupdate, observenote, citizen, healthtype);
             }
         }
         return healthDiagnose;
     }
 
     public void updateHealthDiagnose(HealthDiagnose healthDiagnose) throws Exception {
-        String query =  "UPDATE HealthDiagnose SET profnote = ?, currentass = ?, anticipatedlvl = ?, followupdate = ?, observenote = ?, citizen = ? WHERE ID = ?";
+        String query =  "UPDATE HealthDiagnose SET profnote = ?, currentass = ?, anticipatedlvl = ?, followupdate = ?, observenote = ?, citizen = ?, healthtype = ?, WHERE ID = ?";
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, healthDiagnose.getProfnote());
@@ -60,7 +61,8 @@ public class HealthConditionDAO {
             preparedStatement.setString(4, healthDiagnose.getFollowupdate());
             preparedStatement.setString(5, healthDiagnose.getObservenote());
             preparedStatement.setInt( 6, healthDiagnose.getCitizen());
-            preparedStatement.setInt(7, healthDiagnose.getID());
+            preparedStatement.setInt(7, healthDiagnose.getHealthtype());
+            preparedStatement.setInt(8, healthDiagnose.getID());
 
             preparedStatement.executeUpdate();
         }
@@ -83,9 +85,10 @@ public class HealthConditionDAO {
                 String folowupdate = resultSet.getString("folowupdate");
                 String observenote = resultSet.getString("observenote");
                 int citizen = resultSet.getInt("citizen");
+                int healthtype = resultSet.getInt("healthtype");
 
 
-                HealthDiagnose healthDiagnose = new HealthDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote,  citizen);
+                HealthDiagnose healthDiagnose = new HealthDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote,  citizen, healthtype);
                 healthDiagnosesArrayList.add(healthDiagnose);
             }
         }
@@ -110,9 +113,10 @@ public class HealthConditionDAO {
                 String folowupdate = resultSet.getString("followupdate");
                 String observenote = resultSet.getString("observenote");
                 int citizen = resultSet.getInt("citizen");
+                int healthtype = resultSet.getInt("healthtype");
 
 
-                healthDiagnose = new HealthDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote,  citizen);
+                healthDiagnose = new HealthDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote, citizen, healthtype );
                 System.out.println(healthDiagnose);
             }
         }

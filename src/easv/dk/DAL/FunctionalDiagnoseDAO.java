@@ -22,10 +22,10 @@ public class FunctionalDiagnoseDAO {
         }
     }
 
-    public FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen) throws Exception {
+    public FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen, int functionaltype) throws Exception {
         FunctionalDiagnose functionalDiagnose = null;
         int ID = 0;
-        String query = "INSERT INTO FunctionalDiagnose VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO FunctionalDiagnose VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -38,6 +38,7 @@ public class FunctionalDiagnoseDAO {
             preparedStatement.setInt(7, expectedlvl);
             preparedStatement.setString(8, wishes);
             preparedStatement.setInt(9, citizen);
+            preparedStatement.setInt(10, functionaltype);
 
             int created = preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -46,14 +47,14 @@ public class FunctionalDiagnoseDAO {
                 ID = resultSet.getInt(1);
             }
             if (created != 0){
-                functionalDiagnose = new FunctionalDiagnose(ID, profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen);
+                functionalDiagnose = new FunctionalDiagnose(ID, profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);
             }
         }
         return functionalDiagnose;
     }
 
     public void updateFunctionalDiagnose(FunctionalDiagnose functionalDiagnose) throws Exception {
-        String query =  "UPDATE FunctionalDiagnose SET  profnote = ?, currentass = ?, anticipatedlvl = ?, followupdate = ?, observenote = ?, currlvl = ?, expectedlvl = ?, wishes = ?, citizen = ? WHERE ID = ?";
+        String query =  "UPDATE FunctionalDiagnose SET  profnote = ?, currentass = ?, anticipatedlvl = ?, followupdate = ?, observenote = ?, currlvl = ?, expectedlvl = ?, wishes = ?, citizen = ?, functionaltype = ?, WHERE ID = ?";
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, functionalDiagnose.getProfnote());
@@ -66,6 +67,7 @@ public class FunctionalDiagnoseDAO {
             preparedStatement.setString(8, functionalDiagnose.getWishes());
             preparedStatement.setInt( 9, functionalDiagnose.getCitizen());
             preparedStatement.setInt(10, functionalDiagnose.getID());
+            preparedStatement.setInt(11, functionalDiagnose.getFuctionaltype());
 
             preparedStatement.executeUpdate();
         }
@@ -91,9 +93,10 @@ public class FunctionalDiagnoseDAO {
                 int expectedlvl = resultSet.getInt("expectedlvl");
                 String wishes = resultSet.getString("wishes");
                 int citizen = resultSet.getInt("citizen");
+                int functionaltype = resultSet.getInt("functionaltype");
 
 
-                FunctionalDiagnose functionalDiagnose = new FunctionalDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote, currlvl, expectedlvl, wishes, citizen);
+                FunctionalDiagnose functionalDiagnose = new FunctionalDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);
                 functionalDiagnosesArrayList.add(functionalDiagnose);
             }
         }
@@ -121,9 +124,10 @@ public class FunctionalDiagnoseDAO {
                 int expectedlvl = resultSet.getInt("expectedlvl");
                 String wishes = resultSet.getString("wishes");
                 int citizen = resultSet.getInt("citizen");
+                int functionaltype = resultSet.getInt("functionaltype");
 
 
-                functionalDiagnose = new FunctionalDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote, currlvl, expectedlvl, wishes, citizen);
+                functionalDiagnose = new FunctionalDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);
                 System.out.println(functionalDiagnose);
             }
         }

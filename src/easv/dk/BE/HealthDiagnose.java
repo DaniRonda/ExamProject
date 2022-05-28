@@ -8,9 +8,9 @@ public class HealthDiagnose {
     private String followupdate;
     private String observenote;
     private int citizen;
+    private int healthtype;
 
-
-    public HealthDiagnose(int ID, String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen) {
+    public HealthDiagnose(int ID, String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) {
         this.ID = ID;
         this.profnote = profnote;
         this.currentass = currentass;
@@ -18,7 +18,7 @@ public class HealthDiagnose {
         this.followupdate = followupdate;
         this.observenote = observenote;
         this.citizen = citizen;
-
+        this.healthtype = healthtype;
     }
 
     public int getID() {
@@ -77,6 +77,14 @@ public class HealthDiagnose {
         this.citizen = citizen;
     }
 
+    public int getHealthtype() {
+        return healthtype;
+    }
+
+    public void setHealthtype(int healthtype) {
+        this.healthtype = healthtype;
+    }
+
     @Override
     public String toString() {
         return "HealthDiagnose{" +
@@ -87,6 +95,7 @@ public class HealthDiagnose {
                 ", followupdate='" + followupdate + '\'' +
                 ", observenote='" + observenote + '\'' +
                 ", citizen=" + citizen +
+                ", healthtype=" + healthtype +
                 '}';
     }
 }

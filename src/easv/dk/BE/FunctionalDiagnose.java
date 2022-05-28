@@ -10,9 +10,10 @@ public class FunctionalDiagnose {
     private int currlvl;
     private int expectedlvl;
     private String wishes;
+    private int functionaltype;
     private int citizen;
 
-    public FunctionalDiagnose(int ID, String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen) {
+    public FunctionalDiagnose(int ID, String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int functionaltype, int citizen) {
         this.ID = ID;
         this.profnote = profnote;
         this.currentass = currentass;
@@ -22,6 +23,7 @@ public class FunctionalDiagnose {
         this.currlvl = currlvl;
         this.expectedlvl = expectedlvl;
         this.wishes = wishes;
+        this.functionaltype = functionaltype;
         this.citizen = citizen;
     }
 
@@ -97,6 +99,13 @@ public class FunctionalDiagnose {
         this.wishes = wishes;
     }
 
+    public int getFuctionaltype() {
+        return functionaltype;
+    }
+
+    public void setFuctionaltype(int fuctionaltype) {
+        this.functionaltype = fuctionaltype;
+    }
 
     public int getCitizen() {
         return citizen;
@@ -118,6 +127,7 @@ public class FunctionalDiagnose {
                 ", currlvl=" + currlvl +
                 ", expectedlvl=" + expectedlvl +
                 ", wishes='" + wishes + '\'' +
+                ", fuctionaltype=" + functionaltype +
                 ", citizen=" + citizen +
                 '}';
     }

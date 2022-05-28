@@ -24,8 +24,8 @@ public class DiagnoseManager {
         healthConditionDAO.updateHealthDiagnose(healthDiagnose);
     }
 
-    public HealthDiagnose createHealthDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen) throws Exception{
-        return healthConditionDAO.createHealthCondition(profnote, currentass, anticipatedlvl, followupdate, observenote, citizen);
+    public HealthDiagnose createHealthDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) throws Exception{
+        return healthConditionDAO.createHealthCondition(profnote, currentass, anticipatedlvl, followupdate, observenote, citizen, healthtype);
     }
 
     public FunctionalDiagnose getFunctionalDiagnose(int idFunctionalDiagnose) throws Exception {
@@ -40,7 +40,7 @@ public class DiagnoseManager {
         functionalDiagnoseDAO.updateFunctionalDiagnose(functionalDiagnose);
     }
 
-    public FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen) throws Exception{
-        return functionalDiagnoseDAO.createFunctionalDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen);
+    public FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen, int functionaltype) throws Exception{
+        return functionalDiagnoseDAO.createFunctionalDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);
     }
 }

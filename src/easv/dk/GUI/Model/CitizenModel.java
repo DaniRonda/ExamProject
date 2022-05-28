@@ -99,8 +99,8 @@ public class CitizenModel {
         diagnoseManager.updateHealthDiagnose(healthDiagnose);
     }
 
-    public HealthDiagnose createHealthDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen) throws Exception{
-        return diagnoseManager.createHealthDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, citizen);
+    public HealthDiagnose createHealthDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) throws Exception{
+        return diagnoseManager.createHealthDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, citizen, healthtype);
     }
 
     public FunctionalDiagnose getFunctionalDiagnose(int idFunctionalDiagnose) throws Exception {
@@ -115,8 +115,8 @@ public class CitizenModel {
         diagnoseManager.updateFunctionalDiagnose(functionalDiagnose);
     }
 
-    public FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen) throws Exception{
-        return diagnoseManager.createFunctionalDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen);
+    public FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen, int functionaltype) throws Exception{
+        return diagnoseManager.createFunctionalDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);
     }
     }
 

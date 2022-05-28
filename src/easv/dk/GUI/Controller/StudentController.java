@@ -118,6 +118,8 @@ public class StudentController {
     public StudentController() throws Exception {
     }
 
+
+
     public void showCitizenInfo(Citizen citizen1) throws Exception {
         clearLists();
         mode = CitizenSelected;
@@ -250,6 +252,7 @@ public class StudentController {
 
 
     public void openHealthConditionsView(ActionEvent actionEvent) throws Exception {
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
         Parent root = loader.load();
@@ -262,6 +265,7 @@ public class StudentController {
         Stage stageThis = (Stage) btnStudentLogOut.getScene().getWindow();
         stageThis.close();
         StudentModel.diagnose = 1;
+
     }
 
     public void openFunctionalAbilitiesView(ActionEvent actionEvent) throws Exception{

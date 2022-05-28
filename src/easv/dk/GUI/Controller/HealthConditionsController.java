@@ -315,7 +315,8 @@ public class HealthConditionsController {
     private Label labelMentalFunction8;
     @FXML
     private Label labelSocialLife1;
-
+    ToggleGroup groupCurrent = new ToggleGroup();
+    ToggleGroup groupExpected = new ToggleGroup();
     StudentModel studentModel = new StudentModel();
 
     String selectedDiagnose;
@@ -324,8 +325,9 @@ public class HealthConditionsController {
     public HealthConditionsController() throws Exception {
 
     }
-    ToggleGroup groupCurrent = new ToggleGroup();
-    ToggleGroup groupExpected = new ToggleGroup();
+
+
+
     @FXML
     private void initialize() {
         ToggleGroup group = new ToggleGroup();
