@@ -7,17 +7,17 @@ import java.util.List;
 public interface IDataAccess {
     void createCitizen(Citizen citizen) throws Exception;
 
-    void createStudent(Student student) throws Exception;
+    Student createStudent(Student student) throws Exception;
 
-    void createTeacher(Teacher teacher) throws Exception;
+    Teacher createTeacher(Teacher teacher) throws Exception;
 
     void createCitizenStudent(CitizenStudent citizenStudent) throws Exception;
 
-    void createCase(String caseText, int citizen) throws Exception;
+    Case createCase(String caseText, int citizen) throws Exception;
 
-    void createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) throws Exception;
+    GeneralInfo createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) throws Exception;
 
-    void createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen, int functionaltype) throws Exception;
+    FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen, int functionaltype) throws Exception;
 
     void createHealthCondition(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) throws Exception;
 
@@ -78,6 +78,12 @@ public interface IDataAccess {
     void updateHealthDiagnose(HealthDiagnose healthDiagnose) throws Exception;
 
     void updateTemplate(Template template) throws Exception;
+
+    Admin getAdminLogin(String email, String password) throws Exception;
+
+    Teacher getTeacherLogin(String email, String password) throws Exception;
+
+    Student getStudentLogin(String email, String password) throws Exception;
 
     void AddCitizenToStudent(Citizen citizen, Student student) throws Exception;
 }

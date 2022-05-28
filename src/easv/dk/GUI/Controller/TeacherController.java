@@ -159,7 +159,7 @@ public class TeacherController {
     }
 
     public void deleteCitizen(ActionEvent actionEvent) throws Exception {
-        CitizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
+        citizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
         citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
     }
 

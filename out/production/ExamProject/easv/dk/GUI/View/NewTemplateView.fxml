@@ -52,5 +52,6 @@
       <Button layoutX="521.0" layoutY="340.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Cancel" />
       <DatePicker fx:id="createTemplateDatePicker" layoutX="202.0" layoutY="147.0" onAction="#getDate" prefHeight="36.0" prefWidth="172.0" />
       <TextField fx:id="createTemplateAddress_txt" layoutX="214.0" layoutY="272.0" />
+      <Label layoutX="121.0" layoutY="276.0" prefHeight="17.0" prefWidth="57.0" text="Address" />
    </children>
 </AnchorPane>

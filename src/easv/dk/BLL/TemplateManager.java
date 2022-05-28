@@ -2,26 +2,28 @@ package easv.dk.BLL;
 
 
 import easv.dk.BE.Template;
+import easv.dk.DAL.DALFacade;
+import easv.dk.DAL.IDataAccess;
 import easv.dk.DAL.TemplatesDAO;
 
 import java.util.List;
 
 public class TemplateManager {
 
-    TemplatesDAO templateDAO = new TemplatesDAO();
+    private IDataAccess dataAccess;
 
-    public TemplateManager() throws Exception {
-    }
+
+    public TemplateManager() throws Exception {dataAccess= DALFacade.getInstance(); }
 
     public List<Template> getAllTemplates() throws Exception{
-        return this.templateDAO.getAllTemplates();
+        return this.dataAccess.getAllTemplates();
     }
 
     public void createTemplate(Template template) throws Exception{
-        templateDAO.createTemplate(template);
+        dataAccess.createTemplate(template);
     }
 
     public void updateTemplate(Template template) throws Exception{
-        templateDAO.updateTemplate(template);
+        dataAccess.updateTemplate(template);
     }
 }

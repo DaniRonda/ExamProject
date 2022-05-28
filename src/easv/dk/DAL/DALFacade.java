@@ -32,19 +32,29 @@ public class DALFacade implements IDataAccess{
     @Override
     public void createCitizen(Citizen citizen) throws Exception {citizenDAO.createCitizen(citizen);}
     @Override
-    public void createStudent(Student student) throws Exception {studentDAO.saveUpdateStudent(student);}
+    public Student createStudent(Student student) throws Exception {studentDAO.saveUpdateStudent(student);
+        return student;
+    }
     @Override
-    public void createTeacher(Teacher teacher) throws Exception {teacherDAO.createTeacher(teacher);}
+    public Teacher createTeacher(Teacher teacher) throws Exception {teacherDAO.createTeacher(teacher);
+        return teacher;
+    }
     @Override
     public void createCitizenStudent(CitizenStudent citizenStudent) throws Exception {citizenStudentDAO.createCitizenStudent(citizenStudent);}
     @Override
-    public void createCase(String caseText, int citizen) throws Exception {caseDAO.createCase(caseText, citizen);}
+    public Case createCase(String caseText, int citizen) throws Exception {caseDAO.createCase(caseText, citizen);
+        return null;
+    }
     @Override
-    public void createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) throws Exception {
-        citizenGeneralInfoDAO.createGeneralInfo(coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network, citizen);}
+    public GeneralInfo createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) throws Exception {
+        citizenGeneralInfoDAO.createGeneralInfo(coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network, citizen);
+        return null;
+    }
     @Override
-    public void createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen, int functionaltype) throws Exception{
-        functionalDiagnoseDAO.createFunctionalDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);}
+    public FunctionalDiagnose createFunctionalDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int currlvl, int expectedlvl, String wishes, int citizen, int functionaltype) throws Exception{
+        functionalDiagnoseDAO.createFunctionalDiagnose(profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);
+        return null;
+    }
     @Override
     public void createHealthCondition (String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) throws Exception {
         healthConditionDAO.createHealthCondition(profnote, currentass, anticipatedlvl, followupdate, observenote, citizen, healthtype);}
@@ -117,6 +127,13 @@ public class DALFacade implements IDataAccess{
     public void updateHealthDiagnose(HealthDiagnose healthDiagnose) throws Exception {healthConditionDAO.updateHealthDiagnose(healthDiagnose);}
     @Override
     public void updateTemplate(Template template) throws Exception {templatesDAO.updateTemplate(template);}
+
+    @Override
+    public Admin getAdminLogin(String email, String password) throws Exception { return adminDAO.getAdminLogin(email, password);}
+    @Override
+    public Teacher getTeacherLogin(String email, String password) throws Exception { return teacherDAO.getTeacherLogin(email, password);}
+    @Override
+    public Student getStudentLogin(String email, String password) throws Exception { return studentDAO.getStudentLogin(email, password);}
 
 
 
