@@ -1,7 +1,9 @@
 package easv.dk.GUI.Controller;
 
 import easv.dk.BE.Citizen;
+import easv.dk.BE.Template;
 import easv.dk.GUI.Model.CitizenModel;
+import easv.dk.GUI.Model.TemplateModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +24,8 @@ public class TemplateViewController {
     private TableView templateTable;
     @FXML
     private Button btnTemplateLogOut;
+
+    TemplateModel templateModel = new TemplateModel();
 
     CitizenModel citizenModel = new CitizenModel();
     public TemplateViewController() throws Exception {
@@ -65,15 +69,25 @@ public class TemplateViewController {
     }
 
     public void setupTemplateTable() throws Exception {
-        TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
+        TableColumn<Template, String> column1 = new TableColumn<>("First Name");
         column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
+        TableColumn<Template, String> column2 = new TableColumn<>("Last Name");
         column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        templateTable.getColumns().clear();
+        TableColumn<Template, String> column3 = new TableColumn<>("Address");
+        column3.setCellValueFactory(new PropertyValueFactory<>("address"));
+        TableColumn<Template, String> column4 = new TableColumn<>("Birthdate");
+        column4.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        TableColumn<Template, String> column5 = new TableColumn<>("Phone Number");
+        column5.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+
         templateTable.getColumns().add(column1);
         templateTable.getColumns().add(column2);
+        templateTable.getColumns().add(column3);
+        templateTable.getColumns().add(column4);
+        templateTable.getColumns().add(column5);
+
         templateTable.getItems().clear();
-        templateTable.getItems().addAll(citizenModel.getAllCitizens1());
+        templateTable.getItems().addAll(templateModel.getAllTemplates());
     }
 
     public void openNewTemplateView(ActionEvent actionEvent) throws Exception {
