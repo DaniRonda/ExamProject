@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.GUI.Model.StudentModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

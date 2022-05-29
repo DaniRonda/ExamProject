@@ -1,13 +1,10 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Citizen;
 import easv.dk.BLL.CitizenManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -24,21 +21,15 @@ public class NewCitizenViewController {
     @FXML
     private TextField createCitizenPhoneNumber_txt;
     @FXML
-    private TextField createCitizenSchoolID_txt;
-    @FXML
     private DatePicker createCitizenDatePicker;
     @FXML
     private Button confirmCreateCitizenBTN;
 
 
-    public String[] cbValues = {"True", "False"};
+
     CitizenManager citizenManager = new CitizenManager();
 
-    private TeacherController parentController;
 
-    public void setParentController(TeacherController teacherController){
-        this.parentController = teacherController;
-    }
 
     public NewCitizenViewController() throws Exception {
     }

@@ -1,8 +1,5 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Student;
-import easv.dk.BE.Teacher;
-import easv.dk.BLL.Manager;
 import easv.dk.BLL.StudentManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,14 +26,14 @@ public class EditStudentViewController {
     private Student selectedStudent;
  StudentManager studentManager = new StudentManager();
  private AdminViewController parentController;
- private TeacherController teacherController;
+ private TeacherViewController teacherController;
  public EditStudentViewController() throws Exception {
  }
 
  public void setParentController(AdminViewController adminViewController){
   this.parentController = adminViewController;
  }
- public void setTeacherController(TeacherController teacherController){
+ public void setTeacherController(TeacherViewController teacherController){
   this.teacherController = teacherController;
  }
 

@@ -1,10 +1,10 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BLL.Manager;
 import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.StudentModel;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,14 +14,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class TeacherController {
+public class TeacherViewController {
+    public TextField searchTextBox;
     @FXML
     private TableView studentTable;
     @FXML
     private Button btnDeleteStudent;
-    @FXML
-    private Button btnRemoveStudents;
     @FXML
     private Button btnNewStudent;
     @FXML
@@ -51,7 +51,7 @@ public class TeacherController {
     private final static int CitizenSelected = 1;
     private int mode = StudentSelected;
 
-    public TeacherController() throws Exception {
+    public TeacherViewController() throws Exception {
     }
 
     @FXML
@@ -60,6 +60,44 @@ public class TeacherController {
         setUpStudentTable();
         studentTable.setOnMouseClicked(event -> showStudentCitizenInList());
         citizenTable.setOnMouseClicked(event -> showCitizenStudentInList());
+        studentFilter();
+        citizenFilter();
+
+    }
+    public void studentFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Student> unfilteredList = null;
+                try {
+                    unfilteredList = studentModel.getAllStudents1();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Student> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                studentTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
+
+    }
+    public void citizenFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Citizen> unfilteredList = null;
+                try {
+                    unfilteredList = citizenModel.getAllCitizen();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Citizen> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                citizenTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
 
     }
 

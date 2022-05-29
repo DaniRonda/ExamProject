@@ -1,11 +1,8 @@
 package easv.dk.GUI.Model;
-
 import easv.dk.BE.*;
 import easv.dk.BLL.*;
-import easv.dk.DAL.CaseDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.util.List;
 
 public class CitizenModel {

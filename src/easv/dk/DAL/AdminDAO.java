@@ -1,16 +1,11 @@
 package easv.dk.DAL;
-
 import easv.dk.BE.Admin;
-import easv.dk.BLL.Manager;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.junit.Test;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class AdminDAO {
     private static ConnectionManager cm;

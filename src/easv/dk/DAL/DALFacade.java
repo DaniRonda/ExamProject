@@ -1,8 +1,7 @@
 package easv.dk.DAL;
-
 import easv.dk.BE.*;
-
 import java.util.List;
+
 
 public class DALFacade implements IDataAccess {
 

@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Case;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
@@ -24,27 +23,19 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.TextField;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class StudentController {
-    private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
+
+public class StudentViewController {
     @FXML
     private javafx.scene.control.TextField textFieldSearch2;
-    @FXML
-    private Button ButtonToCase;
-    @FXML
-    private Button sendToCaseScreen;
     @FXML
     private Button btnStudentLogOut;
     @FXML
     private Button btnHealthConditions;
     @FXML
     private Button btnFunctionalAbilities;
-    @FXML
-    private TextField textFieldSearch1;
     @FXML
     private TableView tableViewCitizens;
     @FXML
@@ -105,7 +96,6 @@ public class StudentController {
     private Citizen citizen;
 
 
-    StudentModel studentModel = new StudentModel();
 
 
 
@@ -115,7 +105,7 @@ public class StudentController {
 
     CitizenModel citizenmodel = new CitizenModel();
 
-    public StudentController() throws Exception {
+    public StudentViewController() throws Exception {
     }
 
 
@@ -286,30 +276,17 @@ public class StudentController {
     public void search() throws Exception {
         new Thread(() ->{
         textFieldSearch2.textProperty().addListener((observable, oldValue, newValue) -> {
+            List<Citizen> unfilteredList = null;
+            try {
+                unfilteredList = citizenmodel.getAllCitizen();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-                try {
-                    dataList.addAll(citizenmodel.getAllCitizen()); //<-- depending on what name the method gets
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                FilteredList<Citizen> filteredData = new FilteredList<>(dataList, b -> true);
-                filteredData.setPredicate(citizen -> {
-                    if (newValue == null || newValue.isEmpty()) {
-                        return true;
-                    }
-                    String lowerCaseFilter = newValue.toLowerCase();
-
-                    //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue()
-                    // > searchBar.textProperty()).collect(Collectors.toList());
-                    if (citizen.getFirstName().toLowerCase().contains(lowerCaseFilter))
-                        return true; // Filter title.
-
-                    else
-                        return String.valueOf(citizen.getLastName()).contains(lowerCaseFilter); //getcase might be changed
-                });
-                SortedList<Citizen> sortedData = new SortedList<>(filteredData);
-                sortedData.comparatorProperty().bind(tableViewCitizens.comparatorProperty());
-                tableViewCitizens.setItems(sortedData);
+            List<Citizen> filteredList = unfilteredList.stream()
+                    .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                            p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+            tableViewCitizens.setItems(FXCollections.observableArrayList(filteredList));
             });
         }).start();
 

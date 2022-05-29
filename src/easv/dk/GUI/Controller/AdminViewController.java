@@ -1,9 +1,10 @@
 package easv.dk.GUI.Controller;
-
+import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.GUI.Model.StudentModel;
 import easv.dk.GUI.Model.TeacherModel;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,31 +14,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class AdminViewController {
 
-    @FXML
-    private Button btnOpenEditTeacherView;
-    @FXML
-    private Button btnDeleteTeacher;
-    @FXML
-    private Button btnOpenEditStudentView;
-    @FXML
-    private Button btnDeleteStudent;
+
+    public TextField searchTextBox;
     @FXML
     private TableView studentTable;
     @FXML
     private TableView teacherTable;
-    @FXML
-    private Button btnOpenTeacherView;
-    @FXML
-    private Button btnOpenTemplateView;
-    @FXML
-    private Button btnOpenNewTeacherView;
-    @FXML
-    private Button btnOpenNewStudentView;
     @FXML
     private Button btnAdminLogOut;
     TeacherModel teacherModel = new TeacherModel();
@@ -52,8 +40,47 @@ public class AdminViewController {
     public void initialize() throws Exception {
         setUpTeacherTable();
         setUpStudentTable();
-        //teacherFilter();
-        //studentFilter();
+        teacherFilter();
+        studentFilter();
+
+    }
+
+    public void studentFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Student> unfilteredList = null;
+                try {
+                    unfilteredList = studentModel.getAllStudents1();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Student> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                studentTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
+
+    }
+
+
+    public void teacherFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Teacher> unfilteredList = null;
+                try {
+                    unfilteredList = teacherModel.getAllTeachers1();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Teacher> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                teacherTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
 
     }
 
@@ -196,4 +223,5 @@ public class AdminViewController {
         stage.centerOnScreen();
         stage.show();
     }
+
 }

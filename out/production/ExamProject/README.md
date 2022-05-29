@@ -6,6 +6,7 @@ In order to log into the program a connection to the database server of the Erhv
 The following credentials can be used to access the system from different accounts.
 
 
+
 **Admin:**
 
 Username: Admin

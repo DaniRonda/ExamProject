@@ -1,9 +1,5 @@
 package easv.dk.DAL;
-
-import easv.dk.BE.Case;
-import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.Student;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

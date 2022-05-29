@@ -1,7 +1,7 @@
 package easv.dk.DAL;
-
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import java.sql.Connection;
+
 
 public class ConnectionManager {
     private final SQLServerDataSource ds;
