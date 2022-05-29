@@ -275,7 +275,7 @@ public class StudentController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.setTitle("Functional Abilities");
+        stage.setTitle("Diagnose");
         stage.centerOnScreen();
         stage.show();
         StudentModel.diagnose = 2;

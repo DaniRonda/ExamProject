@@ -192,7 +192,7 @@
                </font>
             </Button>
             <TextArea fx:id="TextAreaObsNotes" layoutX="19.0" layoutY="491.0" prefHeight="101.0" prefWidth="585.0" />
-            <Button fx:id="buttonClientsWishes" disable="true" layoutX="16.0" layoutY="596.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" onMouseEntered="#clientsWishesEntered" pickOnBounds="false" prefHeight="44.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Clients Wishes" visible="false">
+            <Button fx:id="buttonClientsWishes" disable="true" layoutX="16.0" layoutY="596.0" mnemonicParsing="false" onAction="#toClientsWishesScreen" onMouseEntered="#clientsWishesEntered" pickOnBounds="false" prefHeight="44.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Client's Wishes" visible="false">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

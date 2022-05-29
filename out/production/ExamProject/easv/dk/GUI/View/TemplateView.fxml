@@ -38,7 +38,7 @@
         <columns>
           <TableColumn prefWidth="150.0" text="First Name" />
           <TableColumn prefWidth="150.0" text="Last Name" />
-            <TableColumn prefWidth="100.0" text="Birth Date" />
+            <TableColumn prefWidth="100.0" text="Birthdate" />
         </columns>
       </TableView>
       <Label layoutX="526.0" layoutY="92.0" text="Citizens">
