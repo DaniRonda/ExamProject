@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Admin;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
@@ -25,15 +24,12 @@ public class LogInViewController implements Initializable {
     @FXML
     private Button BtnCancel;
     @FXML
-    private Button ButtonBypass;
-    @FXML
     private TextField TextFieldEmail;
     @FXML
     private PasswordField TextFieldPassword = new PasswordField();
     @FXML
     private Button ButtonSignIn;
 
-    Manager manager = new Manager();
     AdminModel adminModel = new AdminModel();
     TeacherModel teacherModel = new TeacherModel();
     StudentModel studentModel = new StudentModel();
@@ -107,14 +103,11 @@ public class LogInViewController implements Initializable {
     }
 
 
-
-
         public void signIn (ActionEvent actionEvent) throws Exception {
             adminCheck();
             teacherCheck();
             studentCheck();
-           // Stage thisStage = (Stage) ButtonSignIn.getScene().getWindow();
-           // thisStage.close();
+
         }
         public String getTextFieldPassword () {
             return this.TextFieldPassword.getText();

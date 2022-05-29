@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TeacherController">
+<AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.TeacherViewController">
    <children>
       <ToolBar layoutX="1.0" layoutY="-2.0" prefHeight="78.0" prefWidth="950.0" style="-fx-background-color: #EFEFE6;" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.0" />
       <TableView fx:id="citizenTable" layoutX="129.0" layoutY="125.0" maxWidth="1.7976931348623157E308" prefHeight="461.0" prefWidth="227.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="129.0" AnchorPane.topAnchor="125.0">

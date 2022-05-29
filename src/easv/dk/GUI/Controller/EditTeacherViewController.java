@@ -1,6 +1,5 @@
 package easv.dk.GUI.Controller;
 import easv.dk.BE.Teacher;
-import easv.dk.BLL.TeacherManager;
 import easv.dk.GUI.Model.TeacherModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,8 +16,6 @@ public class EditTeacherViewController {
     private TextField teacherPassword_txt;
     @FXML
     private TextField teacherEmail_txt;
-    @FXML
-    private TextField teacherSchool_txt;
     @FXML
     private TextField teacherLastName_txt;
     @FXML

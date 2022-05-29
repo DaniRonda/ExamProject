@@ -1,11 +1,10 @@
 package easv.dk.BLL;
-
 import easv.dk.DAL.DALFacade;
 import easv.dk.DAL.IDataAccess;
 import easv.dk.DAL.TeacherDAO;
-
 import easv.dk.BE.Teacher;
 import java.util.List;
+
 
 public class TeacherManager {
 

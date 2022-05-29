@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.StudentController">
+<AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.StudentViewController">
    <children>
       <ToolBar layoutX="2.0" layoutY="-1.0" prefHeight="73.0" prefWidth="958.0" style="-fx-background-color: #EFEFE6 #EFEFE6;" />
       <TableView fx:id="tableViewCitizens" layoutX="21.0" layoutY="108.0" prefHeight="235.0" prefWidth="334.0" style="-fx-background-radius: 15;" />

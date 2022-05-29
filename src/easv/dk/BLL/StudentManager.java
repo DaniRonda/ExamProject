@@ -2,7 +2,6 @@ package easv.dk.BLL;
 
 import easv.dk.DAL.DALFacade;
 import easv.dk.DAL.IDataAccess;
-import easv.dk.DAL.StudentDAO;
 import easv.dk.BE.Student;
 
 import java.util.List;

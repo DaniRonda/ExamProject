@@ -15,7 +15,8 @@ public class Manager implements IManager {
     private IDataAccess dataAccess;
 
 
-    public Manager() throws Exception {dataAccess= DALFacade.getInstance();
+    public Manager() throws Exception {
+        dataAccess= DALFacade.getInstance();
     }
 
     public String getLogInPassword() throws Exception {

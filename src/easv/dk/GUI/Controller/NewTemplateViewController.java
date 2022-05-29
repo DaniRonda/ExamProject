@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Template;
 import easv.dk.BLL.TemplateManager;
 import easv.dk.GUI.Model.StudentModel;
@@ -12,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -23,23 +21,18 @@ public class NewTemplateViewController {
 
     @FXML
     private TextField createTemplateFirstName_txt;
-
     @FXML
     private TextField createTemplateLastName_txt;
-
     @FXML
     private TextField createTemplateAddress_txt;
-
     @FXML
     private DatePicker createTemplateDatePicker;
-
     @FXML
     private TextField createTemplatePhoneNumber_txt;
-
     @FXML
     private Button confirmCreateTemplateBTN;
 
-    private Template template;
+
     TemplateManager templateManager = new TemplateManager();
 
     public NewTemplateViewController() throws Exception {
