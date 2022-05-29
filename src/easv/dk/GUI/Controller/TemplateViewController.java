@@ -96,6 +96,7 @@ public class TemplateViewController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("New Template");
         stage.centerOnScreen();
         stage.show();
 
