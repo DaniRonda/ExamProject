@@ -32,8 +32,6 @@ public class TeacherViewController {
     @FXML
     private Button btnOpenTemplateView;
     @FXML
-    private Button btnOpenCaseView;
-    @FXML
     private TableView citizenTable;
     @FXML
     private Button btnDeleteCitizen;
@@ -87,6 +85,7 @@ public class TeacherViewController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("New Citizen");
         stage.centerOnScreen();
         stage.show();
     }
@@ -101,6 +100,7 @@ public class TeacherViewController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("Edit Citizen");
         stage.centerOnScreen();
         stage.show();
     }
@@ -115,6 +115,7 @@ public class TeacherViewController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("New Student");
         stage.centerOnScreen();
         stage.show();
     }
@@ -129,6 +130,7 @@ public class TeacherViewController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("Edit Student");
         stage.centerOnScreen();
         stage.show();
     }
@@ -140,21 +142,11 @@ public class TeacherViewController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("Template");
         stage.centerOnScreen();
         stage.show();
     }
 
-    public void openCaseView(ActionEvent actionEvent) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CaseView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-
-    }
 
     public void deleteCitizen(ActionEvent actionEvent) throws Exception {
         citizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
