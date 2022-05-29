@@ -29,7 +29,7 @@ public class EditCitizenViewController {
     CitizenModel citizenModel = new CitizenModel();
     private TeacherController parentController;
 
-    public void setParentController(TeacherController teacherController){
+    public void setParentController(TeacherController teacherController) {
         this.parentController = teacherController;
     }
 

@@ -49,13 +49,13 @@ public class TemplatesDAO {
 
     public void updateTemplate(Template template) throws Exception {
         Connection con = cm.getConnection();
-        String sqlUpdateTemplate = "UPDATE  Citizen SET firstName=?, lastName=?, address=?, phoneNumber=? WHERE ID=?, WHERE isTemplate=1;";
+        String sqlUpdateTemplate = "UPDATE  Citizen SET firstName=?, lastName=?, address=?, phoneNumber=? WHERE ID=?;";
         PreparedStatement psUpdateTemplate = con.prepareStatement(sqlUpdateTemplate);
         psUpdateTemplate.setString(1,template.getFirstName());
         psUpdateTemplate.setString(2,template.getLastName());
         psUpdateTemplate.setString(3,template.getAddress());
-        psUpdateTemplate.setInt(5,template.getPhoneNumber());
-        psUpdateTemplate.setInt(6,template.getID());
+        psUpdateTemplate.setInt(4,template.getPhoneNumber());
+        psUpdateTemplate.setInt(5,template.getID());
         psUpdateTemplate.execute();
         psUpdateTemplate.close();
         con.close();

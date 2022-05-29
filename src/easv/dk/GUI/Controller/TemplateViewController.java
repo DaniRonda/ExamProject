@@ -102,6 +102,20 @@ public class TemplateViewController {
 
     }
 
+    public void openEditTemplateView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditTemplateView.fxml"));
+        Parent root = loader.load();
+        EditTemplateViewController control = loader.getController();
+        control.setInfo((Template) templateTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.centerOnScreen();
+        stage.show();
+    }
+
     public void deleteTemplate(ActionEvent actionEvent) {
     }
 
