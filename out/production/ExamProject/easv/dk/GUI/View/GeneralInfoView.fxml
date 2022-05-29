@@ -114,10 +114,13 @@
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="950.0" style="-fx-background-color: #EFEFE6;">
          <children>
             <HBox prefHeight="66.0" prefWidth="449.0" />
-            <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#returnTo" text="Return">
+            <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#returnTo" prefHeight="32.0" prefWidth="75.0" text="Return">
                <HBox.margin>
                   <Insets left="310.0" />
                </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Button>
          </children>
       </HBox>

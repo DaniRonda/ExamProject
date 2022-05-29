@@ -95,7 +95,7 @@
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="buttonToFunctional" mnemonicParsing="false" onAction="#toFunctional" onMouseEntered="#mouseOverToFunctionalBtn" prefHeight="54.0" prefWidth="165.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Functional Diagnose ">
+            <Button fx:id="buttonToFunctional" mnemonicParsing="false" onAction="#toFunctional" onMouseEntered="#mouseOverToFunctionalBtn" prefHeight="54.0" prefWidth="165.0" style="-fx-background-color: #D3D3D3; -fx-border-color: #8D8D8D;" text="Functional Diagnose ">
                <VBox.margin>
                   <Insets left="5.0" top="10.0" />
                </VBox.margin>
@@ -186,9 +186,9 @@
                </font>
             </Text>
             <TextArea fx:id="textAreaCurAssessment" layoutX="19.0" layoutY="228.0" prefHeight="101.0" prefWidth="585.0" />
-            <Button fx:id="buttonSave" layoutX="19.0" layoutY="602.0" mnemonicParsing="false" onAction="#saveClient" onMouseEntered="#saveEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="154.0" style="-fx-background-radius: 15; -fx-background-color: #ECECEC; -fx-border-color: #8D8D8D; -fx-border-radius: 15;" text="Save Changes" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="19.0">
+            <Button fx:id="buttonSave" layoutX="19.0" layoutY="602.0" mnemonicParsing="false" onAction="#saveClient" onMouseEntered="#saveEntered" pickOnBounds="false" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: #ECECEC; -fx-border-color: #8D8D8D;" text="Save Changes" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="19.0">
                <font>
-                  <Font name="Arial Bold" size="18.0" />
+                  <Font name="Arial Bold" size="16.0" />
                </font>
             </Button>
             <TextArea fx:id="TextAreaObsNotes" layoutX="19.0" layoutY="491.0" prefHeight="101.0" prefWidth="585.0" />
