@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Student;
 import easv.dk.BLL.StudentManager;
 import javafx.event.ActionEvent;
@@ -27,13 +26,13 @@ public class NewStudentViewController {
     StudentManager studentManager = new StudentManager();
     private AdminViewController parentController;
 
-    private TeacherController teacherController;
+    private TeacherViewController teacherController;
 
     public void setParentController(AdminViewController adminViewController){
         this.parentController = adminViewController;
     }
 
-    public void setTeacherController(TeacherController teacherController){
+    public void setTeacherController(TeacherViewController teacherController){
         this.teacherController = teacherController;
     }
 

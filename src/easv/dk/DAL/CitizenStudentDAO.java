@@ -1,14 +1,12 @@
 package easv.dk.DAL;
-
 import easv.dk.BE.Citizen;
 import easv.dk.BE.CitizenStudent;
 import easv.dk.BE.Student;
-
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 public class CitizenStudentDAO {
     ConnectionManager cm;
@@ -20,22 +18,6 @@ public class CitizenStudentDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void createCitizenStudent(List<CitizenStudent> list) throws Exception {
-        Connection con = cm.getConnection();
-
-        String sql = "INSERT INTO citizenStudent (citizen_id, student_id) VALUES (?,?)";
-        PreparedStatement statement = con.prepareStatement(sql);
-
-        for (CitizenStudent cS : list) {
-            statement.setInt(1, cS.getCitizenID());
-            statement.setInt(2, cS.getStudentID());
-            statement.executeUpdate();
-        }
-        statement.close();
-        con.close();
-
     }
 
     public List<CitizenStudent> getAllCitizenStudent() throws Exception {

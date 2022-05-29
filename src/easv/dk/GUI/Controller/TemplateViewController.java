@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Citizen;
 import easv.dk.BE.Template;
 import easv.dk.GUI.Model.CitizenModel;

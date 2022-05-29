@@ -1,8 +1,5 @@
 package easv.dk.DAL;
-
-import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.HealthDiagnose;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

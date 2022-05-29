@@ -1,15 +1,10 @@
 package easv.dk.GUI.Model;
-
-import easv.dk.BE.Admin;
-import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
-import easv.dk.BE.Teacher;
-import easv.dk.BLL.Manager;
 import easv.dk.BLL.StudentManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.util.List;
+
 
 public class StudentModel {
 
@@ -35,12 +30,4 @@ public class StudentModel {
     }
     static public int diagnose = 0;
 
-    public void saveUpdateStudent(Student student) throws Exception{
-        studentManager.saveUpdateStudent(student);
-    }
-
-
-    static public int diagnoseSelected(){
-        return diagnose;
-    }
 }

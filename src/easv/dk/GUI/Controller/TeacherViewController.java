@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BLL.Manager;
@@ -15,13 +14,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.util.List;
 
-public class TeacherController {
+public class TeacherViewController {
     @FXML
     private TableView studentTable;
     @FXML
     private Button btnDeleteStudent;
-    @FXML
-    private Button btnRemoveStudents;
     @FXML
     private Button btnNewStudent;
     @FXML
@@ -51,7 +48,7 @@ public class TeacherController {
     private final static int CitizenSelected = 1;
     private int mode = StudentSelected;
 
-    public TeacherController() throws Exception {
+    public TeacherViewController() throws Exception {
     }
 
     @FXML

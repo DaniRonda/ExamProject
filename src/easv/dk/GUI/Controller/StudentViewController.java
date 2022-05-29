@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Case;
 import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
@@ -24,27 +23,17 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.awt.TextField;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 
-public class StudentController {
+public class StudentViewController {
     private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
     @FXML
     private javafx.scene.control.TextField textFieldSearch2;
-    @FXML
-    private Button ButtonToCase;
-    @FXML
-    private Button sendToCaseScreen;
     @FXML
     private Button btnStudentLogOut;
     @FXML
     private Button btnHealthConditions;
     @FXML
     private Button btnFunctionalAbilities;
-    @FXML
-    private TextField textFieldSearch1;
     @FXML
     private TableView tableViewCitizens;
     @FXML
@@ -105,7 +94,6 @@ public class StudentController {
     private Citizen citizen;
 
 
-    StudentModel studentModel = new StudentModel();
 
 
 
@@ -115,7 +103,7 @@ public class StudentController {
 
     CitizenModel citizenmodel = new CitizenModel();
 
-    public StudentController() throws Exception {
+    public StudentViewController() throws Exception {
     }
 
 

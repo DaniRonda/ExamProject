@@ -1,6 +1,4 @@
 package easv.dk.GUI.Controller;
-
-import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.BLL.TeacherManager;
 import javafx.event.ActionEvent;

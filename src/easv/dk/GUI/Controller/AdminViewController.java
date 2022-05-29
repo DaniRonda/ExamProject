@@ -1,5 +1,4 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.GUI.Model.StudentModel;
@@ -13,31 +12,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+
 
 
 public class AdminViewController {
 
-    @FXML
-    private Button btnOpenEditTeacherView;
-    @FXML
-    private Button btnDeleteTeacher;
-    @FXML
-    private Button btnOpenEditStudentView;
-    @FXML
-    private Button btnDeleteStudent;
+
     @FXML
     private TableView studentTable;
     @FXML
     private TableView teacherTable;
-    @FXML
-    private Button btnOpenTeacherView;
-    @FXML
-    private Button btnOpenTemplateView;
-    @FXML
-    private Button btnOpenNewTeacherView;
-    @FXML
-    private Button btnOpenNewStudentView;
     @FXML
     private Button btnAdminLogOut;
     TeacherModel teacherModel = new TeacherModel();

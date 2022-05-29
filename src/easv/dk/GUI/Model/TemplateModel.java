@@ -1,13 +1,10 @@
 package easv.dk.GUI.Model;
-
-import easv.dk.BE.Citizen;
 import easv.dk.BE.Template;
-import easv.dk.BLL.CitizenManager;
 import easv.dk.BLL.TemplateManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.util.List;
+
 
 public class TemplateModel {
     ObservableList<Template> getAllTemplates;
