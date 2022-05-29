@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -34,6 +35,9 @@ public class NewTemplateViewController {
 
     @FXML
     private TextField createTemplatePhoneNumber_txt;
+
+    @FXML
+    private Button confirmCreateTemplateBTN;
 
     private Template template;
     TemplateManager templateManager = new TemplateManager();
@@ -101,5 +105,7 @@ public class NewTemplateViewController {
         boolean isTemplate = true;
         Template templateCreated = new Template(templateFirstName, templateLastName, templateAddress, templateBirthDate, templatePhoneNumber, isTemplate, 1);
         templateManager.createTemplate(templateCreated);
+        Stage stage = (Stage)confirmCreateTemplateBTN.getScene().getWindow();
+        stage.close();
     }
 }

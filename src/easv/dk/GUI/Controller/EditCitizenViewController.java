@@ -41,7 +41,7 @@ public class EditCitizenViewController {
         String citizenLastName= citizenLastName_txt.getText();
         String citizenAddress = citizenAddress_txt.getText();
         int citizenPhoneNumber = citizenPhoneNumber_txt.getProperties().size();
-        Citizen citizenUpdated = new Citizen(citizenFirstName,citizenLastName,citizenAddress, selectedCitizen.getBirthDate(), citizenPhoneNumber, selectedCitizen.isTemplate(), selectedCitizen.getID());
+        Citizen citizenUpdated = new Citizen(citizenFirstName,citizenLastName,citizenAddress, selectedCitizen.getBirthDate(), citizenPhoneNumber, selectedCitizen.isTemplate(false), selectedCitizen.getID());
         citizenModel.updateCitizen(citizenUpdated);
         Stage stage = (Stage)btnSaveUpdateCitizen.getScene().getWindow();
         stage.close();

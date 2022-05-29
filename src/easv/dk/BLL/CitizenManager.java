@@ -30,6 +30,10 @@ public class CitizenManager {
         dataAccess.saveUpdateCitizen(citizen);
     }
 
+    public void createCitizen(Citizen citizen) throws Exception{
+        dataAccess.createCitizen(citizen);
+    }
+
 
     /*public void addInfoToCitizen(Citizen selectedItem, ) throws SQLException {
         CitizenGeneralInfoDAO.addMovieToCategory(selectedItem, selectedMovie);
