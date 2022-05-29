@@ -23,9 +23,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class StudentViewController {
-    private final ObservableList<Citizen> dataList = FXCollections.observableArrayList();
     @FXML
     private javafx.scene.control.TextField textFieldSearch2;
     @FXML
@@ -274,30 +276,17 @@ public class StudentViewController {
     public void search() throws Exception {
         new Thread(() ->{
         textFieldSearch2.textProperty().addListener((observable, oldValue, newValue) -> {
+            List<Citizen> unfilteredList = null;
+            try {
+                unfilteredList = citizenmodel.getAllCitizen();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-                try {
-                    dataList.addAll(citizenmodel.getAllCitizen()); //<-- depending on what name the method gets
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                FilteredList<Citizen> filteredData = new FilteredList<>(dataList, b -> true);
-                filteredData.setPredicate(citizen -> {
-                    if (newValue == null || newValue.isEmpty()) {
-                        return true;
-                    }
-                    String lowerCaseFilter = newValue.toLowerCase();
-
-                    //List<Integer> result = (List<Integer>) filteredData.stream().filter(val -> val.intValue()
-                    // > searchBar.textProperty()).collect(Collectors.toList());
-                    if (citizen.getFirstName().toLowerCase().contains(lowerCaseFilter))
-                        return true; // Filter title.
-
-                    else
-                        return String.valueOf(citizen.getLastName()).contains(lowerCaseFilter); //getcase might be changed
-                });
-                SortedList<Citizen> sortedData = new SortedList<>(filteredData);
-                sortedData.comparatorProperty().bind(tableViewCitizens.comparatorProperty());
-                tableViewCitizens.setItems(sortedData);
+            List<Citizen> filteredList = unfilteredList.stream()
+                    .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                            p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+            tableViewCitizens.setItems(FXCollections.observableArrayList(filteredList));
             });
         }).start();
 

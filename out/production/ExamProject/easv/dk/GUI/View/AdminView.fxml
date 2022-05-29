@@ -15,7 +15,7 @@
 <AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.AdminViewController">
    <children>
       <ToolBar layoutY="-1.0" prefHeight="69.0" prefWidth="950.0" style="-fx-background-color: #EFEFE6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
-      <TextField layoutX="23.0" layoutY="14.0" promptText="🔎" />
+      <TextField fx:id="searchTextBox" layoutX="23.0" layoutY="14.0" promptText="🔎" />
       <Label layoutX="135.0" layoutY="89.0" text="Teachers">
          <font>
             <Font name="System Bold" size="16.0" />
