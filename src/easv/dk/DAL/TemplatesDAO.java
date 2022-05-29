@@ -26,7 +26,7 @@ public class TemplatesDAO {
         Connection con = cm.getConnection();
         String sqlSelectTemplates = "\n" +
                 "SELECT * from Citizen\n" +
-                "where isTemplate = (select isTemplate from Citizen where isTemplate = 1) " +
+                "where isTemplate IN (select isTemplate from Citizen where isTemplate = 1) " +
                 "GROUP by Citizen.ID, firstname, lastName, address, birthDate, isTemplate, phoneNumber\n;";
         PreparedStatement psSelectTemplates = con.prepareStatement(sqlSelectTemplates);
         ResultSet rs = psSelectTemplates.executeQuery();
@@ -54,27 +54,40 @@ public class TemplatesDAO {
         psUpdateTemplate.setString(1,template.getFirstName());
         psUpdateTemplate.setString(2,template.getLastName());
         psUpdateTemplate.setString(3,template.getAddress());
-        psUpdateTemplate.setInt(4,template.getPhoneNumber());
-        psUpdateTemplate.setInt(5,template.getID());
+        psUpdateTemplate.setInt(5,template.getPhoneNumber());
+        psUpdateTemplate.setInt(6,template.getID());
         psUpdateTemplate.execute();
         psUpdateTemplate.close();
         con.close();
         System.out.println(template.getFirstName()+" "+template.getID());
     }
 
-    public Template createTemplate(Template template) throws Exception{
+    public Template createTemplate(Template template) throws Exception {
         Connection con = cm.getConnection();
-        String sqlCreateTemplate = "INSERT INTO Citizen VALUES(?,?,?,?,?,?,?)";
-        PreparedStatement psCreateTemplate = con.prepareStatement(sqlCreateTemplate, Statement.RETURN_GENERATED_KEYS);
-        psCreateTemplate.setString(1,template.getFirstName());
-        psCreateTemplate.setString(2,template.getLastName());
-        psCreateTemplate.setString(3,template.getAddress());
-        psCreateTemplate.setInt(4,template.getPhoneNumber());
-        psCreateTemplate.setDate(5, (Date) template.getBirthDate());
-        psCreateTemplate.setBoolean(6, template.isTemplate(true));
-        psCreateTemplate.setInt(7,template.getID());
-        psCreateTemplate.addBatch();
-        psCreateTemplate.executeBatch();
+        String sqlCreateTemplate = "INSERT INTO [dbo].[Citizen]" +
+                "           (" +
+                "           [firstName]" +
+                "           ,[lastName]" +
+                "           ,[address]" +
+                "           ,[birthDate]" +
+                "           ,[phoneNumber]" +
+                "           ,[isTemplate])" +
+                "     VALUES (?,?,?,?,?,?)";
+        try (PreparedStatement psCreateTemplate = con.prepareStatement(sqlCreateTemplate, Statement.RETURN_GENERATED_KEYS))
+        {
+            psCreateTemplate.setString(1, template.getFirstName());
+            psCreateTemplate.setString(2, template.getLastName());
+            psCreateTemplate.setString(3, template.getAddress());
+            psCreateTemplate.setInt(5, template.getPhoneNumber());
+            psCreateTemplate.setDate(4, (Date) template.getBirthDate());
+            psCreateTemplate.setBoolean(6, template.isTemplate(true));
+            psCreateTemplate.execute();
+            ResultSet rs = psCreateTemplate.getGeneratedKeys();
+            rs.next();
+            int templateID = rs.getInt(1);
+            System.out.println(templateID);
+            template.setID(templateID);
+        }
         return template;
     }
 }
