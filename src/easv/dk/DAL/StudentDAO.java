@@ -1,5 +1,7 @@
 package easv.dk.DAL;
 
+import easv.dk.BE.Case;
+import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.Student;
 
 import java.sql.Connection;
@@ -36,7 +38,7 @@ public class StudentDAO {
                 String emails = resultSet.getString("email");
                 String login = resultSet.getString("password");
                 System.out.println("admin found");
-                studentfound = new Student(login ,firstName, lastName, emails,ID );
+                studentfound = new Student(ID ,firstName, lastName, emails,login );
             }
         }
         catch (Exception e){
@@ -46,19 +48,39 @@ public class StudentDAO {
         return studentfound;
     }
 
-    public Student CreateStudent(Student student) throws Exception {
-        Connection con = cm.getConnection();
-        String sqlSelectStudent = "INSERT INTO Student VALUES(?,?,?,?,?)";
-        PreparedStatement psInstertStudent = con.prepareStatement(sqlSelectStudent, Statement.RETURN_GENERATED_KEYS);
-        psInstertStudent.setString(2, student.getFirstName());
-        psInstertStudent.setString(3, student.getLastName());
-        psInstertStudent.setString(4, student.getEmail());
-        psInstertStudent.setString(5, student.getPassword());
-        psInstertStudent.setInt(1,student.getId());
-        psInstertStudent.addBatch();
-        psInstertStudent.executeBatch();
-        return student;
-    }
+    public Student CreateStudent(String firstName,String lastName, String email, String password) throws Exception {
+        Student student = null;
+        int ID = 0;
+        try (Connection con = cm.getConnection()) {
+            String sqlCreateStudent = "INSERT INTO [dbo].[Student]" +
+                    "           (" +
+                    "           [firstName]" +
+                    "           ,[lastName]" +
+                    "           ,[email]" +
+                    "           ,[password])" +
+                    "     VALUES (?,?,?,?)";
+
+            try (PreparedStatement psCreateStudent = con.prepareStatement(sqlCreateStudent, Statement.RETURN_GENERATED_KEYS)) {
+                psCreateStudent.setString(1, firstName);
+                psCreateStudent.setString(2, lastName);
+                psCreateStudent.setString(3, email);
+                psCreateStudent.setString(4, password);
+                int created = psCreateStudent.executeUpdate();
+                ResultSet resultSet = psCreateStudent.getGeneratedKeys();
+                if (resultSet.next()){
+                    ID = resultSet.getInt(1);
+                }
+                if (created != 0){
+                    student = new Student(ID, firstName, lastName, email, password);
+                }
+            }
+            return student;
+        }
+        }
+
+
+
+
 
     public List<Student> getAllStudent() throws Exception {
         List<Student> studentList = new ArrayList<>();
@@ -72,7 +94,7 @@ public class StudentDAO {
             String email = rs.getString("email");
             String password = rs.getString("password");
             int id = rs.getInt("id");
-            Student student = new Student (firstName, lastName, email, password, id);
+            Student student = new Student (id, firstName, lastName, email, password);
             studentList.add(student);
         }
         rs.close();

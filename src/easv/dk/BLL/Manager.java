@@ -10,7 +10,7 @@ import easv.dk.GUI.Controller.LogInViewController;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Manager {
+public class Manager implements IManager {
 
     private IDataAccess dataAccess;
 
@@ -34,7 +34,7 @@ public class Manager {
         dataAccess.AddCitizenToStudent(selectedItem, selectedStudent);
     }
     public void removeStudentFromCitizen (int studentId, int citizenId) throws Exception {
-        dataAccess.removeCitizenFromStudent(new Citizen("", "","",null,0,false, citizenId), new Student("", "", "", "", studentId));
+        dataAccess.removeCitizenFromStudent(new Citizen("", "","",null,0,false, citizenId), new Student(studentId, "", "", "", "" ));
     }
     public List<Citizen> getCitizensFromStudent(Student student) throws Exception {
         return dataAccess.getCitizenFromStudent(student);

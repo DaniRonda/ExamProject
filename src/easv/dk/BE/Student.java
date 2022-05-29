@@ -8,7 +8,7 @@ public class Student {
     private int id;
 
 
-    public Student(String firstName, String lastName, String email, String password, int id) {
+    public Student(int id, String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -27,4 +27,8 @@ public class Student {
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
 
+    @Override
+    public String toString() {
+        return firstName +" "+  lastName;
+    }
 }

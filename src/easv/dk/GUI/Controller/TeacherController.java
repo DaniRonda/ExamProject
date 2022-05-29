@@ -13,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 public class TeacherController {
@@ -114,9 +112,9 @@ public class TeacherController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewStudentView.fxml"));
         Parent root = loader.load();
-        //NewStudentViewController control = loader.getController();
-        //control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
-        //control.setParentController2(this);
+        NewStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setTeacherController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
@@ -128,9 +126,9 @@ public class TeacherController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditStudentView.fxml"));
         Parent root = loader.load();
-        //EditStudentViewController control = loader.getController();
-        //control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
-       // control.setParentController2(this);
+        EditStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setTeacherController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
@@ -202,7 +200,9 @@ public class TeacherController {
         if (citizenTable.getSelectionModel().getSelectedIndex() != -1 && studentTable.getSelectionModel().getSelectedIndex() != -1) {
             try {
                 citizenModel.addToCitizen((Citizen) citizenTable.getSelectionModel().getSelectedItem(), citizenTable.getSelectionModel().getSelectedIndex(), (Student) studentTable.getSelectionModel().getSelectedItem());
+                showStudentCitizenInList();
             } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
         }
     }
