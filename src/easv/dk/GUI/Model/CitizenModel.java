@@ -11,7 +11,7 @@ import java.util.List;
 public class CitizenModel {
     ObservableList<Citizen> getAllCitizens;
     CitizenManager citizenManager = new CitizenManager();
-    Manager manager = new Manager();
+    IManager manager = new Manager();
     GeneralInfoManager managerInfo;
     CaseManager caseManager = new CaseManager();
     DiagnoseManager diagnoseManager = new DiagnoseManager();

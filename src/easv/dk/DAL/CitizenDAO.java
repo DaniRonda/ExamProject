@@ -85,10 +85,9 @@ public class CitizenDAO {
             ResultSet rs = psInsertCitizen.getGeneratedKeys();
             rs.next();
             int citizenID = rs.getInt(1);
-            System.out.println(citizenID);
             citizen.setID(citizenID);
             }
-            return citizen;
+         return citizen;
         }
 
 

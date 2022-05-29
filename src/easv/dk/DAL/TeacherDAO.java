@@ -122,11 +122,11 @@ public class TeacherDAO {
         psInsertStudent.executeBatch();
         ResultSet rs = psInsertStudent.getGeneratedKeys();
         while (rs.next()) {
-            studentCreated = new Student (student.getFirstName(),
+            studentCreated = new Student (rs.getInt(1),
+                    student.getFirstName(),
                     student.getFirstName(),
                     student.getEmail(),
-                    student.getPassword(),
-                    rs.getInt(1)
+                    student.getPassword()
             );
         }
         return studentCreated;

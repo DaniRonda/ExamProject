@@ -27,9 +27,16 @@ public class NewStudentViewController {
     StudentManager studentManager = new StudentManager();
     private AdminViewController parentController;
 
+    private TeacherController teacherController;
+
     public void setParentController(AdminViewController adminViewController){
         this.parentController = adminViewController;
     }
+
+    public void setTeacherController(TeacherController teacherController){
+        this.teacherController = teacherController;
+    }
+
 
     public NewStudentViewController() throws Exception {
     }
@@ -39,11 +46,15 @@ public class NewStudentViewController {
         String studentLastName=studentLastName_txt.getText();
         String studentEmail = studentEmail_txt.getText();
         String studentPassword = studentPassword_txt.getText();
-        Student studentCreated= new Student(studentFirstName,studentLastName,studentEmail,studentPassword,0);
-        studentManager.createStudent(studentCreated);
+        studentManager.createStudent(studentFirstName, studentLastName, studentEmail, studentPassword);
         Stage stage = (Stage)confirmNewStudentBTN.getScene().getWindow();
         stage.close();
-        parentController.initialize();
+        if(parentController != null){
+            parentController.initialize();
+        }
+        if(teacherController != null){
+            teacherController.initialize();
+        }
     }
 
     public void cancelNewStudent(ActionEvent actionEvent) {

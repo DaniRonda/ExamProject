@@ -87,7 +87,7 @@ public class CitizenStudentDAO {
             String lastName = resultSet.getString("lastName");
             String email = resultSet.getString("email");
             String password = resultSet.getString("password");
-           Student student = new Student(firstName, lastName, email, password, id);
+           Student student = new Student(id, lastName, email, password, firstName);
             students.add(student);
         }
         resultSet.close();
@@ -130,7 +130,9 @@ public class CitizenStudentDAO {
 
     public void AddCitizenToStudent(Citizen citizen,Student student) throws Exception {
         List<Citizen> allCitizenForGivenStudent = getAllCitizensForGivenStudent(student);
-        if (allCitizenForGivenStudent.contains(citizen))return;
+        if (allCitizenForGivenStudent.contains(citizen)){
+            return;
+        }
         createCitizenStudent(new CitizenStudent(citizen.getID(),student.getId()));
     }
     public void removeCitizenFromStudent(Citizen citizen, Student student) throws Exception {

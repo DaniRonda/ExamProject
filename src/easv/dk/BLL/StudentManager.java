@@ -31,7 +31,10 @@ public class StudentManager {
         return this.dataAccess.getAllStudents();
     }
 
-    public Student createStudent(Student student) throws Exception {
-        return dataAccess.createStudent(student);
+    public Student createStudent(String firstName,String lastName, String email, String password) throws Exception {
+        dataAccess.createStudent(firstName, lastName, email, password);
+        return null;
+
     }
+
 }

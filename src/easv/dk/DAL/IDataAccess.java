@@ -7,7 +7,8 @@ import java.util.List;
 public interface IDataAccess {
     void createCitizen(Citizen citizen) throws Exception;
 
-    Student createStudent(Student student) throws Exception;
+
+    Student createStudent(String firstName,String lastName, String email, String password) throws Exception;
 
     Teacher createTeacher(Teacher teacher) throws Exception;
 
