@@ -7,6 +7,11 @@ import java.util.List;
 public interface IDataAccess {
     void createCitizen(Citizen citizen) throws Exception;
 
+    void deleteCitizen(Citizen citizen) throws Exception;
+
+    void deleteStudent(Student student) throws Exception;
+
+    void deleteTeacher(Teacher teacher) throws Exception;
 
     Student createStudent(String firstName,String lastName, String email, String password) throws Exception;
 
@@ -24,11 +29,6 @@ public interface IDataAccess {
 
     void createTemplate(Template template) throws Exception;
 
-    void deleteCitizen(Citizen citizen) throws Exception;
-
-    void deleteStudent(Student student) throws Exception;
-
-    void deleteTeacher(Teacher teacher) throws Exception;
 
     void removeCitizenFromStudent(Citizen citizen, Student student) throws Exception;
 

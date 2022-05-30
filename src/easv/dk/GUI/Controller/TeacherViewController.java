@@ -60,8 +60,45 @@ public class TeacherViewController {
         citizenTable.setOnMouseClicked(event -> showCitizenStudentInList());
         studentFilter();
         citizenFilter();
-
     }
+
+    public void deleteCitizen(ActionEvent actionEvent) throws Exception {
+        citizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
+        citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
+    }
+
+    public void deleteStudent(ActionEvent actionEvent) throws Exception {
+        studentModel.deleteStudent((Student)studentTable.getSelectionModel().getSelectedItem());
+        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedIndex());
+    }
+
+    public void setUpStudentTable() throws Exception {
+        TableColumn<Student, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Student, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Student, String> column3 = new TableColumn<>("Email");
+        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
+        studentTable.getColumns().clear();
+        studentTable.getColumns().add(column1);
+        studentTable.getColumns().add(column2);
+        studentTable.getColumns().add(column3);
+        studentTable.getItems().clear();
+        studentTable.getItems().addAll(studentModel.getAllStudents1());
+    }
+
+    public void setUpCitizenTable() throws Exception {
+        TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        citizenTable.getColumns().clear();
+        citizenTable.getColumns().add(column1);
+        citizenTable.getColumns().add(column2);
+        citizenTable.getItems().clear();
+        citizenTable.getItems().addAll(citizenModel.getAllCitizens1());
+    }
+
     public void studentFilter() throws Exception {
         new Thread(() ->{
             searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -189,42 +226,6 @@ public class TeacherViewController {
     }
 
 
-    public void deleteCitizen(ActionEvent actionEvent) throws Exception {
-        citizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
-        citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
-    }
-
-    public void deleteStudent(ActionEvent actionEvent) throws Exception {
-        studentModel.deleteStudent((Student)studentTable.getSelectionModel().getSelectedItem());
-        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedIndex());
-    }
-
-    public void setUpStudentTable() throws Exception {
-        TableColumn<Student, String> column1 = new TableColumn<>("First Name");
-        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        TableColumn<Student, String> column2 = new TableColumn<>("Last Name");
-        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        TableColumn<Student, String> column3 = new TableColumn<>("Email");
-        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
-        studentTable.getColumns().clear();
-        studentTable.getColumns().add(column1);
-        studentTable.getColumns().add(column2);
-        studentTable.getColumns().add(column3);
-        studentTable.getItems().clear();
-        studentTable.getItems().addAll(studentModel.getAllStudents1());
-    }
-
-    public void setUpCitizenTable() throws Exception {
-        TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
-        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
-        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        citizenTable.getColumns().clear();
-        citizenTable.getColumns().add(column1);
-        citizenTable.getColumns().add(column2);
-        citizenTable.getItems().clear();
-        citizenTable.getItems().addAll(citizenModel.getAllCitizens1());
-    }
 
     public void addCitizenToStudent(ActionEvent actionEvent) {
         if (citizenTable.getSelectionModel().getSelectedIndex() != -1 && studentTable.getSelectionModel().getSelectedIndex() != -1) {

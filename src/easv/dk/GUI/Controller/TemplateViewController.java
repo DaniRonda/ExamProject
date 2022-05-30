@@ -36,6 +36,31 @@ public class TemplateViewController {
 
     }
 
+    public void deleteCitizenTemplateView(ActionEvent actionEvent) throws Exception {
+        citizenModel.deleteCitizen((Citizen)citizenTableTemplateView.getSelectionModel().getSelectedItem());
+        citizenTableTemplateView.getItems().remove(citizenTableTemplateView.getSelectionModel().getSelectedIndex());
+    }
+    public void setupTemplateTable() throws Exception {
+        TableColumn<Template, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Template, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Template, String> column3 = new TableColumn<>("Address");
+        column3.setCellValueFactory(new PropertyValueFactory<>("address"));
+        TableColumn<Template, String> column4 = new TableColumn<>("Birthdate");
+        column4.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        TableColumn<Template, String> column5 = new TableColumn<>("Phone Number");
+        column5.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+
+        templateTable.getColumns().add(column1);
+        templateTable.getColumns().add(column2);
+        templateTable.getColumns().add(column3);
+        templateTable.getColumns().add(column4);
+        templateTable.getColumns().add(column5);
+
+        templateTable.getItems().clear();
+        templateTable.getItems().addAll(templateModel.getAllTemplates());
+    }
     public void logOutFromTemplateView(ActionEvent actionEvent) throws Exception{
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to log out?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         alert.showAndWait();
@@ -67,27 +92,7 @@ public class TemplateViewController {
         stage.show();
     }
 
-    public void setupTemplateTable() throws Exception {
-        TableColumn<Template, String> column1 = new TableColumn<>("First Name");
-        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        TableColumn<Template, String> column2 = new TableColumn<>("Last Name");
-        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        TableColumn<Template, String> column3 = new TableColumn<>("Address");
-        column3.setCellValueFactory(new PropertyValueFactory<>("address"));
-        TableColumn<Template, String> column4 = new TableColumn<>("Birthdate");
-        column4.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
-        TableColumn<Template, String> column5 = new TableColumn<>("Phone Number");
-        column5.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
-        templateTable.getColumns().add(column1);
-        templateTable.getColumns().add(column2);
-        templateTable.getColumns().add(column3);
-        templateTable.getColumns().add(column4);
-        templateTable.getColumns().add(column5);
-
-        templateTable.getItems().clear();
-        templateTable.getItems().addAll(templateModel.getAllTemplates());
-    }
 
     public void openNewTemplateView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
@@ -119,8 +124,5 @@ public class TemplateViewController {
     public void deleteTemplate(ActionEvent actionEvent) {
     }
 
-    public void deleteCitizenTemplateView(ActionEvent actionEvent) throws Exception {
-        citizenModel.deleteCitizen((Citizen)citizenTableTemplateView.getSelectionModel().getSelectedItem());
-        citizenTableTemplateView.getItems().remove(citizenTableTemplateView.getSelectionModel().getSelectedIndex());
-    }
+
 }
