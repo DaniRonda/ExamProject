@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class TemplateViewController {
+    public TextField searchTextBox;
     @FXML
     private Button btnDeleteCitizen;
     @FXML
@@ -33,6 +34,7 @@ public class TemplateViewController {
     @FXML
     public void initialize() throws Exception {
         setupTemplateTable();
+        setUpCitizenTable();
 
     }
 
@@ -87,6 +89,18 @@ public class TemplateViewController {
 
         templateTable.getItems().clear();
         templateTable.getItems().addAll(templateModel.getAllTemplates());
+    }
+
+    public void setUpCitizenTable() throws Exception {
+        TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        citizenTableTemplateView.getColumns().clear();
+        citizenTableTemplateView.getColumns().add(column1);
+        citizenTableTemplateView.getColumns().add(column2);
+        citizenTableTemplateView.getItems().clear();
+        citizenTableTemplateView.getItems().addAll(citizenModel.getAllCitizens1());
     }
 
     public void openNewTemplateView(ActionEvent actionEvent) throws Exception {
