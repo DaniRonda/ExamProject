@@ -552,22 +552,28 @@ public class HealthConditionsController {
         }
     }
 
-    public void saveClientFunctional(ActionEvent actionEvent) throws Exception {
-        if (ChoiceBoxAnticLvl.getSelectionModel().getSelectedIndex() != -1 && !textAreaProNote.getText().isEmpty() && !textAreaCurAssessment.getText().isEmpty() && !TextFieldFollowupDate.getText().isEmpty() && !TextAreaObsNotes.getText().isEmpty()) {
-            HealthDiagnose healthDiagnoseUpdate = new HealthDiagnose(healthDiagnose.getID(),
+    public void saveClientGoals(ActionEvent actionEvent) throws Exception {
+        if (ChoiceBoxAnticLvl.getSelectionModel().getSelectedIndex() != -1 && !textAreaProNote.getText().isEmpty() && textAreaCurAssessment.getText() != "" && !TextFieldFollowupDate.getText().isEmpty() && !TextAreaObsNotes.getText().isEmpty() && !textAreaGoals.getText().isEmpty()) {
+            FunctionalDiagnose functionalDiagnoseUpdate = new FunctionalDiagnose(
+                    functionalDiagnose.getID(),
                     ChoiceBoxAnticLvl.getSelectionModel().getSelectedItem().toString().toLowerCase(),
                     textAreaProNote.getText(),
                     textAreaCurAssessment.getText(),
                     TextFieldFollowupDate.getText(),
                     TextAreaObsNotes.getText(),
+                    setRadioButtonCurrent(),
+                    setRadioButtonExpected(),
+                    textAreaGoals.getText(),
                     getTypeOfCase(),
-                    citizenID);
-            citizenModel.updateHealthDiagnose(healthDiagnoseUpdate);
-            System.out.println(healthDiagnoseUpdate);
+                    citizenID+1);
+
+            citizenModel.updateFunctionalDiagnose(functionalDiagnoseUpdate);
+            System.out.println(functionalDiagnoseUpdate);
         } else {
             System.out.println("mistake");
         }
     }
+
 
     private void setUpNodes(int numberOfIndex) throws Exception {
         citizenModel.getAllHealthDiagnose(citizenID).forEach(healthDiagnose1 -> {
@@ -577,9 +583,12 @@ public class HealthConditionsController {
         healthDiagnose = citizenModel.getAllHealthDiagnose(citizenID).get(numberOfIndex);
         textAreaProNote.setText(healthDiagnose.getProfnote());
         textAreaCurAssessment.setText(healthDiagnose.getCurrentass());
-        TextAreaObsNotes.setText(healthDiagnose.getObservenote());
         TextFieldFollowupDate.setText(healthDiagnose.getFollowupdate());
+        TextAreaObsNotes.setText(healthDiagnose.getObservenote());
         ChoiceBoxAnticLvl.getSelectionModel().select(healthDiagnose.getAnticipatedlvl());
+
+
+
     }
 
     private void setUpFunctionalNodes(int numberOfIndex) throws Exception {
@@ -621,9 +630,33 @@ public class HealthConditionsController {
 
 
 
-
-    public void saveClientGoals(ActionEvent actionEvent) {
-        System.out.println("saveGoal");
+    int selectedCurrent;
+    public int setRadioButtonCurrent(){
+        if(radiButtonCurrent0.isArmed())
+            selectedCurrent = 1;
+        else if(radiButtonCurrent1.isArmed())
+            selectedCurrent = 2;
+        else if(radiButtonCurrent2.isArmed())
+            selectedCurrent = 3;
+        else if(radiButtonCurrent3.isArmed())
+            selectedCurrent = 4;
+        else if(radiButtonCurrent4.isArmed())
+            selectedCurrent =5;
+        return selectedCurrent;
+    }
+    int selectedExpe;
+    public int setRadioButtonExpected(){
+        if(radiButtonExpected0.isArmed())
+            selectedExpe = 1;
+        else if(radiButtonExpected1.isArmed())
+            selectedExpe = 2;
+        else if(radiButtonExpected2.isArmed())
+            selectedExpe = 3;
+        else if(radiButtonExpected3.isArmed())
+            selectedExpe = 4;
+        else if(radiButtonExpected4.isArmed())
+            selectedExpe =5;
+        return selectedExpe;
     }
 
     public void toFunctional(ActionEvent actionEvent) {

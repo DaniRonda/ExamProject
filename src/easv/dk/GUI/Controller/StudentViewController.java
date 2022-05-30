@@ -263,6 +263,9 @@ public class StudentViewController {
         StudentModel.diagnose = 1;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
+        Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
+        CitizenHolder holder = CitizenHolder.getInstance();
+        holder.setCitizen(selectedCitizen);
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

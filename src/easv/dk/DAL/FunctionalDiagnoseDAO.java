@@ -52,7 +52,7 @@ public class FunctionalDiagnoseDAO {
     }
 
     public void updateFunctionalDiagnose(FunctionalDiagnose functionalDiagnose) throws Exception {
-        String query =  "UPDATE FunctionalDiagnose SET  profnote = ?, currentass = ?, anticipatedlvl = ?, followupdate = ?, observenote = ?, currlvl = ?, expectedlvl = ?, wishes = ?, citizen = ?, functionaltype = ?, WHERE ID = ?";
+        String query =  "UPDATE FunctionalDiagnose SET  profnote = ?, currentass = ?, anticipatedlvl = ?, followupdate = ?, observenote = ?, currlvl = ?, expectedlvl = ?, wishes = ?, citizen = ?, functionaltype = ? WHERE ID = ?";
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, functionalDiagnose.getProfnote());
