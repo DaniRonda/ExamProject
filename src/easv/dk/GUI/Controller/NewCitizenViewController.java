@@ -1,15 +1,14 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Citizen;
 import easv.dk.BLL.CitizenManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-
-import java.util.Date;
 
 public class NewCitizenViewController {
 
@@ -22,35 +21,37 @@ public class NewCitizenViewController {
     @FXML
     private TextField createCitizenPhoneNumber_txt;
     @FXML
-    private TextField createCitizenSchoolID_txt;
+    private DatePicker createCitizenDatePicker;
     @FXML
-    private DatePicker createCitizenBirthDatePicker;
-    @FXML
-    private ChoiceBox createCitizenTemplate_CB;
+    private Button confirmCreateCitizenBTN;
 
-    public String[] cbValues = {"True", "False"};
+
+
     CitizenManager citizenManager = new CitizenManager();
 
-    private TeacherController parentController;
 
-    public void setParentController(TeacherController teacherController){
-        this.parentController = teacherController;
-    }
 
     public NewCitizenViewController() throws Exception {
     }
 
-    public void populateChoiceBox(ChoiceBox createCitizenTemplate_CB) {
-        createCitizenTemplate_CB.getItems().addAll(cbValues);
+    public void getDate(ActionEvent actionEvent){
+        LocalDate birthDate = createCitizenDatePicker.getValue();
+        String formattedDate = birthDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+
     }
 
-    /*public void confirmCreateCitizen(ActionEvent actionEvent) throws Exception {
+    public void confirmCreateCitizen(ActionEvent actionEvent) throws Exception {
         String createCitizenFirstName = createCitizenFirstName_txt.getText();
         String createCitizenLastName = createCitizenLastName_txt.getText();
         String createCitizenAddress = createCitizenAddress_txt.getText();
+        Date citizenBirthDate = Date.valueOf(createCitizenDatePicker.getValue());
         int createCitizenPhoneNumber = createCitizenPhoneNumber_txt.getProperties().size();
-        boolean createCitizenTemplate = (boolean) createCitizenTemplate_CB.getValue();
-        //Date createCitizenBirthDate = createCitizenBirthDatePicker.
-        Citizen citizenCreated = new Citizen(createCitizenFirstName, createCitizenLastName, createCitizenAddress, createCitizenPhoneNumber )
-    }*/
+        boolean isTemplate = false;
+
+        Citizen citizenCreated = new Citizen(createCitizenFirstName, createCitizenLastName, createCitizenAddress, citizenBirthDate, createCitizenPhoneNumber, isTemplate, 1 );
+        citizenManager.createCitizen(citizenCreated);
+        Stage stage = (Stage)confirmCreateCitizenBTN.getScene().getWindow();
+        stage.close();
+    }
 }

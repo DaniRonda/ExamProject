@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.NewTeacherViewController">
+<AnchorPane prefHeight="341.0" prefWidth="601.0" style="-fx-background-color: #D6E7FB#D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.NewTeacherViewController">
    <children>
       <Label layoutX="118.0" layoutY="79.0" text="First Name">
          <font>
@@ -18,27 +18,21 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="122.0" layoutY="240.0" text="Email">
+      <Label layoutX="122.0" layoutY="182.0" text="Email">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="122.0" layoutY="289.0" text="Password">
+      <Label layoutX="122.0" layoutY="231.0" text="Password">
          <font>
             <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="122.0" layoutY="183.0" text="School">
-         <font>
-            <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="teacherFirstName_txt" layoutX="232.0" layoutY="71.0" prefHeight="38.0" prefWidth="206.0" />
-      <TextField fx:id="teacherPassword_txt" layoutX="232.0" layoutY="281.0" prefHeight="38.0" prefWidth="206.0" />
-      <TextField fx:id="teacherEmail_txt" layoutX="232.0" layoutY="232.0" prefHeight="38.0" prefWidth="206.0" />
-      <TextField fx:id="teacherSchool_txt" layoutX="232.0" layoutY="175.0" prefHeight="38.0" prefWidth="206.0" />
+      <TextField fx:id="teacherPassword_txt" layoutX="232.0" layoutY="223.0" prefHeight="38.0" prefWidth="206.0" />
+      <TextField fx:id="teacherEmail_txt" layoutX="232.0" layoutY="174.0" prefHeight="38.0" prefWidth="206.0" />
       <TextField fx:id="teacherLastName_txt" layoutX="232.0" layoutY="120.0" prefHeight="38.0" prefWidth="206.0" />
-      <Button fx:id="confirmNewTeacherBTN" layoutX="322.0" layoutY="335.0" mnemonicParsing="false" onAction="#confirmNewTeacher" prefHeight="25.0" prefWidth="51.0" text="Save" />
-      <Button fx:id="cancelNewTeacherBTN" layoutX="386.0" layoutY="335.0" mnemonicParsing="false" onAction="#cancelNewTeacher" prefHeight="25.0" prefWidth="51.0" text="Cancel" />
+      <Button fx:id="confirmNewTeacherBTN" layoutX="319.0" layoutY="277.0" mnemonicParsing="false" onAction="#confirmNewTeacher" prefHeight="25.0" prefWidth="51.0" text="Save" />
+      <Button fx:id="cancelNewTeacherBTN" layoutX="378.0" layoutY="277.0" mnemonicParsing="false" onAction="#cancelNewTeacher" prefHeight="25.0" prefWidth="59.0" text="Cancel" />
    </children>
 </AnchorPane>

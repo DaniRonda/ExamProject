@@ -29,16 +29,16 @@
             <Image url="@../Pictures/Home.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnNewTemplate" layoutX="163.0" layoutY="577.0" mnemonicParsing="false" onAction="#openNewTemplateView" prefHeight="25.0" prefWidth="37.0" text="New" />
-      <Button layoutX="206.0" layoutY="577.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="btnNewTemplate" layoutX="163.0" layoutY="577.0" mnemonicParsing="false" onAction="#openNewTemplateView" prefHeight="25.0" prefWidth="46.0" text="New" />
+      <Button fx:id="btnEditTemplate" layoutX="213.0" layoutY="577.0" mnemonicParsing="false" onAction="#openEditTemplateView" text="Edit" />
       <Button fx:id="btnDeleteTemplate" layoutX="399.0" layoutY="577.0" mnemonicParsing="false" onAction="#deleteTemplate" prefHeight="25.0" prefWidth="59.0" text="Delete" />
-      <Button layoutX="250.0" layoutY="577.0" mnemonicParsing="false" text="Duplicate" />
+      <Button layoutX="256.0" layoutY="577.0" mnemonicParsing="false" text="Duplicate" />
       <TableView fx:id="templateTable" layoutX="163.0" layoutY="115.0" prefHeight="461.0" prefWidth="296.0" />
       <TableView fx:id="citizenTableTemplateView" layoutX="526.0" layoutY="115.0" prefHeight="461.0" prefWidth="402.0">
         <columns>
           <TableColumn prefWidth="150.0" text="First Name" />
           <TableColumn prefWidth="150.0" text="Last Name" />
-            <TableColumn prefWidth="100.0" text="Birth Date" />
+            <TableColumn prefWidth="100.0" text="Birthdate" />
         </columns>
       </TableView>
       <Label layoutX="526.0" layoutY="92.0" text="Citizens">

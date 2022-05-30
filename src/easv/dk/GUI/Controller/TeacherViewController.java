@@ -1,10 +1,10 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BLL.Manager;
 import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.StudentModel;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,17 +13,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class TeacherController {
+public class TeacherViewController {
+    public TextField searchTextBox;
     @FXML
     private TableView studentTable;
     @FXML
     private Button btnDeleteStudent;
-    @FXML
-    private Button btnRemoveStudents;
     @FXML
     private Button btnNewStudent;
     @FXML
@@ -36,8 +34,6 @@ public class TeacherController {
     private Button btnCitizenToStudent;
     @FXML
     private Button btnOpenTemplateView;
-    @FXML
-    private Button btnOpenCaseView;
     @FXML
     private TableView citizenTable;
     @FXML
@@ -53,7 +49,7 @@ public class TeacherController {
     private final static int CitizenSelected = 1;
     private int mode = StudentSelected;
 
-    public TeacherController() throws Exception {
+    public TeacherViewController() throws Exception {
     }
 
     @FXML
@@ -62,6 +58,44 @@ public class TeacherController {
         setUpStudentTable();
         studentTable.setOnMouseClicked(event -> showStudentCitizenInList());
         citizenTable.setOnMouseClicked(event -> showCitizenStudentInList());
+        studentFilter();
+        citizenFilter();
+
+    }
+    public void studentFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Student> unfilteredList = null;
+                try {
+                    unfilteredList = studentModel.getAllStudents1();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Student> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                studentTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
+
+    }
+    public void citizenFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Citizen> unfilteredList = null;
+                try {
+                    unfilteredList = citizenModel.getAllCitizen();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Citizen> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                citizenTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
 
     }
 
@@ -92,6 +126,7 @@ public class TeacherController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("New Citizen");
         stage.centerOnScreen();
         stage.show();
     }
@@ -106,6 +141,7 @@ public class TeacherController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("Edit Citizen");
         stage.centerOnScreen();
         stage.show();
     }
@@ -114,9 +150,13 @@ public class TeacherController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/NewStudentView.fxml"));
         Parent root = loader.load();
+        NewStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setTeacherController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("New Student");
         stage.centerOnScreen();
         stage.show();
     }
@@ -125,12 +165,13 @@ public class TeacherController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditStudentView.fxml"));
         Parent root = loader.load();
-        //EditStudentViewController control = loader.getController();
-        //control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
-       // control.setParentController2(this);
+        EditStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setTeacherController(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("Edit Student");
         stage.centerOnScreen();
         stage.show();
     }
@@ -142,24 +183,14 @@ public class TeacherController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("Template");
         stage.centerOnScreen();
         stage.show();
     }
 
-    public void openCaseView(ActionEvent actionEvent) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/CaseView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-
-    }
 
     public void deleteCitizen(ActionEvent actionEvent) throws Exception {
-        CitizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
+        citizenModel.deleteCitizen((Citizen)citizenTable.getSelectionModel().getSelectedItem());
         citizenTable.getItems().remove(citizenTable.getSelectionModel().getSelectedIndex());
     }
 
@@ -199,7 +230,9 @@ public class TeacherController {
         if (citizenTable.getSelectionModel().getSelectedIndex() != -1 && studentTable.getSelectionModel().getSelectedIndex() != -1) {
             try {
                 citizenModel.addToCitizen((Citizen) citizenTable.getSelectionModel().getSelectedItem(), citizenTable.getSelectionModel().getSelectedIndex(), (Student) studentTable.getSelectionModel().getSelectedItem());
+                showStudentCitizenInList();
             } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
         }
     }

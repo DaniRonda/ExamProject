@@ -1,14 +1,12 @@
 package easv.dk.DAL;
-
 import easv.dk.BE.Citizen;
 import easv.dk.BE.CitizenStudent;
 import easv.dk.BE.Student;
-
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 public class CitizenStudentDAO {
     ConnectionManager cm;
@@ -20,22 +18,6 @@ public class CitizenStudentDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void createCitizenStudent(List<CitizenStudent> list) throws Exception {
-        Connection con = cm.getConnection();
-
-        String sql = "INSERT INTO citizenStudent (citizen_id, student_id) VALUES (?,?)";
-        PreparedStatement statement = con.prepareStatement(sql);
-
-        for (CitizenStudent cS : list) {
-            statement.setInt(1, cS.getCitizenID());
-            statement.setInt(2, cS.getStudentID());
-            statement.executeUpdate();
-        }
-        statement.close();
-        con.close();
-
     }
 
     public List<CitizenStudent> getAllCitizenStudent() throws Exception {
@@ -87,7 +69,7 @@ public class CitizenStudentDAO {
             String lastName = resultSet.getString("lastName");
             String email = resultSet.getString("email");
             String password = resultSet.getString("password");
-           Student student = new Student(firstName, lastName, email, password, id);
+           Student student = new Student(id, lastName, email, password, firstName);
             students.add(student);
         }
         resultSet.close();
@@ -130,7 +112,9 @@ public class CitizenStudentDAO {
 
     public void AddCitizenToStudent(Citizen citizen,Student student) throws Exception {
         List<Citizen> allCitizenForGivenStudent = getAllCitizensForGivenStudent(student);
-        if (allCitizenForGivenStudent.contains(citizen))return;
+        if (allCitizenForGivenStudent.contains(citizen)){
+            return;
+        }
         createCitizenStudent(new CitizenStudent(citizen.getID(),student.getId()));
     }
     public void removeCitizenFromStudent(Citizen citizen, Student student) throws Exception {

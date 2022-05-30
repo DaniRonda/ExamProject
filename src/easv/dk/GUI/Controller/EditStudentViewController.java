@@ -1,8 +1,5 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Student;
-import easv.dk.BE.Teacher;
-import easv.dk.BLL.Manager;
 import easv.dk.BLL.StudentManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,13 +26,16 @@ public class EditStudentViewController {
     private Student selectedStudent;
  StudentManager studentManager = new StudentManager();
  private AdminViewController parentController;
-
+ private TeacherViewController teacherController;
  public EditStudentViewController() throws Exception {
  }
 
  public void setParentController(AdminViewController adminViewController){
-  this.parentController = adminViewController;}
-
+  this.parentController = adminViewController;
+ }
+ public void setTeacherController(TeacherViewController teacherController){
+  this.teacherController = teacherController;
+ }
 
  public void setInfo(Student selectedItem) {
   selectedStudent = selectedItem;
@@ -49,11 +49,16 @@ public class EditStudentViewController {
      String studentLastName=studentLastName_txt.getText();
      String studentEmail = studentEmail_txt.getText();
      String studentPassword = studentPassword_txt.getText();
-     Student studentUpdated= new Student(studentFirstName,studentLastName,studentEmail,studentPassword,selectedStudent.getId());
+     Student studentUpdated= new Student(selectedStudent.getId(),studentFirstName,studentLastName,studentEmail,studentPassword);
      studentManager.saveUpdateStudent(studentUpdated);
      Stage stage = (Stage)btnSaveUpdateStudent.getScene().getWindow();
      stage.close();
-     parentController.initialize();
+     if(parentController != null){
+      parentController.initialize();
+     }
+     if(teacherController != null){
+      teacherController.initialize();
+     }
     }
 
     public void cancelUpdateStudent(ActionEvent actionEvent) {

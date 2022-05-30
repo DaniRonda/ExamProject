@@ -1,17 +1,14 @@
 package easv.dk.GUI.Model;
-
 import easv.dk.BE.*;
 import easv.dk.BLL.*;
-import easv.dk.DAL.CaseDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.util.List;
 
 public class CitizenModel {
     ObservableList<Citizen> getAllCitizens;
     CitizenManager citizenManager = new CitizenManager();
-    Manager manager = new Manager();
+    IManager manager = new Manager();
     GeneralInfoManager managerInfo;
     CaseManager caseManager = new CaseManager();
     DiagnoseManager diagnoseManager = new DiagnoseManager();
@@ -23,11 +20,11 @@ public class CitizenModel {
         getAllCitizens = FXCollections.observableArrayList();
     }
 
-    public static void deleteCitizen(Citizen selectedItem) throws Exception {
-        CitizenManager.deleteCitizen(selectedItem);
+    public void deleteCitizen(Citizen selectedItem) throws Exception {
+        citizenManager.deleteCitizen(selectedItem);
     }
 
-    public Case createCade(String caseText,  int citizen) throws Exception{
+    public Case createCase(String caseText,  int citizen) throws Exception{
         return caseManager.createCase(caseText, citizen);
     }
 

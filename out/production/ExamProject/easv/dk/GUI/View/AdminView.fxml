@@ -15,7 +15,7 @@
 <AnchorPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #D6E7FB;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.AdminViewController">
    <children>
       <ToolBar layoutY="-1.0" prefHeight="69.0" prefWidth="950.0" style="-fx-background-color: #EFEFE6;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
-      <TextField layoutX="23.0" layoutY="14.0" promptText="🔎" />
+      <TextField fx:id="searchTextBox" layoutX="23.0" layoutY="14.0" promptText="🔎" />
       <Label layoutX="135.0" layoutY="89.0" text="Teachers">
          <font>
             <Font name="System Bold" size="16.0" />
@@ -28,13 +28,13 @@
         </columns>
       </TableView>
       <Button fx:id="btnOpenNewTeacherView" layoutX="135.0" layoutY="584.0" mnemonicParsing="false" onAction="#openNewTeacherView" prefHeight="26.0" prefWidth="40.0" text="New" AnchorPane.bottomAnchor="40.0" />
-      <Button fx:id="btnOpenEditTeacherView" layoutX="207.0" layoutY="584.0" mnemonicParsing="false" onAction="#openEditTeacherView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="40.0" />
+      <Button fx:id="btnOpenEditTeacherView" layoutX="183.0" layoutY="585.0" mnemonicParsing="false" onAction="#openEditTeacherView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="40.0" />
       <Button fx:id="btnDeleteTeacher" layoutX="436.0" layoutY="584.0" mnemonicParsing="false" onAction="#deleteTeacher" text="Delete" AnchorPane.bottomAnchor="40.66666666666663" />
       <Label layoutX="557.0" layoutY="89.0" text="Students" AnchorPane.rightAnchor="332.5">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Button fx:id="btnOpenEditStudentView" layoutX="630.0" layoutY="584.0" mnemonicParsing="false" onAction="#openEditStudentView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="282.0" />
+      <Button fx:id="btnOpenEditStudentView" layoutX="599.0" layoutY="584.0" mnemonicParsing="false" onAction="#openEditStudentView" prefHeight="25.0" prefWidth="38.0" text="Edit" AnchorPane.bottomAnchor="41.0" AnchorPane.rightAnchor="313.0" />
       <Button fx:id="btnOpenNewStudentView" layoutX="551.0" layoutY="584.0" mnemonicParsing="false" onAction="#openNewStudentView" text="New" AnchorPane.bottomAnchor="40.66666666666663" AnchorPane.rightAnchor="359.0" />
       <Button fx:id="btnDeleteStudent" layoutX="850.0" layoutY="584.0" mnemonicParsing="false" onAction="#deleteStudent" text="Delete" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="47.5" />
       <TableView fx:id="studentTable" layoutX="551.0" layoutY="119.0" prefHeight="462.0" prefWidth="352.0" AnchorPane.bottomAnchor="69.0">

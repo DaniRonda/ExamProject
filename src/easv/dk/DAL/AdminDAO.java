@@ -1,16 +1,11 @@
 package easv.dk.DAL;
-
 import easv.dk.BE.Admin;
-import easv.dk.BLL.Manager;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import org.junit.Test;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class AdminDAO {
     private static ConnectionManager cm;
@@ -45,22 +40,6 @@ public class AdminDAO {
         return adminfound;
     }
 
-    public Admin CreateAdmin(Admin admin) throws Exception {
-        Admin adminCreated = null;
-        Connection con = cm.getConnection();
-        String sqlSelectAdmin = "INSERT INTO Admin VALUES(?,?)";
-        PreparedStatement psInsertAdmin = con.prepareStatement(sqlSelectAdmin, Statement.RETURN_GENERATED_KEYS);
-        psInsertAdmin.setString(1, admin.getEmail());
-        psInsertAdmin.setString(2, admin.getPassword());
-        psInsertAdmin.addBatch();
-        psInsertAdmin.executeBatch();
-        ResultSet rs = psInsertAdmin.getGeneratedKeys();
-        while (rs.next()) {
-            adminCreated = new Admin( rs.getInt(1) ,admin.getEmail() ,admin.getPassword()
-            );
-        }
-        return adminCreated;
-    }
 @Test
     public List<Admin> getAllAdmin() throws Exception {
         List<Admin> adminList = new ArrayList<>();

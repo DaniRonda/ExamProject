@@ -1,8 +1,7 @@
 package easv.dk.GUI.Model;
-
 import easv.dk.BE.Admin;
 import easv.dk.BLL.AdminManager;
-import easv.dk.BLL.Manager;
+
 
 public class AdminModel {
     AdminManager adminManager = new AdminManager();

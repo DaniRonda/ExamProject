@@ -1,9 +1,6 @@
 package easv.dk.DAL;
-
-import easv.dk.BE.Admin;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -122,11 +119,11 @@ public class TeacherDAO {
         psInsertStudent.executeBatch();
         ResultSet rs = psInsertStudent.getGeneratedKeys();
         while (rs.next()) {
-            studentCreated = new Student (student.getFirstName(),
+            studentCreated = new Student (rs.getInt(1),
+                    student.getFirstName(),
                     student.getFirstName(),
                     student.getEmail(),
-                    student.getPassword(),
-                    rs.getInt(1)
+                    student.getPassword()
             );
         }
         return studentCreated;

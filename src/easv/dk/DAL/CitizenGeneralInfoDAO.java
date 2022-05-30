@@ -1,14 +1,8 @@
 package easv.dk.DAL;
-
-import easv.dk.BE.Citizen;
 import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.GeneralInfoCitizen;
-import easv.dk.BE.Student;
-import jdk.jshell.spi.ExecutionControl;
-
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 

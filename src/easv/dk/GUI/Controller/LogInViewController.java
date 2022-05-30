@@ -1,9 +1,7 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Admin;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
-import easv.dk.BLL.IManager;
 import easv.dk.BLL.Manager;
 import easv.dk.GUI.Model.AdminModel;
 import easv.dk.GUI.Model.StudentModel;
@@ -17,17 +15,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LogInController implements Initializable {
+public class LogInViewController implements Initializable {
 
 
     @FXML
     private Button BtnCancel;
-    @FXML
-    private Button ButtonBypass;
     @FXML
     private TextField TextFieldEmail;
     @FXML
@@ -35,25 +30,14 @@ public class LogInController implements Initializable {
     @FXML
     private Button ButtonSignIn;
 
-    Manager manager = new Manager();
     AdminModel adminModel = new AdminModel();
     TeacherModel teacherModel = new TeacherModel();
     StudentModel studentModel = new StudentModel();
 
-    public LogInController() throws Exception {
+    public LogInViewController() throws Exception {
     }
 
 
-    public void bypassScreen(ActionEvent event) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/StudentView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-    }
 
     public void cancelLogIn(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Cancel login?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
@@ -119,8 +103,6 @@ public class LogInController implements Initializable {
     }
 
 
-
-
         public void signIn (ActionEvent actionEvent) throws Exception {
             adminCheck();
             teacherCheck();
@@ -134,27 +116,7 @@ public class LogInController implements Initializable {
             return this.TextFieldEmail.getText();
         }
 
-    public void bypassScreen1(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TeacherView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-    }
 
-    public void bypassScreen2(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/AdminView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-    }
 }
 
 

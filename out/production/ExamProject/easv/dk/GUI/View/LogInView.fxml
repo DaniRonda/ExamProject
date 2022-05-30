@@ -7,16 +7,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.LogInController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="easv.dk.GUI.Controller.LogInViewController">
    <children>
+      <ImageView fitHeight="392.0" fitWidth="391.0" layoutX="105.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Pictures/512x512bb.jpg" />
+         </image>
+      </ImageView>
       <TextField fx:id="TextFieldEmail" layoutX="162.0" layoutY="215.0" prefHeight="38.0" prefWidth="276.0" promptText="E-Mail" />
       <Button fx:id="BtnCancel" layoutX="382.0" layoutY="327.0" mnemonicParsing="false" onAction="#cancelLogIn" prefHeight="25.0" prefWidth="56.0" text="Cancel" />
       <Button fx:id="ButtonSignIn" layoutX="314.0" layoutY="327.0" mnemonicParsing="false" onAction="#signIn" text="Sign In " />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="211.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Pictures/LogInIcon.jpg" />
-         </image>
-      </ImageView>
       <PasswordField fx:id="TextFieldPassword" layoutX="162.0" layoutY="275.0" prefHeight="38.0" prefWidth="276.0" promptText="Password" />
    </children>
 </AnchorPane>

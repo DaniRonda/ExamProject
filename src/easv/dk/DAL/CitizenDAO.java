@@ -1,17 +1,13 @@
 package easv.dk.DAL;
-
-import easv.dk.BE.Admin;
 import easv.dk.BE.Citizen;
-import easv.dk.BE.GeneralInfo;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class CitizenDAO {
     private static ConnectionManager cm;
@@ -63,31 +59,33 @@ public class CitizenDAO {
     }
 
     public Citizen createCitizen(Citizen citizen) throws Exception {
-        Citizen citizenCreated = null;
         Connection con = cm.getConnection();
-        String sqlSelectCitizen = "INSERT INTO Citizen VALUES(?,?,?,?,?,?)";
-        PreparedStatement psInsertCitizen = con.prepareStatement(sqlSelectCitizen, Statement.RETURN_GENERATED_KEYS);
-        psInsertCitizen.setString(1, citizen.getFirstName());
-        psInsertCitizen.setString(2, citizen.getLastName());
-        psInsertCitizen.setString(3, citizen.getAddress());
-        psInsertCitizen.setDate(4, (Date) citizen.getBirthDate());
-        psInsertCitizen.setInt(5, citizen.getPhoneNumber());
-        psInsertCitizen.setBoolean(6, citizen.isTemplate());
-        psInsertCitizen.addBatch();
-        psInsertCitizen.executeBatch();
-        ResultSet rs = psInsertCitizen.getGeneratedKeys();
-        while (rs.next()) {
-            citizenCreated = new Citizen (citizen.getFirstName(),
-                    citizen.getLastName(),
-                    citizen.getAddress(),
-                    citizen.getBirthDate(),
-                    citizen.getPhoneNumber(),
-                    citizen.isTemplate(),
-                    rs.getInt(1)
-            );
+        String sqlSelectCitizen = "INSERT INTO [dbo].[Citizen]" +
+                "           (" +
+                "           [firstName]" +
+                "           ,[lastName]" +
+                "           ,[address]" +
+                "           ,[birthDate]" +
+                "           ,[phoneNumber]" +
+                "           ,[isTemplate])" +
+                "     VALUES (?,?,?,?,?,?)";
+        try (PreparedStatement psInsertCitizen = con.prepareStatement(sqlSelectCitizen, Statement.RETURN_GENERATED_KEYS))
+        {
+            psInsertCitizen.setString(1, citizen.getFirstName());
+            psInsertCitizen.setString(2, citizen.getLastName());
+            psInsertCitizen.setString(3, citizen.getAddress());
+            psInsertCitizen.setDate(4, (Date) citizen.getBirthDate());
+            psInsertCitizen.setInt(5, citizen.getPhoneNumber());
+            psInsertCitizen.setBoolean(6, citizen.isTemplate(false));
+            psInsertCitizen.execute();
+            ResultSet rs = psInsertCitizen.getGeneratedKeys();
+            rs.next();
+            int citizenID = rs.getInt(1);
+            citizen.setID(citizenID);
+            }
+         return citizen;
         }
-        return citizenCreated;
-    }
+
 
 
     public static void deleteCitizen(Citizen citizen) throws Exception {

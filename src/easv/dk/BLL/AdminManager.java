@@ -1,17 +1,17 @@
 package easv.dk.BLL;
 
-import easv.dk.DAL.AdminDAO;
 import easv.dk.BE.Admin;
+import easv.dk.DAL.DALFacade;
+import easv.dk.DAL.IDataAccess;
 
 public class AdminManager {
+    private IDataAccess dataAccess;
 
-    AdminDAO adminDAO = new AdminDAO();
 
-    public AdminManager() throws Exception {
-    }
+    public AdminManager() throws Exception {dataAccess= DALFacade.getInstance(); }
 
     public Admin adminFound(String emails, String password) throws Exception{
-        Admin admin = adminDAO.getAdminLogin(emails, password);
+        Admin admin = dataAccess.getAdminLogin(emails, password);
         if (admin != null) return loginHelper.getInstance(admin);
         else return null;
     }

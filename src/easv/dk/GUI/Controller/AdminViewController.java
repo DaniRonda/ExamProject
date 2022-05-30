@@ -1,9 +1,10 @@
 package easv.dk.GUI.Controller;
-
+import easv.dk.BE.Citizen;
 import easv.dk.BE.Student;
 import easv.dk.BE.Teacher;
 import easv.dk.GUI.Model.StudentModel;
 import easv.dk.GUI.Model.TeacherModel;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,31 +14,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class AdminViewController {
 
-    @FXML
-    private Button btnOpenEditTeacherView;
-    @FXML
-    private Button btnDeleteTeacher;
-    @FXML
-    private Button btnOpenEditStudentView;
-    @FXML
-    private Button btnDeleteStudent;
+
+    public TextField searchTextBox;
     @FXML
     private TableView studentTable;
     @FXML
     private TableView teacherTable;
-    @FXML
-    private Button btnOpenTeacherView;
-    @FXML
-    private Button btnOpenTemplateView;
-    @FXML
-    private Button btnOpenNewTeacherView;
-    @FXML
-    private Button btnOpenNewStudentView;
     @FXML
     private Button btnAdminLogOut;
     TeacherModel teacherModel = new TeacherModel();
@@ -52,68 +40,48 @@ public class AdminViewController {
     public void initialize() throws Exception {
         setUpTeacherTable();
         setUpStudentTable();
-        //teacherFilter();
-        //studentFilter();
+        teacherFilter();
+        studentFilter();
+
+    }
+
+    public void studentFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Student> unfilteredList = null;
+                try {
+                    unfilteredList = studentModel.getAllStudents1();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Student> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                studentTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
 
     }
 
 
-    public void openEditTeacherView(ActionEvent actionEvent) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditTeacherView.fxml"));
-        Parent root = loader.load();
-        EditTeacherViewController control = loader.getController();
-        control.setInfo((Teacher) teacherTable.getSelectionModel().getSelectedItem());
-        control.setParentController(this);
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-    }
+    public void teacherFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Teacher> unfilteredList = null;
+                try {
+                    unfilteredList = teacherModel.getAllTeachers1();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-    public void adminLogOut(ActionEvent actionEvent) throws Exception {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to log out?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
-        alert.showAndWait();
+                List<Teacher> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                teacherTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
 
-        if (alert.getResult() == ButtonType.YES) {
-
-            Stage stage = (Stage) btnAdminLogOut.getScene().getWindow();
-            stage.close();
-        }
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/LogInView.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setTitle("Log In");
-        stage.centerOnScreen();
-        stage.show();
-    }
-
-    public void deleteTeacher(ActionEvent actionEvent) throws Exception {
-        teacherModel.deleteTeacher((Teacher) teacherTable.getSelectionModel().getSelectedItem());
-        teacherTable.getItems().remove(teacherTable.getSelectionModel().getSelectedItem());
-    }
-
-    public void openEditStudentView(ActionEvent actionEvent) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditStudentView.fxml"));
-        Parent root = loader.load();
-        EditStudentViewController control = loader.getController();
-        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
-        control.setParentController(this);
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.centerOnScreen();
-        stage.show();
-    }
-
-    public void deleteStudent(ActionEvent actionEvent) throws Exception {
-        studentModel.deleteStudent((Student) studentTable.getSelectionModel().getSelectedItem());
-        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedItem());
     }
 
     public void setUpTeacherTable() throws Exception {
@@ -146,6 +114,21 @@ public class AdminViewController {
         studentTable.getItems().addAll(studentModel.getAllStudents1());
     }
 
+    public void openEditTeacherView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditTeacherView.fxml"));
+        Parent root = loader.load();
+        EditTeacherViewController control = loader.getController();
+        control.setInfo((Teacher) teacherTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Edit Teacher");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
     public void openTeacherView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/TeacherView.fxml"));
@@ -166,6 +149,7 @@ public class AdminViewController {
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.centerOnScreen();
+        stage.setTitle("Template");
         stage.show();
     }
 
@@ -179,6 +163,7 @@ public class AdminViewController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("New Teacher");
         stage.centerOnScreen();
         stage.show();
     }
@@ -193,7 +178,54 @@ public class AdminViewController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.setTitle("New Student");
         stage.centerOnScreen();
         stage.show();
     }
+
+    public void openEditStudentView(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/EditStudentView.fxml"));
+        Parent root = loader.load();
+        EditStudentViewController control = loader.getController();
+        control.setInfo((Student) studentTable.getSelectionModel().getSelectedItem());
+        control.setParentController(this);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Edit Student");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
+    public void deleteTeacher(ActionEvent actionEvent) throws Exception {
+        teacherModel.deleteTeacher((Teacher) teacherTable.getSelectionModel().getSelectedItem());
+        teacherTable.getItems().remove(teacherTable.getSelectionModel().getSelectedItem());
+    }
+
+    public void deleteStudent(ActionEvent actionEvent) throws Exception {
+        studentModel.deleteStudent((Student) studentTable.getSelectionModel().getSelectedItem());
+        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedItem());
+    }
+
+    public void adminLogOut(ActionEvent actionEvent) throws Exception {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to log out?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.YES) {
+
+            Stage stage = (Stage) btnAdminLogOut.getScene().getWindow();
+            stage.close();
+        }
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/LogInView.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setTitle("Log In");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
 }

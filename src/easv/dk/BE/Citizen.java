@@ -1,5 +1,6 @@
 package easv.dk.BE;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.time.LocalDate;
@@ -13,7 +14,7 @@ public class Citizen {
     private boolean isTemplate;
     private int ID;
     private int studentCount = 0;
-    private List<Student> studentsInCitizen;
+    private List<Student> studentsInCitizen = new ArrayList<>();
 
 
 
@@ -66,7 +67,7 @@ public class Citizen {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean isTemplate() {
+    public boolean isTemplate(boolean b) {
         return isTemplate;
     }
 
@@ -102,16 +103,6 @@ public class Citizen {
 
     @Override
     public String toString() {
-        return "Citizen{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", birthDate=" + birthDate +
-                ", phoneNumber=" + phoneNumber +
-                ", isTemplate=" + isTemplate +
-                ", ID=" + ID +
-                ", studentCount=" + studentCount +
-                ", studentsInCitizen=" + studentsInCitizen +
-                '}';
+        return firstName +" "+  lastName;
     }
 }

@@ -1,9 +1,11 @@
 package easv.dk.GUI.Controller;
 
+
 import easv.dk.BE.Citizen;
 import easv.dk.BE.FunctionalDiagnose;
 import easv.dk.BE.HealthDiagnose;
 import easv.dk.GUI.Model.CitizenModel;
+
 import easv.dk.GUI.Model.StudentModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

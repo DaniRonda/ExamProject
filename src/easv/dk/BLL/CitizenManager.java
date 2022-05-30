@@ -5,28 +5,33 @@ import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.Student;
 import easv.dk.DAL.CitizenDAO;
 import easv.dk.DAL.CitizenGeneralInfoDAO;
+import easv.dk.DAL.DALFacade;
+import easv.dk.DAL.IDataAccess;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class CitizenManager {
+    private IDataAccess dataAccess;
 
-    CitizenDAO citizenDAO = new CitizenDAO();
+    public CitizenManager() throws Exception { dataAccess= DALFacade.getInstance(); }
 
-    public CitizenManager() throws Exception {
-    }
 
     public List<Citizen> getAllCitizens() throws Exception{
-        return this.citizenDAO.getAllCitizens();
+        return this.dataAccess.getAllCitizens();
     }
 
-    public static void deleteCitizen(Citizen selectedItem) throws Exception {
-        CitizenDAO.deleteCitizen(selectedItem);
+    public void deleteCitizen(Citizen selectedItem) throws Exception {
+        dataAccess.deleteCitizen(selectedItem);
 
     }
 
     public void updateCitizen(Citizen citizen) throws Exception{
-        citizenDAO.updateCitizen(citizen);
+        dataAccess.saveUpdateCitizen(citizen);
+    }
+
+    public void createCitizen(Citizen citizen) throws Exception{
+        dataAccess.createCitizen(citizen);
     }
 
 

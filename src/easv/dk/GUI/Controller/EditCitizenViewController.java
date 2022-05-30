@@ -1,8 +1,5 @@
 package easv.dk.GUI.Controller;
-
 import easv.dk.BE.Citizen;
-import easv.dk.BE.Student;
-import easv.dk.BLL.CitizenManager;
 import easv.dk.GUI.Model.CitizenModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,9 +24,9 @@ public class EditCitizenViewController {
     private Citizen selectedCitizen;
 
     CitizenModel citizenModel = new CitizenModel();
-    private TeacherController parentController;
+    private TeacherViewController parentController;
 
-    public void setParentController(TeacherController teacherController){
+    public void setParentController(TeacherViewController teacherController) {
         this.parentController = teacherController;
     }
 
@@ -41,7 +38,7 @@ public class EditCitizenViewController {
         String citizenLastName= citizenLastName_txt.getText();
         String citizenAddress = citizenAddress_txt.getText();
         int citizenPhoneNumber = citizenPhoneNumber_txt.getProperties().size();
-        Citizen citizenUpdated = new Citizen(citizenFirstName,citizenLastName,citizenAddress, selectedCitizen.getBirthDate(), citizenPhoneNumber, selectedCitizen.isTemplate(), selectedCitizen.getID());
+        Citizen citizenUpdated = new Citizen(citizenFirstName,citizenLastName,citizenAddress, selectedCitizen.getBirthDate(), citizenPhoneNumber, selectedCitizen.isTemplate(false), selectedCitizen.getID());
         citizenModel.updateCitizen(citizenUpdated);
         Stage stage = (Stage)btnSaveUpdateCitizen.getScene().getWindow();
         stage.close();

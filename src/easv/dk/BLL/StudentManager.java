@@ -1,36 +1,39 @@
 package easv.dk.BLL;
 
-import easv.dk.DAL.StudentDAO;
+import easv.dk.DAL.DALFacade;
+import easv.dk.DAL.IDataAccess;
 import easv.dk.BE.Student;
 
 import java.util.List;
 
 public class StudentManager {
 
-    StudentDAO studentDAO = new StudentDAO();
+    private IDataAccess dataAccess;
 
-    public StudentManager() throws Exception {
-    }
+    public StudentManager() throws Exception { dataAccess= DALFacade.getInstance(); }
 
     public Student studentFound(String emails, String password) throws Exception{
-        Student student = studentDAO.getStudentLogin(emails, password);
+        Student student = dataAccess.getStudentLogin(emails, password);
         if (student != null) return loginHelper.getInstanceStudent(student);
         else return null;
     }
 
     public void saveUpdateStudent(Student student) throws Exception{
-        studentDAO.saveUpdateStudent(student);
+        dataAccess.saveUpdateStudent(student);
     }
 
     public void deleteStudent(Student selectedItem) throws Exception{
-        studentDAO.deleteStudent(selectedItem);
+        dataAccess.deleteStudent(selectedItem);
     }
 
     public List<Student> getAllStudents() throws Exception{
-        return this.studentDAO.getAllStudent();
+        return this.dataAccess.getAllStudents();
     }
 
-    public Student createStudent(Student student) throws Exception {
-        return studentDAO.CreateStudent(student);
+    public Student createStudent(String firstName,String lastName, String email, String password) throws Exception {
+        dataAccess.createStudent(firstName, lastName, email, password);
+        return null;
+
     }
+
 }

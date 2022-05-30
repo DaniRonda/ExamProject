@@ -1,14 +1,12 @@
 package easv.dk.DAL;
-
 import easv.dk.BE.FunctionalDiagnose;
-import easv.dk.BE.HealthDiagnose;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class FunctionalDiagnoseDAO {
     ConnectionManager cm;
