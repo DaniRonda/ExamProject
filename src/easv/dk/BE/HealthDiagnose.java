@@ -10,7 +10,8 @@ public class HealthDiagnose {
     private int citizen;
     private int healthtype;
 
-    public HealthDiagnose(int ID, String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) {
+    public HealthDiagnose(int ID, String profnote, String currentass, String anticipatedlvl,
+                          String followupdate, String observenote, int citizen, int healthtype) {
         this.ID = ID;
         this.profnote = profnote;
         this.currentass = currentass;
@@ -98,4 +99,6 @@ public class HealthDiagnose {
                 ", healthtype=" + healthtype +
                 '}';
     }
+
+
 }

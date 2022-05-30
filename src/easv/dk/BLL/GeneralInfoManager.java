@@ -23,8 +23,13 @@ public class GeneralInfoManager {
         citizenGeneralInfoDAO.updateGeneralInfo1(generalInfo);
     }
 
-    public GeneralInfo createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) throws Exception{
-        return citizenGeneralInfoDAO.createGeneralInfo(coping, motivation, resources, roles, habits, education, lifestory, healthinfo, aid, furnishing, network, citizen);
+    public GeneralInfo createGeneralInfo(String coping, String motivation, String resources,
+                                         String roles, String habits, String education,
+                                         String lifestory, String healthinfo, String aid,
+                                         String furnishing, String network, int citizen) throws Exception{
+
+        return citizenGeneralInfoDAO.createGeneralInfo(coping, motivation, resources, roles, habits, education,
+                                                       lifestory, healthinfo, aid, furnishing, network, citizen);
     }
 
 }

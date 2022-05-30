@@ -15,7 +15,8 @@ public class CitizenModel {
     GeneralInfoManager managerInfo;
     CaseManager caseManager = new CaseManager();
     DiagnoseManager diagnoseManager = new DiagnoseManager();
-    public static Citizen clickedCitizen;;
+    public static Citizen clickedCitizen;
+    public static Citizen chosenCitizenToFillUp;
 
     public CitizenModel() throws Exception {
         managerInfo = new GeneralInfoManager();
@@ -62,6 +63,9 @@ public class CitizenModel {
         System.out.println("Current citizen: " + clickedCitizen);
         return clickedCitizen;
     }
+    public Citizen getCurrentCitizen(Citizen citizen){
+        return clickedCitizen;
+    }
 
     public void updateGeneralInfo(GeneralInfo generalInfo) throws Exception {
         managerInfo.updateGeneralInfo(generalInfo);
@@ -91,12 +95,20 @@ public class CitizenModel {
         return diagnoseManager.getHealthDiagnose(idHealthDiagnose);
     }
 
-    public List<HealthDiagnose> getAllHealthDiagnose() throws Exception {
+    public List<HealthDiagnose> getAllHealthDiagnose(int idCitizen) throws Exception {
         return diagnoseManager.getAllHealthDiagnose();
     }
 
     public void updateHealthDiagnose(HealthDiagnose healthDiagnose) throws Exception {
         diagnoseManager.updateHealthDiagnose(healthDiagnose);
+    }
+
+    public void setChosenCitizenFillUp(Citizen citizenCh) {
+        chosenCitizenToFillUp = citizenCh;
+    }
+
+    public Citizen getChosenCitizenFillUp() {
+        return chosenCitizenToFillUp;
     }
 
     public HealthDiagnose createHealthDiagnose(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) throws Exception{
@@ -107,7 +119,7 @@ public class CitizenModel {
         return diagnoseManager.getFunctionalDiagnose(idFunctionalDiagnose);
     }
 
-    public List<FunctionalDiagnose> getAllFunctionalDiagnose() throws Exception {
+    public List<FunctionalDiagnose> getAllFunctionalDiagnose(int idCitizen) throws Exception {
         return diagnoseManager.getAllFunctionalDiagnose();
     }
 

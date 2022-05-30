@@ -125,8 +125,7 @@ public class LogInController implements Initializable {
             adminCheck();
             teacherCheck();
             studentCheck();
-           // Stage thisStage = (Stage) ButtonSignIn.getScene().getWindow();
-           // thisStage.close();
+
         }
         public String getTextFieldPassword () {
             return this.TextFieldPassword.getText();

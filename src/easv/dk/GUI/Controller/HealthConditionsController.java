@@ -1,5 +1,9 @@
 package easv.dk.GUI.Controller;
 
+import easv.dk.BE.Citizen;
+import easv.dk.BE.FunctionalDiagnose;
+import easv.dk.BE.HealthDiagnose;
+import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.StudentModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -16,9 +21,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.util.Date;
+import java.util.ResourceBundle;
+import java.util.*;
 
 import java.io.IOException;
-
 
 
 public class HealthConditionsController {
@@ -315,9 +322,28 @@ public class HealthConditionsController {
     private Label labelMentalFunction8;
     @FXML
     private Label labelSocialLife1;
+    @FXML
+    private TextArea textAreaProNote;
+    @FXML
+    private TextArea textAreaCurAssessment;
+    @FXML
+    private TextField TextFieldFollowupDate;
+    @FXML
+    private TextArea TextAreaObsNotes;
+    int typeOfCase;
+    int typeOfCaseFunc;
+
     ToggleGroup groupCurrent = new ToggleGroup();
+    HealthDiagnose healthDiagnose;
+    FunctionalDiagnose functionalDiagnose;
     ToggleGroup groupExpected = new ToggleGroup();
     StudentModel studentModel = new StudentModel();
+    CitizenModel citizenModel = new CitizenModel();
+    Citizen currentCitizen;
+    int citizenID;
+    String citizenFirstName;
+    boolean isCreated = false;
+
 
     String selectedDiagnose;
     ObservableList<String> choiceBoxOptions = FXCollections.observableArrayList("Lessens", "Remains the same", "Disappearing");
@@ -326,14 +352,33 @@ public class HealthConditionsController {
 
     }
 
+    public void passCitizen(ActionEvent actionEvent) throws Exception {
+       CitizenHolder citizenHolder = CitizenHolder.getInstance();
+       Citizen citizenSingle = citizenHolder.getCitizen();
+       citizenSingle.getFirstName();
+       citizenSingle.getLastName();
+       citizenSingle.getAddress();
+       citizenSingle.getBirthDate();
+       citizenSingle.getPhoneNumber();
+       citizenSingle.getID();
 
+
+        System.out.println(citizenSingle.getFirstName());
+    }
+
+    public void getCitizen(Citizen citizen) throws Exception {
+
+    }
 
     @FXML
-    private void initialize() {
+    private void initialize() throws Exception {
         ToggleGroup group = new ToggleGroup();
         radiobuttonPotential.setToggleGroup(group);
         radiobuttonActive.setToggleGroup(group);
         radiobuttonNotRelevant.setToggleGroup(group);
+
+        System.out.println(citizenID);
+        System.out.println(citizenFirstName);
 
 
         radiButtonCurrent0.setToggleGroup(groupCurrent);
@@ -471,9 +516,109 @@ public class HealthConditionsController {
         Stage thisStage = (Stage) btnLogOut.getScene().getWindow();
         thisStage.close();
     }
-    public void saveClient(ActionEvent actionEvent) {
-        System.out.println("save");
+
+    private void setTypeOfCase(int number) {
+        typeOfCase = number;
     }
+
+    private int getTypeOfCase() {
+        return typeOfCase;
+    }
+
+    private void setTypeOfCaseFunc(int number) {
+        typeOfCaseFunc = number;
+    }
+
+    private int getTypeOfCaseFunc() {
+        return typeOfCaseFunc;
+    }
+
+    public void saveClient(ActionEvent actionEvent) throws Exception {
+        if (ChoiceBoxAnticLvl.getSelectionModel().getSelectedIndex() != -1 && !textAreaProNote.getText().isEmpty() && !textAreaCurAssessment.getText().isEmpty() && !TextFieldFollowupDate.getText().isEmpty() && !TextAreaObsNotes.getText().isEmpty()) {
+            HealthDiagnose healthDiagnoseUpdate = new HealthDiagnose(healthDiagnose.getID(),
+                    textAreaCurAssessment.getText(),
+                    TextFieldFollowupDate.getText(),
+                    ChoiceBoxAnticLvl.getSelectionModel().getSelectedItem().toString().toLowerCase(),
+                    textAreaProNote.getText(),
+                    TextAreaObsNotes.getText(),
+                    getTypeOfCase(),
+                    citizenID);
+            citizenModel.updateHealthDiagnose(healthDiagnoseUpdate);
+            System.out.println(healthDiagnoseUpdate);
+        } else {
+            System.out.println("mistake");
+        }
+    }
+
+    public void saveClientFunctional(ActionEvent actionEvent) throws Exception {
+        if (ChoiceBoxAnticLvl.getSelectionModel().getSelectedIndex() != -1 && !textAreaProNote.getText().isEmpty() && !textAreaCurAssessment.getText().isEmpty() && !TextFieldFollowupDate.getText().isEmpty() && !TextAreaObsNotes.getText().isEmpty()) {
+            HealthDiagnose healthDiagnoseUpdate = new HealthDiagnose(healthDiagnose.getID(),
+                    ChoiceBoxAnticLvl.getSelectionModel().getSelectedItem().toString().toLowerCase(),
+                    textAreaProNote.getText(),
+                    textAreaCurAssessment.getText(),
+                    TextFieldFollowupDate.getText(),
+                    TextAreaObsNotes.getText(),
+                    getTypeOfCase(),
+                    citizenID);
+            citizenModel.updateHealthDiagnose(healthDiagnoseUpdate);
+            System.out.println(healthDiagnoseUpdate);
+        } else {
+            System.out.println("mistake");
+        }
+    }
+
+    private void setUpNodes(int numberOfIndex) throws Exception {
+        citizenModel.getAllHealthDiagnose(citizenID).forEach(healthDiagnose1 -> {
+            if (healthDiagnose1.getCitizen() == citizenID) {
+            healthDiagnose = healthDiagnose1;
+        }} );
+        healthDiagnose = citizenModel.getAllHealthDiagnose(citizenID).get(numberOfIndex);
+        textAreaProNote.setText(healthDiagnose.getProfnote());
+        textAreaCurAssessment.setText(healthDiagnose.getCurrentass());
+        TextAreaObsNotes.setText(healthDiagnose.getObservenote());
+        TextFieldFollowupDate.setText(healthDiagnose.getFollowupdate());
+        ChoiceBoxAnticLvl.getSelectionModel().select(healthDiagnose.getAnticipatedlvl());
+    }
+
+    private void setUpFunctionalNodes(int numberOfIndex) throws Exception {
+        citizenModel.getAllFunctionalDiagnose(citizenID).forEach(functionalDiagnoses -> {
+            if (functionalDiagnoses.getCitizen() == citizenID) {
+                functionalDiagnose = functionalDiagnoses;
+            }} );
+        functionalDiagnose = citizenModel.getAllFunctionalDiagnose(citizenID).get(numberOfIndex);
+        textAreaProNote.setText(functionalDiagnose.getProfnote());
+        textAreaCurAssessment.setText(functionalDiagnose.getCurrentass());
+        TextAreaObsNotes.setText(functionalDiagnose.getObservenote());
+        TextFieldFollowupDate.setText(functionalDiagnose.getFollowupdate());
+        ChoiceBoxAnticLvl.getSelectionModel().select(functionalDiagnose.getAnticipatedlvl());
+        if (functionalDiagnose.getCurrlvl() == 1)
+            radiButtonCurrent0.setSelected(true);
+        else if(functionalDiagnose.getCurrlvl() == 2)
+            radiButtonCurrent1.setSelected(true);
+        else if(functionalDiagnose.getCurrlvl() == 3)
+            radiButtonCurrent2.setSelected(true);
+        else if(functionalDiagnose.getCurrlvl() == 4)
+            radiButtonCurrent3.setSelected(true);
+        else if(functionalDiagnose.getCurrlvl() == 5)
+            radiButtonCurrent4.setSelected(true);
+
+        if (functionalDiagnose.getExpectedlvl() == 1)
+            radiButtonExpected0.setSelected(true);
+        else if(functionalDiagnose.getExpectedlvl() == 2)
+            radiButtonExpected1.setSelected(true);
+        else if(functionalDiagnose.getExpectedlvl() == 3)
+            radiButtonExpected2.setSelected(true);
+        else if(functionalDiagnose.getExpectedlvl() == 4)
+            radiButtonExpected3.setSelected(true);
+        else if(functionalDiagnose.getExpectedlvl() == 5)
+            radiButtonExpected4.setSelected(true);
+        textAreaGoals.setText((functionalDiagnose.getWishes()));
+
+
+    }
+
+
+
 
     public void saveClientGoals(ActionEvent actionEvent) {
         System.out.println("saveGoal");
@@ -721,8 +866,10 @@ public class HealthConditionsController {
                 event -> labelSocialLife.setUnderline(false));
     }
 
-    public void functionLevel1Clicked(MouseEvent mouseEvent) {
+    public void functionLevel1Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with personal care");
+        setUpNodes(0);
+        setTypeOfCase(1);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with selfcare as a result of an illness, injury or disability, and where the complexity or a critical situation demands a special skill level among the workers, or when needing assistance to perform selfcare, dress and undressing and/or trip to the toilet." );
             paneInfo.setDisable(false); paneInfo.setVisible(true);
@@ -740,8 +887,10 @@ public class HealthConditionsController {
                 event -> labelFunctionLevel1.setUnderline(false));
     }
 
-    public void functionLevel2Clicked(MouseEvent mouseEvent) {
+    public void functionLevel2Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with daily activities ");
+        setUpNodes(1);
+        setTypeOfCase(2);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " carrying out daily activities and where\n" +
@@ -767,8 +916,10 @@ public class HealthConditionsController {
                 event -> labelFunctionLevel2.setUnderline(false));
     }
 
-    public void Apperatus111Clicked(MouseEvent mouseEvent) {
+    public void Apperatus111Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with mobility and movement");
+        setUpNodes(2);
+        setTypeOfCase(3);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " Movement disorders and problems in\n" +
@@ -797,8 +948,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void Apperatus12Clicked(MouseEvent mouseEvent) {
+    public void Apperatus12Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with mobility and movement");
+        setUpNodes(2);
+        setTypeOfCase(3);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " Movement disorders and problems in\n" +
@@ -828,7 +981,9 @@ public class HealthConditionsController {
                 });
     }
 
-    public void nutrition1Clicked(MouseEvent mouseEvent) {
+    public void nutrition1Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(3);
+        setTypeOfCase(4);
         labelSelectedSubCategory.setText("Problems with fluid consumption");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
@@ -853,8 +1008,10 @@ public class HealthConditionsController {
                 event -> labelConsumtion1.setUnderline(false));
     }
 
-    public void nutrition2Clicked(MouseEvent mouseEvent) {
+    public void nutrition2Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with food consumption");
+        setUpNodes(4);
+        setTypeOfCase(5);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " consuming or absorbing nutrition and\n" +
@@ -884,7 +1041,9 @@ public class HealthConditionsController {
                 event -> labelConsumtion2.setUnderline(false));
     }
 
-    public void nutrition3Clicked(MouseEvent mouseEvent) {
+    public void nutrition3Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(5);
+        setTypeOfCase(6);
         labelSelectedSubCategory.setText("Irregular weight chances");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is chosen when the citizen has problems with\n" +
@@ -908,8 +1067,10 @@ public class HealthConditionsController {
                 event -> labelConsumtion3.setUnderline(false));
     }
 
-    public void nutrition4Clicked(MouseEvent mouseEvent) {
+    public void nutrition4Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with obesity");
+        setUpNodes(6);
+        setTypeOfCase(7);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is chosen when the citizen has problems with\n" +
                     " overweight as a result of illness or treatment,\n" +
@@ -931,7 +1092,9 @@ public class HealthConditionsController {
                 event -> labelConsumtion4.setUnderline(false));
     }
 
-    public void nutrition5Clicked(MouseEvent mouseEvent) {
+    public void nutrition5Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(7);
+        setTypeOfCase(8);
         labelSelectedSubCategory.setText("Problems with anorexia");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with weight loss\n" +
@@ -954,7 +1117,9 @@ public class HealthConditionsController {
                 event -> labelConsumtion5.setUnderline(false));
     }
 
-    public void skin1Clicked(MouseEvent mouseEvent) {
+    public void skin1Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(8);
+        setTypeOfCase(9);
         labelSelectedSubCategory.setText("Problems with surgical wounds");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has problems with wounds that have occurred as a result of a surgical intervention after\n" +
@@ -977,7 +1142,9 @@ public class HealthConditionsController {
 
     }
 
-    public void skin2Clicked(MouseEvent mouseEvent) {
+    public void skin2Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(9);
+        setTypeOfCase(10);
         labelSelectedSubCategory.setText("Problems with diabetic wounds");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with wounds that have arisen as a late complication to diabetes,\n" +
@@ -999,7 +1166,9 @@ public class HealthConditionsController {
                 event -> labelSkin2.setUnderline(false));
     }
 
-    public void skin3Clicked(MouseEvent mouseEvent) {
+    public void skin3Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(10);
+        setTypeOfCase(11);
         labelSelectedSubCategory.setText("Problems with cancer wounds");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with wounds\n" +
@@ -1022,7 +1191,9 @@ public class HealthConditionsController {
                 event -> labelSkin3.setUnderline(false));
     }
 
-    public void skin4Clicked(MouseEvent mouseEvent) {
+    public void skin4Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(11);
+        setTypeOfCase(12);
         labelSelectedSubCategory.setText("Problems with pressure sores");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with wounds\n" +
@@ -1044,8 +1215,10 @@ public class HealthConditionsController {
                 event -> labelSkin4.setUnderline(false));
     }
 
-    public void skin5Clicked(MouseEvent mouseEvent) {
+    public void skin5Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with arterial wounds");
+        setUpNodes(12);
+        setTypeOfCase(13);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has problems with wounds that have occurred as a result of decreased arterial\n" +
                     " blood supply, or use other support for\n" +
@@ -1066,8 +1239,10 @@ public class HealthConditionsController {
                 event -> labelSkin5.setUnderline(false));
     }
 
-    public void skin6Clicked(MouseEvent mouseEvent) {
+    public void skin6Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with venous wounds");
+        setUpNodes(13);
+        setTypeOfCase(14);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with wounds that have occurred as a result of venous insufficiency, typically\n" +
                     " Failure to function of the venous flaps, or use\n" +
@@ -1088,7 +1263,9 @@ public class HealthConditionsController {
                 event -> labelSkin6.setUnderline(false));
     }
 
-    public void skin7Clicked(MouseEvent mouseEvent) {
+    public void skin7Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(14);
+        setTypeOfCase(15);
         labelSelectedSubCategory.setText("Problems with mixed wounds");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with wounds that have occurred as a result of arterial and venous\n" +
@@ -1111,7 +1288,9 @@ public class HealthConditionsController {
                 event -> labelSkin7.setUnderline(false));
     }
 
-    public void skin8Clicked(MouseEvent mouseEvent) {
+    public void skin8Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(15);
+        setTypeOfCase(16);
         labelSelectedSubCategory.setText("Problems with trauma wounds");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with wounds that have occurred as a result of trauma on hard tissue\n" +
@@ -1136,7 +1315,9 @@ public class HealthConditionsController {
                 event -> labelSkin8.setUnderline(false));
     }
 
-    public void skin91Clicked(MouseEvent mouseEvent) {
+    public void skin91Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(16);
+        setTypeOfCase(17);
         labelSelectedSubCategory.setText("Other problems with skin and mucous membrane ");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with skin and\n" +
@@ -1162,7 +1343,9 @@ public class HealthConditionsController {
                 });
     }
 
-    public void skin92Clicked(MouseEvent mouseEvent) {
+    public void skin92Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(16);
+        setTypeOfCase(17);
         labelSelectedSubCategory.setText("Other problems with skin and mucous membrane");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with skin and\n" +
@@ -1188,7 +1371,9 @@ public class HealthConditionsController {
                 });
     }
 
-    public void communication1Clicked(MouseEvent mouseEvent) {
+    public void communication1Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(17);
+        setTypeOfCase(18);
         labelSelectedSubCategory.setText("Problems with communication");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has trouble talking,\n" +
@@ -1213,8 +1398,10 @@ public class HealthConditionsController {
                 event -> labelCommunication.setUnderline(false));
     }
 
-    public void pshyco1Clicked(MouseEvent mouseEvent) {
+    public void pshyco1Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with social contact");
+        setUpNodes(18);
+        setTypeOfCase(19);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has trouble\n" +
                     " dealing with socializing, adhering to social\n" +
@@ -1237,8 +1424,10 @@ public class HealthConditionsController {
                 event -> labelPshyco1.setUnderline(false));
     }
 
-    public void pshyco2Clicked(MouseEvent mouseEvent) {
+    public void pshyco2Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Emotional problems");
+        setUpNodes(18);
+        setTypeOfCase(19);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has trouble\n" +
                     " dealing with feelings related to chronic\n" +
@@ -1261,8 +1450,10 @@ public class HealthConditionsController {
                 event -> labelPshyco2.setUnderline(false));
     }
 
-    public void pshyco3Click(MouseEvent mouseEvent) {
+    public void pshyco3Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("problems with drug misuse ");
+        setUpNodes(19);
+        setTypeOfCase(20);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " sustained and harmful use of medicine, alcohol\n" +
@@ -1285,8 +1476,10 @@ public class HealthConditionsController {
                 event -> labelPshyco3.setUnderline(false));
     }
 
-    public void pshyco4Click(MouseEvent mouseEvent) {
+    public void pshyco4Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Mental problems");
+        setUpNodes(20);
+        setTypeOfCase(21);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has problems with\n" +
                     " mental or psychiatric symptoms as a result\n" +
@@ -1312,8 +1505,10 @@ public class HealthConditionsController {
                 event -> labelPshyco4.setUnderline(false));
     }
 
-    public void resporation1Click(MouseEvent mouseEvent) {
+    public void resporation1Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Respiration problems");
+        setUpNodes(21);
+        setTypeOfCase(22);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has respiratory problems\n" +
                     " as a result of illness or injury.\n" +
@@ -1336,8 +1531,10 @@ public class HealthConditionsController {
                 event -> labelResparation1.setUnderline(false));
     }
 
-    public void resporation2Click(MouseEvent mouseEvent) {
+    public void resporation2Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Circulation problems");
+        setUpNodes(22);
+        setTypeOfCase(23);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has circulation problems\n" +
                     " as a result of illness, injury or treatment, eg\n" +
@@ -1361,8 +1558,10 @@ public class HealthConditionsController {
                 event -> labelResparation2.setUnderline(false));
     }
 
-    public void Sexuality1Clicked(MouseEvent mouseEvent) {
+    public void Sexuality1Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with sexuality");
+        setUpNodes(23);
+        setTypeOfCase(24);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has problems in terms of sexuality\n" +
                     " as a result of illness, injury or treatment, eg\n" +
@@ -1384,8 +1583,10 @@ public class HealthConditionsController {
                 event -> labelSexuality.setUnderline(false));
     }
 
-    public void pain1Click(MouseEvent mouseEvent) {
+    public void pain1Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Acute pains");
+        setUpNodes(24);
+        setTypeOfCase(25);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is chosen when the citizen has problems with pain\n" +
                     " characterized by the fact that they are suddenly inaugurating\n" +
@@ -1408,8 +1609,10 @@ public class HealthConditionsController {
                 event -> labelPain1.setUnderline(false));
     }
 
-    public void pain2Click(MouseEvent mouseEvent) {
+    public void pain2Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Periodic pains");
+        setUpNodes(25);
+        setTypeOfCase(26);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is chosen when the citizen has problems with pain\n" +
                     " which sometimes occurs as a result of illness\n" +
@@ -1431,8 +1634,10 @@ public class HealthConditionsController {
                 event -> labelPain2.setUnderline(false));
     }
 
-    public void pain3Click(MouseEvent mouseEvent) {
+    public void pain3Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Chronic pains");
+        setUpNodes(26);
+        setTypeOfCase(27);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with pain which has lasted for more than 6 months as a result of illness or injury, or need other support for to deal with chronic pain");
             paneInfo.setDisable(false); paneInfo.setVisible(true);
@@ -1451,7 +1656,9 @@ public class HealthConditionsController {
                 event -> labelPain3.setUnderline(false));
     }
 
-    public void pain4Click(MouseEvent mouseEvent) {
+    public void pain4Click(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(27);
+        setTypeOfCase(28);
         labelSelectedSubCategory.setText("Problems with vision");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has problems with the sense of sight as a result of illness or injury. eg citizens with cataracts, cataracts or eye infection, or need other support to compensate for changed sense of sight");
@@ -1471,8 +1678,10 @@ public class HealthConditionsController {
                 event -> labelPain4.setUnderline(false));
     }
 
-    public void pain5Click(MouseEvent mouseEvent) {
+    public void pain5Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with olfaction");
+        setUpNodes(28);
+        setTypeOfCase(29);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is chosen when the citizen has problems with sense of smell as a result of illness, injury or treatment, eg side effect of medicine, or use for other support to compensate for changed smell sense.");
             paneInfo.setDisable(false); paneInfo.setVisible(true);
@@ -1491,7 +1700,9 @@ public class HealthConditionsController {
                 event -> labelPain5.setUnderline(false));
     }
 
-    public void pain6Click(MouseEvent mouseEvent) {
+    public void pain6Click(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(29);
+        setTypeOfCase(30);
         labelSelectedSubCategory.setText("Problems with hearing");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with hearing as a result of illness or injury, or need other support to compensate for changed hearing.");
@@ -1511,8 +1722,10 @@ public class HealthConditionsController {
                 event -> labelPain6.setUnderline(false));
     }
 
-    public void pain7Click(MouseEvent mouseEvent) {
+    public void pain7Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with gustation");
+        setUpNodes(30);
+        setTypeOfCase(31);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is chosen when the citizen has problems with Sense of taste due to illness, injury or treatment, eg side effect of medicine, or use for other support to compensate for changed sense of taste.");
             paneInfo.setDisable(false); paneInfo.setVisible(true);
@@ -1531,8 +1744,10 @@ public class HealthConditionsController {
                 event -> labelPain7.setUnderline(false));
     }
 
-    public void pain8Click(MouseEvent mouseEvent) {
+    public void pain8Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with taction");
+        setUpNodes(31);
+        setTypeOfCase(32);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with sensation\n" +
                     " as a result of illness, injury or treatment, eg\n" +
@@ -1556,8 +1771,10 @@ public class HealthConditionsController {
                 event -> labelPain8.setUnderline(false));
     }
 
-    public void Sleep1Click(MouseEvent mouseEvent) {
+    public void Sleep1Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with sleep schedule");
+        setUpNodes(32);
+        setTypeOfCase(33);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " disruption of sleep and rest as a result of\n" +
@@ -1581,8 +1798,10 @@ public class HealthConditionsController {
                 event -> labelSleep1.setUnderline(false));
     }
 
-    public void Sleep2Click(MouseEvent mouseEvent) {
+    public void Sleep2Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Sleep problems");
+        setUpNodes(33);
+        setTypeOfCase(34);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has sleep problems such as\n" +
                     " consequence of illness, injury or treatment, eg\n" +
@@ -1605,8 +1824,10 @@ public class HealthConditionsController {
                 event -> labelSleep2.setUnderline(false));
     }
 
-    public void insight1Clicked(MouseEvent mouseEvent) {
+    public void insight1Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with memory");
+        setUpNodes(34);
+        setTypeOfCase(35);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " memory as a result of illness, injury or\n" +
@@ -1630,8 +1851,10 @@ public class HealthConditionsController {
                 event -> labelInsight1.setUnderline(false));
     }
 
-    public void insight21Clicked(MouseEvent mouseEvent) {
+    public void insight21Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with insight in treatment goals");
+        setUpNodes(35);
+        setTypeOfCase(36);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " self -care and handling of their own health,\n" +
@@ -1659,8 +1882,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void insight22Click(MouseEvent mouseEvent) {
+    public void insight22Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with insight in treatment goals");
+        setUpNodes(35);
+        setTypeOfCase(36);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
                     " self -care and handling of their own health,\n" +
@@ -1688,8 +1913,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void insight3Click(MouseEvent mouseEvent) {
+    public void insight3Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with illness insight");
+        setUpNodes(36);
+        setTypeOfCase(37);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has problems with\n" +
                     " Understanding the purpose of the treatment.\n" +
@@ -1715,8 +1942,10 @@ public class HealthConditionsController {
                 event -> labelInsight3.setUnderline(false));
     }
 
-    public void insight4Click(MouseEvent mouseEvent) {
+    public void insight4Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Cognitive problems");
+        setUpNodes(37);
+        setTypeOfCase(38);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has cognitive problems\n" +
                     " as a result of illness, injury or treatment, eg\n" +
@@ -1740,8 +1969,10 @@ public class HealthConditionsController {
                 event -> labelInsight4.setUnderline(false));
     }
 
-    public void waste1Click(MouseEvent mouseEvent) {
+    public void waste1Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with urination");
+        setUpNodes(38);
+        setTypeOfCase(39);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Is elected when the citizen has problems with\n" +
                     " urination as a result of illness, injury or\n" +
@@ -1767,7 +1998,9 @@ public class HealthConditionsController {
                 event -> labelWaste1.setUnderline(false));
     }
 
-    public void waste2Click(MouseEvent mouseEvent) {
+    public void waste2Click(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(39);
+        setTypeOfCase(40);
         labelSelectedSubCategory.setText("Problems with urine consistency");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
@@ -1792,7 +2025,9 @@ public class HealthConditionsController {
                 event -> labelWaste2.setUnderline(false));
     }
 
-    public void waste3Click(MouseEvent mouseEvent) {
+    public void waste3Click(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(40);
+        setTypeOfCase(41);
         labelSelectedSubCategory.setText("Problems with fecal consistency");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with\n" +
@@ -1816,7 +2051,9 @@ public class HealthConditionsController {
                 event -> labelWaste3.setUnderline(false));
     }
 
-    public void waste41Click(MouseEvent mouseEvent) {
+    public void waste41Click(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(41);
+        setTypeOfCase(42);
         labelSelectedSubCategory.setText("Problems with stomach and intestines ");
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with stomach\n" +
@@ -1844,8 +2081,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void waste42Click(MouseEvent mouseEvent) {
+    public void waste42Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problems with stomach and intestines ");
+        setUpNodes(41);
+        setTypeOfCase(42);
         if(mouseEvent.getClickCount() == 2){
             textInfo.setText("Chosen when the citizen has problems with stomach\n" +
                     " and gut as a result of illness, injury or\n" +
@@ -1872,7 +2111,9 @@ public class HealthConditionsController {
                 });
     }
 
-    public void waste5Click(MouseEvent mouseEvent) {
+    public void waste5Click(MouseEvent mouseEvent) throws Exception {
+        setUpNodes(42);
+        setTypeOfCase(43);
         labelSelectedSubCategory.setText("Problems with liquids from drain");
     }
 
@@ -1882,7 +2123,9 @@ public class HealthConditionsController {
                 event -> labelWaste5.setUnderline(false));
     }
 
-    public void selfcare1Clicked(MouseEvent mouseEvent) {
+    public void selfcare1Clicked(MouseEvent mouseEvent) throws Exception {
+        setUpFunctionalNodes(0);
+        setTypeOfCaseFunc(1);
         labelSelectedSubCategory.setText("Ability to clean themselves");
     }
 
@@ -1892,8 +2135,10 @@ public class HealthConditionsController {
                 event -> labelselfcare1.setUnderline(false));
     }
 
-    public void selfcare2Click(MouseEvent mouseEvent) {
+    public void selfcare2Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Body care");
+        setUpFunctionalNodes(1);
+        setTypeOfCaseFunc(2);
     }
 
     public void selfcare2Enter(MouseEvent mouseEvent) {
@@ -1902,8 +2147,10 @@ public class HealthConditionsController {
                 event -> labelselfcare2.setUnderline(false));
     }
 
-    public void selfcare3Clicked(MouseEvent mouseEvent) {
+    public void selfcare3Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Ability to undress and dress up");
+        setUpFunctionalNodes(2);
+        setTypeOfCaseFunc(3);
     }
 
     public void selfcare3Entered(MouseEvent mouseEvent) {
@@ -1912,8 +2159,10 @@ public class HealthConditionsController {
                 event -> labelselfcare3.setUnderline(false));
     }
 
-    public void selfcare4Clicked(MouseEvent mouseEvent) {
+    public void selfcare4Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Drinking");
+        setUpFunctionalNodes(3);
+        setTypeOfCaseFunc(4);
     }
 
     public void selfcare4Enter(MouseEvent mouseEvent) {
@@ -1922,8 +2171,10 @@ public class HealthConditionsController {
                 event -> labelselfcare4.setUnderline(false));
     }
 
-    public void selfcare5Clicked(MouseEvent mouseEvent) {
+    public void selfcare5Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Food intake");
+        setUpFunctionalNodes(4);
+        setTypeOfCaseFunc(5);
     }
 
     public void selfcare5Enter(MouseEvent mouseEvent) {
@@ -1932,8 +2183,10 @@ public class HealthConditionsController {
                 event -> labelselfcare5.setUnderline(false));
     }
 
-    public void selfcare6Click(MouseEvent mouseEvent) {
+    public void selfcare6Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Eating");
+        setUpFunctionalNodes(5);
+        setTypeOfCaseFunc(6);
     }
 
     public void selfcare6Enter(MouseEvent mouseEvent) {
@@ -1942,8 +2195,10 @@ public class HealthConditionsController {
                 event -> labelselfcare6.setUnderline(false));
     }
 
-    public void selfcare7Click(MouseEvent mouseEvent) {
+    public void selfcare7Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Taking care of own health");
+        setUpFunctionalNodes(6);
+        setTypeOfCaseFunc(7);
     }
 
     public void selfcare7Enter(MouseEvent mouseEvent) {
@@ -1952,8 +2207,10 @@ public class HealthConditionsController {
                 event -> labelselfcare7.setUnderline(false));
     }
 
-    public void selfcare8Click(MouseEvent mouseEvent) {
+    public void selfcare8Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Using the toilet");
+        setUpFunctionalNodes(7);
+        setTypeOfCaseFunc(8);
     }
 
     public void selfcare8Enter(MouseEvent mouseEvent) {
@@ -1962,8 +2219,10 @@ public class HealthConditionsController {
                 event -> labelselfcare8.setUnderline(false));
     }
 
-    public void practical1Click(MouseEvent mouseEvent) {
+    public void practical1Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Perform housework");
+        setUpFunctionalNodes(8);
+        setTypeOfCaseFunc(9);
     }
 
     public void practical1Enter(MouseEvent mouseEvent) {
@@ -1977,8 +2236,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void practical2Click(MouseEvent mouseEvent) {
+    public void practical2Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Cook Food");
+        setUpFunctionalNodes(9);
+        setTypeOfCaseFunc(10);
     }
 
     public void practical2Enter(MouseEvent mouseEvent) {
@@ -1992,8 +2253,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void practical3Click(MouseEvent mouseEvent) {
+    public void practical3Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Performing daily routine");
+        setUpFunctionalNodes(10);
+        setTypeOfCaseFunc(11);
     }
 
     public void practical3Enter(MouseEvent mouseEvent) {
@@ -2007,8 +2270,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void practical4Click(MouseEvent mouseEvent) {
+    public void practical4Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Acquire groceries and services");
+        setUpFunctionalNodes(11);
+        setTypeOfCaseFunc(12);
     }
 
     public void practical4Enter(MouseEvent mouseEvent) {
@@ -2022,8 +2287,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void mobility1Click(MouseEvent mouseEvent) {
+    public void mobility1Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Lifting and carrying ");
+        setUpFunctionalNodes(12);
+        setTypeOfCaseFunc(13);
     }
 
     public void mobility1Enter(MouseEvent mouseEvent) {
@@ -2037,8 +2304,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void mobility2Click(MouseEvent mouseEvent) {
+    public void mobility2Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Moving around");
+        setUpFunctionalNodes(13);
+        setTypeOfCaseFunc(14);
     }
 
     public void mobility2Enter(MouseEvent mouseEvent) {
@@ -2047,8 +2316,10 @@ public class HealthConditionsController {
                 event -> labelMobility2.setUnderline(false));
     }
 
-    public void mobility3Click(MouseEvent mouseEvent) {
+    public void mobility3Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Using Transportation ");
+        setUpFunctionalNodes(16);
+        setTypeOfCaseFunc(15);
     }
 
     public void mobility3Enter(MouseEvent mouseEvent) {
@@ -2058,8 +2329,10 @@ public class HealthConditionsController {
 
     }
 
-    public void mobility4Click(MouseEvent mouseEvent) {
+    public void mobility4Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Moving in different surroundings");
+        setUpFunctionalNodes(17);
+        setTypeOfCaseFunc(16);
     }
 
     public void mobility4Enter(MouseEvent mouseEvent) {
@@ -2068,8 +2341,10 @@ public class HealthConditionsController {
                 event -> labelMobility4.setUnderline(false));
     }
 
-    public void mobility5Click(MouseEvent mouseEvent) {
+    public void mobility5Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Transferring ");
+        setUpFunctionalNodes(16);
+        setTypeOfCaseFunc(17);
     }
 
     public void mobility5Enter(MouseEvent mouseEvent) {
@@ -2078,8 +2353,10 @@ public class HealthConditionsController {
                 event -> labelMobility5.setUnderline(false));
     }
 
-    public void mobility6Click(MouseEvent mouseEvent) {
+    public void mobility6Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Change position");
+        setUpFunctionalNodes(17);
+        setTypeOfCaseFunc(18);
     }
 
     public void mobility6Enter(MouseEvent mouseEvent) {
@@ -2088,8 +2365,10 @@ public class HealthConditionsController {
                 event -> labelMobility6.setUnderline(false));
     }
 
-    public void mobility7Click(MouseEvent mouseEvent) {
+    public void mobility7Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Muscle strength");
+        setUpFunctionalNodes(18);
+        setTypeOfCaseFunc(19);
     }
 
     public void mobility7Enter(MouseEvent mouseEvent) {
@@ -2098,8 +2377,10 @@ public class HealthConditionsController {
                 event -> labelMobility7.setUnderline(false));
     }
 
-    public void mobility8Click(MouseEvent mouseEvent) {
+    public void mobility8Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Walking");
+        setUpFunctionalNodes(19);
+        setTypeOfCaseFunc(20);
     }
 
     public void mobility8Enter(MouseEvent mouseEvent) {
@@ -2108,8 +2389,10 @@ public class HealthConditionsController {
                 event -> labelMobility8.setUnderline(false));
     }
 
-    public void mobility9Click(MouseEvent mouseEvent) {
+    public void mobility9Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Stamina");
+        setUpFunctionalNodes(20);
+        setTypeOfCaseFunc(21);
     }
 
     public void mobility9Enter(MouseEvent mouseEvent) {
@@ -2118,8 +2401,10 @@ public class HealthConditionsController {
                 event -> labelMobility9.setUnderline(false));
     }
 
-    public void mentalFunction11Clicked(MouseEvent mouseEvent) {
+    public void mentalFunction11Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Communication/Technical equipment");
+        setUpFunctionalNodes(21);
+        setTypeOfCaseFunc(22);
     }
 
     public void mentalFunction11Enter(MouseEvent mouseEvent) {
@@ -2130,8 +2415,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void mentalFunction12Clicked(MouseEvent mouseEvent) {
+    public void mentalFunction12Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Communication/Technical equipment");
+        setUpFunctionalNodes(22);
+        setTypeOfCaseFunc(23);
     }
 
     public void mentalFunction12Enter(MouseEvent mouseEvent) {
@@ -2142,8 +2429,10 @@ public class HealthConditionsController {
                 });
     }
 
-    public void mentalFunction2Click(MouseEvent mouseEvent) {
+    public void mentalFunction2Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Memory");
+        setUpFunctionalNodes(23);
+        setTypeOfCaseFunc(24);
     }
 
     public void mentalFunction2Enter(MouseEvent mouseEvent) {
@@ -2152,8 +2441,10 @@ public class HealthConditionsController {
                 event -> labelMentalFunction2.setUnderline(false));
     }
 
-    public void mentalFunction3Clicked(MouseEvent mouseEvent) {
+    public void mentalFunction3Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Orientation skill");
+        setUpFunctionalNodes(23);
+        setTypeOfCaseFunc(24);
     }
 
     public void mentalFunction3Enter(MouseEvent mouseEvent) {
@@ -2162,8 +2453,10 @@ public class HealthConditionsController {
                 event -> labelMentalFunction3.setUnderline(false));
     }
 
-    public void mentalFunction4Clicked(MouseEvent mouseEvent) {
+    public void mentalFunction4Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Cognitive functions");
+        setUpFunctionalNodes(23);
+        setTypeOfCaseFunc(24);
     }
 
     public void mentalFunction4Entered(MouseEvent mouseEvent) {
@@ -2172,8 +2465,10 @@ public class HealthConditionsController {
                 event -> labelMentalFunction4.setUnderline(false));
     }
 
-    public void mentalFunction5Clicked(MouseEvent mouseEvent) {
+    public void mentalFunction5Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Feeling functions");
+        setUpFunctionalNodes(24);
+        setTypeOfCaseFunc(25);
     }
 
     public void mentalFunction5Entered(MouseEvent mouseEvent) {
@@ -2182,8 +2477,10 @@ public class HealthConditionsController {
                 event -> labelMentalFunction5.setUnderline(false));
     }
 
-    public void mentalFunction6Click(MouseEvent mouseEvent) {
+    public void mentalFunction6Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Energy and capacity for action");
+        setUpFunctionalNodes(25);
+        setTypeOfCaseFunc(26);
     }
 
     public void mentalFunction6Enter(MouseEvent mouseEvent) {
@@ -2192,8 +2489,10 @@ public class HealthConditionsController {
                 event -> labelMentalFunction6.setUnderline(false));
     }
 
-    public void mentalFunction7Click(MouseEvent mouseEvent) {
+    public void mentalFunction7Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Appropriation of skills");
+        setUpFunctionalNodes(26);
+        setTypeOfCaseFunc(27);
     }
 
     public void mentalFunction7Enter(MouseEvent mouseEvent) {
@@ -2202,8 +2501,10 @@ public class HealthConditionsController {
                 event -> labelMentalFunction7.setUnderline(false));
     }
 
-    public void mentalFunction8Click(MouseEvent mouseEvent) {
+    public void mentalFunction8Click(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Problem solving");
+        setUpFunctionalNodes(27);
+        setTypeOfCaseFunc(28);
     }
 
     public void mentalFunction8Enter(MouseEvent mouseEvent) {
@@ -2212,8 +2513,10 @@ public class HealthConditionsController {
                 event -> labelMentalFunction8.setUnderline(false));
     }
 
-    public void socialLife1Clicked(MouseEvent mouseEvent) {
+    public void socialLife1Clicked(MouseEvent mouseEvent) throws Exception {
         labelSelectedSubCategory.setText("Paid occupation");
+        setUpFunctionalNodes(28);
+        setTypeOfCaseFunc(29);
     }
 
     public void socialLife1Enter(MouseEvent mouseEvent) {

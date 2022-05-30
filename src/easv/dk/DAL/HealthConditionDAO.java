@@ -26,7 +26,7 @@ public class HealthConditionDAO {
     public HealthDiagnose createHealthCondition(String profnote, String currentass, String anticipatedlvl, String followupdate, String observenote, int citizen, int healthtype) throws Exception {
         HealthDiagnose healthDiagnose = null;
         int ID = 0;
-        String query = "INSERT INTO HealthDiagnose VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO HealthDiagnose1 VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -52,7 +52,7 @@ public class HealthConditionDAO {
     }
 
     public void updateHealthDiagnose(HealthDiagnose healthDiagnose) throws Exception {
-        String query =  "UPDATE HealthDiagnose SET profnote = ?, currentass = ?, anticipatedlvl = ?, followupdate = ?, observenote = ?, citizen = ?, healthtype = ?, WHERE ID = ?";
+        String query =  "UPDATE HealthDiagnose1 SET profnote = ?, currentass = ?, anticipatedlvl = ?, followupdate = ?, observenote = ?, citizen = ?, healthtype = ? WHERE ID = ?";
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, healthDiagnose.getProfnote());
@@ -70,7 +70,7 @@ public class HealthConditionDAO {
 
     public List<HealthDiagnose> getAllHealthDiagnose() throws Exception {
         List<HealthDiagnose> healthDiagnosesArrayList = new ArrayList<>();
-        String query = "SELECT * FROM HealthDiagnose";
+        String query = "SELECT * FROM HealthDiagnose1";
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.execute();
@@ -82,13 +82,13 @@ public class HealthConditionDAO {
                 String profnote = resultSet.getString("profnote");
                 String currentass = resultSet.getString("currentass");
                 String anticipatedlvl = resultSet.getString("anticipatedlvl");
-                String folowupdate = resultSet.getString("folowupdate");
+                String followupdate = resultSet.getString("followupdate");
                 String observenote = resultSet.getString("observenote");
                 int citizen = resultSet.getInt("citizen");
                 int healthtype = resultSet.getInt("healthtype");
 
 
-                HealthDiagnose healthDiagnose = new HealthDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote,  citizen, healthtype);
+                HealthDiagnose healthDiagnose = new HealthDiagnose(ID, profnote, currentass, anticipatedlvl, followupdate, observenote,  citizen, healthtype);
                 healthDiagnosesArrayList.add(healthDiagnose);
             }
         }
@@ -97,7 +97,7 @@ public class HealthConditionDAO {
 
     public HealthDiagnose getHealthDiagnose(int idHealthDiagnose) throws Exception {
         HealthDiagnose healthDiagnose = null;
-        String query =  "SELECT * FROM HealthDiagnose WHERE ID = ?";
+        String query =  "SELECT * FROM HealthDiagnose1 WHERE ID = ?";
 
         try (Connection connection = cm.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);

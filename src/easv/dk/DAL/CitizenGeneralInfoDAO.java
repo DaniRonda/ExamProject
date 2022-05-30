@@ -29,7 +29,10 @@ public class CitizenGeneralInfoDAO {
 
 
 
-    public GeneralInfo createGeneralInfo(String coping, String motivation, String resources, String roles, String habits, String education, String lifestory, String healthinfo, String aid, String furnishing, String network, int citizen) throws Exception {
+    public GeneralInfo createGeneralInfo(String coping, String motivation, String resources,
+                                         String roles, String habits, String education,
+                                         String lifestory, String healthinfo, String aid,
+                                         String furnishing, String network, int citizen) throws Exception {
         GeneralInfo generalInfo = null;
         int ID = 0;
         String query = "INSERT INTO GeneralInfo VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

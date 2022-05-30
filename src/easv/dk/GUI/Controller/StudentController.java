@@ -122,9 +122,7 @@ public class StudentController {
 
     public void showCitizenInfo(Citizen citizen1) throws Exception {
         clearLists();
-        mode = CitizenSelected;
         Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
-
         citizenmodel.getAllGeneralInfo().forEach(generalInfo1 -> {
             if (generalInfo1.getCitizen() == selectedCitizen.getID()) {
                 infoisCreated = true;
@@ -133,15 +131,13 @@ public class StudentController {
         });
         if (!infoisCreated) {
             String placeholder = "empty";
-            generalInfo = citizenmodel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getID());
+            generalInfo = citizenmodel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder,
+                    placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, citizen.getID());
         }
-        this.citizen = selectedCitizen;
 
-
-          //get selected movie in movie table
         try {
             GeneralInfoManager bll = new GeneralInfoManager();  //get bll interface to use data from database
-                  //load movies for selected category
+
             textAreaGeneralCoping.setText(String.valueOf(generalInfo.getCoping()));
             textAreaGeneralMotevation.setText(String.valueOf(generalInfo.getMotevation()));
             textAreaGeneralRessources.setText(String.valueOf(generalInfo.getResources()));
@@ -252,23 +248,29 @@ public class StudentController {
 
 
     public void openHealthConditionsView(ActionEvent actionEvent) throws Exception {
-
+        StudentModel.diagnose = 2;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
+        Citizen selectedCitizen = (Citizen) tableViewCitizens.getSelectionModel().getSelectedItem();
+        CitizenHolder holder = CitizenHolder.getInstance();
+        holder.setCitizen(selectedCitizen);
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.setTitle("Diagnose");
         stage.centerOnScreen();
+      //  HealthConditionsController healthConditionsController = loader.getController();
+        //healthConditionsController.passCitizen(citizen);
         stage.show();
         Stage stageThis = (Stage) btnStudentLogOut.getScene().getWindow();
         stageThis.close();
-        StudentModel.diagnose = 1;
+
 
     }
 
     public void openFunctionalAbilitiesView(ActionEvent actionEvent) throws Exception{
+        StudentModel.diagnose = 1;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("easv/dk/GUI/View/HealthConditionsView.fxml"));
         Parent root = loader.load();
@@ -278,7 +280,7 @@ public class StudentController {
         stage.setTitle("Functional Abilities");
         stage.centerOnScreen();
         stage.show();
-        StudentModel.diagnose = 2;
+
     }
 
 

@@ -87,7 +87,7 @@ public class FunctionalDiagnoseDAO {
                 String profnote = resultSet.getString("profnote");
                 String currentass = resultSet.getString("currentass");
                 String anticipatedlvl = resultSet.getString("anticipatedlvl");
-                String folowupdate = resultSet.getString("folowupdate");
+                String followupdate = resultSet.getString("followupdate");
                 String observenote = resultSet.getString("observenote");
                 int currlvl = resultSet.getInt("currlvl");
                 int expectedlvl = resultSet.getInt("expectedlvl");
@@ -96,7 +96,7 @@ public class FunctionalDiagnoseDAO {
                 int functionaltype = resultSet.getInt("functionaltype");
 
 
-                FunctionalDiagnose functionalDiagnose = new FunctionalDiagnose(ID, profnote, currentass, anticipatedlvl, folowupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);
+                FunctionalDiagnose functionalDiagnose = new FunctionalDiagnose(ID, profnote, currentass, anticipatedlvl, followupdate, observenote, currlvl, expectedlvl, wishes, citizen, functionaltype);
                 functionalDiagnosesArrayList.add(functionalDiagnose);
             }
         }

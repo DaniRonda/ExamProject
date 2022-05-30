@@ -96,7 +96,7 @@ public class NewTemplateViewController {
         String templateFirstName = createTemplateFirstName_txt.getText();
         String templateLastName = createTemplateLastName_txt.getText();
         String templateAddress = createTemplateAddress_txt.getText();
-        Date templateBirthDate = Date.valueOf(createTemplateDatePicker.getValue().toString());
+        Date templateBirthDate = Date.valueOf(createTemplateDatePicker.getValue());
         int templatePhoneNumber = createTemplatePhoneNumber_txt.getProperties().size();
         boolean isTemplate = true;
         Template templateCreated = new Template(templateFirstName, templateLastName, templateAddress, templateBirthDate, templatePhoneNumber, isTemplate, 0);
