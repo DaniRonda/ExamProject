@@ -3,6 +3,7 @@ import easv.dk.BE.Citizen;
 import easv.dk.BE.Template;
 import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.TemplateModel;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class TemplateViewController {
     public TextField searchTextBox;
@@ -35,6 +39,46 @@ public class TemplateViewController {
     public void initialize() throws Exception {
         setupTemplateTable();
         setUpCitizenTable();
+        citizenFilter();
+        templateFilter();
+
+    }
+
+    public void templateFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Template> unfilteredList = null;
+                try {
+                    unfilteredList = templateModel.getAllTemplates();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Template> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                templateTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
+
+    }
+
+    public void citizenFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Citizen> unfilteredList = null;
+                try {
+                    unfilteredList = citizenModel.getAllCitizen();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Citizen> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                citizenTableTemplateView.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
 
     }
 
