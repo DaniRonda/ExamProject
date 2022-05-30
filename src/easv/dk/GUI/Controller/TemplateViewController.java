@@ -3,6 +3,7 @@ import easv.dk.BE.Citizen;
 import easv.dk.BE.Template;
 import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.TemplateModel;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class TemplateViewController {
+    public TextField searchTextBox;
     @FXML
     private Button btnDeleteCitizen;
     @FXML
@@ -33,6 +38,47 @@ public class TemplateViewController {
     @FXML
     public void initialize() throws Exception {
         setupTemplateTable();
+        setUpCitizenTable();
+        citizenFilter();
+        templateFilter();
+
+    }
+
+    public void templateFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Template> unfilteredList = null;
+                try {
+                    unfilteredList = templateModel.getAllTemplates();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Template> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                templateTable.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
+
+    }
+
+    public void citizenFilter() throws Exception {
+        new Thread(() ->{
+            searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+                List<Citizen> unfilteredList = null;
+                try {
+                    unfilteredList = citizenModel.getAllCitizen();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                List<Citizen> filteredList = unfilteredList.stream()
+                        .filter(p -> p.getFirstName().toLowerCase().contains(newValue.toLowerCase()) ||
+                                p.getLastName().toLowerCase().contains(newValue.toLowerCase())).collect(Collectors.toList());
+                citizenTableTemplateView.setItems(FXCollections.observableArrayList(filteredList));
+            });
+        }).start();
 
     }
 
@@ -93,6 +139,18 @@ public class TemplateViewController {
     }
 
 
+
+    public void setUpCitizenTable() throws Exception {
+        TableColumn<Citizen, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Citizen, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        citizenTableTemplateView.getColumns().clear();
+        citizenTableTemplateView.getColumns().add(column1);
+        citizenTableTemplateView.getColumns().add(column2);
+        citizenTableTemplateView.getItems().clear();
+        citizenTableTemplateView.getItems().addAll(citizenModel.getAllCitizens1());
+    }
 
     public void openNewTemplateView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();

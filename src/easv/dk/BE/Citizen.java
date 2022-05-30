@@ -3,7 +3,6 @@ package easv.dk.BE;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.time.LocalDate;
 
 public class Citizen {
     private String firstName;
@@ -63,9 +62,6 @@ public class Citizen {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public boolean isTemplate(boolean b) {
         return isTemplate;
