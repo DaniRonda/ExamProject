@@ -45,6 +45,46 @@ public class AdminViewController {
 
     }
 
+    public void deleteTeacher(ActionEvent actionEvent) throws Exception {
+        teacherModel.deleteTeacher((Teacher) teacherTable.getSelectionModel().getSelectedItem());
+        teacherTable.getItems().remove(teacherTable.getSelectionModel().getSelectedItem());
+    }
+
+    public void deleteStudent(ActionEvent actionEvent) throws Exception {
+        studentModel.deleteStudent((Student) studentTable.getSelectionModel().getSelectedItem());
+        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedItem());
+    }
+
+    public void setUpTeacherTable() throws Exception {
+        TableColumn<Teacher, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Teacher, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Teacher, String> column3 = new TableColumn<>("Email");
+        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
+        teacherTable.getColumns().clear();
+        teacherTable.getColumns().add(column1);
+        teacherTable.getColumns().add(column2);
+        teacherTable.getColumns().add(column3);
+        teacherTable.getItems().clear();
+        teacherTable.getItems().addAll(teacherModel.getAllTeachers1());
+    }
+
+    public void setUpStudentTable() throws Exception {
+        TableColumn<Student, String> column1 = new TableColumn<>("First Name");
+        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        TableColumn<Student, String> column2 = new TableColumn<>("Last Name");
+        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        TableColumn<Student, String> column3 = new TableColumn<>("Email");
+        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
+        studentTable.getColumns().clear();
+        studentTable.getColumns().add(column1);
+        studentTable.getColumns().add(column2);
+        studentTable.getColumns().add(column3);
+        studentTable.getItems().clear();
+        studentTable.getItems().addAll(studentModel.getAllStudents1());
+    }
+
     public void studentFilter() throws Exception {
         new Thread(() ->{
             searchTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -84,35 +124,7 @@ public class AdminViewController {
 
     }
 
-    public void setUpTeacherTable() throws Exception {
-        TableColumn<Teacher, String> column1 = new TableColumn<>("First Name");
-        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        TableColumn<Teacher, String> column2 = new TableColumn<>("Last Name");
-        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        TableColumn<Teacher, String> column3 = new TableColumn<>("Email");
-        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
-        teacherTable.getColumns().clear();
-        teacherTable.getColumns().add(column1);
-        teacherTable.getColumns().add(column2);
-        teacherTable.getColumns().add(column3);
-        teacherTable.getItems().clear();
-        teacherTable.getItems().addAll(teacherModel.getAllTeachers1());
-    }
 
-    public void setUpStudentTable() throws Exception {
-        TableColumn<Student, String> column1 = new TableColumn<>("First Name");
-        column1.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        TableColumn<Student, String> column2 = new TableColumn<>("Last Name");
-        column2.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-        TableColumn<Student, String> column3 = new TableColumn<>("Email");
-        column3.setCellValueFactory(new PropertyValueFactory<>("email"));
-        studentTable.getColumns().clear();
-        studentTable.getColumns().add(column1);
-        studentTable.getColumns().add(column2);
-        studentTable.getColumns().add(column3);
-        studentTable.getItems().clear();
-        studentTable.getItems().addAll(studentModel.getAllStudents1());
-    }
 
     public void openEditTeacherView(ActionEvent actionEvent) throws Exception {
         FXMLLoader loader = new FXMLLoader();
@@ -198,15 +210,7 @@ public class AdminViewController {
         stage.show();
     }
 
-    public void deleteTeacher(ActionEvent actionEvent) throws Exception {
-        teacherModel.deleteTeacher((Teacher) teacherTable.getSelectionModel().getSelectedItem());
-        teacherTable.getItems().remove(teacherTable.getSelectionModel().getSelectedItem());
-    }
 
-    public void deleteStudent(ActionEvent actionEvent) throws Exception {
-        studentModel.deleteStudent((Student) studentTable.getSelectionModel().getSelectedItem());
-        studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedItem());
-    }
 
     public void adminLogOut(ActionEvent actionEvent) throws Exception {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to log out?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
