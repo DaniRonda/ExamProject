@@ -1,6 +1,11 @@
 package easv.dk.GUI.Controller;
+import easv.dk.BE.Case;
+import easv.dk.BE.Citizen;
+import easv.dk.BE.GeneralInfo;
 import easv.dk.BE.Template;
+import easv.dk.BLL.CitizenManager;
 import easv.dk.BLL.TemplateManager;
+import easv.dk.GUI.Model.CitizenModel;
 import easv.dk.GUI.Model.StudentModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,13 +37,17 @@ public class NewTemplateViewController {
     @FXML
     private Button confirmCreateTemplateBTN;
 
+    CitizenModel citizenModel;
+    GeneralInfo generalInfo;
+    Case case1;
+    Citizen citizen;
 
     TemplateManager templateManager = new TemplateManager();
 
     public NewTemplateViewController() throws Exception {
     }
 
-    public void getDate(ActionEvent actionEvent){
+    public void getDate(ActionEvent actionEvent) {
         LocalDate birthDate = createTemplateDatePicker.getValue();
         String formattedDate = birthDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
@@ -89,7 +98,7 @@ public class NewTemplateViewController {
         StudentModel.diagnose = 1;
     }
 
-    public void confirmCreateTemplate(ActionEvent actionEvent) throws Exception{
+    public void confirmCreateTemplate(ActionEvent actionEvent) throws Exception {
         String templateFirstName = createTemplateFirstName_txt.getText();
         String templateLastName = createTemplateLastName_txt.getText();
         String templateAddress = createTemplateAddress_txt.getText();
@@ -98,7 +107,23 @@ public class NewTemplateViewController {
         boolean isTemplate = true;
         Template templateCreated = new Template(templateFirstName, templateLastName, templateAddress, templateBirthDate, templatePhoneNumber, isTemplate, 1);
         templateManager.createTemplate(templateCreated);
+
+        /*String placeholder = "empty";
+        int intHolder = 1;
+        generalInfo = citizenModel.createGeneralInfo(placeholder, placeholder, placeholder, placeholder, placeholder,
+                placeholder, placeholder, placeholder, placeholder, placeholder, placeholder, templateCreated.getID());
+        citizenModel.createCase(placeholder, templateCreated.getID());
+
+        for (int i = 1; i<=43; i++){
+            int healthtype = i;
+            citizenModel.createHealthDiagnose(placeholder, placeholder, placeholder, placeholder, placeholder, templateCreated.getID(), healthtype);
+        }
+        for (int i = 1; i<=29; i++){
+            int functionaltype = i;
+            citizenModel.createFunctionalDiagnose(placeholder, placeholder, placeholder, placeholder, placeholder, intHolder, intHolder, placeholder, templateCreated.getID(), functionaltype);
+        }
         Stage stage = (Stage)confirmCreateTemplateBTN.getScene().getWindow();
         stage.close();
+    }*/
     }
 }
