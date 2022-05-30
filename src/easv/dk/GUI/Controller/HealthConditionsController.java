@@ -553,18 +553,17 @@ public class HealthConditionsController {
     }
 
     public void saveClientGoals(ActionEvent actionEvent) throws Exception {
-        if (ChoiceBoxAnticLvl.getSelectionModel().getSelectedIndex() != -1 && !textAreaProNote.getText().isEmpty() && textAreaCurAssessment.getText() != "" && !TextFieldFollowupDate.getText().isEmpty() && !TextAreaObsNotes.getText().isEmpty() && !textAreaGoals.getText().isEmpty()) {
-            FunctionalDiagnose functionalDiagnoseUpdate = new FunctionalDiagnose(
-                    functionalDiagnose.getID(),
-                    ChoiceBoxAnticLvl.getSelectionModel().getSelectedItem().toString().toLowerCase(),
-                    textAreaProNote.getText(),
+        if (ChoiceBoxAnticLvl.getSelectionModel().getSelectedIndex() != -1 && !textAreaProNote.getText().isEmpty() && !Objects.equals(textAreaCurAssessment.getText(), "") && !TextFieldFollowupDate.getText().isEmpty() && !TextAreaObsNotes.getText().isEmpty() && !textAreaGoals.getText().isEmpty()) {
+            FunctionalDiagnose functionalDiagnoseUpdate = new FunctionalDiagnose(functionalDiagnose.getID(),
                     textAreaCurAssessment.getText(),
                     TextFieldFollowupDate.getText(),
+                    ChoiceBoxAnticLvl.getSelectionModel().getSelectedItem().toString().toLowerCase(),
+                    textAreaProNote.getText(),
                     TextAreaObsNotes.getText(),
                     setRadioButtonCurrent(),
                     setRadioButtonExpected(),
                     textAreaGoals.getText(),
-                    getTypeOfCase(),
+                    getTypeOfCaseFunc(),
                     citizenID+1);
 
             citizenModel.updateFunctionalDiagnose(functionalDiagnoseUpdate);

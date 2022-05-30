@@ -27,6 +27,7 @@ public class FunctionalDiagnose {
         this.citizen = citizen;
     }
 
+
     public int getID() {
         return ID;
     }
